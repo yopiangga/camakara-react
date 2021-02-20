@@ -11,7 +11,7 @@ export function Main() {
                     <div className="content-left">
                         <h6>Selamat datang di Camakara</h6>
                         <h1>Penyelenggara Tryout UTBK Terpercaya di Indonesia</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo distinctio amet id quis debitis eos eligendi quos tempora incidunt.</p>
+                        <p>Kita ganti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo distinctio amet id quis debitis eos eligendi quos tempora incidunt.</p>
 
                         <form>
                             <input type="text" placeholder="Tryout UTBK 2021" />

@@ -115,6 +115,7 @@
   }
   .nav-desktop .content .menu ul li A {
     text-decoration: none;
+    color: #393939;
   }
   .nav-desktop .content .menu ul li hr {
     position: absolute;
@@ -195,23 +196,57 @@
             box-shadow: 0px 30px 30px rgba(57, 57, 57, 0.08);
   }
   .nav-desktop .content .icon .dropdownProfile ul {
-    margin-top: 20px;
-    margin-right: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 20px;
   }
-  .nav-desktop .content .icon .dropdownProfile ul a {
+  .nav-desktop .content .icon .dropdownProfile ul li {
     text-decoration: none;
-    text-align: end;
     color: #393939;
     font-size: 14px;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
   }
-  .nav-desktop .content .icon .dropdownProfile ul a li {
-    margin-bottom: 20px;
+  .nav-desktop .content .icon .dropdownProfile ul li A {
+    text-decoration: none;
+    color: #393939;
   }
-  .nav-desktop .content .icon .dropdownProfile ul a:hover {
+  .nav-desktop .content .icon .dropdownProfile ul li hr {
+    margin-top: 10px;
+    background-color: transparent;
+    height: 1px;
+    border: none;
+    width: 100%;
+  }
+  .nav-desktop .content .icon .dropdownProfile ul li:hover {
     color: #FDBF1F;
   }
+  .nav-desktop .content .icon .dropdownProfile ul li:hover A {
+    color: #FDBF1F;
+  }
+  .nav-desktop .content .icon .dropdownProfile ul li:hover hr {
+    background-color: transparent;
+  }
+  .nav-desktop .content .icon .dropdownProfile ul li.active {
+    color: #FDBF1F;
+  }
+  .nav-desktop .content .icon .dropdownProfile ul li.active A {
+    color: #FDBF1F;
+  }
+  .nav-desktop .content .icon .dropdownProfile ul li.active hr {
+    background-color: transparent;
+  }
   .nav-desktop .content .icon .dropdownProfile.active {
-    height: 200px;
+    height: 230px;
     top: 80px;
     -webkit-transition: 500ms;
     transition: 500ms;
@@ -1892,8 +1927,16 @@
     height: 150px;
     border-radius: 100%;
     overflow: hidden;
-    background-position: center;
-    background-size: 250px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .profile-page .main .content .content-heading .img-profile .circle-image img {
+    width: 200%;
+    height: 100%;
   }
   .profile-page .main .content .content-heading .img-profile .circle-edit {
     width: 30px;
@@ -2057,8 +2100,19 @@
     overflow: hidden;
     border-radius: 100%;
     margin-right: 20px;
-    background-position: center;
-    background-size: 100px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .profile-page .main .content .content-body form .form .form-right .pilihan-universitas .content-universitas .image img {
+    width: 200%;
+    height: 100%;
   }
   .profile-page .main .content .content-body form .form .form-right .pilihan-universitas .content-universitas .form-group {
     display: -webkit-box;
@@ -2347,8 +2401,19 @@
   }
   .product-page .card-tryout .content .card .card-image {
     height: 160px;
-    background-size: cover;
-    background-position: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow: hidden;
+  }
+  .product-page .card-tryout .content .card .card-image img {
+    width: 100%;
   }
   .product-page .card-tryout .content .card .card-body {
     -webkit-box-sizing: border-box;
@@ -3874,14 +3939,14 @@
   }
   .topup-page .main .content .content-body .card-metode .form .form-group-select .group-right .select-body button .right {
     width: 20%;
+    color: transparent;
   }
-  .topup-page .main .content .content-body .card-metode .form .form-group-select .group-right .select-body button .right i {
-    display: none;
-    font-size: 24px;
-    color: #FDBF1F;
-  }
-  .topup-page .main .content .content-body .card-metode .form .form-group-select .group-right .select-body button .right i.active {
+  .topup-page .main .content .content-body .card-metode .form .form-group-select .group-right .select-body button .right path {
     display: block;
+    font-size: 24px;
+  }
+  .topup-page .main .content .content-body .card-metode .form .form-group-select .group-right .select-body button .right.active {
+    color: #FDBF1F;
   }
   .topup-page .main .content .content-body .card-metode .form .form-group {
     text-align: left;
@@ -3950,14 +4015,14 @@
   }
   .topup-page .main .content .content-body .card-metode .form .form-group .group-right button .right {
     width: 20%;
+    color: transparent;
   }
-  .topup-page .main .content .content-body .card-metode .form .form-group .group-right button .right i {
-    display: none;
-    font-size: 24px;
-    color: #FDBF1F;
-  }
-  .topup-page .main .content .content-body .card-metode .form .form-group .group-right button .right i.active {
+  .topup-page .main .content .content-body .card-metode .form .form-group .group-right button .right path {
     display: block;
+    font-size: 24px;
+  }
+  .topup-page .main .content .content-body .card-metode .form .form-group .group-right button .right.active {
+    color: #FDBF1F;
   }
   .topup-page .main .content .content-body .card-jumlah {
     width: 600px;
@@ -4104,6 +4169,9 @@
   }
   .topup-page .main .content .content-body .card-transfer-detail .form .form-group p {
     font-size: 14px;
+  }
+  .topup-page .main .content .content-body .card-transfer-detail .form .form-group .atas-nama {
+    font-weight: 600;
   }
   .topup-page .main .content .content-body .card-transfer-detail .form .form-image {
     margin-bottom: 100px;

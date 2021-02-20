@@ -1,24 +1,27 @@
 
+
 import React, { useContext, useEffect } from 'react'
-import { Main } from '../components/about/Main'
-import { Story } from '../components/about/Story'
 import { Footer } from '../components/all/Footer'
 import { Navbar } from '../components/all/Navbar'
+import { InfoDetail } from '../components/beliTryoutDetail/InfoDetail'
+import { InfoMapel } from '../components/beliTryoutDetail/InfoMapel'
+
 import { UserContext } from './userContext'
 
-export function About() {
+
+export function BeliTryoutDetail(){
 
     const [menuActive, setMenuActive] = useContext(UserContext)
 
     useEffect(() => {
-        setMenuActive("about");
+        setMenuActive("tryout");
     }, [])
 
-    return(
-        <div className="page about-page nav-dark">
+    return (
+        <div className="page beli-tryout-detail">
             <Navbar />
-            <Main />
-            <Story />
+            <InfoDetail />
+            <InfoMapel />
             <Footer />
         </div>
     )

@@ -113,6 +113,7 @@ $colorBlack : #000000;
 
                         A {
                             text-decoration: none;
+                            color: $colorDark;
                         }
 
                         hr {
@@ -195,28 +196,60 @@ $colorBlack : #000000;
                     box-shadow: 0px 30px 30px rgba($color: $colorDark, $alpha: 0.08);
                     
                     ul {
-                        margin-top: 20px;
-                        margin-right: 20px;
+                        box-sizing: border-box;
+                        padding: 20px;
 
-                        a {
+                        li {
                             text-decoration: none;
-                            text-align: end;
                             color: $colorDark;
                             font-size: 14px;
+                            margin-bottom: 10px;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-end;
 
-                            li {
-                                margin-bottom: 20px;
+                            A {
+                                text-decoration: none;
+                                color: $colorDark;
+                            }
+
+                            hr {
+                                margin-top: 10px;
+                                background-color: transparent;
+                                height: 1px;
+                                border: none;
+                                width: 100%;
                             }
                         }
 
-                        a:hover {
+                        li:hover {
                             color: $colorYellow;
+
+                            A {
+                                color: $colorYellow;
+                            }
+
+                            hr {
+                                background-color: transparent;
+                            }
+                        }
+
+                        li.active {
+                            color: $colorYellow;
+
+                            A {
+                                color: $colorYellow;
+                            }
+
+                            hr {
+                                background-color: transparent;
+                            }
                         }
                     }
                 }
 
                 .dropdownProfile.active {
-                    height: 200px;
+                    height: 230px;
                     top: 80px;
                     transition: 500ms;
                 }
@@ -1849,8 +1882,13 @@ $colorBlack : #000000;
                             height: 150px;
                             border-radius: 100%;
                             overflow: hidden;
-                            background-position: center;
-                            background-size: 250px;
+                            display: flex;
+                            justify-content: center;
+
+                            img {
+                                width: 200%;
+                                height: 100%;
+                            }
                         }
 
                         .circle-edit {
@@ -2004,8 +2042,14 @@ $colorBlack : #000000;
                                             overflow: hidden;
                                             border-radius: 100%;
                                             margin-right: 20px;
-                                            background-position: center;
-                                            background-size: 100px;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            
+                                            img {
+                                                width: 200%;
+                                                height: 100%;
+                                            }
                                         }
 
                                         .form-group {
@@ -2274,8 +2318,14 @@ $colorBlack : #000000;
 
                     .card-image {
                         height: 160px;
-                        background-size: cover;
-                        background-position: center;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        overflow: hidden;
+
+                        img {
+                            width: 100%;
+                        }
                     }
 
                     .card-body {
@@ -3746,16 +3796,17 @@ $colorBlack : #000000;
 
                                             .right {
                                                 width: 20%;
-
-                                                i {
-                                                    display: none;
-                                                    font-size: 24px;
-                                                    color: $colorYellow;
-                                                }
-
-                                                i.active {
+                                                color: transparent;
+    
+                                                path {
                                                     display: block;
+                                                    font-size: 24px;
                                                 }
+    
+                                            }
+    
+                                            .right.active {
+                                                color: $colorYellow;
                                             }
                                         }
 
@@ -3815,16 +3866,17 @@ $colorBlack : #000000;
 
                                         .right {
                                             width: 20%;
+                                            color: transparent;
 
-                                            i {
-                                                display: none;
-                                                font-size: 24px;
-                                                color: $colorYellow;
-                                            }
-
-                                            i.active {
+                                            path {
                                                 display: block;
+                                                font-size: 24px;
                                             }
+
+                                        }
+
+                                        .right.active {
+                                            color: $colorYellow;
                                         }
                                     }
                                 }
@@ -3981,6 +4033,10 @@ $colorBlack : #000000;
 
                                 p {
                                     font-size: 14px;
+                                }
+
+                                .atas-nama {
+                                    font-weight: 600;
                                 }
                             }
 

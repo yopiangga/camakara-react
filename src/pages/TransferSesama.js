@@ -1,24 +1,22 @@
 
 import React, { useContext, useEffect } from 'react'
-import { Main } from '../components/about/Main'
-import { Story } from '../components/about/Story'
 import { Footer } from '../components/all/Footer'
 import { Navbar } from '../components/all/Navbar'
+import { Main } from '../components/transferSesama/Main'
 import { UserContext } from './userContext'
 
-export function About() {
+export function TransferSesama() {
 
     const [menuActive, setMenuActive] = useContext(UserContext)
 
     useEffect(() => {
-        setMenuActive("about");
+        setMenuActive("transferSesama");
     }, [])
 
     return(
-        <div className="page about-page nav-dark">
+        <div className="page transferSesama-page">
             <Navbar />
             <Main />
-            <Story />
             <Footer />
         </div>
     )

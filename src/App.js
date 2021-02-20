@@ -22,6 +22,13 @@ import { MyTryout } from './pages/MyTryout';
 import { RiwayatTopUp } from './pages/RiwayatTopUp';
 
 import $ from 'jquery';
+import { UserProvider } from "./pages/userContext";
+import { TransferSesama } from "./pages/TransferSesama";
+import { TryoutDetail } from "./pages/TryoutDetail";
+import { BeliTryoutDetail } from "./pages/BeliTryoutDetail";
+import { Login } from "./pages/Login";
+import { Daftar } from "./pages/Daftar";
+import { LupaPassword } from "./pages/LupaPassword";
 
 function App() {
 
@@ -40,34 +47,54 @@ function App() {
 
 
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" exact>
-          <Beranda />
-        </Route>
-        <Route path="/tentang-kami" exact>
-          <About />
-        </Route>
-        <Route path="/produk" exact>
-          <Products />
-        </Route>
-        <Route path="/testimoni" exact>
-          <Testimonial />
-        </Route>
-        <Route path="/profile" exact>
-          <MyProfile />
-        </Route>
-        <Route path="/top-up" exact>
-          <TopUp />
-        </Route>
-        <Route path="/tryout-saya" exact>
-          <MyTryout />
-        </Route>
-        <Route path="/riwayat-top-up" exact>
-          <RiwayatTopUp />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <UserProvider>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/login" exact>
+            <Login />
+          </Route>
+          <Route path="/daftar" exact>
+            <Daftar />
+          </Route>
+          <Route path="/lupa-password" exact>
+            <LupaPassword />
+          </Route>
+          <Route path="/" exact>
+            <Beranda />
+          </Route>
+          <Route path="/tentang-kami" exact>
+            <About />
+          </Route>
+          <Route path="/produk" exact>
+            <Products />
+          </Route>
+          <Route path="/testimoni" exact>
+            <Testimonial />
+          </Route>
+          <Route path="/profile" exact>
+            <MyProfile />
+          </Route>
+          <Route path="/top-up" exact>
+            <TopUp />
+          </Route>
+          <Route path="/tryout-saya" exact>
+            <MyTryout />
+          </Route>
+          <Route path="/riwayat-top-up" exact>
+            <RiwayatTopUp />
+          </Route>
+          <Route path="/transfer-sesama" exact>
+            <TransferSesama />
+          </Route>
+          <Route path="/tryout-detail" exact>
+            <TryoutDetail />
+          </Route>
+          <Route path="/beli-tryout-detail" exact>
+            <BeliTryoutDetail />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </UserProvider>
   );
 }
 
