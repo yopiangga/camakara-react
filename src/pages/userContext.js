@@ -3,14 +3,14 @@ import React, { useState, createContext } from "react";
 export const UserContext = createContext();
 
 export const UserProvider = props => {
-//   const currentUser = JSON.parse(localStorage.getItem("data"))
-//   const iniateUser = currentUser ? currentUser : null
-//   const [user, setUser] = useState(iniateUser);
+  const currentUser = JSON.parse(localStorage.getItem("data"))
+  const iniateUser = currentUser ? currentUser : null
+  const [user, setUser] = useState(iniateUser);
 
 const [menuActive, setMenuActive] = useState()
 
   return (
-    <UserContext.Provider value={[menuActive, setMenuActive]}>
+    <UserContext.Provider value={[menuActive, setMenuActive, user, setUser]}>
       {props.children}
     </UserContext.Provider>
   );

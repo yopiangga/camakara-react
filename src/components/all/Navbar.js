@@ -54,7 +54,7 @@ export function Navbar() {
                                 <li className={menuActive == "topUp" ? "active" : ""}> <Link to="/top-up">Top Up</Link><hr /></li>
                                 <li className={menuActive == "myTryout" ? "active" : ""}> <Link to="/tryout-saya" >Tryout Saya</Link><hr /></li>
                                 <li className={menuActive == "riwayatTopUp" ? "active" : ""}> <Link to="/riwayat-top-up" >Riwayat Top Up</Link><hr /></li>
-                                <li className={menuActive == "logOut" ? "active" : ""}> <Link to="/logout" >Log Out</Link><hr /></li>
+                                <li className={menuActive == "logOut" ? "active" : ""}> <Link to="/login" >Log Out</Link><hr /></li>
                             </ul>
                         </div>
                     </div>

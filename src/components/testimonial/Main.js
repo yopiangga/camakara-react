@@ -1,3 +1,4 @@
+import { FaLongArrowAltDown } from "react-icons/fa";
 
 export function Main() {
 
@@ -13,7 +14,7 @@ export function Main() {
     eligendi quos tempora incidunt.</p>
 
                         <div className="circle">
-                            <i className="fas fa-long-arrow-alt-down"></i>
+                            <FaLongArrowAltDown />
                         </div>
                     </div>
                     <div className="content-right">

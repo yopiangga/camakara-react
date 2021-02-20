@@ -1,4 +1,11 @@
+import {
+    BrowserRouter,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
+import logo1 from '../../assets/images/logo-1.png'; 
 
 export function Main() {
 
@@ -8,10 +15,10 @@ export function Main() {
                 <div className="content">
                     <div className="card">
                         <div className="card-heading">
-                            <img src="assets/images/logo-1.png" />
+                            <img src={logo1} />
                             <h1>Camakara</h1>
                             <hr />
-                            <p>atau belum memiliki akun ? <a href="daftar.html">Daftar sekarang</a> </p>
+                            <p>atau belum memiliki akun ? <Link to="/daftar">Daftar sekarang</Link> </p>
                         </div>
 
                         <div className="card-body">

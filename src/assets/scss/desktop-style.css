@@ -977,10 +977,18 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-  }
-  .home-page .main .content .content-left .circle i {
     color: #393939;
-    font-size: 16px;
+    -webkit-transition: 300ms;
+    transition: 300ms;
+    cursor: pointer;
+  }
+  .home-page .main .content .content-left .circle:hover {
+    bottom: 10px;
+    left: 200px;
+    -webkit-box-shadow: 0px 20px 30px rgba(57, 57, 57, 0);
+            box-shadow: 0px 20px 30px rgba(57, 57, 57, 0);
+    -webkit-transition: 300ms;
+    transition: 300ms;
   }
   .home-page .main .content .content-right {
     width: 50%;
@@ -2548,10 +2556,18 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-  }
-  .testimonial-page .main .content .content-left .circle i {
     color: #393939;
-    font-size: 16px;
+    -webkit-transition: 300ms;
+    transition: 300ms;
+    cursor: pointer;
+  }
+  .testimonial-page .main .content .content-left .circle:hover {
+    bottom: 10px;
+    left: 200px;
+    -webkit-box-shadow: 0px 20px 30px rgba(57, 57, 57, 0);
+            box-shadow: 0px 20px 30px rgba(57, 57, 57, 0);
+    -webkit-transition: 300ms;
+    transition: 300ms;
   }
   .testimonial-page .main .content .content-right {
     width: 50%;
@@ -3243,8 +3259,6 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-  }
-  .riwayatPembelian-page .main .content .content-body .card .card-body .icon .circle i {
     font-size: 20px;
     color: #F17EAB;
   }
@@ -3258,13 +3272,12 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-  }
-  .riwayatPembelian-page .main .content .content-body .card .card-footer .jenis i {
-    font-size: 16px;
-    margin-right: 10px;
     color: #FDBF1F;
+    font-size: 20px;
   }
   .riwayatPembelian-page .main .content .content-body .card .card-footer .jenis h4 {
+    margin-left: 10px;
+    color: #393939;
     font-size: 14px;
     font-weight: 600;
   }
@@ -3388,10 +3401,8 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-  }
-  .myTryout-page .main .content .content-body .card .card-body .icon .circle i {
-    font-size: 20px;
     color: #F17EAB;
+    font-size: 20px;
   }
   .myTryout-page .main .content .content-body .card .card-footer {
     display: -webkit-box;
@@ -3403,13 +3414,12 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-  }
-  .myTryout-page .main .content .content-body .card .card-footer .jenis i {
-    font-size: 16px;
-    margin-right: 10px;
     color: #FDBF1F;
+    font-size: 20px;
   }
   .myTryout-page .main .content .content-body .card .card-footer .jenis h4 {
+    margin-left: 10px;
+    color: #393939;
     font-size: 14px;
     font-weight: 600;
   }

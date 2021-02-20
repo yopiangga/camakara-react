@@ -1,4 +1,5 @@
 
+import { FaLongArrowAltDown } from 'react-icons/fa';
 import helpCenter from '../../assets/images/help-center.png';
 
 export function Main() {
@@ -18,7 +19,7 @@ export function Main() {
                             <button className="btn-searchTryout">Cari Tryout</button>
                         </form>
                         <div className="circle">
-                            <i className="fas fa-long-arrow-alt-down"></i>
+                            <FaLongArrowAltDown />
                         </div>
                     </div>
                     <div className="content-right">

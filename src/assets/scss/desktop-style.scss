@@ -1013,11 +1013,16 @@ $colorBlack : #000000;
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        color: $colorDark;
+                        transition: 300ms;
+                        cursor: pointer;
+                    }
 
-                        i {
-                            color: $colorDark;
-                            font-size: 16px;
-                        }
+                    .circle:hover {
+                        bottom: 10px;
+                        left: 200px;
+                        box-shadow: 0px 20px 30px rgba($color: $colorDark, $alpha: 0.0);
+                        transition: 300ms;
                     }
                 }
 
@@ -2447,11 +2452,16 @@ $colorBlack : #000000;
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        color: $colorDark;
+                        transition: 300ms;
+                        cursor: pointer;
+                    }
 
-                        i {
-                            color: $colorDark;
-                            font-size: 16px;
-                        }
+                    .circle:hover {
+                        bottom: 10px;
+                        left: 200px;
+                        box-shadow: 0px 20px 30px rgba($color: $colorDark, $alpha: 0.0);
+                        transition: 300ms;
                     }
 
                 }
@@ -3132,11 +3142,9 @@ $colorBlack : #000000;
                                     display: flex;
                                     justify-content: center;
                                     align-items: center;
+                                    font-size: 20px;
+                                    color: $colorPink;
 
-                                    i {
-                                        font-size: 20px;
-                                        color: $colorPink;
-                                    }
                                 }
                             }
                         }
@@ -3147,14 +3155,12 @@ $colorBlack : #000000;
                             .jenis {
                                 width: 50%;
                                 display: flex;
-
-                                i {
-                                    font-size: 16px;
-                                    margin-right: 10px;
-                                    color: $colorYellow;
-                                }
+                                color: $colorYellow;
+                                font-size: 20px;
 
                                 h4 {
+                                    margin-left: 10px;
+                                    color: $colorDark;
                                     font-size: 14px;
                                     font-weight: 600;
                                 }
@@ -3261,11 +3267,8 @@ $colorBlack : #000000;
                                     display: flex;
                                     justify-content: center;
                                     align-items: center;
-
-                                    i {
-                                        font-size: 20px;
-                                        color: $colorPink;
-                                    }
+                                    color: $colorPink;
+                                    font-size: 20px;
                                 }
                             }
                         }
@@ -3276,14 +3279,12 @@ $colorBlack : #000000;
                             .jenis {
                                 width: 50%;
                                 display: flex;
-
-                                i {
-                                    font-size: 16px;
-                                    margin-right: 10px;
-                                    color: $colorYellow;
-                                }
+                                color: $colorYellow;
+                                font-size: 20px;
 
                                 h4 {
+                                    margin-left: 10px;
+                                    color: $colorDark;
                                     font-size: 14px;
                                     font-weight: 600;
                                 }

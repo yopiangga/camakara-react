@@ -22,14 +22,14 @@ export function Main() {
 
                                 <div class="form-group">
                                     <label for="">Nomor Telephone Penerima</label>
-                                    <input type="text" value="" />
+                                    <input type="text" placeholder="0823xxxxxx"/>
                                 </div>
 
                                 <hr />
 
                                 <div class="form-group">
                                     <label for="">Masukkan jumlah Transfer</label>
-                                    <input type="number" value="" />
+                                    <input type="number" placeholder="50.000"/>
                                 </div>
 
                                 <hr />
