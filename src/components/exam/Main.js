@@ -21,7 +21,7 @@ export function Main() {
                             <ul>
                                 <li>
                                     <div className="box">
-                                        <div class="circle active">A</div>
+                                        <div className="circle active">A</div>
                                     </div>
                                     <div className="text">
                                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam pariatur, quia, voluptates ipsum nesciunt officiis alias aut similique amet sed, repellendus sequi sapiente soluta hic quod suscipit? Explicabo, sapiente nostrum!</p>
@@ -29,7 +29,7 @@ export function Main() {
                                 </li>
                                 <li>
                                     <div className="box">
-                                        <div class="circle">B</div>
+                                        <div className="circle">B</div>
                                     </div>
                                     <div className="text">
                                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit</p>
@@ -37,7 +37,7 @@ export function Main() {
                                 </li>
                                 <li>
                                     <div className="box">
-                                        <div class="circle">C</div>
+                                        <div className="circle">C</div>
                                     </div>
                                     <div className="text">
                                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit</p>
@@ -45,7 +45,7 @@ export function Main() {
                                 </li>
                                 <li>
                                     <div className="box">
-                                        <div class="circle">D</div>
+                                        <div className="circle">D</div>
                                     </div>
                                     <div className="text">
                                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit</p>
@@ -53,7 +53,7 @@ export function Main() {
                                 </li>
                                 <li>
                                     <div className="box">
-                                        <div class="circle">E</div>
+                                        <div className="circle">E</div>
                                     </div>
                                     <div className="text">
                                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit</p>
@@ -68,44 +68,44 @@ export function Main() {
                         </div>
                     </div>
                     <div className="content-right">
-                        <div class="timer">
-                            <div class="box">
+                        <div className="timer">
+                            <div className="box">
                                 <h1>00:30:29</h1>
                             </div>
                         </div>
 
-                        <div class="card" id="navigasi-soal">
-                            <div class="card-body">
-                                <div class="box active">1</div>
-                                <div class="box">2</div>
-                                <div class="box">3</div>
-                                <div class="box">4</div>
-                                <div class="box">5</div>
-                                <div class="box">6</div>
-                                <div class="box">7</div>
-                                <div class="box">8</div>
-                                <div class="box">9</div>
-                                <div class="box">10</div>
-                                <div class="box">11</div>
-                                <div class="box">12</div>
-                                <div class="box">13</div>
-                                <div class="box">14</div>
-                                <div class="box">15</div>
-                                <div class="box">16</div>
-                                <div class="box">17</div>
-                                <div class="box">18</div>
-                                <div class="box">19</div>
-                                <div class="box">20</div>
-                                <div class="box">21</div>
-                                <div class="box">22</div>
-                                <div class="box">23</div>
-                                <div class="box">24</div>
-                                <div class="box">25</div>
-                                <div class="box">26</div>
-                                <div class="box">27</div>
-                                <div class="box">28</div>
-                                <div class="box">29</div>
-                                <div class="box">30</div>
+                        <div className="card" id="navigasi-soal">
+                            <div className="card-body">
+                                <div className="box active">1</div>
+                                <div className="box">2</div>
+                                <div className="box">3</div>
+                                <div className="box">4</div>
+                                <div className="box">5</div>
+                                <div className="box">6</div>
+                                <div className="box">7</div>
+                                <div className="box">8</div>
+                                <div className="box">9</div>
+                                <div className="box">10</div>
+                                <div className="box">11</div>
+                                <div className="box">12</div>
+                                <div className="box">13</div>
+                                <div className="box">14</div>
+                                <div className="box">15</div>
+                                <div className="box">16</div>
+                                <div className="box">17</div>
+                                <div className="box">18</div>
+                                <div className="box">19</div>
+                                <div className="box">20</div>
+                                <div className="box">21</div>
+                                <div className="box">22</div>
+                                <div className="box">23</div>
+                                <div className="box">24</div>
+                                <div className="box">25</div>
+                                <div className="box">26</div>
+                                <div className="box">27</div>
+                                <div className="box">28</div>
+                                <div className="box">29</div>
+                                <div className="box">30</div>
                             </div>
                         </div>
                     </div>
