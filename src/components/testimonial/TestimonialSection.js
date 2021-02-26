@@ -88,7 +88,7 @@ export function TestimonialSection() {
             </div>
             <div className="content-body">
                 <div className="circle circle-left">
-                    <i className="fas fa-caret-left"></i>
+                    <FaCaretLeft />
                 </div>
                 <div className="card-group">
                     <div className="card-slide">
@@ -149,7 +149,7 @@ export function TestimonialSection() {
                     </div>
                 </div>
                 <div className="circle circle-right">
-                    <i className="fas fa-caret-right"></i>
+                    <FaCaretRight />
                 </div>
             </div>
 

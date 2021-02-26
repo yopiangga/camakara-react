@@ -29,6 +29,7 @@ import { BeliTryoutDetail } from "./pages/BeliTryoutDetail";
 import { Login } from "./pages/Login";
 import { Daftar } from "./pages/Daftar";
 import { LupaPassword } from "./pages/LupaPassword";
+import { Exam } from "./pages/Exam";
 
 function App() {
 
@@ -91,6 +92,9 @@ function App() {
           </Route>
           <Route path="/beli-tryout-detail" exact>
             <BeliTryoutDetail />
+          </Route>
+          <Route path="/exam" exact>
+            <Exam />
           </Route>
         </Switch>
       </BrowserRouter>

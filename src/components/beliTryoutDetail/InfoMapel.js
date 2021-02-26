@@ -1,3 +1,4 @@
+import { FaClock, FaStickyNote } from "react-icons/fa"
 
 export function InfoMapel() {
 
@@ -17,16 +18,16 @@ export function InfoMapel() {
 
                         <div class="card card-tps card-1">
                             <div class="card-heading">
-                                <i class="fas fa-sticky-note"></i>
+                                <FaStickyNote />
                                 <h3>Kemampuan Penalaran Umum</h3>
                             </div>
                             <div class="card-body">
                                 <li>
-                                    <i class="far fa-sticky-note"></i>
+                                    <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
                                 </li>
                                 <li>
-                                    <i class="far fa-clock"></i>
+                                    <FaClock />
                                     <h4><span>Waktu Pengerjaan :</span> 20 Menit</h4>
                                 </li>
                             </div>
@@ -34,16 +35,16 @@ export function InfoMapel() {
 
                         <div class="card card-tps card-2">
                             <div class="card-heading">
-                                <i class="fas fa-sticky-note"></i>
+                                <FaStickyNote />
                                 <h3>Kemampuan Kuantitatif</h3>
                             </div>
                             <div class="card-body">
                                 <li>
-                                    <i class="far fa-sticky-note"></i>
+                                    <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
                                 </li>
                                 <li>
-                                    <i class="far fa-clock"></i>
+                                    <FaClock />
                                     <h4><span>Waktu Pengerjaan :</span> 20 Menit</h4>
                                 </li>
                             </div>
@@ -51,16 +52,16 @@ export function InfoMapel() {
 
                         <div class="card card-tps card-3">
                             <div class="card-heading">
-                                <i class="fas fa-sticky-note"></i>
+                                <FaStickyNote />
                                 <h3>Pengetahuan dan Pemahaman Umum</h3>
                             </div>
                             <div class="card-body">
                                 <li>
-                                    <i class="far fa-sticky-note"></i>
+                                    <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
                                 </li>
                                 <li>
-                                    <i class="far fa-clock"></i>
+                                    <FaClock />
                                     <h4><span>Waktu Pengerjaan :</span> 20 Menit</h4>
                                 </li>
                             </div>
@@ -68,16 +69,16 @@ export function InfoMapel() {
 
                         <div class="card card-tps card-4">
                             <div class="card-heading">
-                                <i class="fas fa-sticky-note"></i>
+                                <FaStickyNote />
                                 <h3>Bahasa Inggris</h3>
                             </div>
                             <div class="card-body">
                                 <li>
-                                    <i class="far fa-sticky-note"></i>
+                                    <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
                                 </li>
                                 <li>
-                                    <i class="far fa-clock"></i>
+                                    <FaClock />
                                     <h4><span>Waktu Pengerjaan :</span> 20 Menit</h4>
                                 </li>
                             </div>
@@ -85,16 +86,16 @@ export function InfoMapel() {
 
                         <div class="card card-tps card-5">
                             <div class="card-heading">
-                                <i class="fas fa-sticky-note"></i>
+                                <FaStickyNote />
                                 <h3>Kemampuan Memahami dan Menulis</h3>
                             </div>
                             <div class="card-body">
                                 <li>
-                                    <i class="far fa-sticky-note"></i>
+                                    <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
                                 </li>
                                 <li>
-                                    <i class="far fa-clock"></i>
+                                    <FaClock />
                                     <h4><span>Waktu Pengerjaan :</span> 20 Menit</h4>
                                 </li>
                             </div>
@@ -102,16 +103,16 @@ export function InfoMapel() {
 
                         <div class="card card-tka card-1 disable">
                             <div class="card-heading">
-                                <i class="fas fa-sticky-note"></i>
+                                <FaStickyNote />
                                 <h3>Fisika</h3>
                             </div>
                             <div class="card-body">
                                 <li>
-                                    <i class="far fa-sticky-note"></i>
+                                    <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
                                 </li>
                                 <li>
-                                    <i class="far fa-clock"></i>
+                                    <FaClock />
                                     <h4><span>Waktu Pengerjaan :</span> 20 Menit</h4>
                                 </li>
                             </div>
@@ -119,16 +120,16 @@ export function InfoMapel() {
 
                         <div class="card card-tka card-2 disable">
                             <div class="card-heading">
-                                <i class="fas fa-sticky-note"></i>
+                                <FaStickyNote />
                                 <h3>Kimia</h3>
                             </div>
                             <div class="card-body">
                                 <li>
-                                    <i class="far fa-sticky-note"></i>
+                                    <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
                                 </li>
                                 <li>
-                                    <i class="far fa-clock"></i>
+                                    <FaClock />
                                     <h4><span>Waktu Pengerjaan :</span> 20 Menit</h4>
                                 </li>
                             </div>
@@ -136,16 +137,16 @@ export function InfoMapel() {
 
                         <div class="card card-tka card-3 disable">
                             <div class="card-heading">
-                                <i class="fas fa-sticky-note"></i>
+                                <FaStickyNote />
                                 <h3>Matematika</h3>
                             </div>
                             <div class="card-body">
                                 <li>
-                                    <i class="far fa-sticky-note"></i>
+                                    <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
                                 </li>
                                 <li>
-                                    <i class="far fa-clock"></i>
+                                    <FaClock />
                                     <h4><span>Waktu Pengerjaan :</span> 20 Menit</h4>
                                 </li>
                             </div>
@@ -153,16 +154,16 @@ export function InfoMapel() {
 
                         <div class="card card-tka card-4 disable">
                             <div class="card-heading">
-                                <i class="fas fa-sticky-note"></i>
+                                <FaStickyNote />
                                 <h3>Bahasa Inggris</h3>
                             </div>
                             <div class="card-body">
                                 <li>
-                                    <i class="far fa-sticky-note"></i>
+                                    <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
                                 </li>
                                 <li>
-                                    <i class="far fa-clock"></i>
+                                    <FaClock />
                                     <h4><span>Waktu Pengerjaan :</span> 20 Menit</h4>
                                 </li>
                             </div>

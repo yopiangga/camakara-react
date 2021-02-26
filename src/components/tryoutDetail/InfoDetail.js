@@ -1,3 +1,4 @@
+import { FaBookReader, FaMoneyBillWave, FaUsers } from "react-icons/fa";
 
 
 export function InfoDetail() {
@@ -13,15 +14,15 @@ export function InfoDetail() {
                         </div>
                         <div class="widget">
                             <div class="widget-child kategori-tryout">
-                                <i class="fas fa-users"></i>
+                                <FaBookReader />
                                 <h4>Camakara Tryout</h4>
                             </div>
                             <div class="widget-child peserta">
-                                <i class="fas fa-users"></i>
+                                <FaUsers />
                                 <h4>1550 Orang</h4>
                             </div>
-                            <div class="widget-child peserta">
-                                <i class="fas fa-users"></i>
+                            <div class="widget-child harga">
+                                <FaMoneyBillWave />
                                 <h4>Rp 19.000</h4>
                             </div>
                         </div>
@@ -35,7 +36,36 @@ export function InfoDetail() {
                         <div class="tanggal-pengerjaan">
                             <h3>Waktu Pengerjaan</h3>
                             <hr />
-                            <p>31 Januari 2021 - 5 Februari 2021</p>
+                            <div class="card-group">
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <h3>Mulai Tryout</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <li>
+                                            <h4><span>Tanggal :</span> 18 Februari 2021</h4>
+                                        </li>
+                                        <li>
+                                            <h4><span>Waktu :</span> 00.00 WIB</h4>
+                                        </li>
+
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <h3>Selesai Tryout</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <li>
+                                            <h4><span>Tanggal :</span> 20 Februari 2021</h4>
+                                        </li>
+                                        <li>
+                                            <h4><span>Waktu :</span> 23.59 WIB</h4>
+                                        </li>
+   
+                                    </div>
+                                </div>
+                            </div>
                             <div class="waktu-pengerjaan">
                                 <div class="box jam">
                                     <h4>03</h4>

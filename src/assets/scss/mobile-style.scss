@@ -69,7 +69,6 @@
         width: 100%;
         height: 80px;
         position: fixed;
-        // background-color: white;
         z-index: 999;
 
         .content {
@@ -114,10 +113,11 @@
                     cursor: pointer;
                     z-index: 999;
                     margin-right: 20px;
+                    margin-right: 20px;
 
-                    i {
-                        color: $colorYellow;
-                        margin-right: 20px;
+                    h4 {
+                        color: inherit;
+                        margin-left: 20px;
                     }
                 }
 
@@ -159,28 +159,60 @@
                     box-shadow: 0px 30px 30px rgba($color: $colorDark, $alpha: 0.08);
                     
                     ul {
-                        margin-top: 20px;
-                        margin-right: 20px;
+                        box-sizing: border-box;
+                        padding: 20px;
 
-                        a {
+                        li {
                             text-decoration: none;
-                            text-align: end;
                             color: $colorDark;
                             font-size: 14px;
+                            margin-bottom: 10px;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-end;
 
-                            li {
-                                margin-bottom: 20px;
+                            A {
+                                text-decoration: none;
+                                color: $colorDark;
+                            }
+
+                            hr {
+                                margin-top: 10px;
+                                background-color: transparent;
+                                height: 1px;
+                                border: none;
+                                width: 100%;
                             }
                         }
 
-                        a:hover {
+                        li:hover {
                             color: $colorYellow;
+
+                            A {
+                                color: $colorYellow;
+                            }
+
+                            hr {
+                                background-color: transparent;
+                            }
+                        }
+
+                        li.active {
+                            color: $colorYellow;
+
+                            A {
+                                color: $colorYellow;
+                            }
+
+                            hr {
+                                background-color: transparent;
+                            }
                         }
                     }
                 }
 
                 .dropdownProfile.active {
-                    height: 200px;
+                    height: 230px;
                     top: 80px;
                     transition: 500ms;
                 }
@@ -433,10 +465,8 @@
                         width: 50%;
                         cursor: pointer;
                         color: white;
+                        font-size: 20px;
 
-                        i {
-                            font-size: 20px;
-                        }
                     }
                 }
 
@@ -1023,11 +1053,16 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        color: $colorDark;
+                        font-size: 16px;
+                        transition: 300ms;
+                    }
 
-                        i {
-                            color: $colorDark;
-                            font-size: 16px;
-                        }
+                    .circle:hover {
+                        bottom: -10px;
+                        left: 20px;
+                        box-shadow: 0px 20px 30px rgba($color: $colorDark, $alpha: 0.0);
+                        transition: 300ms;
                     }
                 }
 
@@ -1142,11 +1177,9 @@
                         box-shadow: 0px 25px 45px rgba($color: $colorDark, $alpha: 0.4);
                         background-color: $colorDark;
                         margin-bottom: 30px;
+                        font-size: 28px;
+                        color: $colorYellow;
 
-                        i {
-                            font-size: 28px;
-                            color: $colorYellow;
-                        }
                     }
 
                     .title {
@@ -1186,11 +1219,9 @@
                             display: flex;
                             justify-content: center;
                             align-items: center;
+                            font-size: 36px;
+                            color: $colorYellow;
 
-                            i {
-                                font-size: 36px;
-                                color: $colorYellow;
-                            }
                         }
 
                         .card-text {
@@ -1260,11 +1291,9 @@
                                 display: flex;
                                 justify-content: flex-start;
                                 align-items: center;
+                                font-size: 36px;
+                                color: $colorYellow;
 
-                                i {
-                                    font-size: 36px;
-                                    color: $colorYellow;
-                                }
                             }
 
                             .card-text {
@@ -1310,11 +1339,9 @@
                         box-shadow: 0px 25px 45px rgba($color: $colorDark, $alpha: 0.4);
                         background-color: $colorDark;
                         margin-bottom: 30px;
+                        color: $colorYellow;
+                        font-size: 28px;
 
-                        i {
-                            font-size: 28px;
-                            color: $colorYellow;
-                        }
                     }
 
                     .title {
@@ -1522,11 +1549,9 @@
                         box-shadow: 0px 25px 45px rgba($color: $colorDark, $alpha: 0.4);
                         background-color: $colorDark;
                         margin-bottom: 30px;
+                        font-size: 28px;
+                        color: $colorYellow;
 
-                        i {
-                            font-size: 28px;
-                            color: $colorYellow;
-                        }
                     }
 
                     .title {
@@ -1602,11 +1627,9 @@
                         box-shadow: 0px 25px 45px rgba($color: $colorDark, $alpha: 0.4);
                         background-color: $colorDark;
                         margin-bottom: 30px;
+                        font-size: 28px;
+                        color: $colorYellow;
 
-                        i {
-                            font-size: 28px;
-                            color: $colorYellow;
-                        }
                     }
 
                     .title {
@@ -1828,7 +1851,6 @@
                     .item-content {
                         width: 100%;
                         box-sizing: border-box;
-                        padding-left: 10px;
 
                         p {
                             line-height: 28px;
@@ -1856,6 +1878,12 @@
                                 height: 200px;
                                 background-size: 300px;
                                 background-position: center;
+                                overflow: hidden;
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                }
                             }
 
                             .card-text {
@@ -1914,6 +1942,13 @@
                             overflow: hidden;
                             background-position: center;
                             background-size: 250px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            img {
+                                height: 100%;
+                            }
                         }
 
                         .circle-edit {
@@ -1929,10 +1964,8 @@
                             align-items: center;
                             color: white;
                             cursor: pointer;
+                            font-size: 14px;
 
-                            i {
-                                font-size: 14px;
-                            }
                         }
                     }
 
@@ -2071,6 +2104,13 @@
                                             margin-right: 20px;
                                             background-position: center;
                                             background-size: 100px;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+
+                                            img {
+                                                height: 100%;
+                                            }
                                         }
 
                                         .form-group {
@@ -2199,11 +2239,8 @@
                         display: flex;
                         align-items: center;
 
-                        i {
-                            margin-right: 5px;
-                        }
-
                         input {
+                            margin-left: 5px;
                             border: none;
                             border-bottom: 1px solid $colorGray;
                             padding: 5px 15px 5px 15px;
@@ -2315,6 +2352,12 @@
                         height: 160px;
                         background-size: cover;
                         background-position: center;
+                        overflow: hidden;
+
+                        img {
+                            height: 160px;
+                            width: 100%;
+                        }
                     }
 
                     .card-body {
@@ -2439,11 +2482,8 @@
                         display: none;
                         justify-content: center;
                         align-items: center;
-
-                        i {
-                            color: $colorDark;
-                            font-size: 16px;
-                        }
+                        color: $colorDark;
+                        font-size: 16px;
                     }
 
                 }
@@ -2791,9 +2831,11 @@
                             width: 33%;
                             text-align: center;
                             line-height: 21px;
+                            font-size: 20px;
 
-                            i {
-                                margin-bottom: 15px;
+                            h4 {
+                                margin-top: 15px;
+                                font-size: 16px;
                             }
                         }
                     }
@@ -2846,9 +2888,52 @@
                             border: 1px solid $colorYellow;
                         }
 
-                        p {
-                            line-height: 28px;
-                            margin-bottom: 20px;
+                        .card-group {
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            margin-bottom: 50px;
+                            align-items: center;
+
+                            .card {
+                                width: 90%;
+                                box-shadow: 0px 10px 30px rgba($color: $colorDark, $alpha: 0.08);
+                                border-radius: 20px;
+                                padding: 20px 20px 20px 20px;
+                                margin-bottom: 20px;
+
+                                .card-heading {
+                                    display: flex;
+    
+        
+                                    h3 {
+                                        font-weight: 600;
+                                        font-size: 16px;
+                                    }
+                                }
+        
+                                .card-body {
+        
+                                    li {
+                                        list-style-type: none;
+                                        display: flex;
+                                        margin-bottom: 15px;
+        
+                                        i {
+                                            margin-right: 20px;
+                                        }
+        
+                                        h4 {
+                                            font-size: 14px;
+        
+                                            span {
+                                                font-weight: 600;
+                                            }
+                                        }
+        
+                                    }
+                                }
+                            }
                         }
 
                         .waktu-pengerjaan {
@@ -2981,15 +3066,13 @@
                         .card-heading {
                             display: flex;
                             margin-bottom: 30px;
-
-                            i {
-                                margin-right: 20px;
-                                color: $colorYellow;
-                            }
+                            color: $colorYellow;
 
                             h3 {
+                                margin-left: 20px;
                                 font-weight: 600;
                                 font-size: 16px;
+                                color: $colorDark;
                             }
                         }
 
@@ -3000,11 +3083,8 @@
                                 display: flex;
                                 margin-bottom: 15px;
 
-                                i {
-                                    margin-right: 20px;
-                                }
-
                                 h4 {
+                                    margin-left: 20px;
                                     font-size: 14px;
 
                                     span {
@@ -3097,9 +3177,11 @@
                             width: 33%;
                             text-align: center;
                             line-height: 21px;
+                            font-size: 20px;
 
-                            i {
-                                margin-bottom: 15px;
+                            h4 {
+                                margin-top: 15px;
+                                font-size: 16px;
                             }
                         }
                     }
@@ -3152,10 +3234,54 @@
                             border: 1px solid $colorYellow;
                         }
 
-                        p {
-                            line-height: 28px;
-                            margin-bottom: 20px;
+                        .card-group {
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            margin-bottom: 50px;
+                            align-items: center;
+
+                            .card {
+                                width: 90%;
+                                box-shadow: 0px 10px 30px rgba($color: $colorDark, $alpha: 0.08);
+                                border-radius: 20px;
+                                padding: 20px 20px 20px 20px;
+                                margin-bottom: 20px;
+
+                                .card-heading {
+                                    display: flex;
+    
+        
+                                    h3 {
+                                        font-weight: 600;
+                                        font-size: 16px;
+                                    }
+                                }
+        
+                                .card-body {
+        
+                                    li {
+                                        list-style-type: none;
+                                        display: flex;
+                                        margin-bottom: 15px;
+        
+                                        i {
+                                            margin-right: 20px;
+                                        }
+        
+                                        h4 {
+                                            font-size: 14px;
+        
+                                            span {
+                                                font-weight: 600;
+                                            }
+                                        }
+        
+                                    }
+                                }
+                            }
                         }
+
 
                         .waktu-pengerjaan {
                             display: flex;
@@ -3287,13 +3413,11 @@
                         .card-heading {
                             display: flex;
                             margin-bottom: 30px;
-
-                            i {
-                                margin-right: 20px;
-                                color: $colorYellow;
-                            }
+                            color: $colorYellow;
 
                             h3 {
+                                margin-left: 20px;
+                                color: $colorDark;
                                 font-weight: 600;
                                 font-size: 16px;
                             }
@@ -3306,11 +3430,8 @@
                                 display: flex;
                                 margin-bottom: 15px;
 
-                                i {
-                                    margin-right: 20px;
-                                }
-
                                 h4 {
+                                    margin-left: 20px;
                                     font-size: 14px;
 
                                     span {
@@ -3457,11 +3578,8 @@
                                     display: flex;
                                     justify-content: center;
                                     align-items: center;
-
-                                    i {
-                                        font-size: 20px;
-                                        color: $colorPink;
-                                    }
+                                    font-size: 20px;
+                                    color: $colorPink;
                                 }
                             }
                         }
@@ -3472,16 +3590,15 @@
                             .jenis {
                                 width: 50%;
                                 display: flex;
-
-                                i {
-                                    font-size: 16px;
-                                    margin-right: 10px;
-                                    color: $colorYellow;
-                                }
+                                font-size: 20px;
+                                margin-right: 10px;
+                                color: $colorYellow;
 
                                 h4 {
                                     font-size: 14px;
                                     font-weight: 600;
+                                    color: $colorDark;
+                                    margin-left: 20px;
                                 }
                             }
 
@@ -3625,11 +3742,9 @@
                                     display: flex;
                                     justify-content: center;
                                     align-items: center;
+                                    font-size: 20px;
+                                    color: $colorPink;
 
-                                    i {
-                                        font-size: 20px;
-                                        color: $colorPink;
-                                    }
                                 }
                             }
                         }
@@ -3640,16 +3755,15 @@
                             .jenis {
                                 width: 50%;
                                 display: flex;
-
-                                i {
-                                    font-size: 16px;
-                                    margin-right: 10px;
-                                    color: $colorYellow;
-                                }
+                                font-size: 20px;
+                                margin-right: 10px;
+                                color: $colorYellow;
 
                                 h4 {
                                     font-size: 14px;
                                     font-weight: 600;
+                                    color: $colorDark;
+                                    margin-left: 20px;
                                 }
                             }
 
@@ -3815,16 +3929,14 @@
 
                                             .right {
                                                 width: 20%;
+                                                display: none;
+                                                font-size: 24px;
+                                                color: $colorYellow;
 
-                                                i {
-                                                    display: none;
-                                                    font-size: 24px;
-                                                    color: $colorYellow;
-                                                }
+                                            }
 
-                                                i.active {
-                                                    display: block;
-                                                }
+                                            .right.active {
+                                                display: block;
                                             }
                                         }
 
@@ -3884,16 +3996,14 @@
 
                                         .right {
                                             width: 20%;
+                                            display: none;
+                                            font-size: 24px;
+                                            color: $colorYellow;
 
-                                            i {
-                                                display: none;
-                                                font-size: 24px;
-                                                color: $colorYellow;
-                                            }
+                                        }
 
-                                            i.active {
-                                                display: block;
-                                            }
+                                        .right.active {
+                                            display: block;
                                         }
                                     }
                                 }
@@ -4126,6 +4236,7 @@
                     h2 {
                         font-size: 28px;
                         font-weight: 600;
+                        line-height: 36px;
                     }
                 }
                 
@@ -4322,6 +4433,261 @@
                                 }
                             }
                         
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .exam {
+
+        nav {
+            background-color: white;
+            box-shadow: 0px 20px 60px rgba($color: $colorDark, $alpha: 0.04);
+
+            .content {
+
+                .btn-menu-mobile {
+                    display: flex;
+                    align-items: center;
+                    width: 50%;
+                    img {
+                        width: 150px;
+                    }
+                }
+
+                .menu {
+                    width: 0px;
+                }
+
+                .icon {
+                    width: 50%;
+
+                    .icon-profile {
+                        width: 100%;
+                        justify-content: flex-end;
+
+                        h4 {
+                            margin-right: 10px;
+                        }
+                    }
+
+                    .dropdownProfile.active {
+                        height: 60px;
+                    }
+                }
+            }
+        }
+
+        .main {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding-top: 80px;
+
+            .content {
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+
+                .content-left {
+                    width: 100%;
+
+                    .heading {
+                        margin-bottom: 30px;
+                        
+                        h1 {
+                            font-size: 28px;
+                            line-height: 36px;
+                            margin-top: 20px;
+                            margin-bottom: 10px;
+                            font-weight: 600;
+                        }
+
+                        h2 {
+                            line-height: 32px;
+                            font-size: 20px;
+                            font-weight: 600;
+                        }
+                    }
+
+                    .question {
+                        margin-bottom: 30px;
+                        width: 95%;
+                        h3 {
+                            font-size: 20px;
+                            font-weight: 500;
+                            margin-bottom: 20px;
+                        }
+
+                        p {
+                            line-height: 28px;
+                            font-size: 16px;
+                        }
+                    }
+
+                    hr {
+                        height: 1px;
+                        background-color: $colorGray;
+                        border: none;
+                        margin-bottom: 20px;
+                        width: 95%;
+                    }
+
+                    .answer {
+                        width: 100%;
+                        margin-bottom: 80px;
+
+                        ul {
+                            height: 100%;
+                            width: 100%;
+                            li {
+                                display: flex;
+                                margin-bottom: 20px;
+                                align-items: flex-start;
+                                height: 100%;
+                                width: 100%;
+
+                                .box {
+                                    height: 100%;
+                                    width: 15%;
+                                    display: flex;
+                                    align-items: flex-start;
+
+                                    .circle {
+                                        width: 40px;
+                                        height: 40px;
+                                        border-radius: 100%;
+                                        background-color: white;
+                                        cursor: pointer;
+                                        color: $colorGray;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        border: 1px solid $colorGray;
+                                        transition: 300ms;
+                                    }
+    
+                                    .circle:hover {
+                                        color: white;
+                                        transition: 300ms;
+                                        border: 1px solid $colorYellow;
+                                        background-color: $colorYellow;
+                                    }
+                                    
+                                    .circle.active {
+                                        border: 1px solid $colorYellow;
+                                        color: white;
+                                        background-color: $colorYellow;
+                                    }
+                                }
+
+                                .text {
+                                    width: 85%;
+                                    margin-left: 10px;
+                                    display: flex;
+                                    align-items: center;
+                                    min-height: 40px;
+
+                                    p {
+                                        line-height: 28px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .action {
+                        display: flex;
+                        justify-content: center;
+                        margin-bottom: 50px;
+
+                        .button-group {
+                            width: 60%;
+                            display: flex;
+                            justify-content: center;
+
+                            button {
+                                height: 40px;
+                                padding: 0px 40px 0px 40px;
+                                border-radius: 20px;
+                                border: 1px solid transparent;
+                            }
+
+                            .btn-submit {
+                                background-color: white;
+                                border: 1px solid$colorYellow;
+                                color: $colorYellow;
+                                transition: 300ms;
+                                cursor: pointer;
+                            }
+
+                            .btn-submit:hover {
+                                transition: 300ms;
+                                background-color: $colorYellow;
+                                border: 1px solid$colorYellow;
+                                color: white;
+                            }
+                        }
+                    }
+                }
+
+                .content-right {
+                    width: 100%;
+
+                    .timer {
+                        margin-top: 50px;
+                        .box {
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+
+                            h1 {
+                                font-weight: 500;
+                                font-size: 40px;
+                                color: $colorYellow;
+                            }
+                        }
+                    }
+                    .card {
+                        margin-top: 50px;
+                        margin-bottom: 50px;
+                        .card-body {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                    
+                            .box {
+                                width: 50px;
+                                height: 50px;
+                                border-radius: 5px;
+                                background-color: white;
+                                border: 1px solid gray;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                margin-left: 10px;
+                                margin-right: 10px;
+                                margin-bottom: 20px;
+                                transition: 300ms;
+                                cursor: pointer;
+                            }
+                    
+                            .box:hover {
+                                transition: 300ms;
+                                background-color: $colorYellow;
+                                border: 1px solid $colorYellow;
+                                color: white;
+                            }
+                        
+                    
+                            .box.active {
+                                background-color: $colorYellow;
+                                border: 1px solid $colorYellow;
+                                color: white;
+                            }
                         }
                     }
                 }

@@ -13,7 +13,7 @@ export function TryoutDetail(){
     const [menuActive, setMenuActive] = useContext(UserContext)
 
     useEffect(() => {
-        setMenuActive("tryout");
+        setMenuActive("myTryout");
     }, [])
 
     return (

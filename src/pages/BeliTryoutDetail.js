@@ -14,7 +14,7 @@ export function BeliTryoutDetail(){
     const [menuActive, setMenuActive] = useContext(UserContext)
 
     useEffect(() => {
-        setMenuActive("tryout");
+        setMenuActive("products");
     }, [])
 
     return (
