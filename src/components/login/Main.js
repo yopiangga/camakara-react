@@ -8,8 +8,10 @@ import {
 import logo1 from '../../assets/images/logo-1.png';
 import React from 'react'; 
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 export function Main() {
+    let history = useHistory();
 
     const handleSubmit = (event) => {
         let email = document.querySelector('#email').value;
@@ -17,10 +19,10 @@ export function Main() {
         console.log(email, password);
         event.preventDefault();
 
-        axios.post(`http://admin.petikdua.store/api/user/login`, { email: email, password: password})
+        axios.get(`http://admin.petikdua.store/api/user`, { email: email, password: password})
         .then(
             (res) => {
-                console.log(res)
+                history.push('/');
             }
         ).catch((err) => {
             console.log(err)
