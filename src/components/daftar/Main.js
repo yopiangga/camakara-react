@@ -22,7 +22,6 @@ export function Main() {
        const password = document.querySelector('#password').value;
        const telephone = parseInt(document.querySelector('#telephone').value);
 
-    //    console.log(email, nama, password, telephone);
 
        axios.post(`http://admin.petikdua.store/api/user`, {
             email: email,

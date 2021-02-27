@@ -6,22 +6,35 @@ import {
 } from "react-router-dom";
 
 import logo1 from '../../assets/images/logo-1.png';
-import React from 'react'; 
+import React, { useContext } from 'react'; 
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import { UserContext } from "../../pages/userContext";
 
 export function Main() {
     let history = useHistory();
 
+    const [menuActive, setMenuActive, user, setUser] = useContext(UserContext);
+
     const handleSubmit = (event) => {
         let email = document.querySelector('#email').value;
         let password = document.querySelector('#password').value;
-        console.log(email, password);
         event.preventDefault();
 
-        axios.get(`http://admin.petikdua.store/api/user`, { email: email, password: password})
+        axios.post(`http://admin.petikdua.store/api/user/login`, { email: email, password: password})
         .then(
             (res) => {
+                let currentUser;
+                let email = res.data.email;
+                let token = res.data.token;
+                let idUser = res.data.id;
+
+                // console.log(res);
+
+                currentUser = {email: email, token: token, idUser: idUser};
+                setUser(currentUser);
+                localStorage.setItem("data", JSON.stringify(currentUser));
+
                 history.push('/');
             }
         ).catch((err) => {

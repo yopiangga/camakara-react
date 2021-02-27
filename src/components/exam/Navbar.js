@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { FaBars, FaChevronDown, FaFacebookF, FaInstagram, FaLinkedin, FaMoneyBillAlt, FaTwitter, FaUser } from "react-icons/fa";
 import {
     BrowserRouter,
@@ -7,12 +7,14 @@ import {
     Link
 } from "react-router-dom";
 import logo from '../../assets/images/logo-1.png';
-import { UserContext } from "../../pages/userContext";
+import { UserContext} from "../../pages/userContext";
 import $ from 'jquery'
+import axios from 'axios'
+
 
 export function Navbar() {
 
-    const [menuActive, setMenuActive] = useContext(UserContext);
+    const [menuActive, setMenuActive, user, setUser] = useContext(UserContext);
 
     $('section').click(function () {
         $('.nav-desktop .content .icon .dropdownProfile').removeClass('active')
@@ -30,6 +32,18 @@ export function Navbar() {
     const NavProfileMobile = () => {
         document.querySelector(".nav-mobile .content .icon .dropdownProfile").classList.toggle('active');
     }
+
+    // useEffect( () => {
+
+    //     axios.get(`http://localhost:8080/api/user/islogin}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
+    //         (res) => {
+    //             console.log(res);
+    //         }
+    //     ).catch( (err) => {
+    //         window.alert(err);
+    //     })
+
+    // }, [])
 
     return (
         <div>

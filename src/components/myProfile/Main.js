@@ -2,8 +2,64 @@
 import { FaPencilAlt } from 'react-icons/fa'
 import Yopiangga from '../../assets/images/yopiangga.JPG'
 import example from '../../assets/images/example.jpg'
+import React, { useContext, useState, useEffect } from 'react'
+import { UserContext } from '../../pages/userContext'
+import axios from 'axios'
+import { useHistory } from "react-router-dom";
+
 
 export function Main() {
+
+    let history = useHistory();
+
+    const [menuActive, setMenuActive, user, setUser] = useContext(UserContext);
+    const [detailUser, setDetailUser] = useState({firstname: "", lastname: "", fullname: "", email: "", telp: "", school: "", graduate: ""});
+
+    // if(user.email == ""){
+    //     history.push('/login');
+    // }
+
+    useEffect( () => {
+
+        if(user == null){
+            history.push('/login');
+        } else {
+            axios.get(`http://admin.petikdua.store/api/user/${user.idUser}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
+            (res) => {
+                let firstname = res.data.data.firstname;
+                let lastname = res.data.data.lastname;
+                let fullname = res.data.data.fullname;
+                let email = res.data.data.email;
+                let telp = res.data.data.telp;
+                let school = res.data.data.school;
+                let graduate = res.data.data.graduate;
+                setDetailUser({
+                    firstname: firstname,
+                    lastname: lastname,
+                    fullname: fullname,
+                    email : email,
+                    telp : telp,
+                    school : school,
+                    graduate : graduate
+                });
+            }
+        ).catch( (err) => {
+            window.alert(err);
+        })
+        }
+
+    }, [])
+  
+    // console.log(detailUser);
+
+    const handleChange = (event) => {
+        event.preventDefault();
+    }
+
+    const handleUpdate = (event) => {
+        event.preventDefault();
+    }
+
     return (
         <div>
             <section className="main">
@@ -18,12 +74,12 @@ export function Main() {
                             </div>
                         </div>
                         <div className="title-profile">
-                            <h1>Alfian Prisma Yopiangga</h1>
-                            <h4>SMKN 1 KEDIRI</h4>
+                            <h1>{detailUser.fullname ? detailUser.fullname : "User"}</h1>
+                            <h4>{detailUser.school ? detailUser.school : "-"}</h4>
                         </div>
                     </div>
                     <div className="content-body">
-                        <form>
+                        <form onSubmit={handleUpdate}>
                             <div className="form">
                                 <div className="form-left">
                                     <h2>Data Pribadi</h2>
@@ -32,13 +88,13 @@ export function Main() {
                                         <div className="col-6">
                                             <div className="form-group">
                                                 <label>Nama Depan</label>
-                                                <input type="text" placeholder="Alfian" />
+                                                <input type="text" placeholder="Alfian" value={detailUser.firstname} onChange={handleChange}/>
                                             </div>
                                         </div>
                                         <div className="col-6">
                                             <div className="form-group">
                                                 <label>Nama Belakang</label>
-                                                <input type="text" placeholder="Yopiangga" />
+                                                <input type="text" placeholder="Yopiangga" value={detailUser.lastname} onChange={handleChange}/>
                                             </div>
                                         </div>
                                     </div>
@@ -46,13 +102,13 @@ export function Main() {
                                         <div className="col-6">
                                             <div className="form-group">
                                                 <label>Email</label>
-                                                <input type="text" placeholder="user@gmail.com" />
+                                                <input type="text" placeholder="user@gmail.com" value={detailUser.email} onChange={handleChange}/>
                                             </div>
                                         </div>
                                         <div className="col-6">
                                             <div className="form-group">
                                                 <label>No Telephone</label>
-                                                <input type="text" placeholder="+62 823 xxxx xxxx" />
+                                                <input type="text" placeholder="+62 823 xxxx xxxx" value={detailUser.telp} onChange={handleChange}/>
                                             </div>
                                         </div>
                                     </div>
@@ -60,13 +116,13 @@ export function Main() {
                                         <div className="col-6">
                                             <div className="form-group">
                                                 <label>Sekolah</label>
-                                                <input type="text" placeholder="SMKN 1 KEDIRI" />
+                                                <input type="text" placeholder="SMKN 1 KEDIRI" value={detailUser.school} onChange={handleChange}/>
                                             </div>
                                         </div>
                                         <div className="col-6">
                                             <div className="form-group">
                                                 <label>Tahun Lulus</label>
-                                                <input type="text" placeholder="2020" />
+                                                <input type="text" placeholder="2020" value={detailUser.graduate} onChange={handleChange}/>
                                             </div>
                                         </div>
                                     </div>
@@ -74,19 +130,19 @@ export function Main() {
                                         <div className="col-6">
                                             <div className="form-group">
                                                 <label>Provinsi</label>
-                                                <input type="text" />
+                                                <input type="text" onChange={handleChange}/>
                                             </div>
                                         </div>
                                         <div className="col-6">
                                             <div className="form-group">
                                                 <label>Kota / Kabupaten</label>
-                                                <input type="text" />
+                                                <input type="text" onChange={handleChange}/>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="form-group">
                                         <label>Alamat</label>
-                                        <textarea type="text"></textarea>
+                                        <textarea type="text" onChange={handleChange}></textarea>
                                     </div>
                                 </div>
                                 <div className="form-right">
@@ -100,10 +156,10 @@ export function Main() {
                                                 <img src={example} />
                                             </div>
                                             <div className="form-group">
-                                                <select name="" id="">
+                                                <select name="" id="" onChange={handleChange}>
                                                     <option>Nama Universitas</option>
                                                 </select>
-                                                <select name="" id="">
+                                                <select name="" id="" onChange={handleChange}>
                                                     <option>Program Studi</option>
                                                 </select>
                                             </div>
@@ -116,10 +172,10 @@ export function Main() {
                                                 <img src={example} />
                                             </div>
                                             <div className="form-group">
-                                                <select name="" id="">
+                                                <select name="" id="" onChange={handleChange}>
                                                     <option>Nama Universitas</option>
                                                 </select>
-                                                <select name="" id="">
+                                                <select name="" id="" onChange={handleChange}>
                                                     <option>Program Studi</option>
                                                 </select>
                                             </div>
