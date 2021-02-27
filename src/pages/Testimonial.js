@@ -12,6 +12,7 @@ export function Testimonial() {
 
     useEffect(() => {
         setMenuActive("testimonial");
+        document.title = "Testimonial - Camakara";
     }, [])
 
 

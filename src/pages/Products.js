@@ -13,6 +13,7 @@ export function Products() {
 
     useEffect(() => {
         setMenuActive("products");
+        document.title = "Cari Tryout - Camakara";
     }, [])
 
     return(

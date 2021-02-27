@@ -11,6 +11,7 @@ export function MyProfile() {
 
     useEffect(() => {
         setMenuActive("profile");
+        document.title = "Profile Saya - Camakara";
     }, [])
 
     return(

@@ -11,6 +11,7 @@ export function TopUp() {
 
     useEffect(() => {
         setMenuActive("topUp");
+        document.title = "Top Up - Camakara";
     }, [])
 
     return(

@@ -16,7 +16,7 @@ import { useHistory } from "react-router-dom";
 export function Navbar() {
 
     let history = useHistory();
-    const [menuActive, setMenuActive, user, setUser] = useContext(UserContext);
+    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser] = useContext(UserContext);
 
     $('section').click(function () {
         $('.nav-desktop .content .icon .dropdownProfile').removeClass('active')
@@ -41,22 +41,39 @@ export function Navbar() {
 
     const navLogout = () => {
         localStorage.clear();
-        setUser({email: "", token: "", idUser: ""});
+        setUser(null);
+        history.push('/login');
     }
 
-    // useEffect( () => {
+    useEffect( () => {
+        
+        if(user == null){
 
-    //     axios.get(`http://localhost:8080/api/user/islogin}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
-    //         (res) => {
-    //             console.log(res);
-    //         }
-    //     ).catch( (err) => {
-    //         window.alert(err);
-    //     })
+        } else {
+            axios.get(`http://admin.petikdua.store/api/user/${user.idUser}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
+            (res) => {
+                setDetailUser(res.data.data);
+            }
+            ).catch( (err) => {
+                window.alert(err);
+            })
+        }
 
-    // }, [])
+    }, [])
 
-    // console.log(user);
+    const saldoPrint = () => {
+        let saldoString = `${detailUser.saldo}`,
+        sisa 	= saldoString.length % 3,
+        rupiah 	= saldoString.substr(0, sisa),
+        ribuan 	= saldoString.substr(sisa).match(/\d{3}/g);
+
+        if (ribuan) {
+            let separator = sisa ? ',' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        return(rupiah);
+    }
 
     return (
         <div>
@@ -74,10 +91,16 @@ export function Navbar() {
                         </ul>
                     </div>
                     <div className="icon">
-                        <div className="icon-coins">
-                            <FaMoneyBillAlt size={20} />
-                            <h4>59 K</h4>
-                        </div>
+                        {user ? 
+                            <div className="icon-coins">
+                                <FaMoneyBillAlt size={20} />
+                                <h4>{saldoPrint()}</h4>
+                            </div> 
+                            :
+                            <div className="icon-coins">
+                                
+                            </div> 
+                        }
                         {user ? 
                                 <div className="icon-profile" onClick={NavProfile}>
                                     <FaUser color="#FDBF1F" />
@@ -85,7 +108,7 @@ export function Navbar() {
                                     <FaChevronDown />
                                 </div>
                             :
-                            <div className="icon-profile" onClick={navLogin}>
+                                <div className="icon-profile" onClick={navLogin}>
                                     <FaUser color="#FDBF1F" />
                                     <h4>Login</h4>
                                     <FaLongArrowAltRight />
@@ -97,7 +120,7 @@ export function Navbar() {
                                 <li className={menuActive == "topUp" ? "active" : ""}> <Link to="/top-up">Top Up</Link><hr /></li>
                                 <li className={menuActive == "myTryout" ? "active" : ""}> <Link to="/tryout-saya" >Tryout Saya</Link><hr /></li>
                                 <li className={menuActive == "riwayatTopUp" ? "active" : ""}> <Link to="/riwayat-top-up" >Riwayat Top Up</Link><hr /></li>
-                                <li className={menuActive == "logOut" ? "active" : ""} onClick={navLogout}> <a >Log Out</a><hr /></li>
+                                <li className={menuActive == "logOut" ? "active" : ""} onClick={navLogout}> <Link to="/login">Log Out</Link><hr /></li>
                             </ul>
                         </div>
                     </div>
@@ -111,22 +134,36 @@ export function Navbar() {
                     </div>
 
                     <div className="icon">
-                        <div className="icon-coins">
-                            <FaMoneyBillAlt size={20} color="#FDBF1F"/>
-                            <h4>59 K</h4>
-                        </div>
-                        <div className="icon-profile" onClick={NavProfileMobile}>
-                            <i className="fas fa-user"></i>
-                            <h4>Profile</h4>
-                            <FaChevronDown />
-                        </div>
+                        {user ? 
+                            <div className="icon-coins">
+                                <FaMoneyBillAlt size={20} />
+                                <h4>{detailUser.saldo}</h4>
+                            </div> 
+                            :
+                            <div className="icon-coins">
+                                
+                            </div> 
+                        }
+                        {user ? 
+                                <div className="icon-profile" onClick={NavProfile}>
+                                    <FaUser color="#FDBF1F" />
+                                    <h4>Profile</h4>
+                                    <FaChevronDown />
+                                </div>
+                            :
+                                <div className="icon-profile" onClick={navLogin}>
+                                    <FaUser color="#FDBF1F" />
+                                    <h4>Login</h4>
+                                    <FaLongArrowAltRight />
+                                </div>
+                        }
                         <div className="dropdownProfile">
                             <ul>
                                 <li className={menuActive == "profile" ? "active" : ""}> <Link to="/profile" >Akun Saya</Link><hr /></li>
                                 <li className={menuActive == "topUp" ? "active" : ""}> <Link to="/top-up">Top Up</Link><hr /></li>
                                 <li className={menuActive == "myTryout" ? "active" : ""}> <Link to="/tryout-saya" >Tryout Saya</Link><hr /></li>
                                 <li className={menuActive == "riwayatTopUp" ? "active" : ""}> <Link to="/riwayat-top-up" >Riwayat Top Up</Link><hr /></li>
-                                <li className={menuActive == "logOut" ? "active" : ""}> <Link to="/login" >Log Out</Link><hr /></li>
+                                <li className={menuActive == "logOut" ? "active" : ""} onClick={navLogout}> <Link to="/login">Log Out</Link><hr /></li>
                             </ul>
                         </div>
                     </div>

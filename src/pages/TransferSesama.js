@@ -11,6 +11,7 @@ export function TransferSesama() {
 
     useEffect(() => {
         setMenuActive("transferSesama");
+        document.title = "Transfer Sesama - Camakara";
     }, [])
 
     return(

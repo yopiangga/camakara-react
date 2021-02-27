@@ -15,6 +15,7 @@ export function BeliTryoutDetail(){
 
     useEffect(() => {
         setMenuActive("products");
+        document.title = "Beli Tryout - Camakara";
     }, [])
 
     return (

@@ -14,6 +14,7 @@ export function TryoutDetail(){
 
     useEffect(() => {
         setMenuActive("myTryout");
+        document.title = "Tryout Detail - Camakara";
     }, [])
 
     return (

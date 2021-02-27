@@ -12,42 +12,14 @@ export function Main() {
 
     let history = useHistory();
 
-    const [menuActive, setMenuActive, user, setUser] = useContext(UserContext);
-    const [detailUser, setDetailUser] = useState({firstname: "", lastname: "", fullname: "", email: "", telp: "", school: "", graduate: ""});
-
-    // if(user.email == ""){
-    //     history.push('/login');
-    // }
+    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser] = useContext(UserContext);
 
     useEffect( () => {
 
         if(user == null){
             history.push('/login');
-        } else {
-            axios.get(`http://admin.petikdua.store/api/user/${user.idUser}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
-            (res) => {
-                let firstname = res.data.data.firstname;
-                let lastname = res.data.data.lastname;
-                let fullname = res.data.data.fullname;
-                let email = res.data.data.email;
-                let telp = res.data.data.telp;
-                let school = res.data.data.school;
-                let graduate = res.data.data.graduate;
-                setDetailUser({
-                    firstname: firstname,
-                    lastname: lastname,
-                    fullname: fullname,
-                    email : email,
-                    telp : telp,
-                    school : school,
-                    graduate : graduate
-                });
-            }
-        ).catch( (err) => {
-            window.alert(err);
-        })
-        }
-
+        } 
+        
     }, [])
   
     // console.log(detailUser);

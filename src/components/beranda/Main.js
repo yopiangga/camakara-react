@@ -12,7 +12,7 @@ export function Main() {
                     <div className="content-left">
                         <h6>Selamat datang di Camakara</h6>
                         <h1>Penyelenggara Tryout UTBK Terpercaya di Indonesia</h1>
-                        <p>Kita ganti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo distinctio amet id quis debitis eos eligendi quos tempora incidunt.</p>
+                        <p>Camakara menjadi salah satu platform terpercaya di Indonesia dalam menyelenggarakan, menyediakan informasi seputar tryout UTBK agar kalian dapat semakin bersemangat dalam memperjuangkan perguruan tinggi yang diimpikannya.</p>
 
                         <form>
                             <input type="text" placeholder="Tryout UTBK 2021" />

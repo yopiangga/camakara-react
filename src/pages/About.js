@@ -12,6 +12,7 @@ export function About() {
 
     useEffect(() => {
         setMenuActive("about");
+        document.title = "Tentang - Camakara";
     }, [])
 
     return(

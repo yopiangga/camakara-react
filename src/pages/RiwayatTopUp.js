@@ -11,6 +11,7 @@ export function RiwayatTopUp() {
 
     useEffect(() => {
         setMenuActive("riwayatTopUp");
+        document.title = "Riwayat Top Up - Camakara";
     }, [])
 
     return(

@@ -11,6 +11,7 @@ export function MyTryout() {
 
     useEffect(() => {
         setMenuActive("myTryout");
+        document.title = "Tryout Saya - Camakara";
     }, [])
 
     return(

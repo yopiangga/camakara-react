@@ -16,6 +16,7 @@ export function Beranda() {
 
     useEffect(() => {
         setMenuActive("beranda");
+        document.title = "Beranda - Camakara";
     }, [])
 
     return (

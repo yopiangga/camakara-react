@@ -10,6 +10,7 @@ export function Exam(){
 
     useEffect(() => {
         setMenuActive("myTryouts");
+        document.title = "Tryout - Camakara";
     }, [])
 
     return (

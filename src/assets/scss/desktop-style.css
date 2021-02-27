@@ -459,7 +459,7 @@
   }
   .login-page .main {
     width: 100%;
-    height: 700px;
+    min-height: 100VH;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -467,6 +467,10 @@
         -ms-flex-pack: center;
             justify-content: center;
     background-color: white;
+    padding: 30px 0px 30px 0px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .login-page .main .content {
     width: 90%;
@@ -483,7 +487,7 @@
   }
   .login-page .main .content .card {
     width: 400px;
-    height: 530px;
+    min-height: 530px;
     border-radius: 30px;
     background-color: white;
     -webkit-box-sizing: border-box;
@@ -538,6 +542,26 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .login-page .main .content .card .card-body form .form-alert {
+    display: none;
+  }
+  .login-page .main .content .card .card-body form .form-alert.active {
+    margin-bottom: 20px;
+    background-color: rgba(253, 191, 31, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .login-page .main .content .card .card-body form .form-alert.active p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .login-page .main .content .card .card-body form .form-alert.active p span {
+    color: #FDBF1F;
+    font-weight: 500;
   }
   .login-page .main .content .card .card-body form .form-group {
     display: -webkit-box;
@@ -1149,8 +1173,8 @@
     width: 75%;
   }
   .home-page .why-use .content .content-body .card {
-    width: 380px;
-    height: 150px;
+    width: 400px;
+    min-height: 150px;
     -webkit-box-shadow: 0px 20px 60px rgba(57, 57, 57, 0.12);
             box-shadow: 0px 20px 60px rgba(57, 57, 57, 0.12);
     display: -webkit-box;
