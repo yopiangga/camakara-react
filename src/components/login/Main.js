@@ -14,7 +14,7 @@ import { UserContext } from "../../pages/userContext";
 export function Main() {
     let history = useHistory();
 
-    const [menuActive, setMenuActive, user, setUser] = useContext(UserContext);
+    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl] = useContext(UserContext);
     const [alert, setAlert] = useState("");
 
     const handleSubmit = (event) => {
@@ -26,13 +26,13 @@ export function Main() {
             document.querySelector(".form-alert").classList.add("active");
             setAlert(<p><span>Email</span> dan <span>Password</span> harus di isi!</p>)
         } else {
-            axios.post(`http://admin.petikdua.store/api/user/login`, { email: email, password: password})
+            axios.post(`${url.api}user/login`, { email: email, password: password})
             .then(
                 (res) => {
                     let currentUser;
-                    let email = res.data.email;
+                    let email = res.data.data.email;
                     let token = res.data.token;
-                    let idUser = res.data.id;
+                    let idUser = res.data.data.id;
 
                     if(idUser){
                         currentUser = {email: email, token: token, idUser: idUser};
@@ -43,6 +43,7 @@ export function Main() {
                     } else {
                         document.querySelector(".form-alert").classList.add("active");
                         setAlert(<p><span>Email</span> dan <span>Password</span> tidak sesuai</p>)
+                        console.log("ini id user", res);
                     }
                 }
             ).catch((err) => {

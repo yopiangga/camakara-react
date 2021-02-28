@@ -13,7 +13,7 @@ import axios from 'axios';
 
 export function Main() {
 
-    // const [, , user, setUser] = useContext(UserContext);
+    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl] = useContext(UserContext);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -23,7 +23,7 @@ export function Main() {
        const telephone = parseInt(document.querySelector('#telephone').value);
 
 
-       axios.post(`http://admin.petikdua.store/api/user`, {
+       axios.post(`${url.api}user`, {
             email: email,
             password: password,
             fullname: nama,

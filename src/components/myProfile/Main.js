@@ -12,7 +12,7 @@ export function Main() {
 
     let history = useHistory();
 
-    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser] = useContext(UserContext);
+    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl] = useContext(UserContext);
 
     useEffect( () => {
 
@@ -21,8 +21,6 @@ export function Main() {
         } 
         
     }, [])
-  
-    // console.log(detailUser);
 
     const handleChange = (event) => {
         event.preventDefault();

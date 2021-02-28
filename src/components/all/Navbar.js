@@ -16,7 +16,7 @@ import { useHistory } from "react-router-dom";
 export function Navbar() {
 
     let history = useHistory();
-    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser] = useContext(UserContext);
+    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl] = useContext(UserContext);
 
     $('section').click(function () {
         $('.nav-desktop .content .icon .dropdownProfile').removeClass('active')
@@ -50,12 +50,13 @@ export function Navbar() {
         if(user == null){
 
         } else {
-            axios.get(`http://admin.petikdua.store/api/user/${user.idUser}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
+            axios.get(`${url.api}user/${user.idUser}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 setDetailUser(res.data.data);
             }
             ).catch( (err) => {
-                window.alert(err);
+                // window.alert(err);
+                console.log(err);
             })
         }
 
