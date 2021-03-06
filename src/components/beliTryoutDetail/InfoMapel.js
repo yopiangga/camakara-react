@@ -4,24 +4,24 @@ export function InfoMapel() {
 
     return (
         <div>
-            <section class="info-mapel-tryout">
-                <div class="content">
+            <section className="info-mapel-tryout">
+                <div className="content">
                     <nav>
-                        <a class="navigation nav-left active">
+                        <a className="navigation nav-left active">
                             <h2>TPS</h2>
                         </a>
-                        <a class="navigation nav-right">
+                        <a className="navigation nav-right">
                             <h2>TKA</h2>
                         </a>
                     </nav>
-                    <div class="content-body">
+                    <div className="content-body">
 
-                        <div class="card card-tps card-1">
-                            <div class="card-heading">
+                        <div className="card card-tps card-1">
+                            <div className="card-heading">
                                 <FaStickyNote />
                                 <h3>Kemampuan Penalaran Umum</h3>
                             </div>
-                            <div class="card-body">
+                            <div className="card-body">
                                 <li>
                                     <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
@@ -33,12 +33,12 @@ export function InfoMapel() {
                             </div>
                         </div>
 
-                        <div class="card card-tps card-2">
-                            <div class="card-heading">
+                        <div className="card card-tps card-2">
+                            <div className="card-heading">
                                 <FaStickyNote />
                                 <h3>Kemampuan Kuantitatif</h3>
                             </div>
-                            <div class="card-body">
+                            <div className="card-body">
                                 <li>
                                     <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
@@ -50,12 +50,12 @@ export function InfoMapel() {
                             </div>
                         </div>
 
-                        <div class="card card-tps card-3">
-                            <div class="card-heading">
+                        <div className="card card-tps card-3">
+                            <div className="card-heading">
                                 <FaStickyNote />
                                 <h3>Pengetahuan dan Pemahaman Umum</h3>
                             </div>
-                            <div class="card-body">
+                            <div className="card-body">
                                 <li>
                                     <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
@@ -67,12 +67,12 @@ export function InfoMapel() {
                             </div>
                         </div>
 
-                        <div class="card card-tps card-4">
-                            <div class="card-heading">
+                        <div className="card card-tps card-4">
+                            <div className="card-heading">
                                 <FaStickyNote />
                                 <h3>Bahasa Inggris</h3>
                             </div>
-                            <div class="card-body">
+                            <div className="card-body">
                                 <li>
                                     <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
@@ -84,12 +84,12 @@ export function InfoMapel() {
                             </div>
                         </div>
 
-                        <div class="card card-tps card-5">
-                            <div class="card-heading">
+                        <div className="card card-tps card-5">
+                            <div className="card-heading">
                                 <FaStickyNote />
                                 <h3>Kemampuan Memahami dan Menulis</h3>
                             </div>
-                            <div class="card-body">
+                            <div className="card-body">
                                 <li>
                                     <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
@@ -101,12 +101,12 @@ export function InfoMapel() {
                             </div>
                         </div>
 
-                        <div class="card card-tka card-1 disable">
-                            <div class="card-heading">
+                        <div className="card card-tka card-1 disable">
+                            <div className="card-heading">
                                 <FaStickyNote />
                                 <h3>Fisika</h3>
                             </div>
-                            <div class="card-body">
+                            <div className="card-body">
                                 <li>
                                     <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
@@ -118,12 +118,12 @@ export function InfoMapel() {
                             </div>
                         </div>
 
-                        <div class="card card-tka card-2 disable">
-                            <div class="card-heading">
+                        <div className="card card-tka card-2 disable">
+                            <div className="card-heading">
                                 <FaStickyNote />
                                 <h3>Kimia</h3>
                             </div>
-                            <div class="card-body">
+                            <div className="card-body">
                                 <li>
                                     <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
@@ -135,12 +135,12 @@ export function InfoMapel() {
                             </div>
                         </div>
 
-                        <div class="card card-tka card-3 disable">
-                            <div class="card-heading">
+                        <div className="card card-tka card-3 disable">
+                            <div className="card-heading">
                                 <FaStickyNote />
                                 <h3>Matematika</h3>
                             </div>
-                            <div class="card-body">
+                            <div className="card-body">
                                 <li>
                                     <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
@@ -152,12 +152,12 @@ export function InfoMapel() {
                             </div>
                         </div>
 
-                        <div class="card card-tka card-4 disable">
-                            <div class="card-heading">
+                        <div className="card card-tka card-4 disable">
+                            <div className="card-heading">
                                 <FaStickyNote />
                                 <h3>Bahasa Inggris</h3>
                             </div>
-                            <div class="card-body">
+                            <div className="card-body">
                                 <li>
                                     <FaStickyNote />
                                     <h4><span>Jumlah Soal :</span> 20 Soal</h4>
