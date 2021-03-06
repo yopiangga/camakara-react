@@ -18,31 +18,31 @@ export function Main() {
     const [metode, setMetode] = useState({ metode: "", kode: "", rek: "", atasNama: "" });
     const [metodePembayaran, setMetodePembayaran] = useState([
         {
-            metode: "Bank BCA",
+            metode: "Bank BCA ( Cara Top Up sama seperti isi saldo shopeepay ) ",
             kode: "122",
             rek: "122085775526608",
             atasNama: "demitesfaye"
         },
         {
-            metode: "Bank Mandiri",
+            metode: "Bank Mandiri( Cara Top Up sama seperti isi saldo shopeepay ) ",
             kode: "893",
             rek: "893085775526608",
             atasNama: "demitesfaye"
         },
         {
-            metode: "Bank BNI",
+            metode: "Bank BNI ( Cara Top Up sama seperti isi saldo shopeepay ) ",
             kode: "8807",
             rek: "8807085775526608",
             atasNama: "demitesfaye"
         },
         {
-            metode: "Bank BRI",
+            metode: "Bank BRI ( Cara Top Up sama seperti isi saldo shopeepay ) ",
             kode: "112",
             rek: "112085775526608",
             atasNama: "demitesfaye"
         },
         {
-            metode: "Alfamart / Alfamidi",
+            metode: "Alfamart / Alfamidi ( Cara Top Up sama seperti isi saldo shopeepay ) ",
             kode: "-",
             rek: "085775526608",
             atasNama: "demitesfaye"
