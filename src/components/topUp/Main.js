@@ -18,8 +18,8 @@ export function Main() {
     const [metode, setMetode] = useState({ metode: "", kode: "", rek: "", atasNama: "" });
     const [metodePembayaran, setMetodePembayaran] = useState([
         {
-            metode: "Bank BCA ( Cara Top Up sama seperti isi saldo shopeepay ) ",
-            kode: "122",
+            metode: "Bank BCA",
+            kode: "sz",
             rek: "122085775526608",
             atasNama: "demitesfaye"
         },

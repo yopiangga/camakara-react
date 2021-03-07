@@ -27,7 +27,7 @@ export function Main() {
                             <div className="card card-1">
                                 <h3>Pusat Bantuan</h3>
                                 <img src={helpCenter} alt="" />
-                                <p>Ceritakan masalah anda pada <span>Kak Nabila</span> pusat bantuan cepat untuk masalah anda. WhatsApp <a>0823 30410865</a></p>
+                                <p>Ceritakan masalah anda pada <span>Kak Sabrina</span> pusat bantuan cepat untuk masalah anda. WhatsApp <a>089667007110</a></p>
                             </div>
                             <div className="card card-2"></div>
                             <div className="card card-3"></div>
