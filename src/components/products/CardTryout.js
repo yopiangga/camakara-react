@@ -12,10 +12,10 @@ export function CardTryout() {
     const [tryouts, setTryouts] = useState([]);
 
     const handleBeli = (event) => {
-        console.log(event.target.value);
         axios.get(`${url.api}tryout/get/${event.target.value}`).then(
             (res) => {
                 setTryout(res.data.data);
+                localStorage.setItem("tryout", JSON.stringify(res.data.data));
                 history.push("/beli-tryout-detail");
             }
         ).catch((err) => {

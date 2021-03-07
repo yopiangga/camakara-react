@@ -77,6 +77,15 @@ export function Story() {
                                     <h5>Front End Developer</h5>
                                 </div>
                             </div>
+                            <div className="card">
+                                <div className="card-image">
+                                    <img src={imgAvatar} />
+                                </div>
+                                <div className="card-text">
+                                    <h4>Alfian Yopi</h4>
+                                    <h5>Front End Developer</h5>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="item item-text">
