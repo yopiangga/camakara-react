@@ -23,7 +23,7 @@ export function Contact() {
                     </div>
                     <div className="content-right">
                         <form >
-                            <h2>Kirimkan Pesan Anda</h2>
+                            <h2>Kritik dan Saran</h2>
                             <div className="form-group">
                                 <label>Nama anda</label>
                                 <input type="text" placeholder="John doe" />

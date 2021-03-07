@@ -3,6 +3,7 @@ import React from 'react'
 import imgAvatar from '../../assets/images/example.jpg';
 import indira from '../../assets/images/indira.jpg';
 import yoga from '../../assets/images/yoga.jpg';
+import elin from '../../assets/images/elin.jpg';
 export function Story() {
     return (
         <div>
@@ -54,7 +55,7 @@ export function Story() {
                             </div>
 							<div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={elin} />
                                 </div>
                                 <div className="card-text">
                                     <h4>Melinda Sista Pratita</h4>
@@ -129,7 +130,7 @@ export function Story() {
                                 </div>
                                 <div className="card-text">
 								 <h4>Aryayoga Harjuno Ananda</h4>
-                                    <h5>Head Div.HRD </h5>
+                                    <h5>Head of HRD </h5>
                                 </div>
                             </div><div className="card">
                                 <div className="card-image">

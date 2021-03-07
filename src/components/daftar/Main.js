@@ -48,7 +48,7 @@ export function Main() {
                             <img src={logo1} alt="" />
                             <h1>Camakara</h1>
                             <hr />
-                            <p>atau sudah memiliki akun ? <Link to="/login">Masuk sekarang</Link> </p>
+                            <p>Atau sudah memiliki akun ? <Link to="/login">Masuk sekarang.</Link> </p>
                         </div>
 
                         <div className="card-body">
@@ -69,8 +69,8 @@ export function Main() {
                                 </div>
 
                                 <div className="form-group">
-                                    <label>No Telephone</label>
-                                    <input type="text" name="telephone" id="telephone" placeholder="+62 823 xxxx xxxx" />
+                                    <label>No Telepon</label>
+                                    <input type="text" name="telephone" id="telephone" placeholder="0823 xxxx xxxx" />
                                 </div>
 
                                 <button type="submit" className="btn-daftar">Daftar</button>
