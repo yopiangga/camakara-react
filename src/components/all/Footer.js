@@ -18,9 +18,9 @@ export function Footer() {
                     <div className="body">
                         <div className="contact">
                             <h4>Contact</h4>
-                            <h6 >Kediri, Jawa Timur - Indonesia</h6>
-                            <h6 >0823 3041 0865</h6>
-                            <h6 >admin@camakara.com</h6>
+                            <h6 >DKI Jakarta - Indonesia</h6>
+                            <h6 >0896 6700 7110</h6>
+                            <h6 >camakaraofficial@gmail.com</h6>
                             <h6 >www.camakara.com</h6>
                             <div className="media-sosial">
                                 <FaFacebookF />

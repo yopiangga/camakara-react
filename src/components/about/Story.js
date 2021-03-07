@@ -1,7 +1,9 @@
 
 import React from 'react'
 import imgAvatar from '../../assets/images/example.jpg';
-
+import indira from '../../assets/images/indira.jpg';
+import yoga from '../../assets/images/yoga.jpg';
+import elin from '../../assets/images/elin.jpg';
 export function Story() {
     return (
         <div>
@@ -29,15 +31,52 @@ export function Story() {
                     </div>
                     <div className="item item-image">
                         <div className="item-title">
-                            <h3>Hi there, we are Think & Grow</h3>
+                            <h3> Developer </h3>
                         </div>
+						
                         <div className="item-content">
                             <div className="card">
                                 <div className="card-image">
                                     <img src={imgAvatar} />
                                 </div>
                                 <div className="card-text">
-                                    <h4>Alfian Yopi</h4>
+                                    <h4>Sabrina Putri Puspitasari</h4>
+                                    <h5>Co-Founder</h5>
+                                </div>
+                            </div>
+                            <div className="card">
+                                <div className="card-image">
+                                    <img src={imgAvatar} />
+                                </div>
+                                <div className="card-text">
+                                    <h4>Mochamad Ichsan</h4>
+                                    <h5>Co-Founder</h5>
+                                </div>
+                            </div>
+							<div className="card">
+                                <div className="card-image">
+                                    <img src={elin} />
+                                </div>
+                                <div className="card-text">
+                                    <h4>Melinda Sista Pratita</h4>
+                                    <h5>Co-Founder</h5>
+                                </div>
+                            </div>
+							<div className="card">
+                                <div className="card-image">
+                                    <img src={imgAvatar} />
+                                </div>
+                                <div className="card-text">
+                                    <h4>Fajar Purnama</h4>
+                                    <h5>Co-Founder</h5>
+                                </div>
+                            </div>
+                            <div className="card">
+                                <div className="card-image">
+                                    <img src={imgAvatar} />
+                                </div>
+                                <div className="card-text">
+                                    <h4>Muhammad Ibnu</h4>
                                     <h5>Front End Developer</h5>
                                 </div>
                             </div>
@@ -46,44 +85,100 @@ export function Story() {
                                     <img src={imgAvatar} />
                                 </div>
                                 <div className="card-text">
-                                    <h4>Alfian Yopi</h4>
+                                    <h4>Alfian Prisma Yopiangga</h4>
                                     <h5>Front End Developer</h5>
                                 </div>
                             </div>
-                            <div className="card">
+							<div className="card">
                                 <div className="card-image">
                                     <img src={imgAvatar} />
                                 </div>
                                 <div className="card-text">
-                                    <h4>Alfian Yopi</h4>
-                                    <h5>Front End Developer</h5>
+                                    <h4>Rafi Satriana Hakim</h4>
+                                    <h5>UX Designer</h5>
                                 </div>
                             </div>
-                            <div className="card">
+							<div className="card">
                                 <div className="card-image">
                                     <img src={imgAvatar} />
                                 </div>
                                 <div className="card-text">
-                                    <h4>Alfian Yopi</h4>
-                                    <h5>Front End Developer</h5>
+                                    <h4>Nabila Riswana Almadania</h4>
+                                    <h5>UX Designer</h5>
                                 </div>
                             </div>
-                            <div className="card">
+							<div className="card">
                                 <div className="card-image">
                                     <img src={imgAvatar} />
                                 </div>
                                 <div className="card-text">
-                                    <h4>Alfian Yopi</h4>
-                                    <h5>Front End Developer</h5>
+								 <h4>Ilyas Jamalullail</h4>
+                                    <h5>UI Designer</h5>
                                 </div>
                             </div>
-                            <div className="card">
+							<div className="card">
+                                <div className="card-image">
+                                    <img src={indira} />
+                                </div>
+                                <div className="card-text">
+								 <h4>Indira Sekarzeta</h4>
+                                    <h5>Head Div. Medpro</h5>
+                                </div>
+                            </div><div className="card">
+                                <div className="card-image">
+                                    <img src={yoga} />
+                                </div>
+                                <div className="card-text">
+								 <h4>Aryayoga Harjuno Ananda</h4>
+                                    <h5>Head of HRD </h5>
+                                </div>
+                            </div><div className="card">
                                 <div className="card-image">
                                     <img src={imgAvatar} />
                                 </div>
                                 <div className="card-text">
-                                    <h4>Alfian Yopi</h4>
-                                    <h5>Front End Developer</h5>
+								 <h4>Ilyas Jamalullail</h4>
+                                    <h5>UI Designer</h5>
+                                </div>
+                            </div><div className="card">
+                                <div className="card-image">
+                                    <img src={imgAvatar} />
+                                </div>
+                                <div className="card-text">
+								 <h4>Ilyas Jamalullail</h4>
+                                    <h5>UI Designer</h5>
+                                </div>
+                            </div><div className="card">
+                                <div className="card-image">
+                                    <img src={imgAvatar} />
+                                </div>
+                                <div className="card-text">
+								 <h4>Ilyas Jamalullail</h4>
+                                    <h5>UI Designer</h5>
+                                </div>
+                            </div><div className="card">
+                                <div className="card-image">
+                                    <img src={imgAvatar} />
+                                </div>
+                                <div className="card-text">
+								 <h4>Ilyas Jamalullail</h4>
+                                    <h5>UI Designer</h5>
+                                </div>
+                            </div><div className="card">
+                                <div className="card-image">
+                                    <img src={imgAvatar} />
+                                </div>
+                                <div className="card-text">
+								 <h4>Ilyas Jamalullail</h4>
+                                    <h5>UI Designer</h5>
+                                </div>
+                            </div><div className="card">
+                                <div className="card-image">
+                                    <img src={imgAvatar} />
+                                </div>
+                                <div className="card-text">
+								 <h4>Ilyas Jamalullail</h4>
+                                    <h5>UI Designer</h5>
                                 </div>
                             </div>
                         </div>

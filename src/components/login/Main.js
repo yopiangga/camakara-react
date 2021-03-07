@@ -61,7 +61,7 @@ export function Main() {
                             <img src={logo1} alt="" />
                             <h1>Camakara</h1>
                             <hr />
-                            <p>atau belum memiliki akun ? <Link to="/daftar">Daftar sekarang</Link></p>
+                            <p>Atau belum memiliki akun ? <Link to="/daftar">Daftar sekarang.</Link></p>
                         </div>
 
                         <div className="card-body">

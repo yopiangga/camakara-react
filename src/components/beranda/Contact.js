@@ -14,7 +14,7 @@ export function Contact() {
                             <h2>Ikuti kami di Media Sosial</h2>
                         </div>
                         <div className="deskripsi">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus labore vitae commodi dicta esse quos tempora minus alias quod vel!</p>
+                            <p>Camakara akan mengirim informasi terbaru ke email mu, silahkan masukan email aktif mu.</p>
                         </div>
                         <form action="">
                             <input type="text" placeholder="contoh@gmail.com" />
@@ -23,7 +23,7 @@ export function Contact() {
                     </div>
                     <div className="content-right">
                         <form >
-                            <h2>Kirimkan Pesan Anda</h2>
+                            <h2>Kritik dan Saran</h2>
                             <div className="form-group">
                                 <label>Nama anda</label>
                                 <input type="text" placeholder="John doe" />
