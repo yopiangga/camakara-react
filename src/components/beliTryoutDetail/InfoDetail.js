@@ -11,35 +11,32 @@ export function InfoDetail() {
     const [totalTime, setTotalTime] = useState({jam: "0", menit: "0", detik: "0"});
 
     useEffect( () => {
-        setTotalTime({
-            jam : cariJam(),
-            menit : "0",
-            detik : "0"
-        })
+        setTryout(JSON.parse(localStorage.getItem('tryout')));
+        setTotalTime(cariJam);
     }, [])
 
-    console.log(tryout);
+    // console.log(tryout)
 
     const cariJam = () => {
-        let totalMenit = parseInt(tryout.t_biologi) + 
-        parseInt(tryout.t_fisika) + 
-        parseInt(tryout.t_kimia) +
-        parseInt(tryout.t_matematika) + 
-        parseInt(tryout.t_pemahaman) + 
-        parseInt(tryout.t_penalaran) +
-        parseInt(tryout.t_pengetahuan) +
-        parseInt(tryout.t_pengetahuank) +
-        parseInt(tryout.t_sejarah) +
-        parseInt(tryout.t_sosiologi) +
-        parseInt(tryout.t_geografi) +
-        parseInt(tryout.t_ekonomi) + 
-        30 ;
-
-        let jam = totalMenit % 60;
-
-        return(jam);
+        let type = JSON.parse(localStorage.getItem('tryout')).type_tryout;
+        let Saintek = JSON.parse(localStorage.getItem('tryout')).totalSaint;
+        let Soshum = JSON.parse(localStorage.getItem('tryout')).totalSoshum;
+        let totalMenit;
+        type == 2 ? totalMenit = Soshum : totalMenit = Saintek;
+        let jam = totalMenit / 60;
+        jam = jam.toFixed(0);
+        let menit = totalMenit - (jam * 60);
+        let data = {
+            jam : jam,
+            menit : menit,
+            detik : 0
+        }
+        return(data);
     }
 
+    const handleBeli = () => {
+
+    }
 
     return (
         <div>
@@ -49,7 +46,7 @@ export function InfoDetail() {
                 <div className="nama-tryout">
                     <h2>{tryout.name}</h2>
                     <hr />
-                    <button className="btn-daftar">Belum daftar</button>
+                    {user == null ? <button className="btn-daftar">Belum daftar</button> : ""}
                 </div>
                 <div className="widget">
                     <div className="widget-child kategori-tryout">
@@ -115,14 +112,14 @@ export function InfoDetail() {
                             <h6>Menit</h6>
                         </div>
                         <div className="box detik">
-                            <h4>00</h4>
+                            <h4>{totalTime.detik}</h4>
                             <h6>Detik</h6>
                         </div>
                     </div>
                 </div>
 
                 <div className="beli-tryout">
-                    <button className="btn-beli-tryout">Beli Tryout</button>
+                    <button className="btn-beli-tryout" onClick={handleBeli}>Beli Tryout</button>
                 </div>
             </div>
         </div>

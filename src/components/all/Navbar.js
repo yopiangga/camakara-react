@@ -55,12 +55,14 @@ export function Navbar() {
                 setDetailUser(res.data.data);
             }
             ).catch( (err) => {
-                // window.alert(err);
-                console.log(err);
+                setDetailUser({});
+                setUser({});
             })
         }
 
     }, [])
+
+    // console.log(user);
 
     const saldoPrint = () => {
         let saldoString = `${detailUser.saldo}`,
@@ -92,7 +94,7 @@ export function Navbar() {
                         </ul>
                     </div>
                     <div className="icon">
-                        {user ? 
+                        {user != null ? 
                             <div className="icon-coins">
                                 <FaMoneyBillAlt size={20} />
                                 <h4>{saldoPrint()}</h4>
@@ -102,7 +104,7 @@ export function Navbar() {
                                 
                             </div> 
                         }
-                        {user ? 
+                        {user != null ? 
                                 <div className="icon-profile" onClick={NavProfile}>
                                     <FaUser color="#FDBF1F" />
                                     <h4>Profile</h4>

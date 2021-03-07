@@ -14,7 +14,17 @@ export function Main() {
 
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl] = useContext(UserContext);
 
+    const [univ, setUniv] = useState();
+
     useEffect( () => {
+
+        axios.get(`${url.api}univ`).then(
+            (res) => {
+                console.log(res);
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
 
         if(user == null){
             history.push('/login');
