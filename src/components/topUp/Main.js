@@ -312,7 +312,7 @@ export function Main() {
 
                                 <div className="form-group">
                                     <label >Masukkan jumlah Top Up</label>
-                                    <input type="number" value={jumlahTopUp} />
+                                    <input type="number" defaultValue={jumlahTopUp} />
                                 </div>
 
                                 <hr />

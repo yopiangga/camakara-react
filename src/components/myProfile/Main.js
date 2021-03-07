@@ -14,13 +14,15 @@ export function Main() {
 
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl] = useContext(UserContext);
 
-    const [univ, setUniv] = useState();
+    const [univ, setUniv] = useState([]);
+    const [prodi1, setProdi1] = useState([]);
+    const [prodi2, setProdi2] = useState([]);
 
     useEffect( () => {
 
         axios.get(`${url.api}univ`).then(
             (res) => {
-                console.log(res);
+                setUniv(res.data.data);
             }
         ).catch((err) => {
             console.log(err);
@@ -39,6 +41,31 @@ export function Main() {
     const handleUpdate = (event) => {
         event.preventDefault();
     }
+
+    const handleUniv1 = (event) => {
+        const id = event.target.value;
+
+        axios.get(`${url.api}prodi/get/${id}`).then(
+            (res) => {
+                setProdi1(res.data.data);
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
+    }
+
+    const handleUniv2 = (event) => {
+        const id = event.target.value;
+
+        axios.get(`${url.api}prodi/get/${id}`).then(
+            (res) => {
+                setProdi2(res.data.data);
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
+    }
+
 
     return (
         <div>
@@ -136,11 +163,23 @@ export function Main() {
                                                 <img src={example} />
                                             </div>
                                             <div className="form-group">
-                                                <select name="" id="" onChange={handleChange}>
-                                                    <option>Nama Universitas</option>
+                                                <select name="" id="" onChange={handleUniv1}>
+                                                    {
+                                                        univ.map(function (el, idx){
+                                                            return(
+                                                                <option value={el.univ_id}>{el.name}</option>
+                                                            )
+                                                        })
+                                                    }
                                                 </select>
                                                 <select name="" id="" onChange={handleChange}>
-                                                    <option>Program Studi</option>
+                                                    {
+                                                        prodi1.map(function (el, idx){
+                                                            return(
+                                                                <option value={el.id_jurusan}>{el.name}</option>
+                                                            )
+                                                        })
+                                                    }
                                                 </select>
                                             </div>
                                         </div>
@@ -152,11 +191,23 @@ export function Main() {
                                                 <img src={example} />
                                             </div>
                                             <div className="form-group">
-                                                <select name="" id="" onChange={handleChange}>
-                                                    <option>Nama Universitas</option>
+                                                <select name="" id="" onChange={handleUniv2}>
+                                                {
+                                                        univ.map(function (el, idx){
+                                                            return(
+                                                                <option value={el.univ_id}>{el.name}</option>
+                                                            )
+                                                        })
+                                                    }
                                                 </select>
                                                 <select name="" id="" onChange={handleChange}>
-                                                    <option>Program Studi</option>
+                                                {
+                                                        prodi2.map(function (el, idx){
+                                                            return(
+                                                                <option value={el.id_jurusan}>{el.name}</option>
+                                                            )
+                                                        })
+                                                    }
                                                 </select>
                                             </div>
                                         </div>

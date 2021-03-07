@@ -1,11 +1,12 @@
 import axios from 'axios';
 import $ from "jquery"
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { UserContext } from '../../pages/userContext';
 
 export function Main() {
 
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
+    const [dataTransfer, setDataTransfer] = useState({fromid: "", telp: "", userTarget: "", nominal: ""});
 
     const checkUserTransfer = (event) => {
         event.preventDefault();
@@ -15,6 +16,12 @@ export function Main() {
         if(telp != null && nominal != null){
             axios.get(`${url.api}transfer/notelp/${telp}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
+                setDataTransfer({
+                    fromid: user.idUser,
+                    userTarget: res.data.data.fullname,
+                    telp: telp,
+                    nominal: nominal
+                });
                 $('.transferSesama-page .main .content .content-body .card-transfer-detail').addClass('active')
             }
             ).catch((err) => {
@@ -23,6 +30,17 @@ export function Main() {
         } else {
 
         }
+    }
+
+    const handleKonfirmasi = () => {
+        console.log(dataTransfer)
+        axios.post(`${url.api}transfer/`, {headers: {"Authorization" : `Bearer ${user.token}`}, fromid : dataTransfer.fromid, telp: dataTransfer.telp, nominal: dataTransfer.nominal}).then(
+            (res) => {
+                console.log(res);
+            }
+            ).catch((err) => {
+                console.log(err);
+            })
     }
 
     return (
@@ -66,18 +84,18 @@ export function Main() {
                                     <h3 className="nama-bank">Transfer Sesama</h3>
                                     <hr />
                                     <h5>No. Telephone :</h5>
-                                    <h4>0823 3041 0865</h4>
+                                    <h4>{dataTransfer.telp}</h4>
 
                                     <h5>Atas Nama</h5>
-                                    <h4>Alfian Prisma Yopiangga</h4>
+                                    <h4>{dataTransfer.userTarget}</h4>
 
                                     <h5>Nominal</h5>
-                                    <h3><span>30.0000</span></h3>
+                                    <h3><span>{dataTransfer.nominal}</span></h3>
                                 </div>
 
                                 <div className="form-action">
                                     <button className="btn-cancel">Cancel</button>
-                                    <button className="btn-konfirmasi">Konfirmasi</button>
+                                    <button className="btn-konfirmasi" onClick={handleKonfirmasi}>Konfirmasi</button>
                                 </div>
                             </div>
                         </div>

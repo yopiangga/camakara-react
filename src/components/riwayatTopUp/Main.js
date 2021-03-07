@@ -15,14 +15,14 @@ export function Main() {
 
     return (
         <div>
-            <section class="main">
-                <div class="content">
-                    <div class="content-head">
+            <section className="main">
+                <div className="content">
+                    <div className="content-head">
                         <h2>Riwayat Top Up</h2>
-                        <div class="filter">
+                        <div className="filter">
                             <button onClick={handleTopUp}>Top Up</button>
                             <button onClick={handleTransferSesama}>Transfer Sesama Camakara</button>
-                            <select name="" id="" class="filter-status">
+                            <select name="" id="" className="filter-status">
                                 <option>Status Top Up</option>
                                 <option value="semua">Semua</option>
                                 <option value="buktiPembayaran">Bukti Pembayaran</option>
@@ -32,91 +32,91 @@ export function Main() {
                             </select>
                         </div>
                     </div>
-                    <div class="content-body">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="text">
+                    <div className="content-body">
+                        <div className="card">
+                            <div className="card-body">
+                                <div className="text">
                                     <h3>Top Up 20.000</h3>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                 </div>
-                                <div class="icon">
-                                    <div class="circle">
+                                <div className="icon">
+                                    <div className="circle">
                                         <FaHourglass />
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <div class="jenis">
+                            <div className="card-footer">
+                                <div className="jenis">
                                     <FaMoneyBillAlt />
                                     <h4>Gopay</h4>
                                 </div>
-                                <div class="waktu">
+                                <div className="waktu">
                                     <h4>23 Februari 2021</h4>
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="text">
+                        <div className="card">
+                            <div className="card-body">
+                                <div className="text">
                                     <h3>Top Up 20.000</h3>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                 </div>
-                                <div class="icon">
-                                    <div class="circle">
+                                <div className="icon">
+                                    <div className="circle">
                                         <FaHourglass />
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <div class="jenis">
+                            <div className="card-footer">
+                                <div className="jenis">
                                     <FaMoneyBillAlt />
                                     <h4>Gopay</h4>
                                 </div>
-                                <div class="waktu">
+                                <div className="waktu">
                                     <h4>23 Februari 2021</h4>
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="text">
+                        <div className="card">
+                            <div className="card-body">
+                                <div className="text">
                                     <h3>Top Up 20.000</h3>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                 </div>
-                                <div class="icon">
-                                    <div class="circle">
+                                <div className="icon">
+                                    <div className="circle">
                                         <FaHourglass />
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <div class="jenis">
+                            <div className="card-footer">
+                                <div className="jenis">
                                     <FaMoneyBillAlt />
                                     <h4>Gopay</h4>
                                 </div>
-                                <div class="waktu">
+                                <div className="waktu">
                                     <h4>23 Februari 2021</h4>
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="text">
+                        <div className="card">
+                            <div className="card-body">
+                                <div className="text">
                                     <h3>Top Up 20.000</h3>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                 </div>
-                                <div class="icon">
-                                    <div class="circle">
+                                <div className="icon">
+                                    <div className="circle">
                                         <FaHourglass />
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <div class="jenis">
+                            <div className="card-footer">
+                                <div className="jenis">
                                     <FaMoneyBillAlt />
                                     <h4>Gopay</h4>
                                 </div>
-                                <div class="waktu">
+                                <div className="waktu">
                                     <h4>23 Februari 2021</h4>
                                 </div>
                             </div>
