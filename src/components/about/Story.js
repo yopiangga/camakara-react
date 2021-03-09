@@ -4,6 +4,11 @@ import imgAvatar from '../../assets/images/example.jpg';
 import indira from '../../assets/images/indira.jpg';
 import yoga from '../../assets/images/yoga.jpg';
 import elin from '../../assets/images/elin.jpg';
+import akbar from '../../assets/images/akbar.jpg';
+import ican from '../../assets/images/ican.jpg';
+import demi from '../../assets/images/demi.jpeg';
+import sabrina from '../../assets/images/sabrina.jpg';
+import ilyas from '../../assets/images/ilyas.jpeg';
 export function Story() {
     return (
         <div>
@@ -37,7 +42,7 @@ export function Story() {
                         <div className="item-content">
                             <div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={sabrina} />
                                 </div>
                                 <div className="card-text">
                                     <h4>Sabrina Putri Puspitasari</h4>
@@ -46,7 +51,7 @@ export function Story() {
                             </div>
                             <div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={ican} />
                                 </div>
                                 <div className="card-text">
                                     <h4>Mochamad Ichsan</h4>
@@ -109,7 +114,7 @@ export function Story() {
                             </div>
 							<div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={ilyas} />
                                 </div>
                                 <div className="card-text">
 								 <h4>Ilyas Jamalullail</h4>
@@ -134,19 +139,19 @@ export function Story() {
                                 </div>
                             </div><div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={akbar} />
                                 </div>
                                 <div className="card-text">
-								 <h4>Ilyas Jamalullail</h4>
-                                    <h5>UI Designer</h5>
+								 <h4>Akbar Maulana</h4>
+                                    <h5>Head of Academic</h5>
                                 </div>
                             </div><div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={demi} />
                                 </div>
                                 <div className="card-text">
-								 <h4>Ilyas Jamalullail</h4>
-                                    <h5>UI Designer</h5>
+								 <h4>Demi Putri Maharani</h4>
+                                    <h5>Vice President of Finance</h5>
                                 </div>
                             </div><div className="card">
                                 <div className="card-image">
