@@ -2,14 +2,17 @@
 import React from 'react'
 import imgAvatar from '../../assets/images/example.jpg';
 import indira from '../../assets/images/indira.jpg';
-import yoga from '../../assets/images/yoga.jpg';
-import elin from '../../assets/images/elin.jpg';
-import akbar from '../../assets/images/akbar.jpg';
-import ican from '../../assets/images/ican.jpg';
-import demi from '../../assets/images/demi.jpeg';
-import sabrina from '../../assets/images/sabrina.jpg';
-import ilyas from '../../assets/images/ilyas.jpeg';
-import anandap from '../../assets/images/anandap.JPEG';
+import yoga from '../../assets/images/yoga.png';
+import elin from '../../assets/images/elin.png';
+import akbar from '../../assets/images/akbar.png';
+import ican from '../../assets/images/ican.png';
+import demi from '../../assets/images/demi.png';
+import sabrina from '../../assets/images/sabrina.png';
+import ilyas from '../../assets/images/ilyas.png';
+import anandap from '../../assets/images/ananda.png';
+import yopi from '../../assets/images/yopi.png';
+import fajar from '../../assets/images/fajar.png';
+
 export function Story() {
     return (
         <div>
@@ -65,12 +68,12 @@ export function Story() {
                                 </div>
                                 <div className="card-text">
                                     <h4>Melinda Sista Pratita</h4>
-                                    <h5>Co-Founder</h5>
+                                    <h5>Co-Founder </h5>
                                 </div>
                             </div>
 							<div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={fajar} />
                                 </div>
                                 <div className="card-text">
                                     <h4>Fajar Purnama</h4>
@@ -88,7 +91,7 @@ export function Story() {
                             </div>
                             <div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={yopi} />
                                 </div>
                                 <div className="card-text">
                                     <h4>Alfian Prisma Yopiangga</h4>
@@ -167,8 +170,8 @@ export function Story() {
                                     <img src={imgAvatar} />
                                 </div>
                                 <div className="card-text">
-								 <h4>Ilyas Jamalullail</h4>
-                                    <h5>UI Designer</h5>
+								 <h4>Febri ....</h4>
+                                    <h5>Head of ....</h5>
                                 </div>
                             </div>
                         </div>
