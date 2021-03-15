@@ -12,6 +12,9 @@ import ilyas from '../../assets/images/ilyas.png';
 import anandap from '../../assets/images/ananda.png';
 import yopi from '../../assets/images/yopi.png';
 import fajar from '../../assets/images/fajar.png';
+import ibnu from '../../assets/images/ibnu.png';
+import rafi from '../../assets/images/rafi.png';
+import nabila from '../../assets/images/nabila.png';
 
 export function Story() {
     return (
@@ -40,7 +43,7 @@ export function Story() {
                     </div>
                     <div className="item item-image">
                         <div className="item-title">
-                            <h3> Developer </h3>
+                            <h3> Developer, Head Div and Founders Camakara </h3>
                         </div>
 						
                         <div className="item-content">
@@ -82,7 +85,7 @@ export function Story() {
                             </div>
                             <div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={ibnu} />
                                 </div>
                                 <div className="card-text">
                                     <h4>Muhammad Ibnu</h4>
@@ -100,7 +103,7 @@ export function Story() {
                             </div>
 							<div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={rafi} />
                                 </div>
                                 <div className="card-text">
                                     <h4>Rafi Satriana Hakim</h4>
@@ -109,7 +112,7 @@ export function Story() {
                             </div>
 							<div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={nabila} />
                                 </div>
                                 <div className="card-text">
                                     <h4>Nabila Riswana Almadania</h4>
@@ -170,8 +173,8 @@ export function Story() {
                                     <img src={imgAvatar} />
                                 </div>
                                 <div className="card-text">
-								 <h4>Febri ....</h4>
-                                    <h5>Head of ....</h5>
+								 <h4>Ridwan ....</h4>
+                                    <h5>Head of Public Relation</h5>
                                 </div>
                             </div>
                         </div>
