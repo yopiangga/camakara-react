@@ -29,6 +29,7 @@ export function Main() {
             axios.post(`${url.api}user/login`, { email: email, password: password})
             .then(
                 (res) => {
+                    // console.log(res.data);
                     let currentUser;
                     let email = res.data.data.email;
                     let token = res.data.token;

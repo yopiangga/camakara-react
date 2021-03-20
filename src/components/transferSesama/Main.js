@@ -16,6 +16,8 @@ export function Main() {
         if(telp != null && nominal != null){
             axios.get(`${url.api}transfer/notelp/${telp}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
+                // console.log(res);
+                // console.log(telp);
                 setDataTransfer({
                     fromid: user.idUser,
                     userTarget: res.data.data.fullname,
@@ -31,10 +33,10 @@ export function Main() {
 
         }
     }
-
+    
     const handleKonfirmasi = () => {
         console.log(dataTransfer)
-        axios.post(`${url.api}transfer/`, {headers: {"Authorization" : `Bearer ${user.token}`}, fromid : dataTransfer.fromid, telp: dataTransfer.telp, nominal: dataTransfer.nominal}).then(
+        axios.post(`${url.api}transfer`, {headers: {"Authorization" : `Bearer ${user.token}`}, fromid : dataTransfer.fromid, telp: dataTransfer.telp, nominal: dataTransfer.nominal}).then(
             (res) => {
                 console.log(res);
             }

@@ -26,7 +26,7 @@ export function InfoMapel() {
         $('.navigation.nav-left').removeClass('active');
     }
 
-    console.log(tryout);
+    // console.log(tryout);
 
     return (
         <div>

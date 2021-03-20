@@ -8,58 +8,68 @@ import transferIcon1 from '../../assets/images/transfer-icon-1.png';
 import transferIcon2 from '../../assets/images/transfer-icon-2.png';
 import transferIcon3 from '../../assets/images/transfer-icon-3.png';
 import transferIcon4 from '../../assets/images/transfer-icon-4.png';
-import { useState } from "react";
-import $, { timers } from 'jquery';
+import { useContext, useState } from "react";
+import $, { event, timers } from 'jquery';
+import { UserContext } from "../../pages/userContext";
+import axios from 'axios';
 
 
 export function Main() {
 
+    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
     const [jumlahTopUp, setJumlahTopUp] = useState(0);
     const [metode, setMetode] = useState({ metode: "", kode: "", rek: "", atasNama: "" });
+    const [gambar, setGambar] = useState();
     const [metodePembayaran, setMetodePembayaran] = useState([
         {
+            idPayment: "1",
             metode: "Bank BCA",
             kode: "sz",
             rek: "122085775526608",
             atasNama: "demitesfaye"
         },
         {
+            idPayment: "2",
             metode: "Bank Mandiri( Cara Top Up sama seperti isi saldo shopeepay ) ",
             kode: "893",
             rek: "893085775526608",
             atasNama: "demitesfaye"
         },
         {
+            idPayment: "3",
             metode: "Bank BNI ( Cara Top Up sama seperti isi saldo shopeepay ) ",
             kode: "8807",
             rek: "8807085775526608",
             atasNama: "demitesfaye"
         },
         {
+            idPayment: "4",
             metode: "Bank BRI ( Cara Top Up sama seperti isi saldo shopeepay ) ",
             kode: "112",
             rek: "112085775526608",
             atasNama: "demitesfaye"
         },
         {
+            idPayment: "5",
             metode: "Alfamart / Alfamidi ( Cara Top Up sama seperti isi saldo shopeepay ) ",
             kode: "-",
             rek: "085775526608",
             atasNama: "demitesfaye"
         },
         {
+            idPayment: "6",
             metode: "OVO",
             kode: "-",
             rek: "085775526608",
             atasNama: "camakara"
         },
         {
+            idPayment: "7",
             metode: "Shopee Pay",
             kode: "-",
             rek: "085775526608",
             atasNama: "demitesfaye"
         }
-
 
     ])
 
@@ -70,6 +80,7 @@ export function Main() {
 
     const selectBank = (metode) => {
         setMetode({
+            idPayment: metodePembayaran[metode].idPayment,
             metode: metodePembayaran[metode].metode,
             kode: metodePembayaran[metode].kode,
             rek: metodePembayaran[metode].rek,
@@ -143,34 +154,67 @@ export function Main() {
         }
 
         window.scroll({
-            top: 550, 
-            left: 0, 
+            top: 550,
+            left: 0,
             behavior: 'smooth',
-          });
+        });
+    }
+    const handleFile = (event) => {
+        setGambar(event.target.files[0]);
+    }
+
+    const handleKonfirmasi = (event) => {
+        event.preventDefault();
+        let formData = new FormData();
+        formData.append('image', gambar);
+        formData.append('id', detailUser.id_user);
+        formData.append('nominal', jumlahTopUp);
+        formData.append('bankid', metode.idPayment);
+
+        axios({
+            url: `${url.api}topup`,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            },
+            data: formData
+            // data: {
+            //     id: detailUser.id_user,
+            //     nominal: jumlahTopUp,
+            //     image: formData,
+            //     bankid: metode.idPayment
+            // }
+        }).then(
+            (res) => {
+                console.log(res);
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
     }
 
     const handleChoiceJumlah = (event) => {
         const id = event.target.id;
 
-        if(id == "choice-10"){
+        if (id == "choice-10") {
             setJumlahTopUp(10000);
 
-        } else if(id == "choice-20"){
+        } else if (id == "choice-20") {
             setJumlahTopUp(20000);
 
-        } else if(id == "choice-50"){
+        } else if (id == "choice-50") {
             setJumlahTopUp(50000);
 
-        } else if(id == "choice-100"){
+        } else if (id == "choice-100") {
             setJumlahTopUp(100000);
 
-        } else if(id == "choice-200"){
+        } else if (id == "choice-200") {
             setJumlahTopUp(200000);
 
-        } else if(id == "choice-300"){
+        } else if (id == "choice-300") {
             setJumlahTopUp(300000);
         }
-        
+
     }
 
     return (
@@ -331,31 +375,34 @@ export function Main() {
                         </div>
 
                         <div className="card-transfer-detail">
-                            <div className="form">
-                                <h2>Transfer Detail</h2>
+                            <form onSubmit={handleKonfirmasi}>
+                                <div className="form">
+                                    <h2>Transfer Detail</h2>
 
-                                <div className="form-group">
-                                    <h3 className="nama-bank">{metode.metode}</h3>
-                                    <hr />
-                                    <h5 className="nama-bank">Kode Bank : </h5>
-                                    <h4 className="atas-nama">{metode.kode}</h4>
-                                    <h5>No. Rekening : </h5>
-                                    <h3><span className="no-rekening">{metode.rek}</span></h3>
-                                    <br />
-                                    <h5 className="nama-bank">Atas nama : </h5>
-                                    <p>Hanya menerima dari <span className="atas-nama">{metode.atasNama}</span></p>
-                                </div>
-
-                                <div className="form-image">
-                                    <input type="file" id="avatar" className="avatar" name="avatar" accept="image/png, image/jpeg" />
-                                    <div className="lewati-image">
-                                        <input type="checkbox" name="lewati" id="lewati" />
-                                        <label htmlFor="lewati">Lewati upload bukti pembayaran</label>
+                                    <div className="form-group">
+                                        <h3 className="nama-bank">{metode.metode}</h3>
+                                        <hr />
+                                        <h5 className="nama-bank">Kode Bank : </h5>
+                                        <h4 className="atas-nama">{metode.kode}</h4>
+                                        <h5>No. Rekening : </h5>
+                                        <h3><span className="no-rekening">{metode.rek}</span></h3>
+                                        <br />
+                                        <h5 className="nama-bank">Atas nama : </h5>
+                                        <p>Hanya menerima dari <span className="atas-nama">{metode.atasNama}</span></p>
                                     </div>
-                                </div>
 
-                                <button className="btn-konfirmasi">Konfirmasi</button>
-                            </div>
+                                    <div className="form-image">
+                                        <input type="file" id="avatar" className="avatar" name="avatar" onChange={handleFile} accept="image/png, image/jpeg" />
+
+                                        {/* <div className="lewati-image">
+                                            <input type="checkbox" name="lewati" id="lewati" />
+                                            <label htmlFor="lewati">Lewati upload bukti pembayaran</label>
+                                        </div> */}
+                                    </div>
+
+                                    <button className="btn-konfirmasi">Konfirmasi</button>
+                                </div>
+                            </form>
                         </div>
 
                     </div>

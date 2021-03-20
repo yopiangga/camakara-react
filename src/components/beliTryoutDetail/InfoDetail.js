@@ -2,6 +2,7 @@ import { timers } from "jquery";
 import { useContext, useState, useEffect } from "react";
 import { FaBookReader, FaMoneyBillWave, FaUsers } from "react-icons/fa";
 import { UserContext } from "../../pages/userContext";
+import axios from 'axios';
 
 
 export function InfoDetail() {
@@ -35,7 +36,14 @@ export function InfoDetail() {
     }
 
     const handleBeli = () => {
-
+        axios.post(`${url.api}mytryout`, {iduser: detailUser.id_user, idtryout: tryout.id_tryout })
+            .then(
+                (res) => {
+                    console.log(res);
+                }
+            ).catch((err) => {
+                console.log(err)
+            })
     }
 
     return (
@@ -59,7 +67,7 @@ export function InfoDetail() {
                     </div>
                     <div className="widget-child peserta">
                         <FaMoneyBillWave />
-                        <h4>Rp {tryout.price} K</h4>
+                        <h4>Rp {tryout.price}</h4>
                     </div>
                 </div>
                 <div className="deskripsi-tryout">
