@@ -15,6 +15,7 @@ import fajar from '../../assets/images/fajar.png';
 import ibnu from '../../assets/images/ibnu.png';
 import rafi from '../../assets/images/rafi.png';
 import nabila from '../../assets/images/nabila.png';
+import ridwan from '../../assets/images/ridwan.png';
 
 export function Story() {
     return (
@@ -170,10 +171,10 @@ export function Story() {
                                 </div>
                             </div><div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={ridwan} />
                                 </div>
                                 <div className="card-text">
-								 <h4>Ridwan ....</h4>
+								 <h4>Muhammad Ridwan Triadi</h4>
                                     <h5>Head of Public Relation</h5>
                                 </div>
                             </div>
