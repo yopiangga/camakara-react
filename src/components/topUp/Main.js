@@ -178,12 +178,6 @@ export function Main() {
                 'Content-Type': 'multipart/form-data'
             },
             data: formData
-            // data: {
-            //     id: detailUser.id_user,
-            //     nominal: jumlahTopUp,
-            //     image: formData,
-            //     bankid: metode.idPayment
-            // }
         }).then(
             (res) => {
                 console.log(res);
