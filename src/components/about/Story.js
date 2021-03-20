@@ -2,8 +2,20 @@
 import React from 'react'
 import imgAvatar from '../../assets/images/example.jpg';
 import indira from '../../assets/images/indira.jpg';
-import yoga from '../../assets/images/yoga.jpg';
-import elin from '../../assets/images/elin.jpg';
+import yoga from '../../assets/images/yoga.png';
+import elin from '../../assets/images/elin.png';
+import akbar from '../../assets/images/akbar.png';
+import ican from '../../assets/images/ican.png';
+import demi from '../../assets/images/demi.png';
+import sabrina from '../../assets/images/sabrina.png';
+import ilyas from '../../assets/images/ilyas.png';
+import anandap from '../../assets/images/ananda.png';
+import yopi from '../../assets/images/yopi.png';
+import fajar from '../../assets/images/fajar.png';
+import ibnu from '../../assets/images/ibnu.png';
+import rafi from '../../assets/images/rafi.png';
+import nabila from '../../assets/images/nabila.png';
+
 export function Story() {
     return (
         <div>
@@ -31,13 +43,13 @@ export function Story() {
                     </div>
                     <div className="item item-image">
                         <div className="item-title">
-                            <h3> Developer </h3>
+                            <h3> Developer, Head Div and Founders Camakara </h3>
                         </div>
 						
                         <div className="item-content">
                             <div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={sabrina} />
                                 </div>
                                 <div className="card-text">
                                     <h4>Sabrina Putri Puspitasari</h4>
@@ -46,7 +58,7 @@ export function Story() {
                             </div>
                             <div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={ican} />
                                 </div>
                                 <div className="card-text">
                                     <h4>Mochamad Ichsan</h4>
@@ -59,12 +71,12 @@ export function Story() {
                                 </div>
                                 <div className="card-text">
                                     <h4>Melinda Sista Pratita</h4>
-                                    <h5>Co-Founder</h5>
+                                    <h5>Co-Founder </h5>
                                 </div>
                             </div>
 							<div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={fajar} />
                                 </div>
                                 <div className="card-text">
                                     <h4>Fajar Purnama</h4>
@@ -73,7 +85,7 @@ export function Story() {
                             </div>
                             <div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={ibnu} />
                                 </div>
                                 <div className="card-text">
                                     <h4>Muhammad Ibnu</h4>
@@ -82,7 +94,7 @@ export function Story() {
                             </div>
                             <div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={yopi} />
                                 </div>
                                 <div className="card-text">
                                     <h4>Alfian Prisma Yopiangga</h4>
@@ -91,7 +103,7 @@ export function Story() {
                             </div>
 							<div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={rafi} />
                                 </div>
                                 <div className="card-text">
                                     <h4>Rafi Satriana Hakim</h4>
@@ -100,7 +112,7 @@ export function Story() {
                             </div>
 							<div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={nabila} />
                                 </div>
                                 <div className="card-text">
                                     <h4>Nabila Riswana Almadania</h4>
@@ -109,7 +121,7 @@ export function Story() {
                             </div>
 							<div className="card">
                                 <div className="card-image">
-                                    <img src={imgAvatar} />
+                                    <img src={ilyas} />
                                 </div>
                                 <div className="card-text">
 								 <h4>Ilyas Jamalullail</h4>
@@ -122,7 +134,7 @@ export function Story() {
                                 </div>
                                 <div className="card-text">
 								 <h4>Indira Sekarzeta</h4>
-                                    <h5>Head Div. Medpro</h5>
+                                    <h5>Head of Media and Promotion</h5>
                                 </div>
                             </div><div className="card">
                                 <div className="card-image">
@@ -130,55 +142,39 @@ export function Story() {
                                 </div>
                                 <div className="card-text">
 								 <h4>Aryayoga Harjuno Ananda</h4>
-                                    <h5>Head of HRD </h5>
+                                    <h5>Head of Human Resources Development </h5>
+                                </div>
+                            </div><div className="card">
+                                <div className="card-image">
+                                    <img src={akbar} />
+                                </div>
+                                <div className="card-text">
+								 <h4>Akbar Maulana</h4>
+                                    <h5>Head of Academic</h5>
+                                </div>
+                            </div><div className="card">
+                                <div className="card-image">
+                                    <img src={demi} />
+                                </div>
+                                <div className="card-text">
+								 <h4>Demi Putri Maharani</h4>
+                                    <h5>Vice President of Finance</h5>
+                                </div>
+                            </div><div className="card">
+                                <div className="card-image">
+                                    <img src={anandap} />
+                                </div>
+                                <div className="card-text">
+								 <h4>Ananda Putri</h4>
+                                    <h5>Head Of Recruitment</h5>
                                 </div>
                             </div><div className="card">
                                 <div className="card-image">
                                     <img src={imgAvatar} />
                                 </div>
                                 <div className="card-text">
-								 <h4>Ilyas Jamalullail</h4>
-                                    <h5>UI Designer</h5>
-                                </div>
-                            </div><div className="card">
-                                <div className="card-image">
-                                    <img src={imgAvatar} />
-                                </div>
-                                <div className="card-text">
-								 <h4>Ilyas Jamalullail</h4>
-                                    <h5>UI Designer</h5>
-                                </div>
-                            </div><div className="card">
-                                <div className="card-image">
-                                    <img src={imgAvatar} />
-                                </div>
-                                <div className="card-text">
-								 <h4>Ilyas Jamalullail</h4>
-                                    <h5>UI Designer</h5>
-                                </div>
-                            </div><div className="card">
-                                <div className="card-image">
-                                    <img src={imgAvatar} />
-                                </div>
-                                <div className="card-text">
-								 <h4>Ilyas Jamalullail</h4>
-                                    <h5>UI Designer</h5>
-                                </div>
-                            </div><div className="card">
-                                <div className="card-image">
-                                    <img src={imgAvatar} />
-                                </div>
-                                <div className="card-text">
-								 <h4>Ilyas Jamalullail</h4>
-                                    <h5>UI Designer</h5>
-                                </div>
-                            </div><div className="card">
-                                <div className="card-image">
-                                    <img src={imgAvatar} />
-                                </div>
-                                <div className="card-text">
-								 <h4>Ilyas Jamalullail</h4>
-                                    <h5>UI Designer</h5>
+								 <h4>Ridwan ....</h4>
+                                    <h5>Head of Public Relation</h5>
                                 </div>
                             </div>
                         </div>
