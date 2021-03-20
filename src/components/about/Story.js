@@ -10,7 +10,7 @@ import demi from '../../assets/images/demi.png';
 import sabrina from '../../assets/images/sabrina.png';
 import ilyas from '../../assets/images/ilyas.png';
 import anandap from '../../assets/images/ananda.png';
-import yopi from '../../assets/images/yopi.png';
+import yopi from '../../assets/images/yopiangga.jpg';
 import fajar from '../../assets/images/fajar.png';
 import ibnu from '../../assets/images/ibnu.png';
 import rafi from '../../assets/images/rafi.png';
