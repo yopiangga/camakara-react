@@ -1,4 +1,4 @@
-import {FaFire} from "react-icons/fa"
+import {FaCuttlefish} from "react-icons/fa"
 import {FaChartLine} from "react-icons/fa"
 
 export function YouGet() {
@@ -41,7 +41,7 @@ export function YouGet() {
                     </div>
                     <div className="content-right">
                         <div className="icon">
-                            <FaFire />
+                            <FaCuttlefish />
                         </div>
                         <div className="title">
                             <h2>Apa Saja Aktivitas Camakara ?</h2>

@@ -16,7 +16,11 @@ import ibnu from '../../assets/images/ibnu.png';
 import rafi from '../../assets/images/rafi.png';
 import nabila from '../../assets/images/nabila.png';
 import ridwan from '../../assets/images/ridwan.png';
-
+import a from '../../assets/images/a1.jpg';
+import a2 from '../../assets/images/a2.jpg';
+import a3 from '../../assets/images/a3.jpg';
+import a4 from '../../assets/images/a4.jpg';
+import a5 from '../../assets/images/a5.jpg';
 export function Story() {
     return (
         <div>
@@ -145,7 +149,8 @@ export function Story() {
 								 <h4>Aryayoga Harjuno Ananda</h4>
                                     <h5>Head of Human Resources Development </h5>
                                 </div>
-                            </div><div className="card">
+                            </div>
+							<div className="card">
                                 <div className="card-image">
                                     <img src={akbar} />
                                 </div>
@@ -169,7 +174,8 @@ export function Story() {
 								 <h4>Ananda Putri</h4>
                                     <h5>Head Of Recruitment</h5>
                                 </div>
-                            </div><div className="card">
+                            </div>
+							<div className="card">
                                 <div className="card-image">
                                     <img src={ridwan} />
                                 </div>
