@@ -1,4 +1,4 @@
-import {FaFire} from "react-icons/fa"
+import {RiUserFollowLine} from "react-icons/ri"
 
 
 export function Contact() {
@@ -8,7 +8,7 @@ export function Contact() {
                 <div className="content">
                     <div className="content-left">
                         <div className="icon">
-                            <FaFire />
+                            <RiUserFollowLine />
                         </div>
                         <div className="title">
                             <h2>Ikuti kami di Media Sosial</h2>

@@ -10,8 +10,7 @@ export function Main() {
                 <div className="content">
                     <div className="content-left">
                         <h1>Testimonial </h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo distinctio amet id quis debitis eos
-    eligendi quos tempora incidunt.</p>
+                        <p>Apa kata mereka tentang camakara ?</p>
 
                         <div className="circle">
                             <FaLongArrowAltDown />

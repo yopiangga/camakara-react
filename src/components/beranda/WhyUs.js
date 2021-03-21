@@ -1,5 +1,5 @@
 
-import {FaCuttlefish} from "react-icons/fa"
+import {AiFillPushpin} from "react-icons/ai"
 import {FaChartLine} from "react-icons/fa"
 
 export function WhyUs() {
@@ -9,7 +9,7 @@ export function WhyUs() {
                 <div className="content">
                     <div className="content-head">
                         <div className="icon">
-                            <FaCuttlefish />
+                            <AiFillPushpin />
                         </div>
                         <div className="title">
                             <h2>Mengapa Memilih Kami ?</h2>

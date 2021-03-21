@@ -1,4 +1,4 @@
-import {FaFire} from "react-icons/fa"
+import {IoMdPeople} from "react-icons/io"
 import example from "../../assets/images/example.jpg"
 
 export function Testimonial() {
@@ -41,13 +41,13 @@ export function Testimonial() {
                     </div>
                     <div className="content-right">
                         <div className="icon">
-                            <FaFire />
+                            <IoMdPeople />
                         </div>
                         <div className="title">
                             <h2>Testimoni dari peserta</h2>
                         </div>
                         <div className="deskripsi">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus labore vitae commodi dicta esse quos tempora minus alias quod vel!</p>
+                            <p>Camakara sudah terbukti membantu peserta yang ingin meraih PTN impian</p>
                         </div>
                         <button className="btn-action">Mulai Tryout</button>
                     </div>
