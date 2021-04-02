@@ -1,6 +1,6 @@
 
 import { FaPencilAlt } from 'react-icons/fa'
-import Yopiangga from '../../assets/images/yopiangga.jpg'
+import Yopiangga from '../../assets/images/yopiangga.jpg';
 import example from '../../assets/images/example.jpg'
 import React, { useContext, useState, useEffect } from 'react'
 import { UserContext } from '../../pages/userContext'

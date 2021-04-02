@@ -14,7 +14,7 @@ import axios from 'axios'
 
 export function Navbar() {
 
-    const [menuActive, setMenuActive, user, setUser] = useContext(UserContext);
+    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
 
     $('section').click(function () {
         $('.nav-desktop .content .icon .dropdownProfile').removeClass('active')
@@ -33,17 +33,22 @@ export function Navbar() {
         document.querySelector(".nav-mobile .content .icon .dropdownProfile").classList.toggle('active');
     }
 
-    // useEffect( () => {
+    useEffect( () => {
 
-    //     axios.get(`http://localhost:8080/api/user/islogin}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
-    //         (res) => {
-    //             console.log(res);
-    //         }
-    //     ).catch( (err) => {
-    //         window.alert(err);
-    //     })
+        if(user == null){
 
-    // }, [])
+        } else {
+            axios.get(`${url.api}user/${user.idUser}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
+            (res) => {
+                setDetailUser(res.data.data);
+            }
+            ).catch( (err) => {
+                setDetailUser({});
+                setUser({});
+            })
+        }
+
+    }, [])
 
     return (
         <div>

@@ -9,7 +9,7 @@ export function CardTryout() {
     let history = useHistory()
 
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
-    const [tryouts, setTryouts] = useState([]);
+    const [tryouts, setTryouts] = useState([{}]);
 
     const handleBeli = (event) => {
         axios.get(`${url.api}tryout/get/${event.target.value}`).then(

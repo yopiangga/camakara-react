@@ -170,6 +170,7 @@ export function Main() {
         formData.append('id', detailUser.id_user);
         formData.append('nominal', jumlahTopUp);
         formData.append('bankid', metode.idPayment);
+        // console.log(formData.append.id);
 
         axios({
             url: `${url.api}topup`,
@@ -207,9 +208,27 @@ export function Main() {
 
         } else if (id == "choice-300") {
             setJumlahTopUp(300000);
+        } else {
+            // setJumlahTopUp(event.target.value);
         }
 
     }
+
+    const saldoPrint = () => {
+        let saldoString = `${jumlahTopUp}`,
+        sisa 	= saldoString.length % 3,
+        rupiah 	= saldoString.substr(0, sisa),
+        ribuan 	= saldoString.substr(sisa).match(/\d{3}/g);
+
+        if (ribuan) {
+            let separator = sisa ? ',' : '';
+            rupiah += separator + ribuan.join(',');
+        }
+
+        return(rupiah);
+    }
+
+    console.log(jumlahTopUp);
 
     return (
         <div>
@@ -348,21 +367,21 @@ export function Main() {
                                     <button className="btn-choice" id="choice-300" onClick={handleChoiceJumlah}>300.000</button>
                                 </div>
 
-                                <div className="form-group">
+                                {/* <div className="form-group">
                                     <label >Masukkan jumlah Top Up</label>
-                                    <input type="number" defaultValue={jumlahTopUp} />
-                                </div>
+                                    <input type="number" value={saldoPrint()} readOnly/>
+                                </div> */}
 
-                                <hr />
+                                {/* <hr /> */}
 
                                 <div className="form-group">
                                     <div className="jumlah-topup">
                                         <h4>Jumlah Top Up</h4>
-                                        <h4>Rp <span>{jumlahTopUp}</span></h4>
+                                        <h4>Rp <span>{saldoPrint()}</span></h4>
                                     </div>
                                     <div className="jumlah-pembayaran">
                                         <h4>Total Pembayaran</h4>
-                                        <h4><span>Rp {jumlahTopUp}</span></h4>
+                                        <h4><span>Rp {saldoPrint()}</span></h4>
                                     </div>
                                 </div>
                             </div>

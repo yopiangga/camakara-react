@@ -1,6 +1,87 @@
-
+import { useContext, useEffect, useState } from "react"
+import { UserContext } from "../../pages/userContext"
+import axios from "axios";
 
 export function Main() {
+    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
+    const [answer, setAnswer] = useState([]);
+    const [waktuAll, setWaktuAll] = useState({ time: "", timeStart: "" });
+    const [tryoutReadyMapel, setTryoutReadyMapel] = useState([{
+        namamapel: "",
+        no_soal: "",
+        soal: "",
+        pilihan1: "",
+        pilihan2: "",
+        pilihan3: "",
+        pilihan4: "",
+        pilihan5: "",
+    }]);
+    const [noSoal, setNoSoal] = useState(0);
+
+    useEffect(() => {
+        setTryout(JSON.parse(localStorage.getItem('tryout')));
+        setTryoutReadyMapel(JSON.parse(localStorage.getItem('tryoutReadyMapel')));
+        setWaktuAll({
+            time: JSON.parse(localStorage.getItem('waktu')),
+            timeStart: JSON.parse(localStorage.getItem('waktuStart'))
+        });
+    }, [])
+
+    // console.log(waktuAll);
+
+    // let jam, menit, detik;
+
+    // jam = (waktuAll.time / 60).toFixed();
+    // menit = waktuAll.time % 60;
+    // detik = 0;
+
+    // console.log(jam, menit, detik);
+
+    // var countDownDate = new Date(`Mar 28, 2021 ${jam}:${menit}:${detik}`).getTime();
+
+    // var x = setInterval(function () {
+
+    //     var now = new Date().getTime();
+
+    //     var distance = countDownDate - now;
+
+    //     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    //     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    //     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    //     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    //     document.getElementById("demo").innerHTML = hours + " : "
+    //         + minutes + " : " + seconds;
+
+    //     // console.log(hours, minutes, seconds);
+
+    //     if (distance < 0) {
+    //         clearInterval(x);
+    //         document.getElementById("demo").innerHTML = "Selesai";
+    //     }
+    // }, 1000);
+
+    const handleNomerSoal = (no) => {
+        setNoSoal(no);
+    }
+
+    const handleJawab = (value) => {
+        const arr = [...answer];
+        arr[noSoal] = value;
+        setAnswer(arr);
+    }
+
+    const handleSelesai = () => {
+        axios.post(`${url.api}exam/${user.idUser}/${tryout.id_tryout}/${tryoutReadyMapel[0].kind_tryout}`, { answer: answer.toString() }).then(
+            (res) => {
+                console.log(`${url.api}exam/${detailUser.id_user}/${tryout.id_tryout}/${tryoutReadyMapel[0].kind_tryout}`);
+                console.log(res);
+                // history.push("/exam");
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
+    }
 
     return (
         <div>
@@ -8,104 +89,89 @@ export function Main() {
                 <div className="content">
                     <div className="content-left">
                         <div className="heading">
-                            <h1>Tryout Camakara UTBK V3</h1>
-                            <h2>Penalaran Umum</h2>
+                            <h1>{tryout.name}</h1>
+                            <h2>{tryoutReadyMapel[noSoal].namamapel}</h2>
                         </div>
                         <div className="question">
-                            <h3>Soal 1</h3>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus distinctio mollitia molestias numquam odio laudantium, tempore recusandae? Incidunt hic cupiditate porro, ipsum eius in rem dignissimos veniam inventore asperiores consequatur?</p>
-
+                            <h3>Soal {tryoutReadyMapel[noSoal].no_soal}</h3>
+                            <p>{tryoutReadyMapel[noSoal].soal}</p>
+                            <img src={tryoutReadyMapel[noSoal].image} />
                         </div>
                         <hr />
                         <div className="answer">
                             <ul>
                                 <li>
                                     <div className="box">
-                                        <div className="circle active">A</div>
+                                        <div className={(answer[noSoal] == 1) ? "circle active" : "circle"} onClick={() => { handleJawab(1) }}>A</div>
                                     </div>
                                     <div className="text">
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam pariatur, quia, voluptates ipsum nesciunt officiis alias aut similique amet sed, repellendus sequi sapiente soluta hic quod suscipit? Explicabo, sapiente nostrum!</p>
+                                        <p>{tryoutReadyMapel[noSoal].pilihan1}</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div className="box">
-                                        <div className="circle">B</div>
+                                        <div className={(answer[noSoal] == 2) ? "circle active" : "circle"} onClick={() => { handleJawab(2) }}>B</div>
                                     </div>
                                     <div className="text">
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit</p>
+                                        <p>{tryoutReadyMapel[noSoal].pilihan2}</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div className="box">
-                                        <div className="circle">C</div>
+                                        <div className={(answer[noSoal] == 3) ? "circle active" : "circle"} onClick={() => { handleJawab(3) }}>C</div>
                                     </div>
                                     <div className="text">
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit</p>
+                                        <p>{tryoutReadyMapel[noSoal].pilihan3}</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div className="box">
-                                        <div className="circle">D</div>
+                                        <div className={(answer[noSoal] == 4) ? "circle active" : "circle"} onClick={() => { handleJawab(4) }}>D</div>
                                     </div>
                                     <div className="text">
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit</p>
+                                        <p>{tryoutReadyMapel[noSoal].pilihan4}</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div className="box">
-                                        <div className="circle">E</div>
+                                        <div className={(answer[noSoal] == 5) ? "circle active" : "circle"} onClick={() => { handleJawab(5) }}>E</div>
                                     </div>
                                     <div className="text">
-                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit</p>
+                                        <p>{tryoutReadyMapel[noSoal].pilihan5}</p>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                         <div className="action">
                             <div className="button-group">
-                                <button className="btn-submit">Selesai</button>
+                                {
+                                    (tryoutReadyMapel.length - 1 == noSoal) ?
+                                        <button className="btn-submit" onClick={handleSelesai}>Selesai</button>
+                                        :
+                                        ""
+                                }
                             </div>
                         </div>
                     </div>
                     <div className="content-right">
                         <div className="timer">
                             <div className="box">
-                                <h1>00:30:29</h1>
+                                <h1 id="demo"></h1>
                             </div>
                         </div>
 
                         <div className="card" id="navigasi-soal">
                             <div className="card-body">
-                                <div className="box active">1</div>
-                                <div className="box">2</div>
-                                <div className="box">3</div>
-                                <div className="box">4</div>
-                                <div className="box">5</div>
-                                <div className="box">6</div>
-                                <div className="box">7</div>
-                                <div className="box">8</div>
-                                <div className="box">9</div>
-                                <div className="box">10</div>
-                                <div className="box">11</div>
-                                <div className="box">12</div>
-                                <div className="box">13</div>
-                                <div className="box">14</div>
-                                <div className="box">15</div>
-                                <div className="box">16</div>
-                                <div className="box">17</div>
-                                <div className="box">18</div>
-                                <div className="box">19</div>
-                                <div className="box">20</div>
-                                <div className="box">21</div>
-                                <div className="box">22</div>
-                                <div className="box">23</div>
-                                <div className="box">24</div>
-                                <div className="box">25</div>
-                                <div className="box">26</div>
-                                <div className="box">27</div>
-                                <div className="box">28</div>
-                                <div className="box">29</div>
-                                <div className="box">30</div>
+                                {
+                                    tryoutReadyMapel.map(function (el, idx) {
+                                        return (
+                                            <div className={(noSoal == idx) ? "box active" : "box"} key={idx} onClick={() => { handleNomerSoal(idx) }}>{el.no_soal}</div>
+                                        )
+                                    })
+                                }
+
+
+
                             </div>
                         </div>
                     </div>

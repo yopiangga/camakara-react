@@ -9,9 +9,9 @@ export function InfoDetail() {
 
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
     const [time, setTime] = useState({});
-    const [totalTime, setTotalTime] = useState({jam: "0", menit: "0", detik: "0"});
+    const [totalTime, setTotalTime] = useState({ jam: "0", menit: "0", detik: "0" });
 
-    useEffect( () => {
+    useEffect(() => {
         setTryout(JSON.parse(localStorage.getItem('tryout')));
         setTotalTime(cariJam);
     }, [])
@@ -28,15 +28,15 @@ export function InfoDetail() {
         jam = jam.toFixed(0);
         let menit = totalMenit - (jam * 60);
         let data = {
-            jam : jam,
-            menit : menit,
-            detik : 0
+            jam: jam,
+            menit: menit,
+            detik: 0
         }
-        return(data);
+        return (data);
     }
 
     const handleBeli = () => {
-        axios.post(`${url.api}mytryout`, {iduser: detailUser.id_user, idtryout: tryout.id_tryout })
+        axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout })
             .then(
                 (res) => {
                     console.log(res);
@@ -49,38 +49,38 @@ export function InfoDetail() {
     return (
         <div>
             <section className="info-detail-tryout">
-        <div className="content">
-            <div className="content-left">
-                <div className="nama-tryout">
-                    <h2>{tryout.name}</h2>
-                    <hr />
-                    {user == null ? <button className="btn-daftar">Belum daftar</button> : ""}
-                </div>
-                <div className="widget">
-                    <div className="widget-child kategori-tryout">
-                        <FaBookReader />
-                        <h4>Camakara Tryout</h4>
+                <div className="content">
+                    <div className="content-left">
+                        <div className="nama-tryout">
+                            <h2>{tryout.name}</h2>
+                            <hr />
+                            {user == null ? <button className="btn-daftar">Belum daftar</button> : ""}
+                        </div>
+                        <div className="widget">
+                            <div className="widget-child kategori-tryout">
+                                <FaBookReader />
+                                <h4>Camakara Tryout</h4>
+                            </div>
+                            <div className="widget-child peserta">
+                                <FaUsers />
+                                <h4>1550 Orang</h4>
+                            </div>
+                            <div className="widget-child peserta">
+                                <FaMoneyBillWave />
+                                <h4>Rp {tryout.price}</h4>
+                            </div>
+                        </div>
+                        <div className="deskripsi-tryout">
+                            <h3>Deskripsi</h3>
+                            <hr />
+                            <p>{tryout.descript}</p>
+                        </div>
                     </div>
-                    <div className="widget-child peserta">
-                        <FaUsers />
-                        <h4>1550 Orang</h4>
-                    </div>
-                    <div className="widget-child peserta">
-                        <FaMoneyBillWave />
-                        <h4>Rp {tryout.price}</h4>
-                    </div>
-                </div>
-                <div className="deskripsi-tryout">
-                    <h3>Deskripsi</h3>
-                    <hr />
-                    <p>{tryout.descript}</p>
-                </div>
-            </div>
-            <div className="content-right">
-                <div className="tanggal-pengerjaan">
-                    <h3>Waktu Pengerjaan</h3>
-                    <hr />
-                    <div className="card-group">
+                    <div className="content-right">
+                        <div className="tanggal-pengerjaan">
+                            <h3>Waktu Pengerjaan</h3>
+                            <hr />
+                            <div className="card-group">
                                 <div className="card">
                                     <div className="card-heading">
                                         <h3>Mulai Tryout</h3>
@@ -106,32 +106,32 @@ export function InfoDetail() {
                                         <li>
                                             <h4><span>Waktu :</span> {tryout.time_end} WIB</h4>
                                         </li>
-   
+
                                     </div>
                                 </div>
                             </div>
-                    <div className="waktu-pengerjaan">
-                        <div className="box jam">
-                            <h4>{totalTime.jam}</h4>
-                            <h6>Jam</h6>
+                            <div className="waktu-pengerjaan">
+                                <div className="box jam">
+                                    <h4>{totalTime.jam}</h4>
+                                    <h6>Jam</h6>
+                                </div>
+                                <div className="box menit">
+                                    <h4>{totalTime.menit}</h4>
+                                    <h6>Menit</h6>
+                                </div>
+                                <div className="box detik">
+                                    <h4>{totalTime.detik}</h4>
+                                    <h6>Detik</h6>
+                                </div>
+                            </div>
                         </div>
-                        <div className="box menit">
-                            <h4>{totalTime.menit}</h4>
-                            <h6>Menit</h6>
-                        </div>
-                        <div className="box detik">
-                            <h4>{totalTime.detik}</h4>
-                            <h6>Detik</h6>
+
+                        <div className="beli-tryout">
+                            <button className="btn-beli-tryout" onClick={handleBeli}>Beli Tryout</button>
                         </div>
                     </div>
                 </div>
-
-                <div className="beli-tryout">
-                    <button className="btn-beli-tryout" onClick={handleBeli}>Beli Tryout</button>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
         </div>
     )
 }

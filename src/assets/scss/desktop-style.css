@@ -4625,6 +4625,10 @@
     line-height: 28px;
     font-size: 16px;
   }
+  .exam .main .content .content-left .question img {
+    width: 100%;
+    height: auto;
+  }
   .exam .main .content .content-left hr {
     height: 1px;
     background-color: #C4C4C4;
