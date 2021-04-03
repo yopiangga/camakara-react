@@ -34,8 +34,8 @@ export function Testimonial() {
                             </div>
 
                             <div className="card">
-                                <h3>Optimized for Speed A Quality</h3>
-                                <p>Necessitatibus labore vitae commodi dicta esse quos tempora minus alias quod vel!</p>
+                                <h3>Udin </h3>
+                                <p>TO nya bagus banget....</p>
                             </div>
                         </div>
                     </div>

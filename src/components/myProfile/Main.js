@@ -1,7 +1,6 @@
 
 import { FaPencilAlt } from 'react-icons/fa'
-import Yopiangga from '../../assets/images/yopiangga.jpg';
-import example from '../../assets/images/example.jpg'
+import  example from '../../assets/images/example.jpg';
 import React, { useContext, useState, useEffect } from 'react'
 import { UserContext } from '../../pages/userContext'
 import axios from 'axios'
@@ -113,7 +112,7 @@ export function Main() {
                     <div className="content-heading">
                         <div className="img-profile">
                             <div className="circle-image">
-                                <img src={Yopiangga} />
+                                <img src={example} />
                             </div>
                             {/* <div type="file" className="circle-edit">
                                 <FaPencilAlt />
@@ -135,13 +134,13 @@ export function Main() {
                                         <div className="col-6">
                                             <div className="form-group">
                                                 <label>Nama Depan</label>
-                                                <input type="text" placeholder="Alfian" name="firstname" value={detailUser.firstname} onChange={handleChange}/>
+                                                <input type="text" placeholder="Nama" name="firstname" value={detailUser.firstname} onChange={handleChange}/>
                                             </div>
                                         </div>
                                         <div className="col-6">
                                             <div className="form-group">
                                                 <label>Nama Belakang</label>
-                                                <input type="text" placeholder="Yopiangga" name="lastname" value={detailUser.lastname} onChange={handleChange}/>
+                                                <input type="text" placeholder="Nama" name="lastname" value={detailUser.lastname} onChange={handleChange}/>
                                             </div>
                                         </div>
                                     </div>
@@ -169,7 +168,7 @@ export function Main() {
                                         <div className="col-6">
                                             <div className="form-group">
                                                 <label>Tahun Lulus</label>
-                                                <input type="text" placeholder="2020" name="graduate" value={detailUser.graduate} onChange={handleChange}/>
+                                                <input type="text" placeholder="Tahun" name="graduate" value={detailUser.graduate} onChange={handleChange}/>
                                             </div>
                                         </div>
                                     </div>
