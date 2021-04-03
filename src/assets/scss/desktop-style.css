@@ -3069,6 +3069,45 @@
   .beli-tryout-detail .info-detail-tryout .content .content-right .tanggal-pengerjaan .waktu-pengerjaan .box h6 {
     font-size: 14px;
   }
+  .beli-tryout-detail .info-detail-tryout .content .content-right .form-free {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .beli-tryout-detail .info-detail-tryout .content .content-right .form-free .form-group {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .beli-tryout-detail .info-detail-tryout .content .content-right .form-free .form-group label {
+    width: 30%;
+  }
+  .beli-tryout-detail .info-detail-tryout .content .content-right .form-bebas {
+    margin-bottom: 30px;
+  }
+  .beli-tryout-detail .info-detail-tryout .content .content-right .form-bebas .form-group {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 20px;
+  }
+  .beli-tryout-detail .info-detail-tryout .content .content-right .form-bebas .form-group label {
+    width: 30%;
+  }
+  .beli-tryout-detail .info-detail-tryout .content .content-right .form-bebas .form-group input {
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid #FDBF1F;
+    text-align: right;
+    padding: 0px 10px 0px 10px;
+    color: #FDBF1F;
+    font-size: 16px;
+  }
   .beli-tryout-detail .info-detail-tryout .content .content-right .beli-tryout .btn-beli-tryout {
     padding: 12px 25px 12px 25px;
     background-color: #FDBF1F;

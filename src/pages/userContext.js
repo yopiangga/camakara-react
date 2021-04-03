@@ -12,9 +12,10 @@ const [detailUser, setDetailUser] = useState({firstname: "", lastname: "", fulln
 // const [url, setUrl] = useState({api: `http://192.168.1.54/project/4/admin/api/`, baseUrl: "http://192.168.1.54/"});
 const [url, setUrl] = useState({api: `http://admin.petikdua.store/api/`, baseUrl: "http://admin.petikdua.store/"});
 const [tryout, setTryout] = useState([]);
+const [category, setCategory] = useState([1,2,3]);
 
   return (
-    <UserContext.Provider value={[menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout]}>
+    <UserContext.Provider value={[menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout, category, setCategory]}>
       {props.children}
     </UserContext.Provider>
   );

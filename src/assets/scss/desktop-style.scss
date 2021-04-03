@@ -42,7 +42,6 @@ $colorLight : #EFEFEF;
 $colorDark : #393939;
 $colorBlack : #000000;
 
-
     .page {
         font-family: $fontPrimary;
         color: $colorDark;
@@ -2955,6 +2954,46 @@ $colorBlack : #000000;
                         }
                     }
 
+                    .form-free {
+                        width: 100%;
+                        margin-bottom: 30px;
+
+                        .form-group {
+                            width: 100%;
+                            display: flex;
+                            margin-bottom: 20px;
+
+                            label {
+                                width: 30%;
+                            }
+                        }
+                    }
+
+                    .form-bebas {
+                        margin-bottom: 30px;
+
+                        .form-group {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 20px;
+
+                            label {
+                                width: 30%;
+                            }
+
+                            input {
+                                height: 35px;
+                                border-radius: 5px;
+                                border: 1px solid $colorYellow;
+                                text-align: right;
+                                padding: 0px 10px 0px 10px;
+                                color: $colorYellow;
+                                font-size: 16px;
+                            }
+                        }
+                    }
+
                     .beli-tryout {
 
                         .btn-beli-tryout {
@@ -4667,6 +4706,8 @@ $colorBlack : #000000;
             }
         }
     }
+
+    
 
     #mobile {
         display: none;

@@ -35,8 +35,27 @@ export function InfoDetail() {
         return (data);
     }
 
+    const validasi = () => {
+        if(tryout.payment_method == '1'){
+            if(document.querySelector('#free1').value == null || document.querySelector('#free2').value == null || document.querySelector('#free3').value == null){
+                return 0;
+            } else {
+                return 1;
+            }
+        } else if(tryout.payment_method == '2'){
+            return 1;
+        } else if(tryout.payment_method == '3'){
+            if(document.querySelector('#bebas').value <= 0){
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+    }
+
     const handleBeli = () => {
-        axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout })
+        if(validasi()){
+            axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout })
             .then(
                 (res) => {
                     console.log(res);
@@ -44,6 +63,7 @@ export function InfoDetail() {
             ).catch((err) => {
                 console.log(err)
             })
+        }
     }
 
     return (
@@ -125,6 +145,37 @@ export function InfoDetail() {
                                 </div>
                             </div>
                         </div>
+
+                        {(tryout.payment_method == '1') ? 
+                            <div className="form-free">
+                                <div className="form-group">
+                                    <label>Bukti Screenshot 1</label>
+                                    <input type="file" id="free1"/>
+                                </div>
+                                <div className="form-group">
+                                    <label>Bukti Screenshot 2</label>
+                                    <input type="file" id="free2"/>
+                                </div>
+                                <div className="form-group">
+                                    <label>Bukti Screenshot 3</label>
+                                    <input type="file" id="free3"/>
+                                </div>
+                            </div>
+                        :
+                            <div></div>
+                    
+                        }
+
+                        {(tryout.payment_method == '3') ? 
+                            <div className="form-bebas">
+                                <div className="form-group">
+                                    <label>Jumlah Sukarela</label>
+                                    <input type="text" id="bebas" placeholder="Rp 1"/>
+                                </div>
+                            </div>
+                        : 
+                            <div></div>
+                        }
 
                         <div className="beli-tryout">
                             <button className="btn-beli-tryout" onClick={handleBeli}>Beli Tryout</button>

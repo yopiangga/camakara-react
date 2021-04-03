@@ -115,9 +115,9 @@ export function Main() {
                             <div className="circle-image">
                                 <img src={Yopiangga} />
                             </div>
-                            <div type="file" className="circle-edit">
-                                {/* <FaPencilAlt /> */}
-                            </div>
+                            {/* <div type="file" className="circle-edit">
+                                <FaPencilAlt />
+                            </div> */}
                             
                         </div>
                         <div className="title-profile">

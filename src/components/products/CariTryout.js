@@ -1,7 +1,54 @@
 
+import { useContext } from "react";
 import {FaSearch} from "react-icons/fa"
+import { UserContext } from "../../pages/userContext";
+import $ from 'jquery';
 
 export function CariTryout() {
+    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout, category, setCategory] = useContext(UserContext);
+
+    const handleCategory = (event) => {
+        document.querySelector('.all').classList.remove("active");
+        document.querySelector('.aUtbk').classList.remove("active");
+        document.querySelector('.aBebas').classList.remove("active");
+        document.querySelector('.aKuno').classList.remove("active");
+        switch(event){
+            case 0:
+                setCategory([1,2,3]);
+                document.querySelector('.all').classList.add("active");
+                break;
+            case 1:
+                setCategory([1]);
+                document.querySelector('.aUtbk').classList.add("active");
+                break;
+            case 2:
+                setCategory([2]);
+                document.querySelector('.aBebas').classList.add("active");
+                break;
+            case 3:
+                setCategory([3]);
+                document.querySelector('.aKuno').classList.add("active");
+                break;
+        }
+    }
+
+    const handleCategoryMobile = (event) => {
+        switch(event.target.value){
+            case '0':
+                setCategory([1,2,3]);
+                break;
+            case '1':
+                setCategory([1]);
+                break;
+            case '2':
+                setCategory([2]);
+                break;
+            case '3':
+                setCategory([3]);
+                break;
+        }
+    }
+
     return (
         <div>
             <section className="cari-tryout">
@@ -17,23 +64,22 @@ export function CariTryout() {
                         </div>
                         <div className="navigation" id="desktop">
                             <ul>
-                                <a className="all active"><li>Semua Tryout</li><hr /></a>
-                                <a className="aUtbk"><li>Tryout UTBK</li><hr /></a>
-                                <a className="aBebas"><li>Tryout Bebas</li><hr /></a>
+                                <a className="all active" onClick={() => {handleCategory(0)}}><li>Semua Tryout</li><hr /></a>
+                                <a className="aUtbk" onClick={() => {handleCategory(1)}}><li>Tryout UTBK</li><hr /></a>
+                                <a className="aBebas" onClick={() => {handleCategory(2)}}><li>Tryout Bebas</li><hr /></a>
                                 {/* <a className="aPaket"><li>Paket Tryout</li><hr /></a> */}
-                                <a className="aKuno"><li>Tryout Kuno</li><hr /></a>
-                                <a className="aQuiz"><li>Quiz</li><hr /></a>
+                                <a className="aKuno" onClick={() => {handleCategory(3)}}><li>Tryout Kuno</li><hr /></a>
+                                {/* <a className="aQuiz"><li>Quiz</li><hr /></a> */}
                             </ul>
                         </div>
                         <div className="filter" id="mobile">
-                            <select name="" id="" className="filter-jenis">
-                                <option>Filter</option>
-                                <option value="semua">Semua</option>
-                                <option value="utbk">Tryout UTBK</option>
-                                <option value="bebas">Tryout Bebas</option>
+                            <select name="" className="filter-jenis" onChange={handleCategoryMobile}>
+                                <option value="0">Semua</option>
+                                <option value="1">Tryout UTBK</option>
+                                <option value="2">Tryout Bebas</option>
                                 {/* <option value="paket">Paket Tryout</option> */}
-                                <option value="kuno">Tryout Kuno</option>
-                                <option value="quiz">Quiz</option>
+                                <option value="3">Tryout Kuno</option>
+                                {/* <option value="quiz">Quiz</option> */}
                             </select>
                         </div>
                     </div>

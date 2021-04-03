@@ -8,7 +8,7 @@ import axios from 'axios';
 export function CardTryout() {
     let history = useHistory()
 
-    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
+    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout, category, setCategory] = useContext(UserContext);
     const [tryouts, setTryouts] = useState([{}]);
 
     const handleBeli = (event) => {
@@ -35,42 +35,42 @@ export function CardTryout() {
             
         }, [])
 
+    const validasi = (el) => {
+        if(el != null){
+            for(let i=0; i<3; i++){
+                if(el[i] == category[0]){
+                    return 1;
+                }
+            }
+        }
+        return 0;
+    }
+
     return (
         <div>
             <section className="card-tryout">
                 <div className="content">
-
-                    {/* <div className="card cardUtbk">
-                        <div className="card-image">
-                            <img src={example} />
-                        </div>
-                        <div className="card-body">
-                            <h6>Tryout UTBK</h6>
-                            <h3>UTBK Tryout V3 Sesi Maret 2021</h3>
-                            <div className="action">
-                                <button className="btn-beli" onClick={handleBeli}>Beli Sekarang</button>
-                                <h4>Rp 29K</h4>
-                            </div>
-                        </div>
-                    </div> */}
                                
                     {
                         tryouts.map(function (el, idx) {
-                            return (
-                                <div className="card" key={idx}>
-                                    <div className="card-image">
-                                        <img src={example} />
-                                    </div>
-                                    <div className="card-body">
-                                        <h6>{el.cat_tryout}</h6>
-                                        <h3>{el.name}</h3>
-                                        <div className="action">
-                                            <button className="btn-beli" value={el.id_tryout} onClick={handleBeli}>Beli Sekarang</button>
-                                            <h4>Rp {el.price}K</h4>
+                            if(validasi(el.cat_tryout) || category[0] == 1 && category[1] == 2 && category[2] == 3){
+                                return (
+                                    <div className="card" key={idx}>
+                                        <div className="card-image">
+                                            <img src={example} />
+                                        </div>
+                                        <div className="card-body">
+                                            <h6>{el.cat_tryout}</h6>
+                                            <h3>{el.name}</h3>
+                                            <div className="action">
+                                                <button className="btn-beli" value={el.id_tryout} onClick={handleBeli}>Beli Sekarang</button>
+                                                <h4>Rp {el.price}</h4>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            )   
+                                )  
+                            }
+                             
                         }) 
                     }
                     
