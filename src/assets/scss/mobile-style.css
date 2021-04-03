@@ -1203,7 +1203,7 @@
   }
   .home-page .why-use .content .content-body .card {
     width: 380px;
-    height: 150px;
+    min-height: 150px;
     -webkit-box-shadow: 0px 20px 60px rgba(57, 57, 57, 0.12);
             box-shadow: 0px 20px 60px rgba(57, 57, 57, 0.12);
     display: -webkit-box;

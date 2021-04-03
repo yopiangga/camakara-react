@@ -148,7 +148,7 @@ export function Navbar() {
                             </div> 
                         }
                         {user ? 
-                                <div className="icon-profile" onClick={NavProfile}>
+                                <div className="icon-profile" onClick={NavProfileMobile}>
                                     <FaUser color="#FDBF1F" />
                                     <h4>Profile</h4>
                                     <FaChevronDown />
