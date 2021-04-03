@@ -46,6 +46,8 @@ export function CardTryout() {
         return 0;
     }
 
+    console.log(tryouts)
+
     return (
         <div>
             <section className="card-tryout">
@@ -60,8 +62,10 @@ export function CardTryout() {
                                             <img src={example} />
                                         </div>
                                         <div className="card-body">
-                                            <h6>{el.cat_tryout}</h6>
+                                            {/* <h6>{el.cat_tryout}</h6> */}
                                             <h3>{el.name}</h3>
+                                            {/* <p>{el.descript}</p> */}
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla perferendis, eligendi distinctio similique cumque ad rem beatae quaerat fugiat aliquid exercitationem nostrum assumenda, iste harum animi nemo excepturi hic nobis!</p>
                                             <div className="action">
                                                 <button className="btn-beli" value={el.id_tryout} onClick={handleBeli}>Beli Sekarang</button>
                                                 <h4>Rp {el.price}</h4>
