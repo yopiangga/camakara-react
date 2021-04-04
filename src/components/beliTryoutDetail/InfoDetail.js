@@ -42,18 +42,40 @@ export function InfoDetail() {
 
     const validasi = () => {
         if (tryout.payment_method == '1') {
-            if (document.querySelector('#free1').files.length === 0) {
-                return 0;
-            } else {
-                return 1;
+            if(document.querySelector('#free1') != null){
+                if(document.querySelector('#free1').files.length === 0)
+                    return 0;
             }
+
+            if(document.querySelector('#free2') != null){
+                if(document.querySelector('#free2').files.length === 0)
+                    return 0;
+            }
+
+            if(document.querySelector('#free3') != null){
+                if(document.querySelector('#free3').files.length === 0)
+                    return 0;
+            }
+
+            if(document.querySelector('#free4') != null){
+                if(document.querySelector('#free4').files.length === 0)
+                    return 0;
+            }
+
+            if(document.querySelector('#free5') != null){
+                if(document.querySelector('#free5').files.length === 0)
+                    return 0;
+            }
+            
+            return 1;
+
         } else if (tryout.payment_method == '2') {
             return 1;
         } else if (tryout.payment_method == '3') {
             if (parseInt(document.querySelector('#bebas').value) > tryout.price && parseInt(document.querySelector('#bebas').value) != NaN) {
                 return 1;
             } else {
-                return 0;
+                return 0    ;
             }
         }
     }

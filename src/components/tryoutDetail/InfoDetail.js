@@ -49,7 +49,7 @@ export function InfoDetail() {
                             </div>
                             <div className="widget-child peserta">
                                 <FaUsers />
-                                <h4>1550 Orang</h4>
+                                <h4>{tryout.personBuy} Orang</h4>
                             </div>
                             <div className="widget-child peserta">
                                 <FaMoneyBillWave />

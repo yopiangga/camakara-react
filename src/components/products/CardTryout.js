@@ -46,7 +46,7 @@ export function CardTryout() {
         return 0;
     }
 
-    console.log(tryouts)
+    // console.log(tryouts)
 
     return (
         <div>

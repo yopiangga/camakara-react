@@ -61,12 +61,6 @@ export function Main() {
                         <div className="filter">
                             <button onClick={handleTopUp}>Top Up</button>
                             <button onClick={handleTransferSesama}>Transfer Sesama Camakara</button>
-                            {/* <select name="" id="" className="filter-status" onChange={handleKategori}>
-                                <option>Kategori</option>
-                                <option value="3">Semua</option>
-                                <option value="1">Top Up</option>
-                                <option value="2">Transfer Sesama</option>
-                            </select> */}
                             <select name="" id="" className="filter-status" onChange={handleStatus}>
                                 <option value="5">Semua</option>
                                 <option value="0">Gagal Top Up</option>
