@@ -19,7 +19,7 @@ import { Testimonial } from './pages/Testimonial';
 import { MyProfile } from './pages/MyProfile';
 import { TopUp } from './pages/ToUp';
 import { MyTryout } from './pages/MyTryout';
-import { RiwayatTopUp } from './pages/RiwayatTopUp';
+import { RiwayatTransaksi } from './pages/RiwayatTransaksi';
 
 import $ from 'jquery';
 import { UserProvider } from "./pages/userContext";
@@ -82,8 +82,8 @@ function App() {
           <Route path="/tryout-saya" exact>
             <MyTryout />
           </Route>
-          <Route path="/riwayat-top-up" exact>
-            <RiwayatTopUp />
+          <Route path="/riwayat-transaksi" exact>
+            <RiwayatTransaksi />
           </Route>
           <Route path="/transfer-sesama" exact>
             <TransferSesama />

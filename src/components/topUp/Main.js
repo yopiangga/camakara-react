@@ -170,7 +170,6 @@ export function Main() {
         formData.append('id', detailUser.id_user);
         formData.append('nominal', jumlahTopUp);
         formData.append('bankid', metode.idPayment);
-        // console.log(formData.append.id);
 
         axios({
             url: `${url.api}topup`,

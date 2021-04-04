@@ -34,6 +34,9 @@
   body input:focus {
     outline: none;
   }
+  body select:focus {
+    outline: none;
+  }
   body textarea:focus {
     outline: none;
   }

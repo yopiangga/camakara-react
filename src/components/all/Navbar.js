@@ -122,7 +122,7 @@ export function Navbar() {
                                 <li className={menuActive == "profile" ? "active" : ""}> <Link to="/profile" >Akun Saya</Link><hr /></li>
                                 <li className={menuActive == "topUp" ? "active" : ""}> <Link to="/top-up">Top Up</Link><hr /></li>
                                 <li className={menuActive == "myTryout" ? "active" : ""}> <Link to="/tryout-saya" >Tryout Saya</Link><hr /></li>
-                                <li className={menuActive == "riwayatTopUp" ? "active" : ""}> <Link to="/riwayat-top-up" >Riwayat Top Up</Link><hr /></li>
+                                <li className={menuActive == "riwayatTopUp" ? "active" : ""}> <Link to="/riwayat-transaksi" >Riwayat</Link><hr /></li>
                                 <li className={menuActive == "logOut" ? "active" : ""} onClick={navLogout}> <Link to="/login">Log Out</Link><hr /></li>
                             </ul>
                         </div>
@@ -165,7 +165,7 @@ export function Navbar() {
                                 <li className={menuActive == "profile" ? "active" : ""}> <Link to="/profile" >Akun Saya</Link><hr /></li>
                                 <li className={menuActive == "topUp" ? "active" : ""}> <Link to="/top-up">Top Up</Link><hr /></li>
                                 <li className={menuActive == "myTryout" ? "active" : ""}> <Link to="/tryout-saya" >Tryout Saya</Link><hr /></li>
-                                <li className={menuActive == "riwayatTopUp" ? "active" : ""}> <Link to="/riwayat-top-up" >Riwayat Top Up</Link><hr /></li>
+                                <li className={menuActive == "riwayatTopUp" ? "active" : ""}> <Link to="/riwayat-transaksi" >Riwayat</Link><hr /></li>
                                 <li className={menuActive == "logOut" ? "active" : ""} onClick={navLogout}> <Link to="/login">Log Out</Link><hr /></li>
                             </ul>
                         </div>

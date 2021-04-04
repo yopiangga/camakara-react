@@ -10,8 +10,9 @@ export function Main() {
     const [choice, setChoice] = useState('all');
 
     useEffect(() => {
-        axios.get(`${url.api}/mytryout/1/${user.idUser}`).then(
+        axios.get(`${url.api}mytryout/${user.idUser}`).then(
             (res) => {
+                console.log(res);
                 setMyTryouts(res.data.data.tryouts);
             }
         ).catch((err) => {

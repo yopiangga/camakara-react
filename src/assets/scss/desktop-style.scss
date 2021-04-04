@@ -54,6 +54,10 @@ $colorBlack : #000000;
             outline: none;
         }
 
+        select:focus {
+            outline: none;
+        }
+
         textarea:focus {
             outline: none;
         }
@@ -2969,13 +2973,19 @@ $colorBlack : #000000;
                         width: 100%;
                         margin-bottom: 30px;
 
-                        .form-group {
-                            width: 100%;
-                            display: flex;
-                            margin-bottom: 20px;
-
-                            label {
-                                width: 30%;
+                        .group-free {
+                            h4 {
+                                font-weight: 500;
+                                margin-bottom: 10px;
+                            }
+                            .form-group {
+                                width: 100%;
+                                display: flex;
+                                margin-bottom: 20px;
+    
+                                label {
+                                    width: 30%;
+                                }
                             }
                         }
                     }

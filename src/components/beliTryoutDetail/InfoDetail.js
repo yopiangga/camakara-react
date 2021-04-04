@@ -10,6 +10,11 @@ export function InfoDetail() {
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
     const [time, setTime] = useState({});
     const [totalTime, setTotalTime] = useState({ jam: "0", menit: "0", detik: "0" });
+    const [gambar1, setGambar1] = useState('');
+    const [gambar2, setGambar2] = useState('');
+    const [gambar3, setGambar3] = useState('');
+    const [gambar4, setGambar4] = useState('');
+    const [gambar5, setGambar5] = useState('');
 
     useEffect(() => {
         setTryout(JSON.parse(localStorage.getItem('tryout')));
@@ -36,34 +41,82 @@ export function InfoDetail() {
     }
 
     const validasi = () => {
-        if(tryout.payment_method == '1'){
-            if(document.querySelector('#free1').value == null || document.querySelector('#free2').value == null || document.querySelector('#free3').value == null){
+        if (tryout.payment_method == '1') {
+            if (document.querySelector('#free1').files.length === 0) {
                 return 0;
             } else {
                 return 1;
             }
-        } else if(tryout.payment_method == '2'){
+        } else if (tryout.payment_method == '2') {
             return 1;
-        } else if(tryout.payment_method == '3'){
-            if(document.querySelector('#bebas').value <= 0){
-                return 0;
-            } else {
+        } else if (tryout.payment_method == '3') {
+            if (parseInt(document.querySelector('#bebas').value) > tryout.price && parseInt(document.querySelector('#bebas').value) != NaN) {
                 return 1;
+            } else {
+                return 0;
             }
         }
     }
 
-    const handleBeli = () => {
-        if(validasi()){
-            axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout })
-            .then(
-                (res) => {
-                    console.log(res);
-                }
-            ).catch((err) => {
-                console.log(err)
-            })
+    const handleBeli = (event) => {
+        if (validasi()) {
+            if (tryout.payment_method == '1') {
+                event.preventDefault();
+                let formData = new FormData();
+                formData.append('image1', gambar1);
+                formData.append('image2', gambar2);
+                formData.append('image3', gambar3);
+                formData.append('image4', gambar4);
+                formData.append('image5', gambar5);
+                formData.append('iduser', detailUser.id_user);
+                formData.append('idtryout', tryout.id_tryout);
+
+                axios({
+                    url: `${url.api}mytryout`,
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    data: formData
+                }).then(
+                    (res) => {
+                        console.log(res);
+                    }
+                ).catch((err) => {
+                    console.log(err);
+                })
+
+            } else {
+                axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout, price: parseInt(document.querySelector('#bebas').value) })
+                    .then(
+                        (res) => {
+                            console.log(res);
+                        }
+                    ).catch((err) => {
+                        console.log(err)
+                    })
+            }
         }
+    }
+
+    const handleFile1 = (event) => {
+        setGambar1(event.target.files[0]);
+    }
+
+    const handleFile2 = (event) => {
+        setGambar2(event.target.files[0]);
+    }
+
+    const handleFile3 = (event) => {
+        setGambar3(event.target.files[0]);
+    }
+
+    const handleFile4 = (event) => {
+        setGambar4(event.target.files[0]);
+    }
+
+    const handleFile5 = (event) => {
+        setGambar5(event.target.files[0]);
     }
 
     return (
@@ -83,7 +136,7 @@ export function InfoDetail() {
                             </div>
                             <div className="widget-child peserta">
                                 <FaUsers />
-                                <h4>1550 Orang</h4>
+                                <h4>{tryout.personBuy} Orang</h4>
                             </div>
                             <div className="widget-child peserta">
                                 <FaMoneyBillWave />
@@ -146,34 +199,82 @@ export function InfoDetail() {
                             </div>
                         </div>
 
-                        {(tryout.payment_method == '1') ? 
+                        {(tryout.payment_method == '1') ?
                             <div className="form-free">
-                                <div className="form-group">
-                                    <label>Bukti Screenshot 1</label>
-                                    <input type="file" id="free1"/>
-                                </div>
-                                <div className="form-group">
-                                    <label>Bukti Screenshot 2</label>
-                                    <input type="file" id="free2"/>
-                                </div>
-                                <div className="form-group">
-                                    <label>Bukti Screenshot 3</label>
-                                    <input type="file" id="free3"/>
-                                </div>
+                                {(tryout.rule1 == '') ?
+                                    <div></div>
+                                    :
+                                    <div className="group-free">
+                                        <h4>{tryout.rule1}</h4>
+                                        <div className="form-group">
+                                            <label>Bukti Screenshot</label>
+                                            <input type="file" id="free1" className="avatar" name="free1" onChange={handleFile1} accept="image/png, image/jpeg" />
+                                        </div>
+                                    </div>
+                                }
+
+                                {(tryout.rule2 == '') ?
+                                    <div></div>
+                                    :
+                                    <div className="group-free">
+                                        <h4>{tryout.rule2}</h4>
+                                        <div className="form-group">
+                                            <label>Bukti Screenshot</label>
+                                            <input type="file" id="free2" className="avatar" name="free2" onChange={handleFile2} accept="image/png, image/jpeg" />
+                                        </div>
+                                    </div>
+                                }
+
+                                {(tryout.rule3 == '') ?
+                                    <div></div>
+                                    :
+                                    <div className="group-free">
+                                        <h4>{tryout.rule3}</h4>
+                                        <div className="form-group">
+                                            <label>Bukti Screenshot</label>
+                                            <input type="file" id="free3" className="avatar" name="free3" onChange={handleFile3} accept="image/png, image/jpeg" />
+                                        </div>
+                                    </div>
+                                }
+
+                                {(tryout.rule4 == '') ?
+                                    <div></div>
+                                    :
+                                    <div className="group-free">
+                                        <h4>{tryout.rule4}</h4>
+                                        <div className="form-group">
+                                            <label>Bukti Screenshot</label>
+                                            <input type="file" id="free4" className="avatar" name="free4" onChange={handleFile4} accept="image/png, image/jpeg" />
+                                        </div>
+                                    </div>
+                                }
+
+                                {(tryout.rule5 == '') ?
+                                    <div></div>
+                                    :
+                                    <div className="group-free">
+                                        <h4>{tryout.rule5}</h4>
+                                        <div className="form-group">
+                                            <label>Bukti Screenshot</label>
+                                            <input type="file" id="free5" className="avatar" name="free5" onChange={handleFile5} accept="image/png, image/jpeg" />
+                                        </div>
+                                    </div>
+                                }
+
                             </div>
-                        :
+                            :
                             <div></div>
-                    
+
                         }
 
-                        {(tryout.payment_method == '3') ? 
+                        {(tryout.payment_method == '3') ?
                             <div className="form-bebas">
                                 <div className="form-group">
                                     <label>Jumlah Sukarela</label>
-                                    <input type="text" id="bebas" placeholder="Rp 1"/>
+                                    <input type="number" id="bebas" placeholder="Rp 1" />
                                 </div>
                             </div>
-                        : 
+                            :
                             <div></div>
                         }
 

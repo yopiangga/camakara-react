@@ -2,12 +2,12 @@
 import React, { useContext, useEffect } from 'react'
 import { Footer } from '../components/all/Footer'
 import { Navbar } from '../components/all/Navbar'
-import { Main } from '../components/riwayatTopUp/Main'
-import { UserContext } from './userContext'
+import { Main } from '../components/riwayatTransaksi/Main'
+import { UserContext} from './userContext'
 
-export function RiwayatTopUp() {
+export function RiwayatTransaksi() {
 
-    const [menuActive, setMenuActive] = useContext(UserContext)
+    const [menuActive, setMenuActive] = useContext(UserContext);
 
     useEffect(() => {
         setMenuActive("riwayatTopUp");

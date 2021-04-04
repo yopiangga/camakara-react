@@ -34,6 +34,9 @@
   .page input:focus {
     outline: none;
   }
+  .page select:focus {
+    outline: none;
+  }
   .page textarea:focus {
     outline: none;
   }
@@ -3083,14 +3086,18 @@
     width: 100%;
     margin-bottom: 30px;
   }
-  .beli-tryout-detail .info-detail-tryout .content .content-right .form-free .form-group {
+  .beli-tryout-detail .info-detail-tryout .content .content-right .form-free .group-free h4 {
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .beli-tryout-detail .info-detail-tryout .content .content-right .form-free .group-free .form-group {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     margin-bottom: 20px;
   }
-  .beli-tryout-detail .info-detail-tryout .content .content-right .form-free .form-group label {
+  .beli-tryout-detail .info-detail-tryout .content .content-right .form-free .group-free .form-group label {
     width: 30%;
   }
   .beli-tryout-detail .info-detail-tryout .content .content-right .form-bebas {
