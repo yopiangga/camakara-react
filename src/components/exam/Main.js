@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../pages/userContext"
 import axios from "axios";
+import { useHistory } from "react-router";
 
 export function Main() {
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
@@ -18,6 +19,8 @@ export function Main() {
     }]);
     const [noSoal, setNoSoal] = useState(0);
 
+    const history = useHistory();
+
     useEffect(() => {
         setTryout(JSON.parse(localStorage.getItem('tryout')));
         setTryoutReadyMapel(JSON.parse(localStorage.getItem('tryoutReadyMapel')));
@@ -26,40 +29,6 @@ export function Main() {
             timeStart: JSON.parse(localStorage.getItem('waktuStart'))
         });
     }, [])
-
-    // console.log(waktuAll);
-
-    // let jam, menit, detik;
-
-    // jam = (waktuAll.time / 60).toFixed();
-    // menit = waktuAll.time % 60;
-    // detik = 0;
-
-    // console.log(jam, menit, detik);
-
-    // var countDownDate = new Date(`Mar 28, 2021 ${jam}:${menit}:${detik}`).getTime();
-
-    // var x = setInterval(function () {
-
-    //     var now = new Date().getTime();
-
-    //     var distance = countDownDate - now;
-
-    //     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    //     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    //     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    //     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    //     document.getElementById("demo").innerHTML = hours + " : "
-    //         + minutes + " : " + seconds;
-
-    //     // console.log(hours, minutes, seconds);
-
-    //     if (distance < 0) {
-    //         clearInterval(x);
-    //         document.getElementById("demo").innerHTML = "Selesai";
-    //     }
-    // }, 1000);
 
     const handleNomerSoal = (no) => {
         setNoSoal(no);
@@ -74,9 +43,9 @@ export function Main() {
     const handleSelesai = () => {
         axios.post(`${url.api}exam/${user.idUser}/${tryout.id_tryout}/${tryoutReadyMapel[0].kind_tryout}`, { answer: answer.toString() }).then(
             (res) => {
-                console.log(`${url.api}exam/${detailUser.id_user}/${tryout.id_tryout}/${tryoutReadyMapel[0].kind_tryout}`);
-                console.log(res);
-                // history.push("/exam");
+                // console.log(`${url.api}exam/${detailUser.id_user}/${tryout.id_tryout}/${tryoutReadyMapel[0].kind_tryout}`);
+                // console.log(res);
+                history.push('/tryout-detail');
             }
         ).catch((err) => {
             console.log(err);

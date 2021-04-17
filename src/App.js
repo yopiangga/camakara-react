@@ -31,6 +31,7 @@ import { Daftar } from "./pages/Daftar";
 import { LupaPassword } from "./pages/LupaPassword";
 import { Exam } from "./pages/Exam";
 import { ScoreBoard } from "./pages/ScoreBoard";
+import { ScoreAll } from "./pages/ScoreAll";
 
 function App() {
 
@@ -99,6 +100,9 @@ function App() {
           </Route>
           <Route path="/skor-Tryout" exact>
             <ScoreBoard />
+          </Route>
+          <Route path="/skor-semua" exact>
+            <ScoreAll />
           </Route>
         </Switch>
       </BrowserRouter>

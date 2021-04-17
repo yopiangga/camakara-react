@@ -4876,6 +4876,117 @@ $colorBlack : #000000;
         }
     }
 
+    .scoreTryout-page {
+        width: 100%;
+        
+        .bg-main {
+            position: absolute;
+            background-color: white;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            width: 100%;
+            z-index: 1;
+        }
+
+        .form-section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 0px;
+            
+            .content {
+                width: 90%;
+                display: flex;
+                justify-content: center;
+
+                .form-box {
+                    z-index: 1;
+                    margin-top: 120px;
+                    margin-bottom: 50px;
+                    width: 80%;
+                    min-height: 280px;
+                    display: flex;
+                    flex-direction: column;
+                    background-color: white;
+                    box-shadow: 0px 30px 60px rgba($color: $colorDark, $alpha: 0.1);
+                    border-radius: 20px;
+                    align-items: center;
+                    padding-top: 40px;
+                    padding-bottom: 40px;
+
+                    h2 {
+                        font-size: 28px;
+                        font-weight: 500;
+                        margin-top: 0px;
+                        text-align: center;
+                        line-height: 36px;
+                        margin-bottom: 15px;
+                    }
+
+                    p {
+                        width: 650px;
+                        text-align: center;
+                        line-height: 24px;
+                        margin-bottom: 40px;
+                    }
+
+                    .form-biodata {
+                        width: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        .row {
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            margin-bottom: 20px;
+                            flex-wrap: wrap;
+
+                            .col-6 {
+                                width: 50%;
+                                margin-bottom: 20px;
+                            }
+
+                            .col-12 {
+                                width: 100%;
+                            }
+
+                            .form-group {
+                                display: flex;
+                                flex-direction: column;
+
+                                label {
+                                    margin-bottom: 10px;
+                                    font-size: 14px;
+                                }
+
+                                h4 {
+                                    font-weight: 500;
+                                    font-size: 16px;
+                                }
+
+                                button {
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    margin-top: 20px;
+                                    height: 45px;
+                                    width: 200px;
+                                    border-radius: 30px;
+                                    border: 2px solid $colorYellow;
+                                    background-color: $colorYellow;
+                                    color: white;
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+
+            }
+        }
+    }
+
     #mobile {
         display: none;
     }

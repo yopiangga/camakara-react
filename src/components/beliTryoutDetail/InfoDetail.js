@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { FaBookReader, FaMoneyBillWave, FaUsers } from "react-icons/fa";
 import { UserContext } from "../../pages/userContext";
 import axios from 'axios';
+import { useHistory } from "react-router";
 
 
 export function InfoDetail() {
@@ -22,6 +23,8 @@ export function InfoDetail() {
     }, [])
 
     // console.log(tryout)
+
+    const history = useHistory();
 
     const cariJam = () => {
         let type = JSON.parse(localStorage.getItem('tryout')).type_tryout;
@@ -102,7 +105,9 @@ export function InfoDetail() {
                     data: formData
                 }).then(
                     (res) => {
-                        console.log(res);
+                        // console.log(res);
+                        alert(res.data.message);
+                        history.push('/tryout-saya');
                     }
                 ).catch((err) => {
                     console.log(err);
@@ -112,7 +117,7 @@ export function InfoDetail() {
                 axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout, price: parseInt(document.querySelector('#bebas').value) })
                     .then(
                         (res) => {
-                            console.log(res);
+                            alert(res.data);
                         }
                     ).catch((err) => {
                         console.log(err)

@@ -8,6 +8,7 @@ export function Main() {
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
     const [myTryouts, setMyTryouts] = useState([{ name: "" }])
     const [choice, setChoice] = useState('0');
+    // const [skorTryout, setSkorTryout] = useState([{}]);
 
     useEffect(() => {
         axios.get(`${url.api}mytryout/${user.idUser}`).then(
@@ -20,7 +21,7 @@ export function Main() {
 
     }, [])
 
-    let history = useHistory()
+    let history = useHistory();
 
     const handleKerjakan = (event) => {
         axios.get(`${url.api}tryout/get/${event.target.value}`).then(
@@ -68,7 +69,17 @@ export function Main() {
         } 
     }
 
-    console.log(myTryouts);
+    const handleAkumulasi = (event) => {
+        axios.get(`${url.api}/score/${user.idUser}/${event.target.value}`).then(
+            (res) => {
+                console.log(res.data);
+                localStorage.setItem("skorTryout", JSON.stringify(res.data));
+                history.push("/skor-tryout");
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
+    }
 
     const handleSkor = () => {
 
@@ -121,7 +132,7 @@ export function Main() {
                                                     {(el.status == '0') ? <button className="btn-kerjakan" value={el.id_tryout} onClick={handleBeli}>Beli Lagi</button> : <div></div>}
                                                     {(el.status == '1') ? <button className="btn-kerjakan" style={{ backgroundColor: 'gray', color: 'white', border: 'none', cursor: 'default' }}>Tunggu Ya</button> : <div></div>}
                                                     {(el.status == '2' && (hariIni(el.date_end, el.time_end) == 'kerjakan')) ? <button className="btn-kerjakan" value={el.id_tryout} onClick={handleKerjakan}>Kerjakan</button> : <div></div> }
-                                                    {(el.status == '2' && (hariIni(el.date_end, el.time_end) == 'lihat-skor')) ? <button className="btn-kerjakan" value={el.id_tryout} onClick={handleKerjakan}>Akumulasi</button> : <div></div> }
+                                                    {(el.status == '2' && (hariIni(el.date_end, el.time_end) == 'lihat-skor')) ? <button className="btn-kerjakan" value={el.id_tryout} onClick={handleAkumulasi}>Akumulasi</button> : <div></div> }
                                                 </div>
                                             </div>
                                         </div>

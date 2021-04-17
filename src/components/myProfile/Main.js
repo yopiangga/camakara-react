@@ -17,6 +17,8 @@ export function Main() {
     const [prodi1, setProdi1] = useState([]);
     const [prodi2, setProdi2] = useState([]);
 
+    const [provinsi, setProvinsi] = useState([]);
+
     // const [uploadData, setUploadData] = useState({});
 
     useEffect( () => {
@@ -24,6 +26,14 @@ export function Main() {
         axios.get(`${url.api}univ`).then(
             (res) => {
                 setUniv(res.data.data);
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
+
+        axios.get(`${url.api}prov`).then(
+            (res) => {
+                console.log(res.data);
             }
         ).catch((err) => {
             console.log(err);
