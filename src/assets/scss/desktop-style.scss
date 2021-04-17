@@ -2013,6 +2013,15 @@ $colorBlack : #000000;
                                                 box-sizing: border-box;
                                                 padding: 10px 20px 10px 20px;
                                             }
+
+                                            select {
+                                                border-radius: 5px;
+                                                height: 40px;
+                                                border: 1px solid $colorGray;
+                                                box-sizing: border-box;
+                                                padding: 10px 20px 10px 20px;
+                                                margin-bottom: 20px;
+                                            }
                                         }
                                     }
                                 }
@@ -4799,19 +4808,19 @@ $colorBlack : #000000;
                 position: relative;
                 display: flex;
                 justify-content: center;
-                min-height: 500px;
 
                 .table {
                     position: relative;
                     z-index: 1;
                     top: -80px;
                     width: 80%;
-                    min-height: 500px;
+                    min-height: 200px;
                     display: flex;
                     background-color: white;
                     box-shadow: 0px 30px 60px rgba($color: $colorDark, $alpha: 0.1);
                     border-radius: 20px;
-                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
                     padding-top: 40px;
                     padding-bottom: 40px;
 
@@ -4870,6 +4879,18 @@ $colorBlack : #000000;
                                 }
                             }
                         }
+                    }
+
+                    button {
+                        margin-left: auto;
+                        margin-right: auto;
+                        margin-top: 20px;
+                        height: 45px;
+                        width: 200px;
+                        border-radius: 30px;
+                        border: 2px solid $colorYellow;
+                        background-color: $colorYellow;
+                        color: white;
                     }
                 }
             }

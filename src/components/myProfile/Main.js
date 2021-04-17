@@ -13,11 +13,13 @@ export function Main() {
 
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl] = useContext(UserContext);
 
-    const [univ, setUniv] = useState([]);
+    const [univ1, setUniv1] = useState([]);
+    const [univ2, setUniv2] = useState([]);
     const [prodi1, setProdi1] = useState([]);
     const [prodi2, setProdi2] = useState([]);
 
     const [provinsi, setProvinsi] = useState([]);
+    const [regency, setRegency] = useState([{id: "", name: ""}]);
 
     // const [uploadData, setUploadData] = useState({});
 
@@ -25,15 +27,48 @@ export function Main() {
 
         axios.get(`${url.api}univ`).then(
             (res) => {
-                setUniv(res.data.data);
+                setUniv1(res.data.data);
             }
         ).catch((err) => {
             console.log(err);
         })
 
-        axios.get(`${url.api}prov`).then(
+        axios.get(`${url.api}univ`).then(
             (res) => {
-                console.log(res.data);
+                setUniv2(res.data.data);
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
+
+        axios.get(`${url.api}prodi/get/${detailUser.univ1_id}`).then(
+            (res) => {
+                setProdi1(res.data.data);
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
+
+        axios.get(`${url.api}prodi/get/${detailUser.univ2_id}`).then(
+            (res) => {
+                setProdi2(res.data.data);
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
+
+        axios.get(`${url.api}address/prov`).then(
+            (res) => {
+                // console.log(res.data.data);
+                setProvinsi(res.data.data);
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
+
+        axios.get(`${url.api}address/reg/get/${detailUser.province_id}`).then(
+            (res) => {
+                setRegency(res.data.data);
             }
         ).catch((err) => {
             console.log(err);
@@ -54,7 +89,7 @@ export function Main() {
         })
     }
     
-    console.log(detailUser);
+    // console.log(detailUser);
     
     const handleUpdate = (event) => {
         event.preventDefault();
@@ -69,8 +104,8 @@ export function Main() {
                 telp        : detailUser.telp,
                 school      : detailUser.school,
                 graduate    : detailUser.school,
-                province_id : 1,
-                regency_id  : 2,
+                province_id : detailUser.province_id,
+                regency_id  : detailUser.regency_id,
                 address     : detailUser.address,
                 univ1_id    : detailUser.univ1_id,
                 univ2_id    : detailUser.univ2_id,
@@ -108,6 +143,18 @@ export function Main() {
         axios.get(`${url.api}prodi/get/${id}`).then(
             (res) => {
                 setProdi2(res.data.data);
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
+    }
+
+    const handleRegency = () => {
+        const id = detailUser.province_id;
+
+        axios.get(`${url.api}address/reg/get/${detailUser.province_id}`).then(
+            (res) => {
+                setRegency(res.data.data);
             }
         ).catch((err) => {
             console.log(err);
@@ -186,13 +233,30 @@ export function Main() {
                                         <div className="col-6">
                                             <div className="form-group">
                                                 <label>Provinsi</label>
-                                                <input type="text" onChange={handleChange}/>
+                                                <select name="province_id" value={detailUser.province_id} onChange={handleChange}>
+                                                    <option>Pilih Provinsi</option>
+                                                    {
+                                                        provinsi.map(function (el, idx){
+                                                            return(
+                                                                <option value={el.id} key={idx}>{el.name}</option>
+                                                            )
+                                                        })
+                                                    }
+                                                </select>
                                             </div>
                                         </div>
                                         <div className="col-6">
                                             <div className="form-group">
                                                 <label>Kota / Kabupaten</label>
-                                                <input type="text" onChange={handleChange}/>
+                                                <select name="regency_id" value={detailUser.regency_id} onChange={handleChange} onClick={handleRegency}>
+                                                    {
+                                                        regency.map(function (el, idx){
+                                                            return(
+                                                                <option value={el.id} key={idx}>{el.name}</option>
+                                                            )
+                                                        })
+                                                    }
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -214,7 +278,7 @@ export function Main() {
                                             <div className="form-group">
                                                 <select name="univ1_id" value={detailUser.univ1_id} onChange={handleChange}>
                                                     {
-                                                        univ.map(function (el, idx){
+                                                        univ1.map(function (el, idx){
                                                             return(
                                                                 <option value={el.univ_id} key={idx}>{el.name}</option>
                                                             )
@@ -242,7 +306,7 @@ export function Main() {
                                             <div className="form-group">
                                                 <select name="univ2_id" value={detailUser.univ2_id} onChange={handleChange}>
                                                 {
-                                                        univ.map(function (el, idx){
+                                                        univ2.map(function (el, idx){
                                                             return(
                                                                 <option value={el.univ_id} key={idx}>{el.name}</option>
                                                             )

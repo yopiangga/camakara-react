@@ -2076,6 +2076,15 @@
             box-sizing: border-box;
     padding: 10px 20px 10px 20px;
   }
+  .profile-page .main .content .content-body form .form .form-left .row .col-6 .form-group select {
+    border-radius: 5px;
+    height: 40px;
+    border: 1px solid #C4C4C4;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: 20px;
+  }
   .profile-page .main .content .content-body form .form .form-left .form-group {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4954,14 +4963,13 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    min-height: 500px;
   }
   .score-page .table-section .content .table {
     position: relative;
     z-index: 1;
     top: -80px;
     width: 80%;
-    min-height: 500px;
+    min-height: 200px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4969,9 +4977,13 @@
     -webkit-box-shadow: 0px 30px 60px rgba(57, 57, 57, 0.1);
             box-shadow: 0px 30px 60px rgba(57, 57, 57, 0.1);
     border-radius: 20px;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding-top: 40px;
     padding-bottom: 40px;
   }
@@ -5028,6 +5040,17 @@
   }
   .score-page .table-section .content .table table tbody tr .skor {
     width: 10%;
+  }
+  .score-page .table-section .content .table button {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    height: 45px;
+    width: 200px;
+    border-radius: 30px;
+    border: 2px solid #FDBF1F;
+    background-color: #FDBF1F;
+    color: white;
   }
   .scoreTryout-page {
     width: 100%;

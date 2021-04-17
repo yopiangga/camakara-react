@@ -1,6 +1,7 @@
 import axios from 'axios';
 import $ from "jquery"
 import { useContext, useState } from 'react';
+import { useHistory } from 'react-router';
 import { UserContext } from '../../pages/userContext';
 
 export function Main() {
@@ -27,18 +28,21 @@ export function Main() {
                 $('.transferSesama-page .main .content .content-body .card-transfer-detail').addClass('active')
             }
             ).catch((err) => {
-                console.log(err);
+                // console.log(err);
+                alert("Nomor Handphone yang anda masukkan tidak terdaftar");
             })
         } else {
 
         }
     }
     
+    const history = useHistory();
     const handleKonfirmasi = () => {
         console.log(dataTransfer)
         axios.post(`${url.api}transfer`, {headers: {"Authorization" : `Bearer ${user.token}`}, fromid : dataTransfer.fromid, telp: dataTransfer.telp, nominal: dataTransfer.nominal}).then(
             (res) => {
                 console.log(res);
+                history.push('/riwayat-transaksi');
             }
             ).catch((err) => {
                 console.log(err);

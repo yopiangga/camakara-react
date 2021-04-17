@@ -10,6 +10,8 @@ export function TableSection() {
         setSkorTryout(JSON.parse(localStorage.getItem('skorTryout')));
     }, [])
 
+    // console.log(skorTryout);
+
     let history = useHistory();
 
     const handleClick = () => {

@@ -12,6 +12,7 @@ import { useContext, useState } from "react";
 import $, { event, timers } from 'jquery';
 import { UserContext } from "../../pages/userContext";
 import axios from 'axios';
+import { useHistory } from "react-router";
 
 
 export function Main() {
@@ -163,6 +164,8 @@ export function Main() {
         setGambar(event.target.files[0]);
     }
 
+    const history = useHistory();
+
     const handleKonfirmasi = (event) => {
         event.preventDefault();
         let formData = new FormData();
@@ -181,6 +184,7 @@ export function Main() {
         }).then(
             (res) => {
                 console.log(res);
+                history.push('/riwayat-transaksi');
             }
         ).catch((err) => {
             console.log(err);
