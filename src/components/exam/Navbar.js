@@ -63,7 +63,7 @@ export function Navbar() {
                     <div className="icon">
 
                         <div className="icon-profile" onClick={NavProfile}>
-                            <h4>Alfian Prisma Yopiangga</h4>
+                            <h4>{user.email}</h4>
                             <FaUser color="#FDBF1F" />
                         </div>
                         <div className="dropdownProfile">
@@ -83,7 +83,7 @@ export function Navbar() {
 
                     <div className="icon">
                         <div className="icon-profile" onClick={NavProfileMobile}>
-                            <h4>Yopiangga</h4>
+                            <h4>{user.email}</h4>
                             <FaUser />
                         </div>
                         <div className="dropdownProfile">

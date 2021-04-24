@@ -25,13 +25,23 @@ export function CardTryout() {
 
     useEffect(() => {
 
-        axios.get(`${url.api}tryout/1`).then(
-            (res) => {
-                setTryouts(res.data.data.tryouts);
-            }
-            ).catch((err) => {
-                console.log(err);
-            })
+        if(user == null){
+            axios.get(`${url.api}tryout`).then(
+                    (res) => {
+                        setTryouts(res.data.data.tryouts);
+                    }
+                    ).catch((err) => {
+                        console.log(err);
+                    })
+        } else {
+            axios.get(`${url.api}tryout/${user.idUser}`).then(
+                    (res) => {
+                        setTryouts(res.data.data.tryouts);
+                    }
+                    ).catch((err) => {
+                        console.log(err);
+                    })
+        }
             
         }, [])
 

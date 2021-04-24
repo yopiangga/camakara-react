@@ -9,10 +9,12 @@ export function InfoDetail() {
     const [time, setTime] = useState({});
     const [totalTime, setTotalTime] = useState({jam: "0", menit: "0", detik: "0"});
 
-    useEffect( () => {
+    useEffect(() => {
         setTryout(JSON.parse(localStorage.getItem('tryout')));
         setTotalTime(cariJam);
     }, [])
+
+    // console.log(tryout);
 
     const cariJam = () => {
         let type = JSON.parse(localStorage.getItem('tryout')).type_tryout;
@@ -20,16 +22,14 @@ export function InfoDetail() {
         let Soshum = JSON.parse(localStorage.getItem('tryout')).totalSoshum;
         let totalMenit;
         type == 2 ? totalMenit = Soshum : totalMenit = Saintek;
-        let jam = totalMenit / 60;
-        jam = jam.toFixed(0);
-        let menit = totalMenit - (jam * 60);
         let data = {
-            jam : jam,
-            menit : menit,
+            jam : Math.floor(totalMenit/60),
+            menit : totalMenit % 60,
             detik : 0
         }
         return(data);
     }
+
 
     return (
         <div>

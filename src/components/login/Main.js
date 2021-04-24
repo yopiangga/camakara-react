@@ -26,6 +26,7 @@ export function Main() {
             document.querySelector(".form-alert").classList.add("active");
             setAlert(<p><span>Email</span> dan <span>Password</span> harus di isi!</p>)
         } else {
+            document.querySelector('.bg-loading').classList.add('active');
             axios.post(`${url.api}user/login`, { email: email, password: password})
             .then(
                 (res) => {
@@ -40,14 +41,17 @@ export function Main() {
                         setUser(currentUser);
                         localStorage.setItem("data", JSON.stringify(currentUser));
 
+                        document.querySelector('.bg-loading').classList.remove('active');
                         history.push('/');
                     } else {
                         document.querySelector(".form-alert").classList.add("active");
                         setAlert(<p><span>Email</span> dan <span>Password</span> tidak sesuai</p>)
-                        console.log("ini id user", res);
                     }
                 }
             ).catch((err) => {
+                document.querySelector('.bg-loading').classList.remove('active');
+                document.querySelector(".form-alert").classList.add("active");
+                setAlert(<p><span>Email</span> dan <span>Password</span> tidak sesuai</p>)
                 console.log(err)
             })
         }

@@ -15,7 +15,7 @@ export function MyProfile() {
     }, [])
 
     return(
-        <div className="page profile-page">
+        <div className="page profile-page"> 
             <Navbar />
             <Main />
             <Footer />

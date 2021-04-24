@@ -3,7 +3,8 @@ import {
     BrowserRouter,
     Switch,
     Route,
-    Link
+    Link,
+    useHistory
 } from "react-router-dom";
 
 import logo1 from '../../assets/images/logo-1.png'; 
@@ -15,7 +16,10 @@ export function Main() {
 
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl] = useContext(UserContext);
 
+    const history = useHistory();
+
     const handleSubmit = (event) => {
+        document.querySelector('.bg-loading').classList.add('active');
         event.preventDefault();
        const email = document.querySelector('#email').value;
        const nama = document.querySelector('#nama').value;
@@ -30,12 +34,14 @@ export function Main() {
             telp: telephone
         }).then(
             (res) => {
-                alert("pendaftaran berhasil");
-                console.log(res);
+                // console.log(res);
+                history.push('/login');
+                document.querySelector('.bg-loading').classList.remove('active');
             }
         ).catch((err) => {
             alert("pendaftaran gagal");
-            console.log(err);
+            // console.log(err);
+            document.querySelector('.bg-loading').classList.remove('active');
         })
     }
 

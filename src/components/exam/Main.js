@@ -30,6 +30,8 @@ export function Main() {
         });
     }, [])
 
+    console.log(tryoutReadyMapel);
+
     const handleNomerSoal = (no) => {
         setNoSoal(no);
     }
@@ -43,13 +45,21 @@ export function Main() {
     const handleSelesai = () => {
         axios.post(`${url.api}exam/${user.idUser}/${tryout.id_tryout}/${tryoutReadyMapel[0].kind_tryout}`, { answer: answer.toString() }).then(
             (res) => {
-                // console.log(`${url.api}exam/${detailUser.id_user}/${tryout.id_tryout}/${tryoutReadyMapel[0].kind_tryout}`);
-                // console.log(res);
+                console.log(`${url.api}exam/${detailUser.id_user}/${tryout.id_tryout}/${tryoutReadyMapel[0].kind_tryout}`);
+                console.log(res);
                 history.push('/tryout-detail');
             }
         ).catch((err) => {
             console.log(err);
         })
+    }
+
+    const handlePrev = () => {
+        setNoSoal(noSoal-1);
+    }
+
+    const handleNext = () => {
+        setNoSoal(noSoal+1);
     }
 
     return (
@@ -59,12 +69,12 @@ export function Main() {
                     <div className="content-left">
                         <div className="heading">
                             <h1>{tryout.name}</h1>
-                            <h2>{tryoutReadyMapel[noSoal].namamapel}</h2>
+                            <h2>{(tryoutReadyMapel[noSoal] == null) ? "" : tryoutReadyMapel[noSoal].namamapel}</h2>
                         </div>
                         <div className="question">
-                            <h3>Soal {tryoutReadyMapel[noSoal].no_soal}</h3>
-                            <p>{tryoutReadyMapel[noSoal].soal}</p>
-                            <img src={tryoutReadyMapel[noSoal].image} />
+                            <h3>Soal {(tryoutReadyMapel[noSoal] == null) ? "" : tryoutReadyMapel[noSoal].no_soal}</h3>
+                            <p>{(tryoutReadyMapel[noSoal] == null) ? "" : tryoutReadyMapel[noSoal].soal}</p>
+                            <img src={(tryoutReadyMapel[noSoal] == null) ? "" : tryoutReadyMapel[noSoal].image} alt="" />
                         </div>
                         <hr />
                         <div className="answer">
@@ -74,7 +84,7 @@ export function Main() {
                                         <div className={(answer[noSoal] == 1) ? "circle active" : "circle"} onClick={() => { handleJawab(1) }}>A</div>
                                     </div>
                                     <div className="text">
-                                        <p>{tryoutReadyMapel[noSoal].pilihan1}</p>
+                                        <p>{(tryoutReadyMapel[noSoal] == null) ? "" : tryoutReadyMapel[noSoal].pilihan1}</p>
                                     </div>
                                 </li>
                                 <li>
@@ -82,7 +92,7 @@ export function Main() {
                                         <div className={(answer[noSoal] == 2) ? "circle active" : "circle"} onClick={() => { handleJawab(2) }}>B</div>
                                     </div>
                                     <div className="text">
-                                        <p>{tryoutReadyMapel[noSoal].pilihan2}</p>
+                                        <p>{(tryoutReadyMapel[noSoal] == null) ? "" : tryoutReadyMapel[noSoal].pilihan2}</p>
                                     </div>
                                 </li>
                                 <li>
@@ -90,7 +100,7 @@ export function Main() {
                                         <div className={(answer[noSoal] == 3) ? "circle active" : "circle"} onClick={() => { handleJawab(3) }}>C</div>
                                     </div>
                                     <div className="text">
-                                        <p>{tryoutReadyMapel[noSoal].pilihan3}</p>
+                                        <p>{(tryoutReadyMapel[noSoal] == null) ? "" : tryoutReadyMapel[noSoal].pilihan3}</p>
                                     </div>
                                 </li>
                                 <li>
@@ -98,7 +108,7 @@ export function Main() {
                                         <div className={(answer[noSoal] == 4) ? "circle active" : "circle"} onClick={() => { handleJawab(4) }}>D</div>
                                     </div>
                                     <div className="text">
-                                        <p>{tryoutReadyMapel[noSoal].pilihan4}</p>
+                                        <p>{(tryoutReadyMapel[noSoal] == null) ? "" : tryoutReadyMapel[noSoal].pilihan4}</p>
                                     </div>
                                 </li>
                                 <li>
@@ -106,13 +116,28 @@ export function Main() {
                                         <div className={(answer[noSoal] == 5) ? "circle active" : "circle"} onClick={() => { handleJawab(5) }}>E</div>
                                     </div>
                                     <div className="text">
-                                        <p>{tryoutReadyMapel[noSoal].pilihan5}</p>
+                                        <p>{(tryoutReadyMapel[noSoal] == null) ? "" : tryoutReadyMapel[noSoal].pilihan5}</p>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                         <div className="action">
                             <div className="button-group">
+
+                                {
+                                    (noSoal == 0) ? 
+                                    ""
+                                    :
+                                    <button className="btn-navigasi" onClick={handlePrev}>Sebelumnya</button>
+                                }
+
+{
+                                (tryoutReadyMapel.length - 1 != noSoal) ?
+                                    <button className="btn-navigasi" onClick={handleNext}>Selanjutnya</button>
+                                    :
+                                    ""
+                                }
+
                                 {
                                     (tryoutReadyMapel.length - 1 == noSoal) ?
                                         <button className="btn-submit" onClick={handleSelesai}>Selesai</button>

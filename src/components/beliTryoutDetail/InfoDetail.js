@@ -31,14 +31,12 @@ export function InfoDetail() {
         let Saintek = JSON.parse(localStorage.getItem('tryout')).totalSaint;
         let Soshum = JSON.parse(localStorage.getItem('tryout')).totalSoshum;
         let totalMenit;
+
         type == 2 ? totalMenit = Soshum : totalMenit = Saintek;
-        let jam = totalMenit / 60;
-        jam = jam.toFixed(0);
-        let menit = totalMenit - (jam * 60);
         let data = {
-            jam: jam,
-            menit: menit,
-            detik: 0
+            jam : Math.floor(totalMenit/60),
+            menit : totalMenit % 60,
+            detik : 0
         }
         return (data);
     }
@@ -78,12 +76,13 @@ export function InfoDetail() {
             if (parseInt(document.querySelector('#bebas').value) > tryout.price && parseInt(document.querySelector('#bebas').value) != NaN) {
                 return 1;
             } else {
-                return 0    ;
+                return 0;
             }
         }
     }
 
     const handleBeli = (event) => {
+        document.querySelector('.bg-loading').classList.add('active');
         if (validasi()) {
             if (tryout.payment_method == '1') {
                 event.preventDefault();
@@ -114,14 +113,29 @@ export function InfoDetail() {
                 })
 
             } else {
-                axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout, price: parseInt(document.querySelector('#bebas').value) })
+                if(tryout.payment_method == 3){
+                    axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout, price: parseInt(document.querySelector('#bebas').value)})
                     .then(
                         (res) => {
-                            alert(res.data);
+                            document.querySelector('.bg-loading').classList.remove('active');
+                            history.push('/tryout-saya');
                         }
                     ).catch((err) => {
                         console.log(err)
+                        document.querySelector('.bg-loading').classList.remove('active');
                     })
+                } else {
+                    axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout})
+                    .then(
+                        (res) => {
+                            document.querySelector('.bg-loading').classList.remove('active');
+                            history.push('/tryout-saya');
+                        }
+                    ).catch((err) => {
+                        console.log(err)
+                        document.querySelector('.bg-loading').classList.remove('active');
+                    })
+                }
             }
         }
     }
@@ -146,6 +160,10 @@ export function InfoDetail() {
         setGambar5(event.target.files[0]);
     }
 
+    const handleDaftar = () => {
+        history.push('./daftar');
+    }
+
     return (
         <div>
             <section className="info-detail-tryout">
@@ -154,7 +172,7 @@ export function InfoDetail() {
                         <div className="nama-tryout">
                             <h2>{tryout.name}</h2>
                             <hr />
-                            {user == null ? <button className="btn-daftar">Belum daftar</button> : ""}
+                            {user == null ? <button className="btn-daftar" onClick={handleDaftar}>Belum daftar</button> : ""}
                         </div>
                         <div className="widget">
                             <div className="widget-child kategori-tryout">
@@ -298,7 +316,7 @@ export function InfoDetail() {
                             <div className="form-bebas">
                                 <div className="form-group">
                                     <label>Jumlah Sukarela</label>
-                                    <input type="number" id="bebas" placeholder="Rp 1" />
+                                    <input type="number" id="bebas" placeholder="Rp 1"/>
                                 </div>
                             </div>
                             :
@@ -306,7 +324,12 @@ export function InfoDetail() {
                         }
 
                         <div className="beli-tryout">
-                            <button className="btn-beli-tryout" onClick={handleBeli}>Beli Tryout</button>
+                            {
+                                (user == null) ? 
+                                ""
+                                :
+                                <button className="btn-beli-tryout" onClick={handleBeli}>Beli Tryout</button>
+                            }
                         </div>
                     </div>
                 </div>

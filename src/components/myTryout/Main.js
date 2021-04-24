@@ -24,16 +24,20 @@ export function Main() {
     let history = useHistory();
 
     const handleKerjakan = (event) => {
-        axios.get(`${url.api}tryout/get/${event.target.value}`).then(
+        document.querySelector('.bg-loading').classList.add('active');
+        axios.get(`${url.api}mytryout/get/${user.idUser}/${event.target.value}`).then(
             (res) => {
                 setTryout(res.data.data);
-                localStorage.setItem("tryoutReady", JSON.stringify(res.data.data));
+                localStorage.setItem("tryout", JSON.stringify(res.data.data));
+                document.querySelector('.bg-loading').classList.remove('active');
                 history.push("/tryout-detail");
             }
-        ).catch((err) => {
-            console.log(err);
-        })
-    }
+            ).catch((err) => {
+                document.querySelector('.bg-loading').classList.remove('active');
+                console.log(err);
+            })
+        }
+        // console.log(tryout);
 
     const handleChoice = (event) => {
         setChoice(event.target.value);

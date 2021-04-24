@@ -93,7 +93,7 @@ export function Main() {
     
     const handleUpdate = (event) => {
         event.preventDefault();
-
+        document.querySelector('.bg-loading').classList.add('active');
         axios({
             method: "post",
             url: `${url.api}user/update/${detailUser.id_user}`,
@@ -119,6 +119,7 @@ export function Main() {
         }).then(
             (res) => {
                 // console.log(detailUser);
+                document.querySelector('.bg-loading').classList.remove('active');
             }
         ).catch((err) => {
             console.log(err);
@@ -168,9 +169,9 @@ export function Main() {
                 <div className="content">
                     <div className="content-heading">
                         <div className="img-profile">
-                            <div className="circle-image">
+                            {/* <div className="circle-image">
                                 <img src={example} />
-                            </div>
+                            </div> */}
                             {/* <div type="file" className="circle-edit">
                                 <FaPencilAlt />
                             </div> */}
@@ -272,9 +273,9 @@ export function Main() {
                                     <div className="pilihan-universitas">
                                         <h4>Pilihan Pertama</h4>
                                         <div className="content-universitas">
-                                            <div className="image">
+                                            {/* <div className="image">
                                                 <img src={example} />
-                                            </div>
+                                            </div> */}
                                             <div className="form-group">
                                                 <select name="univ1_id" value={detailUser.univ1_id} onChange={handleChange}>
                                                     {
@@ -300,9 +301,9 @@ export function Main() {
                                     <div className="pilihan-universitas">
                                         <h4>Pilihan Kedua</h4>
                                         <div className="content-universitas">
-                                            <div className="image">
+                                            {/* <div className="image">
                                                 <img src={example} />
-                                            </div>
+                                            </div> */}
                                             <div className="form-group">
                                                 <select name="univ2_id" value={detailUser.univ2_id} onChange={handleChange}>
                                                 {

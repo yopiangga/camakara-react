@@ -40,6 +40,31 @@
   .page textarea:focus {
     outline: none;
   }
+  .bg-loading {
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+  }
+  .bg-loading img {
+    background-color: none;
+    width: 200px;
+    height: 200px;
+  }
+  .bg-loading.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
   .nav-desktop {
     background-color: transparent;
     display: -webkit-box;
@@ -1997,7 +2022,6 @@
     font-size: 14px;
   }
   .profile-page .main .content .content-heading .title-profile {
-    padding-left: 30px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2230,7 +2254,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding: 15px 20px 15px 0px;
+    padding: 15px 0px 15px 0px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     -webkit-box-pack: center;
@@ -2239,9 +2263,10 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    overflow: hidden;
   }
   .product-page .information-card .content .card img {
-    height: 250px;
+    width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4617,7 +4642,7 @@
     transition: 300ms;
   }
   .exam nav {
-    background-color: white;
+    background-color: FFF9F9;
     -webkit-box-shadow: 0px 20px 60px rgba(57, 57, 57, 0.04);
             box-shadow: 0px 20px 60px rgba(57, 57, 57, 0.04);
   }
@@ -4649,6 +4674,7 @@
         -ms-flex-pack: center;
             justify-content: center;
     padding-top: 80px;
+    background-color: #FFF9F9;
   }
   .exam .main .content {
     width: 90%;
@@ -4800,18 +4826,39 @@
     border-radius: 20px;
     border: 1px solid transparent;
   }
-  .exam .main .content .content-left .action .button-group .btn-submit {
+  .exam .main .content .content-left .action .button-group .btn-navigasi {
     background-color: white;
     border: 1px solid #FDBF1F;
     color: #FDBF1F;
     -webkit-transition: 300ms;
     transition: 300ms;
     cursor: pointer;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .exam .main .content .content-left .action .button-group .btn-navigasi:hover {
+    -webkit-transition: 300ms;
+    transition: 300ms;
+    background-color: #FDBF1F;
+    border: 1px solid #FDBF1F;
+    color: white;
+  }
+  .exam .main .content .content-left .action .button-group .btn-submit {
+    background-color: #FDBF1F;
+    border: 1px solid #FDBF1F;
+    color: white;
+    -webkit-transition: 300ms;
+    transition: 300ms;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
   }
   .exam .main .content .content-left .action .button-group .btn-submit:hover {
     -webkit-transition: 300ms;
     transition: 300ms;
-    background-color: #FDBF1F;
+    background-color: white;
     border: 1px solid #FDBF1F;
     color: white;
   }

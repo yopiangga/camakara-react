@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { FaClock, FaStickyNote } from "react-icons/fa"
 import { UserContext } from "../../pages/userContext";
 import { useHistory } from "react-router";
@@ -8,6 +8,10 @@ import axios from "axios";
 export function InfoMapel() {
 
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
+
+    useEffect(() => {
+        setTryout(JSON.parse(localStorage.getItem('tryout')));
+    }, [])
 
     $('.navigation.nav-left').addClass('active');
     $('.navigation.nav-right').removeClass('active');
@@ -30,18 +34,18 @@ export function InfoMapel() {
 
     let history = useHistory();
     const handleKerjakan = (event) => {
-        axios.get(`${url.api}exam/${tryout.id_tryout}/${event.target.value}`).then(
+        axios.get(`${url.api}exam/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event.target.value}`).then(
             (res) => {
                 setTryout(res.data.data);
                 localStorage.setItem("tryoutReadyMapel", JSON.stringify(res.data.data));
-                console.log(res.data);
+                // console.log(res.data);
                 history.push("/exam");
             }
         ).catch((err) => {
             console.log(err);
         })
 
-        axios.post(`${url.api}exam/${user.idUser}/${tryout.id_tryout}/${event.target.value}`).then(
+        axios.post(`${url.api}exam/${user.idUser}/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event.target.value}`).then(
             (res) => {
                 // console.log(res.data);
                 localStorage.setItem("waktu", JSON.stringify(res.data.time));
@@ -52,6 +56,11 @@ export function InfoMapel() {
             })
     }
 
+    const handlePembahasan = () => {
+
+    }
+
+    // console.log(tryout);
 
     return (
         <div>
@@ -76,15 +85,19 @@ export function InfoMapel() {
                             <div className="card-body">
                                 <li>
                                     <FaStickyNote />
-                                    <h4><span>Jumlah Soal :</span> {tryout.q_penalaran} Soal</h4>
+                                    <h4><span>Jumlah Soal :</span> {JSON.parse(localStorage.getItem('tryout')).q_penalaran} Soal</h4>
                                 </li>
                                 <li>
                                     <FaClock />
-                                    <h4><span>Waktu Pengerjaan :</span> {tryout.t_penalaran} Menit</h4>
+                                    <h4><span>Waktu Pengerjaan :</span> {JSON.parse(localStorage.getItem('tryout')).t_penalaran} Menit</h4>
                                 </li>
                                 <li>
                                     <div className="action">
-                                        <button className="btn-kerjakan" value="q_penalaran" onClick={handleKerjakan}>Kerjakan</button>
+                                        {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[0][1] == 1) ?
+                                            <button className="btn-kerjakan" value="q_penalaran" onClick={handlePembahasan}>Pembahasan</button>
+                                        : 
+                                            <button className="btn-kerjakan" value="q_penalaran" onClick={handleKerjakan}>Kerjakan</button>
+                                        }
                                     </div>
                                 </li>
                             </div>
@@ -98,15 +111,19 @@ export function InfoMapel() {
                             <div className="card-body">
                                 <li>
                                     <FaStickyNote />
-                                    <h4><span>Jumlah Soal :</span> {tryout.q_pemahaman} Soal</h4>
+                                    <h4><span>Jumlah Soal :</span> {JSON.parse(localStorage.getItem('tryout')).q_pemahaman} Soal</h4>
                                 </li>
                                 <li>
                                     <FaClock />
-                                    <h4><span>Waktu Pengerjaan :</span> {tryout.t_pemahaman} Menit</h4>
+                                    <h4><span>Waktu Pengerjaan :</span> {JSON.parse(localStorage.getItem('tryout')).t_pemahaman} Menit</h4>
                                 </li>
                                 <li>
                                     <div className="action">
-                                        <button className="btn-kerjakan" value="q_pemahaman" onClick={handleKerjakan}>Kerjakan</button>
+                                        {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[1][1] == 1) ?
+                                            <button className="btn-kerjakan" value="q_pemahaman" onClick={handlePembahasan}>Pembahasan</button>
+                                        : 
+                                            <button className="btn-kerjakan" value="q_pemahaman" onClick={handleKerjakan}>Kerjakan</button>
+                                        }
                                     </div>
                                 </li>
                             </div>
@@ -120,15 +137,19 @@ export function InfoMapel() {
                             <div className="card-body">
                                 <li>
                                     <FaStickyNote />
-                                    <h4><span>Jumlah Soal :</span> {tryout.q_pengetahuan} Soal</h4>
+                                    <h4><span>Jumlah Soal :</span> {JSON.parse(localStorage.getItem('tryout')).q_pengetahuan} Soal</h4>
                                 </li>
                                 <li>
                                     <FaClock />
-                                    <h4><span>Waktu Pengerjaan :</span> {tryout.t_pengetahuan} Menit</h4>
+                                    <h4><span>Waktu Pengerjaan :</span> {JSON.parse(localStorage.getItem('tryout')).t_pengetahuan} Menit</h4>
                                 </li>
                                 <li>
                                     <div className="action">
-                                        <button className="btn-kerjakan" value="q_pengetahuan" onClick={handleKerjakan}>Kerjakan</button>
+                                        {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[2][1] == 1) ?
+                                            <button className="btn-kerjakan" value="q_pengetahuan" onClick={handlePembahasan}>Pembahasan</button>
+                                        : 
+                                            <button className="btn-kerjakan" value="q_pengetahuan" onClick={handleKerjakan}>Kerjakan</button>
+                                        }
                                     </div>
                                 </li>
                             </div>
@@ -142,15 +163,19 @@ export function InfoMapel() {
                             <div className="card-body">
                                 <li>
                                     <FaStickyNote />
-                                    <h4><span>Jumlah Soal :</span> {tryout.q_pengetahuank} Soal</h4>
+                                    <h4><span>Jumlah Soal :</span> {JSON.parse(localStorage.getItem('tryout')).q_pengetahuank} Soal</h4>
                                 </li>
                                 <li>
                                     <FaClock />
-                                    <h4><span>Waktu Pengerjaan :</span> {tryout.t_pengetahuank} Menit</h4>
+                                    <h4><span>Waktu Pengerjaan :</span> {JSON.parse(localStorage.getItem('tryout')).t_pengetahuank} Menit</h4>
                                 </li>
                                 <li>
                                     <div className="action">
-                                        <button className="btn-kerjakan" value="q_pengetahuank" onClick={handleKerjakan}>Kerjakan</button>
+                                        {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[3][1] == 1) ?
+                                            <button className="btn-kerjakan" value="q_pengetahuank" onClick={handlePembahasan}>Pembahasan</button>
+                                        : 
+                                            <button className="btn-kerjakan" value="q_pengetahuank" onClick={handleKerjakan}>Kerjakan</button>
+                                        }
                                     </div>
                                 </li>
                             </div>
@@ -158,7 +183,7 @@ export function InfoMapel() {
 
 
                         {
-                            tryout.type_tryout == 1 ?
+                            JSON.parse(localStorage.getItem('tryout')).type_tryout == 1 ?
 
                                 <div className="content-body">
                                     <div className="card card-tka card-5">
@@ -169,15 +194,19 @@ export function InfoMapel() {
                                         <div className="card-body">
                                             <li>
                                                 <FaStickyNote />
-                                                <h4><span>Jumlah Soal :</span> {tryout.q_biologi} Soal</h4>
+                                                <h4><span>Jumlah Soal :</span> {JSON.parse(localStorage.getItem('tryout')).q_biologi} Soal</h4>
                                             </li>
                                             <li>
                                                 <FaClock />
-                                                <h4><span>Waktu Pengerjaan :</span> {tryout.t_biologi} Menit</h4>
+                                                <h4><span>Waktu Pengerjaan :</span> {JSON.parse(localStorage.getItem('tryout')).t_biologi} Menit</h4>
                                             </li>
                                             <li>
                                                 <div className="action">
-                                                    <button className="btn-kerjakan" value="q_biologi" onClick={handleKerjakan}>Kerjakan</button>
+                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[2][1] == 1) ?
+                                                        <button className="btn-kerjakan" value="q_biologi" onClick={handlePembahasan}>Pembahasan</button>
+                                                    : 
+                                                        <button className="btn-kerjakan" value="q_biologi" onClick={handleKerjakan}>Kerjakan</button>
+                                                    }
                                                 </div>
                                             </li>
                                         </div>
@@ -191,15 +220,19 @@ export function InfoMapel() {
                                         <div className="card-body">
                                             <li>
                                                 <FaStickyNote />
-                                                <h4><span>Jumlah Soal :</span> {tryout.q_fisika} Soal</h4>
+                                                <h4><span>Jumlah Soal :</span> {JSON.parse(localStorage.getItem('tryout')).q_fisika} Soal</h4>
                                             </li>
                                             <li>
                                                 <FaClock />
-                                                <h4><span>Waktu Pengerjaan :</span> {tryout.t_fisika} Menit</h4>
+                                                <h4><span>Waktu Pengerjaan :</span> {JSON.parse(localStorage.getItem('tryout')).t_fisika} Menit</h4>
                                             </li>
                                             <li>
                                                 <div className="action">
-                                                    <button className="btn-kerjakan" value="q_fisika" onClick={handleKerjakan}>Kerjakan</button>
+                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[1][1] == 1) ?
+                                                        <button className="btn-kerjakan" value="q_fisika" onClick={handlePembahasan}>Pembahasan</button>
+                                                    : 
+                                                        <button className="btn-kerjakan" value="q_fisika" onClick={handleKerjakan}>Kerjakan</button>
+                                                    }
                                                 </div>
                                             </li>
                                         </div>
@@ -213,15 +246,19 @@ export function InfoMapel() {
                                         <div className="card-body">
                                             <li>
                                                 <FaStickyNote />
-                                                <h4><span>Jumlah Soal :</span> {tryout.q_kimia} Soal</h4>
+                                                <h4><span>Jumlah Soal :</span> {JSON.parse(localStorage.getItem('tryout')).q_kimia} Soal</h4>
                                             </li>
                                             <li>
                                                 <FaClock />
-                                                <h4><span>Waktu Pengerjaan :</span> {tryout.t_kimia} Menit</h4>
+                                                <h4><span>Waktu Pengerjaan :</span> {JSON.parse(localStorage.getItem('tryout')).t_kimia} Menit</h4>
                                             </li>
                                             <li>
                                                 <div className="action">
-                                                    <button className="btn-kerjakan" value="q_kimia" onClick={handleKerjakan}>Kerjakan</button>
+                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[0][1] == 1) ?
+                                                        <button className="btn-kerjakan" value="q_kimia" onClick={handlePembahasan}>Pembahasan</button>
+                                                    : 
+                                                        <button className="btn-kerjakan" value="q_kimia" onClick={handleKerjakan}>Kerjakan</button>
+                                                    }
                                                 </div>
                                             </li>
                                         </div>
@@ -235,15 +272,19 @@ export function InfoMapel() {
                                         <div className="card-body">
                                             <li>
                                                 <FaStickyNote />
-                                                <h4><span>Jumlah Soal :</span> {tryout.q_matematika} Soal</h4>
+                                                <h4><span>Jumlah Soal :</span> {JSON.parse(localStorage.getItem('tryout')).q_matematika} Soal</h4>
                                             </li>
                                             <li>
                                                 <FaClock />
-                                                <h4><span>Waktu Pengerjaan :</span> {tryout.t_matematika} Menit</h4>
+                                                <h4><span>Waktu Pengerjaan :</span> {JSON.parse(localStorage.getItem('tryout')).t_matematika} Menit</h4>
                                             </li>
                                             <li>
                                                 <div className="action">
-                                                    <button className="btn-kerjakan" value="q_matematika" onClick={handleKerjakan}>Kerjakan</button>
+                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[3][1] == 1) ?
+                                                        <button className="btn-kerjakan" value="q_matematika" onClick={handlePembahasan}>Pembahasan</button>
+                                                    : 
+                                                        <button className="btn-kerjakan" value="q_matematika" onClick={handleKerjakan}>Kerjakan</button>
+                                                    }
                                                 </div>
                                             </li>
                                         </div>
@@ -259,15 +300,19 @@ export function InfoMapel() {
                                         <div className="card-body">
                                             <li>
                                                 <FaStickyNote />
-                                                <h4><span>Jumlah Soal :</span> {tryout.q_sejarah} Soal</h4>
+                                                <h4><span>Jumlah Soal :</span> {JSON.parse(localStorage.getItem('tryout')).q_sejarah} Soal</h4>
                                             </li>
                                             <li>
                                                 <FaClock />
-                                                <h4><span>Waktu Pengerjaan :</span> {tryout.t_sejarah} Menit</h4>
+                                                <h4><span>Waktu Pengerjaan :</span> {JSON.parse(localStorage.getItem('tryout')).t_sejarah} Menit</h4>
                                             </li>
                                             <li>
                                                 <div className="action">
-                                                    <button className="btn-kerjakan" value="q_sejarah" onClick={handleKerjakan}>Kerjakan</button>
+                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[0][1] == 1) ?
+                                                        <button className="btn-kerjakan" value="q_sejarah" onClick={handlePembahasan}>Pembahasan</button>
+                                                    : 
+                                                        <button className="btn-kerjakan" value="q_sejarah" onClick={handleKerjakan}>Kerjakan</button>
+                                                    }
                                                 </div>
                                             </li>
                                         </div>
@@ -281,15 +326,19 @@ export function InfoMapel() {
                                         <div className="card-body">
                                             <li>
                                                 <FaStickyNote />
-                                                <h4><span>Jumlah Soal :</span> {tryout.q_geografi} Soal</h4>
+                                                <h4><span>Jumlah Soal :</span> {JSON.parse(localStorage.getItem('tryout')).q_geografi} Soal</h4>
                                             </li>
                                             <li>
                                                 <FaClock />
-                                                <h4><span>Waktu Pengerjaan :</span> {tryout.t_geografi} Menit</h4>
+                                                <h4><span>Waktu Pengerjaan :</span> {JSON.parse(localStorage.getItem('tryout')).t_geografi} Menit</h4>
                                             </li>
                                             <li>
                                                 <div className="action">
-                                                    <button className="btn-kerjakan" value="q_geografi" onClick={handleKerjakan}>Kerjakan</button>
+                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[1][1] == 1) ?
+                                                        <button className="btn-kerjakan" value="q_geografi" onClick={handlePembahasan}>Pembahasan</button>
+                                                    : 
+                                                        <button className="btn-kerjakan" value="q_geografi" onClick={handleKerjakan}>Kerjakan</button>
+                                                    }
                                                 </div>
                                             </li>
                                         </div>
@@ -303,15 +352,19 @@ export function InfoMapel() {
                                         <div className="card-body">
                                             <li>
                                                 <FaStickyNote />
-                                                <h4><span>Jumlah Soal :</span> {tryout.q_ekonomi} Soal</h4>
+                                                <h4><span>Jumlah Soal :</span> {JSON.parse(localStorage.getItem('tryout')).q_ekonomi} Soal</h4>
                                             </li>
                                             <li>
                                                 <FaClock />
-                                                <h4><span>Waktu Pengerjaan :</span> {tryout.t_ekonomi} Menit</h4>
+                                                <h4><span>Waktu Pengerjaan :</span> {JSON.parse(localStorage.getItem('tryout')).t_ekonomi} Menit</h4>
                                             </li>
                                             <li>
                                                 <div className="action">
-                                                    <button className="btn-kerjakan" value="q_ekonomi" onClick={handleKerjakan}>Kerjakan</button>
+                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[2][1] == 1) ?
+                                                        <button className="btn-kerjakan" value="q_ekonomi" onClick={handlePembahasan}>Pembahasan</button>
+                                                    : 
+                                                        <button className="btn-kerjakan" value="q_ekonomi" onClick={handleKerjakan}>Kerjakan</button>
+                                                    }
                                                 </div>
                                             </li>
                                         </div>
@@ -325,15 +378,19 @@ export function InfoMapel() {
                                         <div className="card-body">
                                             <li>
                                                 <FaStickyNote />
-                                                <h4><span>Jumlah Soal :</span> {tryout.q_sosiologi} Soal</h4>
+                                                <h4><span>Jumlah Soal :</span> {JSON.parse(localStorage.getItem('tryout')).q_sosiologi} Soal</h4>
                                             </li>
                                             <li>
                                                 <FaClock />
-                                                <h4><span>Waktu Pengerjaan :</span> {tryout.t_sosiologi} Menit</h4>
+                                                <h4><span>Waktu Pengerjaan :</span> {JSON.parse(localStorage.getItem('tryout')).t_sosiologi} Menit</h4>
                                             </li>
                                             <li>
                                                 <div className="action">
-                                                    <button className="btn-kerjakan" value="q_sosiologi" onClick={handleKerjakan}>Kerjakan</button>
+                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[3][1] == 1) ?
+                                                        <button className="btn-kerjakan" value="q_sosiologi" onClick={handlePembahasan}>Pembahasan</button>
+                                                    : 
+                                                        <button className="btn-kerjakan" value="q_sosiologi" onClick={handleKerjakan}>Kerjakan</button>
+                                                    }
                                                 </div>
                                             </li>
                                         </div>
