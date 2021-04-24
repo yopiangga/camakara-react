@@ -167,31 +167,38 @@ export function Main() {
     const history = useHistory();
 
     const handleKonfirmasi = (event) => {
-        document.querySelector('.bg-loading').classList.add('active');
         event.preventDefault();
-        let formData = new FormData();
-        formData.append('image', gambar);
-        formData.append('id', detailUser.id_user);
-        formData.append('nominal', jumlahTopUp);
-        formData.append('bankid', metode.idPayment);
+        // console.log(metode.idPayment);
+        if(metode.idPayment == undefined || metode.idPayment == 0){
 
-        axios({
-            url: `${url.api}topup`,
-            method: 'POST',
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            },
-            data: formData
-        }).then(
-            (res) => {
-                // console.log(res);
+        } else {
+            document.querySelector('.bg-loading').classList.add('active');
+            event.preventDefault();
+            let formData = new FormData();
+            formData.append('image', gambar);
+            formData.append('id', detailUser.id_user);
+            formData.append('nominal', jumlahTopUp);
+            formData.append('bankid', metode.idPayment);
+    
+            axios({
+                url: `${url.api}topup`,
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: formData
+            }).then(
+                (res) => {
+                    // console.log(res);
+                    document.querySelector('.bg-loading').classList.remove('active');
+                    history.push('/riwayat-transaksi');
+                }
+            ).catch((err) => {
                 document.querySelector('.bg-loading').classList.remove('active');
-                history.push('/riwayat-transaksi');
-            }
-        ).catch((err) => {
-            document.querySelector('.bg-loading').classList.remove('active');
-            console.log(err);
-        })
+                console.log(err);
+            })
+        }
+        
     }
 
     const handleChoiceJumlah = (event) => {
@@ -234,7 +241,7 @@ export function Main() {
         return(rupiah);
     }
 
-    console.log(jumlahTopUp);
+    // console.log(jumlahTopUp);
 
     return (
         <div>

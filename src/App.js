@@ -35,6 +35,7 @@ import { ScoreBoard } from "./pages/ScoreBoard";
 import { ScoreAll } from "./pages/ScoreAll";
 import { ScorePilihanDetail1 } from "./pages/ScorePilihanDetail1";
 import history from './history';
+import { Discussion } from "./pages/Discussion";
 
 function App() {
 
@@ -100,6 +101,9 @@ function App() {
           </Route>
           <Route path="/exam" exact>
             <Exam />
+          </Route>
+          <Route path="/pembahasan" exact>
+            <Discussion />
           </Route>
           <Route path="/skor-Tryout" exact>
             <ScoreBoard />

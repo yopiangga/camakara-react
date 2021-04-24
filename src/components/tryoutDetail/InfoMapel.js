@@ -56,8 +56,17 @@ export function InfoMapel() {
             })
     }
 
-    const handlePembahasan = () => {
-
+    const handlePembahasan = (event) => {
+        axios.get(`${url.api}exam/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event.target.value}`).then(
+            (res) => {
+                setTryout(res.data.data);
+                localStorage.setItem("tryoutReadyMapel", JSON.stringify(res.data.data));
+                history.push('./exam');
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
+        
     }
 
     // console.log(tryout);
