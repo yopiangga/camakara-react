@@ -1,11 +1,14 @@
 
 import { FaLongArrowAltDown } from 'react-icons/fa';
 import helpCenter from '../../assets/images/help-center.png';
+import Particles from 'react-particles-js';
 
 export function Main() {
     return (
         <div>
-            <section className="bg-main"></section>
+            <section className="bg-main">
+                <Particles />
+            </section>
 
             <section className="main">
                 <div className="content">
