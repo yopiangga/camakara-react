@@ -1,6 +1,7 @@
 
 import React from "react";
 import {
+  Router,
   BrowserRouter,
   Switch,
   Route,
@@ -33,6 +34,7 @@ import { Exam } from "./pages/Exam";
 import { ScoreBoard } from "./pages/ScoreBoard";
 import { ScoreAll } from "./pages/ScoreAll";
 import { ScorePilihanDetail1 } from "./pages/ScorePilihanDetail1";
+import history from './history';
 
 function App() {
 
@@ -52,7 +54,7 @@ function App() {
 
   return (
     <UserProvider>
-      <BrowserRouter>
+      <Router history={history}>
         <Switch>
           <Route path="/login" exact>
             <Login />
@@ -109,7 +111,7 @@ function App() {
             <ScorePilihanDetail1/>
           </Route>
         </Switch>
-      </BrowserRouter>
+      </Router>
     </UserProvider>
   );
 }

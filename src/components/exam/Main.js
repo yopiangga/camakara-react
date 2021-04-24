@@ -131,7 +131,7 @@ export function Main() {
                                     <button className="btn-navigasi" onClick={handlePrev}>Sebelumnya</button>
                                 }
 
-{
+                                {
                                 (tryoutReadyMapel.length - 1 != noSoal) ?
                                     <button className="btn-navigasi" onClick={handleNext}>Selanjutnya</button>
                                     :

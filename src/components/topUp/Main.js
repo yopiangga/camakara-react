@@ -167,6 +167,7 @@ export function Main() {
     const history = useHistory();
 
     const handleKonfirmasi = (event) => {
+        document.querySelector('.bg-loading').classList.add('active');
         event.preventDefault();
         let formData = new FormData();
         formData.append('image', gambar);
@@ -183,10 +184,12 @@ export function Main() {
             data: formData
         }).then(
             (res) => {
-                console.log(res);
+                // console.log(res);
+                document.querySelector('.bg-loading').classList.remove('active');
                 history.push('/riwayat-transaksi');
             }
         ).catch((err) => {
+            document.querySelector('.bg-loading').classList.remove('active');
             console.log(err);
         })
     }

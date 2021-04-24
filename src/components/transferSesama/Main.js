@@ -10,6 +10,7 @@ export function Main() {
     const [dataTransfer, setDataTransfer] = useState({fromid: "", telp: "", userTarget: "", nominal: ""});
 
     const checkUserTransfer = (event) => {
+        document.querySelector('.bg-loading').classList.add('active');
         event.preventDefault();
         let telp = document.querySelector("[name='noTelpTarget']").value;
         let nominal = document.querySelector("[name='nominalTransfer']").value;
@@ -25,11 +26,13 @@ export function Main() {
                     telp: telp,
                     nominal: nominal
                 });
+                document.querySelector('.bg-loading').classList.remove('active');
                 $('.transferSesama-page .main .content .content-body .card-transfer-detail').addClass('active')
             }
             ).catch((err) => {
                 // console.log(err);
-                alert("Nomor Handphone yang anda masukkan tidak terdaftar");
+                document.querySelector('.bg-loading').classList.remove('active');
+                // alert("Nomor Handphone yang anda masukkan tidak terdaftar");
             })
         } else {
 
@@ -38,13 +41,16 @@ export function Main() {
     
     const history = useHistory();
     const handleKonfirmasi = () => {
-        console.log(dataTransfer)
+        document.querySelector('.bg-loading').classList.active('active');
+        // console.log(dataTransfer)
         axios.post(`${url.api}transfer`, {headers: {"Authorization" : `Bearer ${user.token}`}, fromid : dataTransfer.fromid, telp: dataTransfer.telp, nominal: dataTransfer.nominal}).then(
             (res) => {
-                console.log(res);
+                // console.log(res);
+                document.querySelector('.bg-loading').classList.remove('active');
                 history.push('/riwayat-transaksi');
             }
             ).catch((err) => {
+                document.querySelector('.bg-loading').classList.remove('active');
                 console.log(err);
             })
     }
