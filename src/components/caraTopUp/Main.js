@@ -362,6 +362,27 @@ export function Main() {
                                             <td className="no">2.</td>
                                             <td>Pilih transaksi <span>lain</span></td>
                                         </tr>
+                                        <tr>
+                                            <td className="no">3.</td>
+                                            <td>Pilih transak <span>lain</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div className="petunjuk p-bri">
+                                <hr />
+                                <h4>Transfer Tunai BRI</h4>
+                                <hr />
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td className="no">1.</td>
+                                            <td>Pilih transaksi lain</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="no">2.</td>
+                                            <td>Pilih transaksi <span>lain</span></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -418,6 +439,27 @@ export function Main() {
                             </div>
 
 
+                            <div className="petunjuk p-bca">
+                                <hr />
+                                <h4>Transfer ATM BCA</h4>
+                                <hr />
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td className="no">1.</td>
+                                            <td>Pilih transaksi lain</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="no">2.</td>
+                                            <td>Pilih transaksi <span>lain</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td className="no">3.</td>
+                                            <td>Pilih transaksi hdaja <span>lain</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                             <div className="petunjuk p-bca">
                                 <hr />
                                 <h4>Transfer ATM BCA</h4>

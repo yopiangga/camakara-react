@@ -5196,9 +5196,9 @@
     border: 1px solid transparent;
   }
   .exam .main .content .content-left .action .button-group .btn-navigasi {
-    background-color: white;
+    background-color: #FDBF1F;
     border: 1px solid #FDBF1F;
-    color: #FDBF1F;
+    color: white;
     -webkit-transition: 300ms;
     transition: 300ms;
     cursor: pointer;
@@ -5210,9 +5210,9 @@
   .exam .main .content .content-left .action .button-group .btn-navigasi:hover {
     -webkit-transition: 300ms;
     transition: 300ms;
-    background-color: #FDBF1F;
+    background-color: transparent;
     border: 1px solid #FDBF1F;
-    color: white;
+    color: #FDBF1F;
   }
   .exam .main .content .content-left .action .button-group .btn-submit {
     background-color: #FDBF1F;
@@ -5227,9 +5227,9 @@
   .exam .main .content .content-left .action .button-group .btn-submit:hover {
     -webkit-transition: 300ms;
     transition: 300ms;
-    background-color: white;
+    background-color: transparent;
     border: 1px solid #FDBF1F;
-    color: white;
+    color: #FDBF1F;
   }
   .exam .main .content .content-right {
     width: 25%;

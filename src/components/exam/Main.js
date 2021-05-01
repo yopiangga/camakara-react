@@ -62,6 +62,16 @@ export function Main() {
         setNoSoal(noSoal+1);
     }
 
+    const handlePembahasan = () => {
+        axios.get(`${url.api}mytryout/getanswert/${user.idUser}/${tryout.id_tryout}/${tryoutReadyMapel[0].kind_tryout}/${noSoal+1}`).then(
+            (res) => {
+                console.log(res);
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
+    }
+
     return (
         <div>
             <section className="main">
@@ -144,7 +154,11 @@ export function Main() {
                                         :
                                         ""
                                 }
+
+                                <button className="btn-submit" onClick={handlePembahasan}>Pembahasan</button>
+                            
                             </div>
+
                         </div>
                     </div>
                     <div className="content-right">
@@ -159,7 +173,7 @@ export function Main() {
                                 {
                                     tryoutReadyMapel.map(function (el, idx) {
                                         return (
-                                            <div className={(noSoal == idx) ? "box active" : "box"} key={idx} onClick={() => { handleNomerSoal(idx) }}>{el.no_soal}</div>
+                                            <div className={(noSoal == idx) ? "box active" : "box"} key={idx} onClick={() => { handleNomerSoal(idx) }}>{idx+1}</div>
                                         )
                                     })
                                 }

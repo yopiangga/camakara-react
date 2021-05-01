@@ -5035,9 +5035,9 @@ $colorBlack : #000000;
                             }
 
                             .btn-navigasi {
-                                background-color: white;
+                                background-color: $colorYellow;
                                 border: 1px solid$colorYellow;
-                                color: $colorYellow;
+                                color: white;
                                 transition: 300ms;
                                 cursor: pointer;
                                 margin-left: 20px;
@@ -5048,9 +5048,9 @@ $colorBlack : #000000;
 
                             .btn-navigasi:hover {
                                 transition: 300ms;
-                                background-color: $colorYellow;
+                                background-color: transparent;
                                 border: 1px solid$colorYellow;
-                                color: white;
+                                color: $colorYellow;
                             }
 
                             .btn-submit {
@@ -5065,11 +5065,13 @@ $colorBlack : #000000;
 
                             .btn-submit:hover {
                                 transition: 300ms;
-                                background-color: white;
+                                background-color: transparent;
                                 border: 1px solid$colorYellow;
-                                color: white;
+                                color: $colorYellow;
                             }
+
                         }
+
                     }
                 }
 
