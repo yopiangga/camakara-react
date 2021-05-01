@@ -5231,6 +5231,13 @@
     border: 1px solid #FDBF1F;
     color: #FDBF1F;
   }
+  .exam .main .content .content-left .pembahasan {
+    margin-bottom: 80px;
+    display: none;
+  }
+  .exam .main .content .content-left .pembahasan.active {
+    display: block;
+  }
   .exam .main .content .content-right {
     width: 25%;
   }

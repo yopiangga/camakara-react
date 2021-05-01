@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../pages/userContext"
 import axios from "axios";
 import { useHistory } from "react-router";
+import $ from 'jquery';
 
 export function Main() {
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
@@ -18,6 +19,7 @@ export function Main() {
         pilihan5: "",
     }]);
     const [noSoal, setNoSoal] = useState(0);
+    const [pembahasan, setPembahasan] = useState({imagepembahasan: "", jawaban: "", pembahasan: ""});
 
     const history = useHistory();
 
@@ -29,10 +31,10 @@ export function Main() {
             timeStart: JSON.parse(localStorage.getItem('waktuStart'))
         });
     }, [])
-
-    console.log(tryoutReadyMapel);
-
+    
+    
     const handleNomerSoal = (no) => {
+        $('.pembahasan').removeClass('active');
         setNoSoal(no);
     }
 
@@ -55,17 +57,20 @@ export function Main() {
     }
 
     const handlePrev = () => {
-        setNoSoal(noSoal-1);
+        setNoSoal(noSoal - 1);
+        $('.pembahasan').removeClass('active');
     }
 
     const handleNext = () => {
-        setNoSoal(noSoal+1);
+        setNoSoal(noSoal + 1);
+        $('.pembahasan').removeClass('active');
     }
 
     const handlePembahasan = () => {
-        axios.get(`${url.api}mytryout/getanswert/${user.idUser}/${tryout.id_tryout}/${tryoutReadyMapel[0].kind_tryout}/${noSoal+1}`).then(
+        $('.pembahasan').addClass('active');
+        axios.get(`${url.api}mytryout/getanswert/${user.idUser}/${tryout.id_tryout}/${tryoutReadyMapel[0].kind_tryout}/${noSoal + 1}`).then(
             (res) => {
-                console.log(res);
+                setPembahasan(res.data.data);
             }
         ).catch((err) => {
             console.log(err);
@@ -135,17 +140,17 @@ export function Main() {
                             <div className="button-group">
 
                                 {
-                                    (noSoal == 0) ? 
-                                    ""
-                                    :
-                                    <button className="btn-navigasi" onClick={handlePrev}>Sebelumnya</button>
+                                    (noSoal == 0) ?
+                                        ""
+                                        :
+                                        <button className="btn-navigasi" onClick={handlePrev}>Sebelumnya</button>
                                 }
 
                                 {
-                                (tryoutReadyMapel.length - 1 != noSoal) ?
-                                    <button className="btn-navigasi" onClick={handleNext}>Selanjutnya</button>
-                                    :
-                                    ""
+                                    (tryoutReadyMapel.length - 1 != noSoal) ?
+                                        <button className="btn-navigasi" onClick={handleNext}>Selanjutnya</button>
+                                        :
+                                        ""
                                 }
 
                                 {
@@ -156,10 +161,22 @@ export function Main() {
                                 }
 
                                 <button className="btn-submit" onClick={handlePembahasan}>Pembahasan</button>
-                            
+
                             </div>
 
                         </div>
+
+                        <div className="pembahasan">
+                            <div className="heading">
+                                <h1>Pembahasan</h1>
+                            </div>
+                            <div className="question">
+                                {/* <h3>Soal {(tryoutReadyMapel[noSoal] == null) ? "" : tryoutReadyMapel[noSoal].no_soal}</h3> */}
+                                <p>{(pembahasan == null) ? "" : pembahasan.pembahasan}</p>
+                                <img src={(pembahasan == null) ? "" : pembahasan.imagepembahasan} alt="" />
+                            </div>
+                        </div>
+
                     </div>
                     <div className="content-right">
                         <div className="timer">
@@ -173,7 +190,7 @@ export function Main() {
                                 {
                                     tryoutReadyMapel.map(function (el, idx) {
                                         return (
-                                            <div className={(noSoal == idx) ? "box active" : "box"} key={idx} onClick={() => { handleNomerSoal(idx) }}>{idx+1}</div>
+                                            <div className={(noSoal == idx) ? "box active" : "box"} key={idx} onClick={() => { handleNomerSoal(idx) }}>{idx + 1}</div>
                                         )
                                     })
                                 }

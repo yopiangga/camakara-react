@@ -5073,6 +5073,15 @@ $colorBlack : #000000;
                         }
 
                     }
+
+                    .pembahasan {
+                         margin-bottom: 80px;
+                         display: none;
+                    }
+
+                    .pembahasan.active {
+                        display: block;
+                    }
                 }
 
                 .content-right {
