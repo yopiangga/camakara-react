@@ -85,6 +85,16 @@ $colorBlack : #000000;
         display: flex;
     }
 
+    .bg-particles {
+        position: fixed;
+        // background-color: $colorDark;
+        background-image: url('./../images/site-bg-img.jpg');
+        background-size: cover;
+        width: 100%;
+        min-height: 100vh;
+        z-index: 1;
+    }
+
     .nav-desktop {
         
         background-color: transparent;
@@ -550,10 +560,12 @@ $colorBlack : #000000;
             width: 100%;
             min-height: 100VH;
             display: flex;
+            position: absolute;
             justify-content: center;
-            background-color: white;
+            background-color: transparent;
             padding: 30px 0px 30px 0px;
             align-items: center;
+            z-index: 2;
 
             .content {
                 width: 90%;
@@ -707,7 +719,9 @@ $colorBlack : #000000;
             height: 900px;
             display: flex;
             justify-content: center;
-            background-color: white;
+            background-color: transparent;
+            position: absolute;
+            z-index: 2;
 
             .content {
                 width: 90%;
@@ -839,7 +853,9 @@ $colorBlack : #000000;
             height: 700px;
             display: flex;
             justify-content: center;
-            background-color: white;
+            background-color: transparent;
+            position: absolute;
+            z-index: 2;
 
             .content {
                 width: 90%;
@@ -968,8 +984,9 @@ $colorBlack : #000000;
 
         .bg-main {
             position: absolute;
-            background-color: $colorDark;
-            clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+            background-image: url('./../images/site-bg-img.jpg');
+            background-size: cover;
+            // clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
             height: 650px;
             width: 100%;
             z-index: 1;
@@ -4092,7 +4109,17 @@ $colorBlack : #000000;
                             h2 {
                                 font-weight: 600;
                                 font-size: 20px;
+                                margin-bottom: 20px;
+                            }
+                            
+                            p {
+                                font-size: 16px;
                                 margin-bottom: 50px;
+
+                                span {
+                                    color: $colorYellow;
+                                    cursor: pointer;
+                                }
                             }
 
                             .choice-group {
@@ -4281,6 +4308,330 @@ $colorBlack : #000000;
                         
                         }
                     }
+                }
+            }
+        }
+    }
+
+    .caraTopUp-page {
+
+        .main {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-top: 80px;
+            padding-bottom: 80px;
+            margin-bottom: 50px;
+
+            .content {
+                width: 90%;
+
+                .content-head {
+                    width: 100%;
+                    height: 100px;
+                    display: flex;
+                    align-items: center;
+
+                    h2 {
+                        font-size: 28px;
+                        font-weight: 600;
+                    }
+                }
+                
+                .content-body {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    .card-metode {
+                        width: 600px;
+                        margin-top: 30px;
+                        margin-bottom: 50px;
+
+                        .form {
+                            width: 100%;
+                            text-align: center;
+
+                            h2 {
+                                font-weight: 600;
+                                font-size: 20px;
+                                margin-bottom: 50px;
+                            }
+
+                            .form-group-select {
+                                text-align: left;
+                                display: flex;
+                                margin-bottom: 30px;
+                                width: 100%;
+
+                                .group-left {
+                                    width: 10%;
+                                    height: 100%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: flex-start;
+                                    img {
+                                        width: 40px;
+                                    }
+                                }
+
+                                .group-right {
+                                    width: 90%;
+
+                                    .select {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+                                        height: 40px;
+                                        cursor: pointer;
+
+                                        .title {
+                                            width: 90%;
+
+                                            h3 {
+                                                font-weight: 500;
+                                                font-size: 16px;
+                                            }
+                                        }
+
+                                        .icon-right {
+                                            width: 10%;
+                                            display: flex;
+                                            justify-content: center;
+
+                                            i.active {
+                                                transform: rotate(180deg);
+                                                color: $colorYellow;
+                                            }
+                                        }
+                                    }
+
+                                    .select-body.active {
+                                        height: 250px;
+                                        transition: 500ms;
+                                    }
+
+                                    .select-body {
+                                        transition: 500ms;
+                                        height: 0px;
+                                        overflow: hidden;
+                                        display: flex;
+                                        flex-direction: column;
+
+                                        hr {
+                                            width: 100%;
+                                            border: none;
+                                            height: 1px;
+                                            background-color: $colorGray;
+                                        }
+
+                                        button {
+                                            font-family: $fontPrimary;
+                                            color: $colorDark;
+                                            width: 100%;
+                                            height: 45px;
+                                            box-sizing: border-box;
+                                            padding: 5px 20px 5px 20px;
+                                            display: flex;
+                                            align-items: center;
+                                            outline: none;
+                                            border: 1px solid transparent;
+                                            margin: 0;
+                                            background-color: white;
+                                            cursor: pointer;
+
+                                            .left {
+                                                width: 80%;
+                                                display: flex;
+                                                align-items: center;
+                                                img {
+                                                    width: 40px;
+                                                    margin-right: 20px;
+                                                }
+    
+                                                h4 {
+                                                    font-size: 16px;
+                                                    font-weight: 500;
+                                                }
+                                            }
+
+                                            .right {
+                                                width: 20%;
+                                                color: transparent;
+    
+                                                path {
+                                                    display: block;
+                                                    font-size: 24px;
+                                                }
+    
+                                            }
+    
+                                            .right.active {
+                                                color: $colorYellow;
+                                            }
+                                        }
+
+                                    }
+                                }
+                            }
+
+                            .form-group {
+                                text-align: left;
+                                display: flex;
+                                margin-bottom: 30px;
+                                width: 100%;
+
+                                .group-left {
+                                    width: 10%;
+                                    height: 100%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: flex-start;
+                                    img {
+                                        width: 40px;
+                                    }
+                                }
+
+                                .group-right {
+                                    width: 90%;
+
+                                    button {
+                                        width: 100%;
+                                        height: 30px;
+                                        box-sizing: border-box;
+                                        padding: 5px 20px 5px 0px;
+                                        display: flex;
+                                        align-items: center;
+                                        outline: none;
+                                        border: 1px solid transparent;
+                                        margin: 0;
+                                        background-color: white;
+                                        cursor: pointer;
+
+                                        .left {
+                                            width: 80%;
+                                            display: flex;
+                                            align-items: center;
+                                            img {
+                                                width: 40px;
+                                                margin-right: 20px;
+                                            }
+
+                                            h4 {
+                                                font-family: $fontPrimary;
+                                                font-size: 16px;
+                                                font-weight: 500;
+                                                color: $colorDark;    
+                                            }
+                                        }
+
+                                        .right {
+                                            width: 20%;
+                                            color: transparent;
+
+                                            path {
+                                                display: block;
+                                                font-size: 24px;
+                                            }
+
+                                        }
+
+                                        .right.active {
+                                            color: $colorYellow;
+                                        }
+                                    }
+                                }
+                            }
+
+                           
+                        }
+                    }
+
+                    .card-petunjuk {
+                        width: 600px;
+                        margin-top: 30px;
+                        margin-bottom: 50px;
+
+                        h3 {
+                            text-align: center;
+                            font-size: 20px;
+                            font-weight: 600;
+                            margin-bottom: 50px;
+                        }
+
+                        .petunjuk {
+                            display: none;
+                            flex-direction: column;
+                            align-items: center;
+                            margin-bottom: 50px;
+
+                            hr {
+                                width: 100%;
+                                margin-bottom: 20px;
+                            }
+
+                            h4 {
+                                margin-bottom: 12px;
+                                font-size: 16px;
+                                font-weight: 600;
+                                width: 90%;
+                            }
+
+                            table {
+                                width: 90%;
+
+                                tbody {
+
+                                    tr {
+                                        height: 25px;
+                                        font-size: 16px;
+
+                                        span {
+                                            font-weight: 600;
+                                        }
+
+                                        .no {
+                                            width: 5%;
+                                        }
+
+                                        td {
+                                            width: 95%;
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .p-bri.active {
+                            display: flex;
+                        }
+
+                        .p-bca.active {
+                            display: flex;
+                        }
+
+                        .p-bni.active {
+                            display: flex;
+                        }
+
+                        .p-mandiri.active {
+                            display: flex;
+                        }
+
+                        .p-ovo.active {
+                            display: flex;
+                        }
+
+                        .p-alfa.active {
+                            display: flex;
+                        }
+
+                        .p-shopee.active {
+                            display: flex;
+                        }
+                    }
+
                 }
             }
         }

@@ -10,6 +10,7 @@ import {
 import logo1 from '../../assets/images/logo-1.png'; 
 import { UserContext } from "../../pages/userContext";
 import axios from 'axios';
+import Particles from "react-particles-js";
 
 
 export function Main() {
@@ -47,6 +48,9 @@ export function Main() {
 
     return (
         <div>
+            <div className="bg-particles">
+                <Particles />
+            </div>
             <section className="main">
                 <div className="content">
                     <div className="card">

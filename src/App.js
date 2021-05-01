@@ -36,6 +36,7 @@ import { ScoreAll } from "./pages/ScoreAll";
 import { ScorePilihanDetail1 } from "./pages/ScorePilihanDetail1";
 import history from './history';
 import { Discussion } from "./pages/Discussion";
+import { CaraTopUp } from "./pages/CaraTopUp";
 
 function App() {
 
@@ -83,6 +84,9 @@ function App() {
           </Route>
           <Route path="/top-up" exact>
             <TopUp />
+          </Route>
+          <Route path="/cara-top-up" exact>
+            <CaraTopUp />
           </Route>
           <Route path="/tryout-saya" exact>
             <MyTryout />

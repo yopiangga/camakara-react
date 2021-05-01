@@ -241,6 +241,10 @@ export function Main() {
         return(rupiah);
     }
 
+    const handleCara = () => {
+        history.push('/cara-top-up');    
+    }
+
     // console.log(jumlahTopUp);
 
     return (
@@ -371,6 +375,7 @@ export function Main() {
                         <div className="card-jumlah" id="card-jumlah">
                             <div className="form">
                                 <h2>Jumlah Top Up (Rp)</h2>
+                                <p>Belum tahu cara Top Up ? <span onClick={handleCara}>Lihat cara</span></p>
                                 <div className="choice-group">
                                     <button className="btn-choice" id="choice-10" onClick={handleChoiceJumlah}>10.000</button>
                                     <button className="btn-choice" id="choice-20" onClick={handleChoiceJumlah}>20.000</button>

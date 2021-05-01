@@ -65,6 +65,14 @@
     display: -ms-flexbox;
     display: flex;
   }
+  .bg-particles {
+    position: fixed;
+    background-image: url("./../images/site-bg-img.jpg");
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 1;
+  }
   .nav-desktop {
     background-color: transparent;
     display: -webkit-box;
@@ -491,14 +499,16 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    position: absolute;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    background-color: white;
+    background-color: transparent;
     padding: 30px 0px 30px 0px;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    z-index: 2;
   }
   .login-page .main .content {
     width: 90%;
@@ -654,7 +664,9 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    background-color: white;
+    background-color: transparent;
+    position: absolute;
+    z-index: 2;
   }
   .daftar-page .main .content {
     width: 90%;
@@ -790,7 +802,9 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    background-color: white;
+    background-color: transparent;
+    position: absolute;
+    z-index: 2;
   }
   .lupa-password-page .main .content {
     width: 90%;
@@ -920,9 +934,8 @@
   }
   .home-page .bg-main {
     position: absolute;
-    background-color: #393939;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-            clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+    background-image: url("./../images/site-bg-img.jpg");
+    background-size: cover;
     height: 650px;
     width: 100%;
     z-index: 1;
@@ -4233,7 +4246,15 @@
   .topup-page .main .content .content-body .card-jumlah .form h2 {
     font-weight: 600;
     font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .topup-page .main .content .content-body .card-jumlah .form p {
+    font-size: 16px;
     margin-bottom: 50px;
+  }
+  .topup-page .main .content .content-body .card-jumlah .form p span {
+    color: #FDBF1F;
+    cursor: pointer;
   }
   .topup-page .main .content .content-body .card-jumlah .form .choice-group {
     width: 100%;
@@ -4419,6 +4440,354 @@
     cursor: pointer;
     -webkit-transition: 300ms;
     transition: 300ms;
+  }
+  .caraTopUp-page .main {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    margin-bottom: 50px;
+  }
+  .caraTopUp-page .main .content {
+    width: 90%;
+  }
+  .caraTopUp-page .main .content .content-head {
+    width: 100%;
+    height: 100px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .caraTopUp-page .main .content .content-head h2 {
+    font-size: 28px;
+    font-weight: 600;
+  }
+  .caraTopUp-page .main .content .content-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode {
+    width: 600px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form {
+    width: 100%;
+    text-align: center;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form h2 {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 50px;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select {
+    text-align: left;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-left {
+    width: 10%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-left img {
+    width: 40px;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right {
+    width: 90%;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 40px;
+    cursor: pointer;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select .title {
+    width: 90%;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select .title h3 {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select .icon-right {
+    width: 10%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select .icon-right i.active {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    color: #FDBF1F;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select-body.active {
+    height: 250px;
+    -webkit-transition: 500ms;
+    transition: 500ms;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select-body {
+    -webkit-transition: 500ms;
+    transition: 500ms;
+    height: 0px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select-body hr {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background-color: #C4C4C4;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select-body button {
+    font-family: "Poppins";
+    color: #393939;
+    width: 100%;
+    height: 45px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 5px 20px 5px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    outline: none;
+    border: 1px solid transparent;
+    margin: 0;
+    background-color: white;
+    cursor: pointer;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select-body button .left {
+    width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select-body button .left img {
+    width: 40px;
+    margin-right: 20px;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select-body button .left h4 {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select-body button .right {
+    width: 20%;
+    color: transparent;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select-body button .right path {
+    display: block;
+    font-size: 24px;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select-body button .right.active {
+    color: #FDBF1F;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group {
+    text-align: left;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group .group-left {
+    width: 10%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group .group-left img {
+    width: 40px;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group .group-right {
+    width: 90%;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group .group-right button {
+    width: 100%;
+    height: 30px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 5px 20px 5px 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    outline: none;
+    border: 1px solid transparent;
+    margin: 0;
+    background-color: white;
+    cursor: pointer;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group .group-right button .left {
+    width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group .group-right button .left img {
+    width: 40px;
+    margin-right: 20px;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group .group-right button .left h4 {
+    font-family: "Poppins";
+    font-size: 16px;
+    font-weight: 500;
+    color: #393939;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group .group-right button .right {
+    width: 20%;
+    color: transparent;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group .group-right button .right path {
+    display: block;
+    font-size: 24px;
+  }
+  .caraTopUp-page .main .content .content-body .card-metode .form .form-group .group-right button .right.active {
+    color: #FDBF1F;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk {
+    width: 600px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk h3 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 50px;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk .petunjuk {
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 50px;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk .petunjuk hr {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk .petunjuk h4 {
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 90%;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk .petunjuk table {
+    width: 90%;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk .petunjuk table tbody tr {
+    height: 25px;
+    font-size: 16px;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk .petunjuk table tbody tr span {
+    font-weight: 600;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk .petunjuk table tbody tr .no {
+    width: 5%;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk .petunjuk table tbody tr td {
+    width: 95%;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk .p-bri.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk .p-bca.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk .p-bni.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk .p-mandiri.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk .p-ovo.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk .p-alfa.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .caraTopUp-page .main .content .content-body .card-petunjuk .p-shopee.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
   .transferSesama-page .main {
     width: 100%;

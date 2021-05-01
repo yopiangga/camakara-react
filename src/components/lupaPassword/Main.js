@@ -1,3 +1,4 @@
+import Particles from "react-particles-js";
 import {
     BrowserRouter,
     Switch,
@@ -11,6 +12,9 @@ export function Main() {
 
     return (
         <div>
+            <div className="bg-particles">
+                <Particles />
+            </div>
             <section className="main">
                 <div className="content">
                     <div className="card">
