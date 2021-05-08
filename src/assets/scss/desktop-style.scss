@@ -2079,6 +2079,7 @@ $colorBlack : #000000;
                                         border: 1px solid $colorGray;
                                         box-sizing: border-box;
                                         padding: 10px 20px 10px 20px;
+                                        font-family: $fontPrimary;
                                     }
                                 }
                             }
@@ -4596,7 +4597,7 @@ $colorBlack : #000000;
 
                                         td {
                                             width: 95%;
-
+                                            line-height: 28px;
                                         }
                                     }
                                 }

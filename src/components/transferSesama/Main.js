@@ -47,7 +47,7 @@ export function Main() {
     
     const history = useHistory();
     const handleKonfirmasi = () => {
-        document.querySelector('.bg-loading').classList.active('active');
+        document.querySelector('.bg-loading').classList.add('active');
         // console.log(dataTransfer)
         axios.post(`${url.api}transfer`, {headers: {"Authorization" : `Bearer ${user.token}`}, fromid : dataTransfer.fromid, telp: dataTransfer.telp, nominal: dataTransfer.nominal}).then(
             (res) => {

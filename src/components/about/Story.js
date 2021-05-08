@@ -94,7 +94,7 @@ export function Story() {
                                 </div>
                                 <div className="card-text">
                                     <h4>Muhammad Ibnu</h4>
-                                    <h5>Front End Developer</h5>
+                                    <h5>Back End Developer</h5>
                                 </div>
                             </div>
                             <div className="card">
