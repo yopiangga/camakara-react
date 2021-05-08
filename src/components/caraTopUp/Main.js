@@ -8,7 +8,7 @@ import transferIcon1 from '../../assets/images/transfer-icon-1.png';
 import transferIcon2 from '../../assets/images/transfer-icon-2.png';
 import transferIcon3 from '../../assets/images/transfer-icon-3.png';
 import transferIcon4 from '../../assets/images/transfer-icon-4.png';
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import $, { event, timers } from 'jquery';
 import { UserContext } from "../../pages/userContext";
 import axios from 'axios';
@@ -73,6 +73,12 @@ export function Main() {
         }
 
     ])
+
+    useEffect(() => {
+        if(user == null){
+            history.push('/');
+        }
+    })
 
     const dropDownBank = () => {
         $('.caraTopUp-page .main .content .content-body .card-metode .form .form-group-select .group-right .select .icon-right i').toggleClass('active');

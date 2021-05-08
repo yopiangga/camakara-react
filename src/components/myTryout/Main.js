@@ -9,19 +9,24 @@ export function Main() {
     const [myTryouts, setMyTryouts] = useState([{ name: "" }])
     const [choice, setChoice] = useState('0');
     // const [skorTryout, setSkorTryout] = useState([{}]);
+    let history = useHistory();
 
     useEffect(() => {
-        axios.get(`${url.api}mytryout/${user.idUser}`).then(
-            (res) => {
-                setMyTryouts(res.data.data.tryouts);
-            }
-        ).catch((err) => {
-            console.log(err);
-        })
+        if(user == null){
+            history.push('/');
+        } else {
+            axios.get(`${url.api}mytryout/${user.idUser}`).then(
+                (res) => {
+                    setMyTryouts(res.data.data.tryouts);
+                }
+            ).catch((err) => {
+                console.log(err);
+            })
+        }
+
 
     }, [])
 
-    let history = useHistory();
 
     const handleKerjakan = (event) => {
         document.querySelector('.bg-loading').classList.add('active');

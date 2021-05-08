@@ -1,13 +1,20 @@
 import { useContext, useEffect, useState } from "react"
 import axios from 'axios';
 import { UserContext } from "../../pages/userContext";
+import { useHistory } from "react-router";
 
 export function TableSection() {
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout, category, setCategory] = useContext(UserContext);
 
     const [rankingTryout, setRankingTryout] = useState({data: [{nama_user: "", prodi: "", score: "", total: "", univ: "", univ_id: ""}], id_tryout: "", nama_tryout: ""});
 
+    const history = useHistory();
+    
     useEffect(() => {
+
+        if(user == null){
+            history.push('/');
+        }
 
         axios.get(`${url.api}score/boardtryoutall/${JSON.parse(localStorage.getItem('skorTryout')).id_tryout}`).then(
             (res) => {

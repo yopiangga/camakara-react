@@ -22,6 +22,9 @@ export function Main() {
     const history = useHistory();
 
     useEffect(() => {
+        if(user == null){
+            history.push('/');
+        }
         setTryout(JSON.parse(localStorage.getItem('tryout')));
         setTryoutReadyMapel(JSON.parse(localStorage.getItem('tryoutReadyMapel')));
         setWaktuAll({

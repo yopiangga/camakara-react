@@ -24,7 +24,10 @@ export function Main() {
     // const [uploadData, setUploadData] = useState({});
 
     useEffect( () => {
-
+        if(user == null){
+            history.push('/');
+        }
+        
         axios.get(`${url.api}univ`).then(
             (res) => {
                 setUniv1(res.data.data);

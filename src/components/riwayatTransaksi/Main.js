@@ -14,6 +14,12 @@ export function Main() {
 
     let history = useHistory()
 
+    useEffect(() => {
+        if(user == null){
+            history.push('/');
+        }
+    })
+
     const handleTopUp = () => {
         history.push("/top-up")
     }

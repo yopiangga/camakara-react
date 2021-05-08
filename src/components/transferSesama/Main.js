@@ -1,6 +1,6 @@
 import axios from 'axios';
 import $ from "jquery"
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { UserContext } from '../../pages/userContext';
 
@@ -8,6 +8,12 @@ export function Main() {
 
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
     const [dataTransfer, setDataTransfer] = useState({fromid: "", telp: "", userTarget: "", nominal: ""});
+
+    useEffect(() => {
+        if(user == null){
+            history.push('/');
+        }
+    })
 
     const checkUserTransfer = (event) => {
         document.querySelector('.bg-loading').classList.add('active');

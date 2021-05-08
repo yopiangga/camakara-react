@@ -9,7 +9,12 @@ export function InfoMapel() {
 
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
 
+    const history = useHistory();
+
     useEffect(() => {
+        if(user == null){
+            history.push('/');
+        }
         setTryout(JSON.parse(localStorage.getItem('tryout')));
     }, [])
 
@@ -32,7 +37,6 @@ export function InfoMapel() {
         $('.navigation.nav-left').removeClass('active');
     }
 
-    let history = useHistory();
     const handleKerjakan = (event) => {
 
         axios.post(`${url.api}exam/${user.idUser}/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event.target.value}`).then(
@@ -99,11 +103,11 @@ export function InfoMapel() {
                             <div className="card-body">
                                 <li>
                                     <FaStickyNote />
-                                    <h4><span>Jumlah Soal :</span> {JSON.parse(localStorage.getItem('tryout')).q_penalaran} Soal</h4>
+                                    <h4><span>Jumlah Soal :</span> {(localStorage.getItem('tryout') != null) ? JSON.parse(localStorage.getItem('tryout')).q_penalaran : 0} Soal</h4>
                                 </li>
                                 <li>
                                     <FaClock />
-                                    <h4><span>Waktu Pengerjaan :</span> {JSON.parse(localStorage.getItem('tryout')).t_penalaran} Menit</h4>
+                                    <h4><span>Waktu Pengerjaan :</span> {(localStorage.getItem('tryout') != null) ? JSON.parse(localStorage.getItem('tryout')).t_penalaran : 0} Menit</h4>
                                 </li>
                                 <li>
                                     <div className="action">

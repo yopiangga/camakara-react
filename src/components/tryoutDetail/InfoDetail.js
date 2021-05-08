@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { FaBookReader, FaMoneyBillWave, FaUsers } from "react-icons/fa";
+import { useHistory } from "react-router";
 import { UserContext } from "../../pages/userContext";
 
 
@@ -9,7 +10,13 @@ export function InfoDetail() {
     const [time, setTime] = useState({});
     const [totalTime, setTotalTime] = useState({jam: "0", menit: "0", detik: "0"});
 
+    const history = useHistory();
+    
     useEffect(() => {
+        if(user == null){
+            history.push('/');
+        }
+
         setTryout(JSON.parse(localStorage.getItem('tryout')));
         setTotalTime(cariJam);
     }, [])

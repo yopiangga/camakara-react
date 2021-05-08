@@ -8,7 +8,10 @@ export function TableSection() {
     const [rankingTryout, setRankingTryout] = useState({data: [{nama_user: "", prodi: "", score: "", total: "", univ: "", univ_id: ""}], id_tryout: "", nama_tryout: ""});
 
     useEffect(() => {
-
+        if(user == null){
+            history.push('/');
+        }
+        
         axios.get(`${url.api}score/boardtryoutall/${JSON.parse(localStorage.getItem('skorTryout')).id_tryout}`).then(
             (res) => {
                 setRankingTryout(res.data);
