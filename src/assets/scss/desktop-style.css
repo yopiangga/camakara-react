@@ -5302,6 +5302,11 @@
     border: 1px solid #FDBF1F;
     color: white;
   }
+  .exam .main .content .content-right .card .card-body .box.danger {
+    background-color: #F02424;
+    border: 1px solid #FDBF1F;
+    color: white;
+  }
   .score-page .bg-main {
     position: absolute;
     background-color: #393939;

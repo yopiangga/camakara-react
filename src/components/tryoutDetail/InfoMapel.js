@@ -34,31 +34,36 @@ export function InfoMapel() {
 
     let history = useHistory();
     const handleKerjakan = (event) => {
-        axios.get(`${url.api}exam/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event.target.value}`).then(
-            (res) => {
-                setTryout(res.data.data);
-                localStorage.setItem("tryoutReadyMapel", JSON.stringify(res.data.data));
-                // console.log(res.data);
-                history.push("/exam");
-            }
-        ).catch((err) => {
-            console.log(err);
-        })
 
         axios.post(`${url.api}exam/${user.idUser}/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event.target.value}`).then(
             (res) => {
                 // console.log(res.data);
                 localStorage.setItem("waktu", JSON.stringify(res.data.time));
                 localStorage.setItem("waktuStart", JSON.stringify(res.data.timestart));
+                localStorage.setItem("waktuStartSecond", JSON.stringify(res.data.timestartsecond));
+                localStorage.setItem("waktuEndSecond", new Date().getTime() + res.data.time * 60 * 1000);
+                // console.log(res);
             }
-            ).catch((err) => {
-                console.log(err);
-            })
+        ).catch((err) => {
+            console.log(err);
+        })
+
+        axios.get(`${url.api}exam/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event.target.value}`).then(
+            (res) => {
+                setTryout(res.data.data);
+                localStorage.setItem("tryoutReadyMapel", JSON.stringify(res.data.data));
+                localStorage.setItem("pembahasan", 0);
+                history.push("/exam");
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
     }
 
     const handlePembahasan = (event) => {
         axios.get(`${url.api}exam/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event.target.value}`).then(
             (res) => {
+                localStorage.setItem("pembahasan", 1);
                 setTryout(res.data.data);
                 localStorage.setItem("tryoutReadyMapel", JSON.stringify(res.data.data));
                 history.push('./exam');
@@ -66,14 +71,14 @@ export function InfoMapel() {
         ).catch((err) => {
             console.log(err);
         })
-        
+
     }
 
     // console.log(tryout);
 
     return (
         <div>
-            
+
             <section className="info-mapel-tryout">
                 <div className="content">
                     <nav>
@@ -104,7 +109,7 @@ export function InfoMapel() {
                                     <div className="action">
                                         {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[0][1] == 1) ?
                                             <button className="btn-kerjakan" value="q_penalaran" onClick={handlePembahasan}>Pembahasan</button>
-                                        : 
+                                            :
                                             <button className="btn-kerjakan" value="q_penalaran" onClick={handleKerjakan}>Kerjakan</button>
                                         }
                                     </div>
@@ -130,7 +135,7 @@ export function InfoMapel() {
                                     <div className="action">
                                         {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[1][1] == 1) ?
                                             <button className="btn-kerjakan" value="q_pemahaman" onClick={handlePembahasan}>Pembahasan</button>
-                                        : 
+                                            :
                                             <button className="btn-kerjakan" value="q_pemahaman" onClick={handleKerjakan}>Kerjakan</button>
                                         }
                                     </div>
@@ -156,7 +161,7 @@ export function InfoMapel() {
                                     <div className="action">
                                         {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[2][1] == 1) ?
                                             <button className="btn-kerjakan" value="q_pengetahuan" onClick={handlePembahasan}>Pembahasan</button>
-                                        : 
+                                            :
                                             <button className="btn-kerjakan" value="q_pengetahuan" onClick={handleKerjakan}>Kerjakan</button>
                                         }
                                     </div>
@@ -182,7 +187,7 @@ export function InfoMapel() {
                                     <div className="action">
                                         {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[3][1] == 1) ?
                                             <button className="btn-kerjakan" value="q_pengetahuank" onClick={handlePembahasan}>Pembahasan</button>
-                                        : 
+                                            :
                                             <button className="btn-kerjakan" value="q_pengetahuank" onClick={handleKerjakan}>Kerjakan</button>
                                         }
                                     </div>
@@ -213,7 +218,7 @@ export function InfoMapel() {
                                                 <div className="action">
                                                     {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[2][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_biologi" onClick={handlePembahasan}>Pembahasan</button>
-                                                    : 
+                                                        :
                                                         <button className="btn-kerjakan" value="q_biologi" onClick={handleKerjakan}>Kerjakan</button>
                                                     }
                                                 </div>
@@ -239,7 +244,7 @@ export function InfoMapel() {
                                                 <div className="action">
                                                     {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[1][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_fisika" onClick={handlePembahasan}>Pembahasan</button>
-                                                    : 
+                                                        :
                                                         <button className="btn-kerjakan" value="q_fisika" onClick={handleKerjakan}>Kerjakan</button>
                                                     }
                                                 </div>
@@ -265,7 +270,7 @@ export function InfoMapel() {
                                                 <div className="action">
                                                     {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[0][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_kimia" onClick={handlePembahasan}>Pembahasan</button>
-                                                    : 
+                                                        :
                                                         <button className="btn-kerjakan" value="q_kimia" onClick={handleKerjakan}>Kerjakan</button>
                                                     }
                                                 </div>
@@ -291,7 +296,7 @@ export function InfoMapel() {
                                                 <div className="action">
                                                     {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[3][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_matematika" onClick={handlePembahasan}>Pembahasan</button>
-                                                    : 
+                                                        :
                                                         <button className="btn-kerjakan" value="q_matematika" onClick={handleKerjakan}>Kerjakan</button>
                                                     }
                                                 </div>
@@ -319,7 +324,7 @@ export function InfoMapel() {
                                                 <div className="action">
                                                     {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[0][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_sejarah" onClick={handlePembahasan}>Pembahasan</button>
-                                                    : 
+                                                        :
                                                         <button className="btn-kerjakan" value="q_sejarah" onClick={handleKerjakan}>Kerjakan</button>
                                                     }
                                                 </div>
@@ -345,7 +350,7 @@ export function InfoMapel() {
                                                 <div className="action">
                                                     {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[1][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_geografi" onClick={handlePembahasan}>Pembahasan</button>
-                                                    : 
+                                                        :
                                                         <button className="btn-kerjakan" value="q_geografi" onClick={handleKerjakan}>Kerjakan</button>
                                                     }
                                                 </div>
@@ -371,7 +376,7 @@ export function InfoMapel() {
                                                 <div className="action">
                                                     {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[2][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_ekonomi" onClick={handlePembahasan}>Pembahasan</button>
-                                                    : 
+                                                        :
                                                         <button className="btn-kerjakan" value="q_ekonomi" onClick={handleKerjakan}>Kerjakan</button>
                                                     }
                                                 </div>
@@ -397,7 +402,7 @@ export function InfoMapel() {
                                                 <div className="action">
                                                     {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[3][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_sosiologi" onClick={handlePembahasan}>Pembahasan</button>
-                                                    : 
+                                                        :
                                                         <button className="btn-kerjakan" value="q_sosiologi" onClick={handleKerjakan}>Kerjakan</button>
                                                     }
                                                 </div>

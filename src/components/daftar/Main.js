@@ -7,7 +7,7 @@ import {
     useHistory
 } from "react-router-dom";
 
-import logo1 from '../../assets/images/logo-1.png'; 
+import logo1 from '../../assets/images/logo-1.png';
 import { UserContext } from "../../pages/userContext";
 import axios from 'axios';
 import Particles from "react-particles-js";
@@ -22,28 +22,32 @@ export function Main() {
     const handleSubmit = (event) => {
         document.querySelector('.bg-loading').classList.add('active');
         event.preventDefault();
-       const email = document.querySelector('#email').value;
-       const nama = document.querySelector('#nama').value;
-       const password = document.querySelector('#password').value;
-       const telephone = parseInt(document.querySelector('#telephone').value);
+        const email = document.querySelector('#email').value;
+        const nama = document.querySelector('#nama').value;
+        const password = document.querySelector('#password').value;
+        const telephone = parseInt(document.querySelector('#telephone').value);
 
 
-       axios.post(`${url.api}user`, {
-            email: email,
-            password: password,
-            fullname: nama,
-            telp: telephone
-        }).then(
-            (res) => {
-                // console.log(res);
-                history.push('/login');
-                document.querySelector('.bg-loading').classList.remove('active');
-            }
-        ).catch((err) => {
-            alert("pendaftaran gagal");
-            // console.log(err);
+        if (email == "" || nama == "" || password == "" || telephone == "") {
             document.querySelector('.bg-loading').classList.remove('active');
-        })
+        } else {
+            axios.post(`${url.api}user`, {
+                email: email,
+                password: password,
+                fullname: nama,
+                telp: telephone
+            }).then(
+                (res) => {
+                    // console.log(res);
+                    history.push('/login');
+                    document.querySelector('.bg-loading').classList.remove('active');
+                }
+            ).catch((err) => {
+                alert("pendaftaran gagal");
+                // console.log(err);
+                document.querySelector('.bg-loading').classList.remove('active');
+            })
+        }
     }
 
     return (
@@ -65,22 +69,22 @@ export function Main() {
                             <form onSubmit={handleSubmit}>
                                 <div className="form-group">
                                     <label>Nama</label>
-                                    <input type="text" name="nama" id="nama" placeholder="Nama Lengkap" />
+                                    <input type="text" name="nama" id="nama" placeholder="Nama Lengkap" required/>
                                 </div>
 
                                 <div className="form-group">
                                     <label>Email</label>
-                                    <input type="email" name="email" id="email" placeholder="Email" />
+                                    <input type="email" name="email" id="email" placeholder="Email" required/>
                                 </div>
 
                                 <div className="form-group">
                                     <label>Password</label>
-                                    <input type="password" name="password" id="password" placeholder="Password" />
+                                    <input type="password" name="password" id="password" placeholder="Password" required/>
                                 </div>
 
                                 <div className="form-group">
                                     <label>No Telepon</label>
-                                    <input type="text" name="telephone" id="telephone" placeholder="0823 xxxx xxxx" />
+                                    <input type="text" name="telephone" id="telephone" placeholder="0823 xxxx xxxx" required/>
                                 </div>
 
                                 <button type="submit" className="btn-daftar">Daftar</button>

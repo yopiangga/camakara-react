@@ -19,20 +19,28 @@ export function Main() {
         pilihan5: "",
     }]);
     const [noSoal, setNoSoal] = useState(0);
-    const [pembahasan, setPembahasan] = useState({imagepembahasan: "", jawaban: "", pembahasan: ""});
+    const [pembahasan, setPembahasan] = useState({ imagepembahasan: "", jawaban: "", pembahasan: "" });
+
 
     const history = useHistory();
 
     useEffect(() => {
+        if(user == null){
+            history.push('/');
+        }
+
         setTryout(JSON.parse(localStorage.getItem('tryout')));
         setTryoutReadyMapel(JSON.parse(localStorage.getItem('tryoutReadyMapel')));
         setWaktuAll({
             time: JSON.parse(localStorage.getItem('waktu')),
             timeStart: JSON.parse(localStorage.getItem('waktuStart'))
         });
+
     }, [])
-    
-    
+
+    // console.log(Date.parse(waktuAll.timeStart));
+
+
     const handleNomerSoal = (no) => {
         $('.pembahasan').removeClass('active');
         setNoSoal(no);
@@ -56,6 +64,8 @@ export function Main() {
         })
     }
 
+    // console.log(tryoutReadyMapel);
+
     const handlePrev = () => {
         setNoSoal(noSoal - 1);
         $('.pembahasan').removeClass('active');
@@ -76,6 +86,32 @@ export function Main() {
             console.log(err);
         })
     }
+
+
+    var countDownDate = (parseInt(JSON.parse(localStorage.getItem('waktuEndSecond'))));
+
+    // console.log(countDownDate);
+
+    var x = setInterval(function () {
+
+        var now = new Date().getTime();
+
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        (hours != null && minutes != null && seconds != null) ? 
+            hours = minutes = seconds = 0 :
+            document.querySelector("#demo").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+    }, 1000);
 
     return (
         <div>
@@ -159,8 +195,12 @@ export function Main() {
                                         :
                                         ""
                                 }
-
-                                <button className="btn-submit" onClick={handlePembahasan}>Pembahasan</button>
+                                {
+                                    (localStorage.getItem('pembahasan') == 1) ?
+                                        <button className="btn-submit" onClick={handlePembahasan}>Pembahasan</button>
+                                        :
+                                        ""
+                                }
 
                             </div>
 
@@ -189,6 +229,15 @@ export function Main() {
                             <div className="card-body">
                                 {
                                     tryoutReadyMapel.map(function (el, idx) {
+                                        // if(answer[noSoal] == null){
+                                        //     return (
+                                        //         <div className={(noSoal != idx && answer[noSoal] == null) ? "box danger" : "box"} key={idx} onClick={() => { handleNomerSoal(idx) }}>{idx + 1}</div>
+                                        //     )
+                                        // } else  if(answer[noSoal] != null){
+                                        //     return (
+                                        //         <div className={(noSoal != idx) ? "box active" : "box"} key={idx} onClick={() => { handleNomerSoal(idx) }}>{idx + 1}</div>
+                                        //     )
+                                        // }
                                         return (
                                             <div className={(noSoal == idx) ? "box active" : "box"} key={idx} onClick={() => { handleNomerSoal(idx) }}>{idx + 1}</div>
                                         )

@@ -5136,6 +5136,12 @@ $colorBlack : #000000;
                                 border: 1px solid $colorYellow;
                                 color: white;
                             }
+
+                            .box.danger {
+                                background-color: #F02424;
+                                border: 1px solid $colorYellow;
+                                color: white;
+                            }
                         }
                     }
                 }
