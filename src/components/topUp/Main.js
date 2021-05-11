@@ -25,7 +25,7 @@ export function Main() {
         {
             idPayment: "1",
             metode: "Bank BCA",
-            kode: "sz",
+            kode: "122",
             rek: "122085775526608",
             atasNama: "demitesfaye"
         },
