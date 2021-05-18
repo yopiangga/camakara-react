@@ -107,11 +107,12 @@ export function InfoDetail() {
                         // console.log(res);
                         alert(res.data.message);
                         history.push('/tryout-saya');
+                        document.querySelector('.bg-loading').classList.remove('active');
                     }
                 ).catch((err) => {
                     console.log(err);
+                    document.querySelector('.bg-loading').classList.remove('active');
                 })
-
             } else {
                 if(tryout.payment_method == 3){
                     axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout, price: parseInt(document.querySelector('#bebas').value)})
@@ -137,7 +138,8 @@ export function InfoDetail() {
                     })
                 }
             }
-        }
+        } else 
+            document.querySelector('.bg-loading').classList.remove('active');
     }
 
     const handleFile1 = (event) => {

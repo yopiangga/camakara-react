@@ -10,7 +10,7 @@ export const UserProvider = props => {
 const [menuActive, setMenuActive] = useState();
 const [detailUser, setDetailUser] = useState({firstname: "", lastname: "", fullname: "", email: "", telp: "", school: "", graduate: ""});
 // const [url, setUrl] = useState({api: `http://admin.petikdua.store/api/`, baseUrl: "http://admin.petikdua.store/"});
-const [url, setUrl] = useState({api: `http://192.168.137.2/project/4/admin/api/`, baseUrl: "http://admin.petikdua.store/"});
+const [url, setUrl] = useState({api: `http://admin.petikdua.store/api/`, baseUrl: "http://admin.petikdua.store/"});
 // const [url, setUrl] = useState({api: `http://admin.petikdua.store/api/`, baseUrl: "http://admin.petikdua.store/"});
 const [tryout, setTryout] = useState([]);
 const [category, setCategory] = useState([1,2,3]);
