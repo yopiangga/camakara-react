@@ -317,7 +317,7 @@ export function InfoDetail() {
                         {(tryout.payment_method == '3') ?
                             <div className="form-bebas">
                                 <div className="form-group">
-                                    <label>Jumlah Sukarela</label>
+                                    <label>Bayar Seikhlasnya</label>
                                     <input type="number" id="bebas" placeholder="Rp 1"/>
                                 </div>
                             </div>
