@@ -77,7 +77,15 @@ export function CardTryout() {
                                             <p>{el.descript}</p>
                                             <div className="action">
                                                 <button className="btn-beli" value={el.id_tryout} onClick={handleBeli}>Beli Sekarang</button>
-                                                <h4>Rp {el.price}</h4>
+                                                {
+                                                    (el.payment_method == 3) ? <h4>Rp {el.price}</h4> : <h4></h4>
+                                                }
+                                                {
+                                                    (el.payment_method == 2) ? <h4>Bebas</h4> : <h4></h4>
+                                                }
+                                                {
+                                                    (el.payment_method == 1) ? <h4>Gratis</h4> : <h4></h4>
+                                                }
                                             </div>
                                         </div>
                                     </div>

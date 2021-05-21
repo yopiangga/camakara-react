@@ -58,9 +58,9 @@ export function CariTryout() {
                     </div>
                     <div className="content-heading">
                         <div className="search">
-                            <i className="fas fa-search"></i>
-                            <FaSearch />
-                            <input type="text" />
+                            {/* <i className="fas fa-search"></i> */}
+                            {/* <FaSearch /> */}
+                            {/* <input type="text" /> */}
                         </div>
                         <div className="navigation" id="desktop">
                             <ul>

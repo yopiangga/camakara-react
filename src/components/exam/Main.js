@@ -38,9 +38,6 @@ export function Main() {
         $(`#${0}`).addClass('active');
     }, [])
 
-    // console.log(Date.parse(waktuAll.timeStart));
-
-
     const handleNomerSoal = (event) => {
         let no = parseInt(event.target.id);
         $('.pembahasan').removeClass('active');
