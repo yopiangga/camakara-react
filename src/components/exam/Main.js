@@ -25,7 +25,7 @@ export function Main() {
     const history = useHistory();
 
     useEffect(() => {
-        if(user == null){
+        if (user == null) {
             history.push('/');
         }
 
@@ -35,12 +35,14 @@ export function Main() {
             time: JSON.parse(localStorage.getItem('waktu')),
             timeStart: JSON.parse(localStorage.getItem('waktuStart'))
         });
+        $(`#${0}`).addClass('active');
     }, [])
 
     // console.log(Date.parse(waktuAll.timeStart));
 
 
-    const handleNomerSoal = (no) => {
+    const handleNomerSoal = (event) => {
+        let no = parseInt(event.target.id);
         $('.pembahasan').removeClass('active');
         setNoSoal(no);
         handleNavigasiSoal(no);
@@ -50,14 +52,18 @@ export function Main() {
         const arr = [...answer];
         arr[noSoal] = value;
         setAnswer(arr);
+        $(`#${noSoal}`).removeClass('danger');
+        $(`#${noSoal}`).addClass('success');
     }
 
     const handleNavigasiSoal = (no) => {
-        navigasiSoal = [...navigasiSoal, no]; 
-        var i;
-        for(i=0; i<navigasiSoal.length; i++){
-            if(answer[navigasiSoal[i]] == null)
-                $(`#${i}`).addClass('active');
+        if(answer[no] == null){
+            $(`#${no}`).removeClass('success');
+            $(`#${no}`).addClass('danger');
+        }
+        else if(answer[no] != null){
+            $(`#${no}`).removeClass('danger');
+            $(`#${no}`).addClass('success');
         }
     }
 
@@ -73,14 +79,30 @@ export function Main() {
         })
     }
 
-    // console.log(tryoutReadyMapel);
-
     const handlePrev = () => {
+        if(answer[noSoal - 1] == null){
+            $(`#${noSoal - 1}`).removeClass('success');
+            $(`#${noSoal - 1}`).addClass('danger');
+        }
+        else if(answer[noSoal - 1] != null){
+            $(`#${noSoal - 1}`).removeClass('danger');
+            $(`#${noSoal - 1}`).addClass('success');
+        }
+
         setNoSoal(noSoal - 1);
         $('.pembahasan').removeClass('active');
     }
 
     const handleNext = () => {
+        if(answer[noSoal + 1] == null){
+            $(`#${noSoal + 1}`).removeClass('success');
+            $(`#${noSoal + 1}`).addClass('danger');
+        }
+        else if(answer[noSoal + 1] != null){
+            $(`#${noSoal + 1}`).removeClass('danger');
+            $(`#${noSoal + 1}`).addClass('success');
+        }
+
         setNoSoal(noSoal + 1);
         $('.pembahasan').removeClass('active');
     }
@@ -112,7 +134,7 @@ export function Main() {
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        (hours != null && minutes != null && seconds != null) ? 
+        (hours != null && minutes != null && seconds != null) ?
             hours = minutes = seconds = 0 :
             document.querySelector("#demo").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
 
@@ -239,7 +261,8 @@ export function Main() {
                                 {
                                     tryoutReadyMapel.map(function (el, idx) {
                                         return (
-                                            <div className={(noSoal == idx) ? "box active" : "box"} id={idx} key={idx} onClick={() => { handleNomerSoal(idx) }}>{idx + 1}</div>
+                                            <div className={(noSoal == idx) ? "box" : "box"} id={idx} key={idx} onClick={handleNomerSoal}>{idx + 1}</div>
+                                            // <div className={(noSoal == idx) ? "box active" : "box"} id={idx} key={idx} onClick={() => { handleNomerSoal(idx) }}>{idx + 1}</div>
                                         )
                                     })
                                 }

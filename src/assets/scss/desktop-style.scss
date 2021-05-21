@@ -5130,7 +5130,6 @@ $colorBlack : #000000;
                                 border: 1px solid $colorYellow;
                                 color: white;
                             }
-                        
                     
                             .box.active {
                                 background-color: $colorYellow;
@@ -5140,7 +5139,13 @@ $colorBlack : #000000;
 
                             .box.danger {
                                 background-color: #F02424;
-                                border: 1px solid $colorYellow;
+                                border: 1px solid #F02424;
+                                color: white;
+                            }
+
+                            .box.success {
+                                background-color: rgb(0, 150, 0);
+                                border: 1px solid rgb(0, 150, 0);
                                 color: white;
                             }
                         }

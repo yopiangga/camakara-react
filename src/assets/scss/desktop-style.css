@@ -5306,7 +5306,12 @@
   }
   .exam .main .content .content-right .card .card-body .box.danger {
     background-color: #F02424;
-    border: 1px solid #FDBF1F;
+    border: 1px solid #F02424;
+    color: white;
+  }
+  .exam .main .content .content-right .card .card-body .box.success {
+    background-color: #009600;
+    border: 1px solid #009600;
     color: white;
   }
   .score-page .bg-main {
