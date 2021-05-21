@@ -310,7 +310,7 @@ export function InfoMapel() {
                                 </div>
                                 :
                                 <div className="content-body">
-                                    <div className="card card-tps card-5">
+                                    <div className="card card-tka card-5">
                                         <div className="card-heading">
                                             <FaStickyNote />
                                             <h3>Sejarah</h3>

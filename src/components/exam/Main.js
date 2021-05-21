@@ -20,7 +20,7 @@ export function Main() {
     }]);
     const [noSoal, setNoSoal] = useState(0);
     const [pembahasan, setPembahasan] = useState({ imagepembahasan: "", jawaban: "", pembahasan: "" });
-
+    var navigasiSoal = [];
 
     const history = useHistory();
 
@@ -35,7 +35,6 @@ export function Main() {
             time: JSON.parse(localStorage.getItem('waktu')),
             timeStart: JSON.parse(localStorage.getItem('waktuStart'))
         });
-
     }, [])
 
     // console.log(Date.parse(waktuAll.timeStart));
@@ -44,12 +43,22 @@ export function Main() {
     const handleNomerSoal = (no) => {
         $('.pembahasan').removeClass('active');
         setNoSoal(no);
+        handleNavigasiSoal(no);
     }
 
     const handleJawab = (value) => {
         const arr = [...answer];
         arr[noSoal] = value;
         setAnswer(arr);
+    }
+
+    const handleNavigasiSoal = (no) => {
+        navigasiSoal = [...navigasiSoal, no]; 
+        var i;
+        for(i=0; i<navigasiSoal.length; i++){
+            if(answer[navigasiSoal[i]] == null)
+                $(`#${i}`).addClass('active');
+        }
     }
 
     const handleSelesai = () => {
@@ -229,17 +238,8 @@ export function Main() {
                             <div className="card-body">
                                 {
                                     tryoutReadyMapel.map(function (el, idx) {
-                                        // if(answer[noSoal] == null){
-                                        //     return (
-                                        //         <div className={(noSoal != idx && answer[noSoal] == null) ? "box danger" : "box"} key={idx} onClick={() => { handleNomerSoal(idx) }}>{idx + 1}</div>
-                                        //     )
-                                        // } else  if(answer[noSoal] != null){
-                                        //     return (
-                                        //         <div className={(noSoal != idx) ? "box active" : "box"} key={idx} onClick={() => { handleNomerSoal(idx) }}>{idx + 1}</div>
-                                        //     )
-                                        // }
                                         return (
-                                            <div className={(noSoal == idx) ? "box active" : "box"} key={idx} onClick={() => { handleNomerSoal(idx) }}>{idx + 1}</div>
+                                            <div className={(noSoal == idx) ? "box active" : "box"} id={idx} key={idx} onClick={() => { handleNomerSoal(idx) }}>{idx + 1}</div>
                                         )
                                     })
                                 }
