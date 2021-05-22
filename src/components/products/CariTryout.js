@@ -1,6 +1,6 @@
 
 import { useContext } from "react";
-import {FaSearch} from "react-icons/fa"
+import { FaSearch } from "react-icons/fa"
 import { UserContext } from "../../pages/userContext";
 import $ from 'jquery';
 
@@ -12,9 +12,11 @@ export function CariTryout() {
         document.querySelector('.aUtbk').classList.remove("active");
         document.querySelector('.aBebas').classList.remove("active");
         document.querySelector('.aKuno').classList.remove("active");
-        switch(event){
+        document.querySelector('.aQuiz').classList.remove("active");
+
+        switch (event) {
             case 0:
-                setCategory([1,2,3]);
+                setCategory([1, 2, 3]);
                 document.querySelector('.all').classList.add("active");
                 break;
             case 1:
@@ -29,13 +31,17 @@ export function CariTryout() {
                 setCategory([3]);
                 document.querySelector('.aKuno').classList.add("active");
                 break;
+            case 4:
+                setCategory([4]);
+                document.querySelector('.aQuiz').classList.add("active");
+                break;
         }
     }
 
     const handleCategoryMobile = (event) => {
-        switch(event.target.value){
+        switch (event.target.value) {
             case '0':
-                setCategory([1,2,3]);
+                setCategory([1, 2, 3, 4]);
                 break;
             case '1':
                 setCategory([1]);
@@ -45,6 +51,9 @@ export function CariTryout() {
                 break;
             case '3':
                 setCategory([3]);
+                break;
+            case '4':
+                setCategory([4]);
                 break;
         }
     }
@@ -64,12 +73,12 @@ export function CariTryout() {
                         </div>
                         <div className="navigation" id="desktop">
                             <ul>
-                                <a className="all active" onClick={() => {handleCategory(0)}}><li>Semua Tryout</li><hr /></a>
-                                <a className="aUtbk" onClick={() => {handleCategory(1)}}><li>Tryout UTBK</li><hr /></a>
-                                <a className="aBebas" onClick={() => {handleCategory(2)}}><li>Tryout Bebas</li><hr /></a>
+                                <a className="all active" onClick={() => { handleCategory(0) }}><li>Semua Tryout</li><hr /></a>
+                                <a className="aUtbk" onClick={() => { handleCategory(1) }}><li>Tryout UTBK</li><hr /></a>
+                                <a className="aBebas" onClick={() => { handleCategory(2) }}><li>Tryout Bebas</li><hr /></a>
                                 {/* <a className="aPaket"><li>Paket Tryout</li><hr /></a> */}
-                                <a className="aKuno" onClick={() => {handleCategory(3)}}><li>Tryout Kuno</li><hr /></a>
-                                {/* <a className="aQuiz"><li>Quiz</li><hr /></a> */}
+                                <a className="aKuno" onClick={() => { handleCategory(3) }}><li>Tryout Kuno</li><hr /></a>
+                                <a className="aQuiz" onClick={() => { handleCategory(4) }}><li>Quiz</li><hr /></a>
                             </ul>
                         </div>
                         <div className="filter" id="mobile">

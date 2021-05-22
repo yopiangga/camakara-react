@@ -37,6 +37,7 @@ import { ScorePilihanDetail1 } from "./pages/ScorePilihanDetail1";
 import history from './history';
 import { Discussion } from "./pages/Discussion";
 import { CaraTopUp } from "./pages/CaraTopUp";
+import { BeliQuizDetail } from "./pages/BeliQuizDetail";
 
 function App() {
 
@@ -102,6 +103,9 @@ function App() {
           </Route>
           <Route path="/beli-tryout-detail" exact>
             <BeliTryoutDetail />
+          </Route>
+          <Route path="/ikuti-quiz-detail" exact>
+            <BeliQuizDetail />
           </Route>
           <Route path="/exam" exact>
             <Exam />

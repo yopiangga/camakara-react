@@ -13,10 +13,11 @@ const [detailUser, setDetailUser] = useState({firstname: "", lastname: "", fulln
 // const [url, setUrl] = useState({api: `http://admin.petikdua.store/api/`, baseUrl: "http://admin.petikdua.store/"});
 const [url, setUrl] = useState({api: `http://10.7.9.243/project/4/admin/api/`, baseUrl: "http://10.7.9.243/project/4/"});
 const [tryout, setTryout] = useState([]);
+const [quiz, setQuiz] = useState({});
 const [category, setCategory] = useState([1,2,3]);
 
   return (
-    <UserContext.Provider value={[menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout, category, setCategory]}>
+    <UserContext.Provider value={[menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout, category, setCategory, quiz, setQuiz]}>
       {props.children}
     </UserContext.Provider>
   );
