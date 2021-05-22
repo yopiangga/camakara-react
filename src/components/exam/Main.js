@@ -38,6 +38,8 @@ export function Main() {
         $(`#${0}`).addClass('active');
     }, [])
 
+    // console.log(tryoutReadyMapel);
+
     const handleNomerSoal = (event) => {
         let no = parseInt(event.target.id);
         $('.pembahasan').removeClass('active');

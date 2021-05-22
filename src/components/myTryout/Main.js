@@ -18,6 +18,7 @@ export function Main() {
             axios.get(`${url.api}mytryout/${user.idUser}`).then(
                 (res) => {
                     setMyTryouts(res.data.data.tryouts);
+                    console.log(res.data.data.tryouts);
                 }
             ).catch((err) => {
                 console.log(err);
@@ -34,12 +35,6 @@ export function Main() {
             (res) => {
                 setTryout(res.data.data);
                 localStorage.setItem("tryout", JSON.stringify(res.data.data));
-                console.log(res);   
-
-                if(res.data.data.type_tryout == '1')
-                    longTime(res.data.data.totalSaint, res.data.data.time_start_answer);
-                else 
-                    longTime(res.data.data.totalSoshum, res.data.data.time_start_answer);
 
                 document.querySelector('.bg-loading').classList.remove('active');
                 history.push("/tryout-detail");
@@ -48,13 +43,6 @@ export function Main() {
                 document.querySelector('.bg-loading').classList.remove('active');
                 console.log(err);
             })
-    }
-    
-    const longTime = (long, start) => {
-        start = start * 1000;
-        var end = start + long*60*1000;
-        localStorage.setItem("tryoutMulai", start);
-        localStorage.setItem("tryoutSelesai", end);
     }
 
     const handleChoice = (event) => {
@@ -153,8 +141,10 @@ export function Main() {
                                                 <div className="aksi">
                                                     {(el.status == '0') ? <button className="btn-kerjakan" value={el.id_tryout} onClick={handleBeli}>Beli Lagi</button> : <div></div>}
                                                     {(el.status == '1') ? <button className="btn-kerjakan" style={{ backgroundColor: 'gray', color: 'white', border: 'none', cursor: 'default' }}>Tunggu Ya</button> : <div></div>}
-                                                    {(el.status == '2' && (hariIni(el.date_end, el.time_end) == 'kerjakan')) ? <button className="btn-kerjakan" value={el.id_tryout} onClick={handleKerjakan}>Kerjakan</button> : <div></div> }
-                                                    {(el.status == '2' && (hariIni(el.date_end, el.time_end) == 'lihat-skor')) ? <button className="btn-kerjakan" value={el.id_tryout} onClick={handleAkumulasi}>Akumulasi</button> : <div></div> }
+                                                    {/* {(el.status == '2' && (hariIni(el.date_end, el.time_end) == 'kerjakan')) ? <button className="btn-kerjakan" value={el.id_tryout} onClick={handleKerjakan}>Kerjakan</button> : <div></div> } */}
+                                                    {/* {(el.status == '2' && (hariIni(el.date_end, el.time_end) == 'lihat-skor')) ? <button className="btn-kerjakan" value={el.id_tryout} onClick={handleAkumulasi}>Akumulasi</button> : <div></div> } */}
+                                                    {(el.status == '2' && (el.finish == '0')) ? <button className="btn-kerjakan" value={el.id_tryout} onClick={handleKerjakan}>Kerjakan</button> : <div></div>}
+                                                    {(el.status == '2' && (el.finish == '1')) ? <button className="btn-kerjakan" value={el.id_tryout} onClick={handleAkumulasi}>Akumulasi</button> : <div></div>}
                                                 </div>
                                             </div>
                                         </div>

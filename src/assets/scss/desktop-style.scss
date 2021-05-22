@@ -95,6 +95,12 @@ $colorBlack : #000000;
         z-index: 1;
     }
 
+    #timer {
+        display: absolute;
+        z-index: 1;
+        display: none;
+    }
+
     .nav-desktop {
         
         background-color: transparent;

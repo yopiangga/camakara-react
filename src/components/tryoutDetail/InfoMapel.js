@@ -4,19 +4,46 @@ import { UserContext } from "../../pages/userContext";
 import { useHistory } from "react-router";
 import $ from 'jquery';
 import axios from "axios";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 export function InfoMapel() {
 
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
 
+    const [time, setTime] = useState({ start: 0, end: 0 });
+
     const history = useHistory();
 
     useEffect(() => {
-        if(user == null){
+        if (user == null) {
             history.push('/');
         }
         setTryout(JSON.parse(localStorage.getItem('tryout')));
+        // UrgeWithPleasureComponent();
     }, [])
+
+    const handleAuto = () => {
+        let event;
+        if (JSON.parse(localStorage.getItem('tryout')).tryoutanswert[0][1] == 0) {
+            event = "q_penalaran";
+        } else if (JSON.parse(localStorage.getItem('tryout')).tryoutanswert[1][1] == 0) {
+            event = "q_pemahaman";
+        } else if (JSON.parse(localStorage.getItem('tryout')).tryoutanswert[2][1] == 0) {
+            event = "q_pengetahuan";
+        } else if (JSON.parse(localStorage.getItem('tryout')).tryoutanswert[3][1] == 0) {
+            event = "q_pengetahuank";
+        } else if (JSON.parse(localStorage.getItem('tryout')).tryoutanswert[4][1] == 0) {
+            event = "q_kimia";
+        } else if (JSON.parse(localStorage.getItem('tryout')).tryoutanswert[5][1] == 0) {
+            event = "q_fisika";
+        } else if (JSON.parse(localStorage.getItem('tryout')).tryoutanswert[6][1] == 0) {
+            event = "q_biologi";
+        } else if (JSON.parse(localStorage.getItem('tryout')).tryoutanswert[7][1] == 0) {
+            event = "q_matematika";
+        }
+        handleKerjakan(event);
+    }
+
 
     $('.navigation.nav-left').addClass('active');
     $('.navigation.nav-right').removeClass('active');
@@ -39,7 +66,7 @@ export function InfoMapel() {
 
     const handleKerjakan = (event) => {
 
-        axios.post(`${url.api}exam/${user.idUser}/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event.target.value}`).then(
+        axios.post(`${url.api}exam/${user.idUser}/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event}`).then(
             (res) => {
                 // console.log(res.data);
                 localStorage.setItem("waktu", JSON.stringify(res.data.time));
@@ -52,12 +79,13 @@ export function InfoMapel() {
             console.log(err);
         })
 
-        axios.get(`${url.api}exam/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event.target.value}`).then(
+        axios.get(`${url.api}exam/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event}`).then(
             (res) => {
                 setTryout(res.data.data);
                 localStorage.setItem("tryoutReadyMapel", JSON.stringify(res.data.data));
                 localStorage.setItem("pembahasan", 0);
                 history.push("/exam");
+                // console.log(res);
             }
         ).catch((err) => {
             console.log(err);
@@ -82,9 +110,19 @@ export function InfoMapel() {
 
     return (
         <div>
-
             <section className="info-mapel-tryout">
                 <div className="content">
+                    <div id="timer">
+                        <CountdownCircleTimer
+                            onComplete={() => {
+                                handleAuto();
+                                return [false, 1500] // repeat animation in 1.5 seconds
+                            }}
+                            isPlaying
+                            duration={30}
+                            colors="#A30000"
+                        />
+                    </div>
                     <nav>
                         <a className="navigation nav-left" onClick={handleTPS}>
                             <h2>TPS</h2>
@@ -114,7 +152,7 @@ export function InfoMapel() {
                                         {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[0][1] == 1) ?
                                             <button className="btn-kerjakan" value="q_penalaran" onClick={handlePembahasan}>Pembahasan</button>
                                             :
-                                            <button className="btn-kerjakan" value="q_penalaran" onClick={handleKerjakan}>Kerjakan</button>
+                                            <button className="btn-kerjakan" value="q_penalaran" onClick={() => handleKerjakan('q_penalaran')}>Kerjakan</button>
                                         }
                                     </div>
                                 </li>
@@ -140,7 +178,7 @@ export function InfoMapel() {
                                         {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[1][1] == 1) ?
                                             <button className="btn-kerjakan" value="q_pemahaman" onClick={handlePembahasan}>Pembahasan</button>
                                             :
-                                            <button className="btn-kerjakan" value="q_pemahaman" onClick={handleKerjakan}>Kerjakan</button>
+                                            <button className="btn-kerjakan" value="q_pemahaman" onClick={() => handleKerjakan('q_pemahaman')}>Kerjakan</button>
                                         }
                                     </div>
                                 </li>
@@ -166,7 +204,7 @@ export function InfoMapel() {
                                         {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[2][1] == 1) ?
                                             <button className="btn-kerjakan" value="q_pengetahuan" onClick={handlePembahasan}>Pembahasan</button>
                                             :
-                                            <button className="btn-kerjakan" value="q_pengetahuan" onClick={handleKerjakan}>Kerjakan</button>
+                                            <button className="btn-kerjakan" value="q_pengetahuan" onClick={() => handleKerjakan('q_pengetahuan')}>Kerjakan</button>
                                         }
                                     </div>
                                 </li>
@@ -192,7 +230,7 @@ export function InfoMapel() {
                                         {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[3][1] == 1) ?
                                             <button className="btn-kerjakan" value="q_pengetahuank" onClick={handlePembahasan}>Pembahasan</button>
                                             :
-                                            <button className="btn-kerjakan" value="q_pengetahuank" onClick={handleKerjakan}>Kerjakan</button>
+                                            <button className="btn-kerjakan" value="q_pengetahuank" onClick={() => handleKerjakan('q_pengetahuank')}>Kerjakan</button>
                                         }
                                     </div>
                                 </li>
@@ -220,10 +258,10 @@ export function InfoMapel() {
                                             </li>
                                             <li>
                                                 <div className="action">
-                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[2][1] == 1) ?
+                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[6][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_biologi" onClick={handlePembahasan}>Pembahasan</button>
                                                         :
-                                                        <button className="btn-kerjakan" value="q_biologi" onClick={handleKerjakan}>Kerjakan</button>
+                                                        <button className="btn-kerjakan" value="q_biologi" onClick={() => handleKerjakan('q_biologi')}>Kerjakan</button>
                                                     }
                                                 </div>
                                             </li>
@@ -246,10 +284,10 @@ export function InfoMapel() {
                                             </li>
                                             <li>
                                                 <div className="action">
-                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[1][1] == 1) ?
+                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[5][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_fisika" onClick={handlePembahasan}>Pembahasan</button>
                                                         :
-                                                        <button className="btn-kerjakan" value="q_fisika" onClick={handleKerjakan}>Kerjakan</button>
+                                                        <button className="btn-kerjakan" value="q_fisika" onClick={() => handleKerjakan('q_fisika')}>Kerjakan</button>
                                                     }
                                                 </div>
                                             </li>
@@ -272,10 +310,10 @@ export function InfoMapel() {
                                             </li>
                                             <li>
                                                 <div className="action">
-                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[0][1] == 1) ?
+                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[4][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_kimia" onClick={handlePembahasan}>Pembahasan</button>
                                                         :
-                                                        <button className="btn-kerjakan" value="q_kimia" onClick={handleKerjakan}>Kerjakan</button>
+                                                        <button className="btn-kerjakan" value="q_kimia" onClick={() => handleKerjakan('q_kimia')}>Kerjakan</button>
                                                     }
                                                 </div>
                                             </li>
@@ -298,10 +336,10 @@ export function InfoMapel() {
                                             </li>
                                             <li>
                                                 <div className="action">
-                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[3][1] == 1) ?
+                                                    {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[7][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_matematika" onClick={handlePembahasan}>Pembahasan</button>
                                                         :
-                                                        <button className="btn-kerjakan" value="q_matematika" onClick={handleKerjakan}>Kerjakan</button>
+                                                        <button className="btn-kerjakan" value="q_matematika" onClick={() => handleKerjakan('q_matematika')}>Kerjakan</button>
                                                     }
                                                 </div>
                                             </li>
@@ -329,7 +367,7 @@ export function InfoMapel() {
                                                     {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[0][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_sejarah" onClick={handlePembahasan}>Pembahasan</button>
                                                         :
-                                                        <button className="btn-kerjakan" value="q_sejarah" onClick={handleKerjakan}>Kerjakan</button>
+                                                        <button className="btn-kerjakan" value="q_sejarah" onClick={() => handleKerjakan('q_sejarah')}>Kerjakan</button>
                                                     }
                                                 </div>
                                             </li>
@@ -355,7 +393,7 @@ export function InfoMapel() {
                                                     {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[1][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_geografi" onClick={handlePembahasan}>Pembahasan</button>
                                                         :
-                                                        <button className="btn-kerjakan" value="q_geografi" onClick={handleKerjakan}>Kerjakan</button>
+                                                        <button className="btn-kerjakan" value="q_geografi" onClick={() => handleKerjakan('q_geografi')}>Kerjakan</button>
                                                     }
                                                 </div>
                                             </li>
@@ -381,7 +419,7 @@ export function InfoMapel() {
                                                     {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[2][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_ekonomi" onClick={handlePembahasan}>Pembahasan</button>
                                                         :
-                                                        <button className="btn-kerjakan" value="q_ekonomi" onClick={handleKerjakan}>Kerjakan</button>
+                                                        <button className="btn-kerjakan" value="q_ekonomi" onClick={() => handleKerjakan('q_ekonomi')}>Kerjakan</button>
                                                     }
                                                 </div>
                                             </li>
@@ -407,7 +445,7 @@ export function InfoMapel() {
                                                     {(JSON.parse(localStorage.getItem('tryout')).tryoutanswert[3][1] == 1) ?
                                                         <button className="btn-kerjakan" value="q_sosiologi" onClick={handlePembahasan}>Pembahasan</button>
                                                         :
-                                                        <button className="btn-kerjakan" value="q_sosiologi" onClick={handleKerjakan}>Kerjakan</button>
+                                                        <button className="btn-kerjakan" value="q_sosiologi" onClick={() => handleKerjakan('q_sosiologi')}>Kerjakan</button>
                                                     }
                                                 </div>
                                             </li>
@@ -416,10 +454,6 @@ export function InfoMapel() {
                                 </div>
 
                         }
-
-
-
-
 
                     </div>
                 </div>

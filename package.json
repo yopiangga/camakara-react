@@ -10,6 +10,7 @@
     "cors": "^2.8.5",
     "jquery": "^3.5.1",
     "react": "^17.0.1",
+    "react-countdown-circle-timer": "^2.5.3",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
     "react-particles-js": "^3.4.1",

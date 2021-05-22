@@ -2,13 +2,13 @@ import { useContext, useState, useEffect } from "react";
 import { FaBookReader, FaMoneyBillWave, FaUsers } from "react-icons/fa";
 import { useHistory } from "react-router";
 import { UserContext } from "../../pages/userContext";
-
+import axios from 'axios';
 
 export function InfoDetail() {
 
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
-    const [time, setTime] = useState({});
-    const [totalTime, setTotalTime] = useState({ jam: "0", menit: "0", detik: "0" });
+    const [time, setTime] = useState({ start: 0, end: 0, long: 0 });
+    const [totalTime, setTotalTime] = useState({ jam: 0, menit: 0, detik: 0 });
 
     const history = useHistory();
 
@@ -18,49 +18,63 @@ export function InfoDetail() {
         }
 
         setTryout(JSON.parse(localStorage.getItem('tryout')));
+        cariJam();
     }, [])
 
-
-    const cariJam = () => {
-        let type = JSON.parse(localStorage.getItem('tryout')).type_tryout;
-        let Saintek = JSON.parse(localStorage.getItem('tryout')).totalSaint;
-        let Soshum = JSON.parse(localStorage.getItem('tryout')).totalSoshum;
-        let totalMenit;
-        type == 2 ? totalMenit = Soshum : totalMenit = Saintek;
-        let data = {
-            jam: Math.floor(totalMenit / 60),
-            menit: totalMenit % 60,
-            detik: 0
-        }
-        return (data);
+    const handleSelesai = (event) => {
+        axios.get(`${url.api}mytryout/finish/${user.idUser}/${tryout.id_tryout}`).then(
+            (res) => {
+                console.log(res);
+                document.querySelector('.bg-loading').classList.remove('active');
+                history.push('/tryout-saya');
+            }
+        ).catch((err) => {
+            document.querySelector('.bg-loading').classList.remove('active');
+            console.log(err);
+        })
     }
 
-    var end = JSON.parse(localStorage.getItem('tryoutSelesai'));
-    var x = setInterval(function () {
-        var now = new Date().getTime();
-        var distance = end - now;
+    // console.log(tryout);
+    const cariJam = () => {
+        let long;
+        if (JSON.parse(localStorage.getItem('tryout')).type_tryout == '1')
+            long = JSON.parse(localStorage.getItem('tryout')).totalSaint;
+        else
+            long = JSON.parse(localStorage.getItem('tryout')).totalSoshum;
 
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        setTime({
+            start: JSON.parse(localStorage.getItem('tryout')).time_start_answer * 1000,
+            long: long * 60 * 1000,
+            end: JSON.parse(localStorage.getItem('tryout')).time_start_answer * 1000 + long * 60 * 1000
+        })
+    }
 
-        (hours == null || minutes == null || seconds == null) ?
-            hours = minutes = seconds = 0 :
-            setTotalTime({
-                jam: hours,
-                menit: minutes,
-                detik: seconds
-            })
+    let x = setInterval(function () {
+        if (time.end != 0) {
+            var now = new Date().getTime();
+            var distance = time.end - now;
 
-        if (distance < 0) {
-            clearInterval(x);
-            setTotalTime({
-                jam: 0,
-                menit: 0,
-                detik: 0
-            })
-            // document.getElementById("tjam").innerHTML = "END";
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            (hours == null || minutes == null || seconds == null) ?
+                hours = minutes = seconds = 0 :
+                setTotalTime({
+                    jam: hours,
+                    menit: minutes,
+                    detik: seconds
+                })
+
+            if (distance < 0) {
+                clearInterval(x);
+                setTotalTime({
+                    jam: 0,
+                    menit: 0,
+                    detik: 0
+                })
+            }
         }
     }, 1000);
 
@@ -147,10 +161,10 @@ export function InfoDetail() {
 
                         <div className="beli-tryout">
                             {
-                                (user == null || totalTime.jam <=0 && totalTime.menit <= 0 && totalTime.detik <= 0) ?
+                                (user == null || totalTime.jam <= 0 && totalTime.menit <= 0 && totalTime.detik <= 0) ?
                                     ""
                                     :
-                                    <button className="btn-beli-tryout" onClick="">Selesai Tryout</button>
+                                    <button className="btn-beli-tryout" onClick={handleSelesai}>Selesai Tryout</button>
                             }
                         </div>
 
