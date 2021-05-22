@@ -8,20 +8,18 @@ export function InfoDetail() {
 
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout] = useContext(UserContext);
     const [time, setTime] = useState({});
-    const [totalTime, setTotalTime] = useState({jam: "0", menit: "0", detik: "0"});
+    const [totalTime, setTotalTime] = useState({ jam: "0", menit: "0", detik: "0" });
 
     const history = useHistory();
-    
+
     useEffect(() => {
-        if(user == null){
+        if (user == null) {
             history.push('/');
         }
 
         setTryout(JSON.parse(localStorage.getItem('tryout')));
-        setTotalTime(cariJam);
     }, [])
 
-    // console.log(tryout);
 
     const cariJam = () => {
         let type = JSON.parse(localStorage.getItem('tryout')).type_tryout;
@@ -30,17 +28,45 @@ export function InfoDetail() {
         let totalMenit;
         type == 2 ? totalMenit = Soshum : totalMenit = Saintek;
         let data = {
-            jam : Math.floor(totalMenit/60),
-            menit : totalMenit % 60,
-            detik : 0
+            jam: Math.floor(totalMenit / 60),
+            menit: totalMenit % 60,
+            detik: 0
         }
-        return(data);
+        return (data);
     }
 
+    var end = JSON.parse(localStorage.getItem('tryoutSelesai'));
+    var x = setInterval(function () {
+        var now = new Date().getTime();
+        var distance = end - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        (hours == null || minutes == null || seconds == null) ?
+            hours = minutes = seconds = 0 :
+            setTotalTime({
+                jam: hours,
+                menit: minutes,
+                detik: seconds
+            })
+
+        if (distance < 0) {
+            clearInterval(x);
+            setTotalTime({
+                jam: 0,
+                menit: 0,
+                detik: 0
+            })
+            // document.getElementById("tjam").innerHTML = "END";
+        }
+    }, 1000);
 
     return (
         <div>
-           
+
             <section className="info-detail-tryout">
                 <div className="content">
                     <div className="content-left">
@@ -102,21 +128,30 @@ export function InfoDetail() {
 
                                     </div>
                                 </div>
-                            </div>
+                            </  div>
                             <div className="waktu-pengerjaan">
                                 <div className="box jam">
-                                    <h4>{totalTime.jam}</h4>
+                                    <h4 id="tjam">{totalTime.jam}</h4>
                                     <h6>Jam</h6>
                                 </div>
                                 <div className="box menit">
-                                    <h4>{totalTime.menit}</h4>
+                                    <h4 id="tmenit">{totalTime.menit}</h4>
                                     <h6>Menit</h6>
                                 </div>
                                 <div className="box detik">
-                                    <h4>{totalTime.detik}</h4>
+                                    <h4 id="tdetik">{totalTime.detik}</h4>
                                     <h6>Detik</h6>
                                 </div>
                             </div>
+                        </div>
+
+                        <div className="beli-tryout">
+                            {
+                                (user == null || totalTime.jam <=0 && totalTime.menit <= 0 && totalTime.detik <= 0) ?
+                                    ""
+                                    :
+                                    <button className="btn-beli-tryout" onClick="">Selesai Tryout</button>
+                            }
                         </div>
 
                     </div>

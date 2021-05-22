@@ -34,6 +34,13 @@ export function Main() {
             (res) => {
                 setTryout(res.data.data);
                 localStorage.setItem("tryout", JSON.stringify(res.data.data));
+                console.log(res);   
+
+                if(res.data.data.type_tryout == '1')
+                    longTime(res.data.data.totalSaint, res.data.data.time_start_answer);
+                else 
+                    longTime(res.data.data.totalSoshum, res.data.data.time_start_answer);
+
                 document.querySelector('.bg-loading').classList.remove('active');
                 history.push("/tryout-detail");
             }
@@ -41,8 +48,14 @@ export function Main() {
                 document.querySelector('.bg-loading').classList.remove('active');
                 console.log(err);
             })
-        }
-        // console.log(tryout);
+    }
+    
+    const longTime = (long, start) => {
+        start = start * 1000;
+        var end = start + long*60*1000;
+        localStorage.setItem("tryoutMulai", start);
+        localStorage.setItem("tryoutSelesai", end);
+    }
 
     const handleChoice = (event) => {
         setChoice(event.target.value);
