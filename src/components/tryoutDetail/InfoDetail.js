@@ -49,34 +49,48 @@ export function InfoDetail() {
         })
     }
 
-    let x = setInterval(function () {
-        if (time.end != 0) {
-            var now = new Date().getTime();
-            var distance = time.end - now;
+    const Clock = () => {
+        var now = new Date().getTime();
+        let waktu = (time.end);
 
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        var distance = waktu - now;
 
-            (hours == null || minutes == null || seconds == null) ?
-                hours = minutes = seconds = 0 :
-                setTotalTime({
-                    jam: hours,
-                    menit: minutes,
-                    detik: seconds
-                })
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            if (distance < 0) {
-                clearInterval(x);
-                setTotalTime({
-                    jam: 0,
-                    menit: 0,
-                    detik: 0
-                })
-            }
-        }
-    }, 1000);
+        const [currentCount, setCount] = useState(waktu - now);
+        const timer = () => setCount(currentCount - 1);
+
+        useEffect(
+            () => {
+                if (currentCount <= 0) {
+                    return;
+                }
+                const id = setInterval(timer, 1000);
+                return () => clearInterval(id);
+            },
+            [currentCount]
+        );
+
+        return (
+            <div className="waktu-pengerjaan">
+                <div className="box jam">
+                    <h4 id="tjam">{hours}</h4>
+                    <h6>Jam</h6>
+                </div>
+                <div className="box menit">
+                    <h4 id="tmenit">{minutes}</h4>
+                    <h6>Menit</h6>
+                </div>
+                <div className="box detik">
+                    <h4 id="tdetik">{seconds}</h4>
+                    <h6>Detik</h6>
+                </div>
+            </div>
+        )
+    };
 
     return (
         <div>
@@ -143,7 +157,8 @@ export function InfoDetail() {
                                     </div>
                                 </div>
                             </  div>
-                            <div className="waktu-pengerjaan">
+                            <Clock />
+                            {/* <div className="waktu-pengerjaan">
                                 <div className="box jam">
                                     <h4 id="tjam">{totalTime.jam}</h4>
                                     <h6>Jam</h6>
@@ -156,7 +171,7 @@ export function InfoDetail() {
                                     <h4 id="tdetik">{totalTime.detik}</h4>
                                     <h6>Detik</h6>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="beli-tryout">

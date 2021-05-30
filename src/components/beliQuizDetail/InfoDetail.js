@@ -17,6 +17,8 @@ export function InfoDetail() {
         setTotalTime(cariJam);
     }, [])
 
+    // console.log(totalTime);
+
     const history = useHistory();
 
     const cariJam = () => {
@@ -31,7 +33,6 @@ export function InfoDetail() {
     }
 
     const handleIkuti = () => {
-        //post//myquiz -> idUser: idQuiz
         axios.post(`${url.api}myquiz`, { iduser: detailUser.id_user, idquiz: quiz.id_quiz})
             .then(
                 (res) => {
@@ -40,7 +41,7 @@ export function InfoDetail() {
                     // history.push('/tryout-saya');
                 }
             ).catch((err) => {
-                console.log(err)
+                // console.log(err)
                 document.querySelector('.bg-loading').classList.remove('active');
             })
     }

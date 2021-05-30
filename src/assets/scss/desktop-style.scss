@@ -1,46 +1,65 @@
 @media only screen and (min-width: 1024px) {
 
 
-@font-face {
-    font-family: "Poppins";
-    src: url('../fonts/poppins/Poppins-Regular.ttf');
-    font-weight: 400;
+    @font-face {
+        font-family: "Poppins";
+        src: url('../fonts/poppins/Poppins-Regular.ttf');
+        font-weight: 400;
+    }
+
+    @font-face {
+        font-family: "Poppins";
+        src: url('../fonts/poppins/Poppins-Medium.ttf');
+        font-weight: 500;
+    }
+
+    @font-face {
+        font-family: "Poppins";
+        src: url('../fonts/poppins/Poppins-SemiBold.ttf');
+        font-weight: 600;
+    }
+
+    @font-face {
+        font-family: "Poppins";
+        src: url('../fonts/poppins/Poppins-Bold.ttf');
+        font-weight: 700;
+    }
+
+    @font-face {
+        font-family: "Poppins";
+        src: url('../fonts/poppins/Poppins-Italic.ttf');
+        font-style: italic;
+    }
+
+    $fontPrimary : "Poppins";
+
+    $colorYellow : #FDBF1F;
+    $colorBlueLight : #CDEEF6;
+    $colorPink : #F17EAB;
+    $colorRed : #F02424;
+    $colorGray : #C4C4C4;
+    $colorLight : #EFEFEF;
+    $colorDark : #393939;
+    $colorBlack : #000000;
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-@font-face {
-    font-family: "Poppins";
-    src: url('../fonts/poppins/Poppins-Medium.ttf');
-    font-weight: 500;
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
 }
 
-@font-face {
-    font-family: "Poppins";
-    src: url('../fonts/poppins/Poppins-SemiBold.ttf');
-    font-weight: 600;
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: transparent;
 }
 
-@font-face {
-    font-family: "Poppins";
-    src: url('../fonts/poppins/Poppins-Bold.ttf');
-    font-weight: 700;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: transparent;
 }
-
-@font-face {
-    font-family: "Poppins";
-    src: url('../fonts/poppins/Poppins-Italic.ttf');
-    font-style: italic;
-}
-
-$fontPrimary : "Poppins";
-
-$colorYellow : #FDBF1F;
-$colorBlueLight : #CDEEF6;
-$colorPink : #F17EAB;
-$colorRed : #F02424;
-$colorGray : #C4C4C4;
-$colorLight : #EFEFEF;
-$colorDark : #393939;
-$colorBlack : #000000;
 
     .page {
         font-family: $fontPrimary;
@@ -63,7 +82,7 @@ $colorBlack : #000000;
         }
     }
 
-    .bg-loading{
+    .bg-loading {
         width: 100%;
         min-height: 100vh;
         background-color: rgba($color: #000000, $alpha: 0.75);
@@ -75,7 +94,7 @@ $colorBlack : #000000;
         z-index: 999;
 
         img {
-            background-color: none  ;
+            background-color: none;
             width: 200px;
             height: 200px;
         }
@@ -95,6 +114,304 @@ $colorBlack : #000000;
         z-index: 1;
     }
 
+    .modal-quiz.active {
+        display: flex;
+    }
+
+    .modal-quiz {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 999;
+        background-color: rgba($color: $colorDark, $alpha: 0.3);
+        display: none;
+        justify-content: center;
+        align-items: center;
+
+        .skor-quiz {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .box-skor {
+                width: 100px;
+                height: 100px;
+                border-radius: 20px;
+                border: 2px solid $colorYellow;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 30px;
+
+                h3 {
+                    font-weight: 500;
+                    font-size: 48px;
+                    line-height: 56px;
+                    color: $colorYellow;
+                }
+            }
+        }
+
+        .soal {
+            width: 100%;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+
+            h3 {
+                font-size: 20px;
+
+                span {
+                    color: $colorYellow;
+                }
+            }
+        }
+
+        .form {
+            background-color: white;
+            min-width: 600px;
+            min-height: 200px;
+            max-height: 80vh;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 30px;
+            overflow: auto;
+            padding-bottom: 60px;
+
+            input,
+            textarea,
+            select {
+                outline: none;
+            }
+
+            h2 {
+                font-size: 28px;
+                font-weight: 500;
+                margin-top: 50px;
+                text-align: center;
+                line-height: 36px;
+                margin-bottom: 12px;
+            }
+
+            p {
+                width: 450px;
+                text-align: center;
+                line-height: 24px;
+                margin-bottom: 30px;
+                font-size: 14px;
+
+                span {
+                    color: $colorYellow;
+                }
+            }
+
+
+            .form-biodata {
+                width: 80%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .row {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 20px;
+
+                    .col-6 {
+                        width: 49%;
+                    }
+
+                    .col-12 {
+                        width: 100%;
+                    }
+
+                    .form-group {
+                        display: flex;
+                        flex-direction: column;
+
+                        .box-profile {
+
+                            .imgProfile {
+                                width: 0.1px;
+                                height: 0.1px;
+                                opacity: 0;
+                                overflow: hidden;
+                                position: absolute;
+                                z-index: -1;
+                            }
+
+                            .lblImgProfile {
+                                width: 100%;
+                                height: 100px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                border: 1px solid $colorGray;
+                                border-radius: 20px;
+                                background-color: rgba($color: $colorDark, $alpha: 0.01);
+                            }
+                        }
+
+                        label {
+                            margin-bottom: 10px;
+                            font-size: 14px;
+                        }
+
+                        input {
+                            height: 40px;
+                            border-radius: 20px;
+                            border: 1px solid $colorGray;
+                            padding-left: 20px;
+                            padding-right: 20px;
+                        }
+
+                        select {
+                            height: 44px;
+                            border: 1px solid $colorGray;
+                            border-radius: 20px;
+                            padding-left: 20px;
+                            padding-right: 20px;
+                        }
+
+                        textarea {
+                            border: 1px solid $colorGray;
+                            border-radius: 20px;
+                            padding: 10px 20px 10px 20px;
+                            font-family: $fontPrimary;
+                        }
+
+                        input:focus {
+                            border: 1px solid $colorYellow;
+                        }
+
+                        select:focus {
+                            border: 1px solid $colorYellow;
+                        }
+
+                        textarea:focus {
+                            border: 1px solid $colorYellow;
+                        }
+
+                    }
+                }
+
+                .btn {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                button {
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    margin-top: 10px;
+                    height: 45px;
+                    width: 200px;
+                    border-radius: 30px;
+                    color: white;
+                    cursor: pointer;
+                    font-weight: 500;
+                }
+
+                .btn-submit {
+                    border: 2px solid $colorYellow;
+                    background-color: $colorYellow;
+                }
+
+                .btn-cancel {
+                    border: 2px solid $colorLight;
+                    background-color: $colorLight;
+                    color: $colorDark;
+                }
+
+            }
+        }
+
+        .meet {
+            width: 600px;
+            display: flex;
+            justify-content: center;
+
+            .item {
+                width: 80%;
+
+                .media {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 20px;
+
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        margin-right: 20px;
+                    }
+
+                    h3 {
+                        font-weight: 500;
+                        font-size: 20px;
+                    }
+                }
+
+                .list-item {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    // margin-bottom: 30px;
+
+                    .point {
+                        display: flex;
+                        margin-bottom: 20px;
+
+                        .point-left {
+                            width: 30%;
+
+                            h4 {
+                                font-weight: 500;
+                            }
+                        }
+
+                        .point-right {
+                            width: 70%;
+
+                            h4 {
+                                font-weight: 400;
+                                line-height: 26px;
+                            }
+                        }
+                    }
+                }
+
+                .btn {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                button {
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    margin-top: 10px;
+                    height: 45px;
+                    width: 200px;
+                    border-radius: 30px;
+                    color: white;
+                    cursor: pointer;
+                    font-weight: 500;
+                }
+
+                .btn-submit {
+                    border: 2px solid $colorYellow;
+                    background-color: $colorYellow;
+                }
+            }
+        }
+    }
+
     #timer {
         display: absolute;
         z-index: 1;
@@ -102,7 +419,7 @@ $colorBlack : #000000;
     }
 
     .nav-desktop {
-        
+
         background-color: transparent;
         display: flex;
         justify-content: center;
@@ -214,15 +531,15 @@ $colorBlack : #000000;
                     z-index: 999;
 
                 }
-                
+
                 .icon-profile:hover {
                     color: $colorYellow;
                 }
-                
+
                 .icon-profile.active {
                     color: $colorYellow;
                 }
-                
+
                 .dropdownProfile {
                     position: fixed;
                     height: 0;
@@ -234,7 +551,7 @@ $colorBlack : #000000;
                     width: 150px;
                     border-radius: 0px 0px 0px 0px;
                     box-shadow: 0px 30px 30px rgba($color: $colorDark, $alpha: 0.08);
-                    
+
                     ul {
                         box-sizing: border-box;
                         padding: 20px;
@@ -2131,7 +2448,7 @@ $colorBlack : #000000;
                                             display: flex;
                                             justify-content: center;
                                             align-items: center;
-                                            
+
                                             img {
                                                 width: 200%;
                                                 height: 100%;
@@ -2216,7 +2533,7 @@ $colorBlack : #000000;
                     overflow: hidden;
 
                     img {
-                        width: 100%;    
+                        width: 100%;
                         display: flex;
                         justify-content: center;
                         align-items: center;
@@ -2377,15 +2694,15 @@ $colorBlack : #000000;
                     display: none;
                 }
 
-                .cardBebas.unActive  {
+                .cardBebas.unActive {
                     display: none;
                 }
 
-                .cardPaket.unActive  {
+                .cardPaket.unActive {
                     display: none;
                 }
 
-                .cardKuno.unActive  {
+                .cardKuno.unActive {
                     display: none;
                 }
 
@@ -2758,7 +3075,7 @@ $colorBlack : #000000;
                                 flex-direction: column;
                                 align-items: center;
                                 position: relative;
-    
+
                                 .circle-image {
                                     position: absolute;
                                     top: -40px;
@@ -2768,50 +3085,50 @@ $colorBlack : #000000;
                                     overflow: hidden;
                                     display: flex;
                                     justify-content: center;
-    
+
                                     img {
                                         height: 80px;
                                     }
                                 }
-    
+
                                 .card-text {
                                     text-align: center;
-    
+
                                     h3 {
                                         font-weight: 600;
                                         font-size: 16px;
                                         margin-top: 70px;
                                         margin-bottom: 20px;
                                     }
-    
+
                                     p {
                                         line-height: 28px;
                                         font-size: 14px;
                                     }
                                 }
                             }
-    
+
                             .card.active {
                                 width: 300px;
                                 height: 330px;
                                 box-shadow: 0px 30px 60px rgba($color: $colorDark, $alpha: 0.24);
-    
+
                                 .circle-image {
                                     height: 100px;
                                     width: 100px;
                                     top: -50px;
                                     box-shadow: 0px 15px 45px rgba($color: $colorDark, $alpha: 0.32);
-    
+
                                     img {
                                         height: 100px;
                                     }
                                 }
-    
+
                                 .card-text {
                                     h3 {
                                         font-size: 18px;
                                     }
-    
+
                                     p {
                                         font-size: 14px;
                                     }
@@ -2966,7 +3283,7 @@ $colorBlack : #000000;
                                 padding: 20px 20px 10px 20px;
                                 margin-right: 15px;
                                 margin-left: 15px;
-        
+
                                 .card-heading {
                                     display: flex;
 
@@ -2975,22 +3292,22 @@ $colorBlack : #000000;
                                         font-size: 16px;
                                     }
                                 }
-        
+
                                 .card-body {
-        
+
                                     li {
                                         list-style-type: none;
                                         display: flex;
                                         margin-bottom: 15px;
-        
+
                                         h4 {
                                             font-size: 14px;
-        
+
                                             span {
                                                 font-weight: 600;
                                             }
                                         }
-        
+
                                     }
                                 }
                             }
@@ -3033,11 +3350,12 @@ $colorBlack : #000000;
                                 font-weight: 500;
                                 margin-bottom: 10px;
                             }
+
                             .form-group {
                                 width: 100%;
                                 display: flex;
                                 margin-bottom: 20px;
-    
+
                                 label {
                                     width: 30%;
                                 }
@@ -3177,7 +3495,7 @@ $colorBlack : #000000;
                             display: flex;
                             margin-bottom: 30px;
                             color: $colorYellow;
-                            
+
                             h3 {
                                 color: $colorDark;
                                 margin-left: 20px;
@@ -3418,6 +3736,7 @@ $colorBlack : #000000;
                                     font-weight: 600;
                                     font-size: 18px;
                                     margin-bottom: 10px;
+                                    line-height: 28px;
                                 }
 
                                 p {
@@ -3453,12 +3772,17 @@ $colorBlack : #000000;
                                 display: flex;
                                 color: $colorYellow;
                                 font-size: 20px;
+                                height: 20px;
+                                overflow: hidden;
 
                                 h4 {
                                     margin-left: 10px;
                                     color: $colorDark;
                                     font-size: 14px;
                                     font-weight: 600;
+                                    line-height: 24px;
+                                    height: 20px;
+                                    width: 150px;
                                 }
                             }
 
@@ -3477,7 +3801,7 @@ $colorBlack : #000000;
                                     color: $colorDark;
                                     cursor: pointer;
                                 }
-        
+
                                 .btn-kerjakan:hover {
                                     background-color: white;
                                     border: 1px solid $colorYellow;
@@ -3631,40 +3955,40 @@ $colorBlack : #000000;
                                 padding: 20px 20px 10px 20px;
                                 margin-right: 15px;
                                 margin-left: 15px;
-        
+
                                 .card-heading {
                                     display: flex;
-        
+
                                     i {
                                         margin-right: 20px;
                                         color: $colorYellow;
                                     }
-        
+
                                     h3 {
                                         font-weight: 600;
                                         font-size: 16px;
                                     }
                                 }
-        
+
                                 .card-body {
-        
+
                                     li {
                                         list-style-type: none;
                                         display: flex;
                                         margin-bottom: 15px;
-        
+
                                         i {
                                             margin-right: 20px;
                                         }
-        
+
                                         h4 {
                                             font-size: 14px;
-        
+
                                             span {
                                                 font-weight: 600;
                                             }
                                         }
-        
+
                                     }
                                 }
                             }
@@ -3844,7 +4168,7 @@ $colorBlack : #000000;
                                         color: $colorDark;
                                         cursor: pointer;
                                     }
-            
+
                                     .btn-kerjakan:hover {
                                         background-color: white;
                                         border: 1px solid $colorYellow;
@@ -3894,7 +4218,7 @@ $colorBlack : #000000;
                         font-weight: 600;
                     }
                 }
-                
+
                 .content-body {
                     display: flex;
                     flex-direction: column;
@@ -3927,6 +4251,7 @@ $colorBlack : #000000;
                                     display: flex;
                                     flex-direction: column;
                                     justify-content: flex-start;
+
                                     img {
                                         width: 40px;
                                     }
@@ -4001,11 +4326,12 @@ $colorBlack : #000000;
                                                 width: 80%;
                                                 display: flex;
                                                 align-items: center;
+
                                                 img {
                                                     width: 40px;
                                                     margin-right: 20px;
                                                 }
-    
+
                                                 h4 {
                                                     font-size: 16px;
                                                     font-weight: 500;
@@ -4015,14 +4341,14 @@ $colorBlack : #000000;
                                             .right {
                                                 width: 20%;
                                                 color: transparent;
-    
+
                                                 path {
                                                     display: block;
                                                     font-size: 24px;
                                                 }
-    
+
                                             }
-    
+
                                             .right.active {
                                                 color: $colorYellow;
                                             }
@@ -4044,6 +4370,7 @@ $colorBlack : #000000;
                                     display: flex;
                                     flex-direction: column;
                                     justify-content: flex-start;
+
                                     img {
                                         width: 40px;
                                     }
@@ -4069,6 +4396,7 @@ $colorBlack : #000000;
                                             width: 80%;
                                             display: flex;
                                             align-items: center;
+
                                             img {
                                                 width: 40px;
                                                 margin-right: 20px;
@@ -4078,7 +4406,7 @@ $colorBlack : #000000;
                                                 font-family: $fontPrimary;
                                                 font-size: 16px;
                                                 font-weight: 500;
-                                                color: $colorDark;    
+                                                color: $colorDark;
                                             }
                                         }
 
@@ -4100,7 +4428,7 @@ $colorBlack : #000000;
                                 }
                             }
 
-                           
+
                         }
                     }
 
@@ -4118,7 +4446,7 @@ $colorBlack : #000000;
                                 font-size: 20px;
                                 margin-bottom: 20px;
                             }
-                            
+
                             p {
                                 font-size: 16px;
                                 margin-bottom: 50px;
@@ -4286,7 +4614,7 @@ $colorBlack : #000000;
                                     input {
                                         margin-right: 10px;
                                     }
-                                    
+
                                     label {
                                         font-size: 14px;
                                     }
@@ -4304,7 +4632,7 @@ $colorBlack : #000000;
                                 font-weight: 600;
                                 width: 350px;
                             }
-        
+
                             .btn-konfirmasi:hover {
                                 background-color: white;
                                 border: 1px solid $colorYellow;
@@ -4312,7 +4640,7 @@ $colorBlack : #000000;
                                 cursor: pointer;
                                 transition: 300ms;
                             }
-                        
+
                         }
                     }
                 }
@@ -4344,7 +4672,7 @@ $colorBlack : #000000;
                         font-weight: 600;
                     }
                 }
-                
+
                 .content-body {
                     display: flex;
                     flex-direction: column;
@@ -4377,6 +4705,7 @@ $colorBlack : #000000;
                                     display: flex;
                                     flex-direction: column;
                                     justify-content: flex-start;
+
                                     img {
                                         width: 40px;
                                     }
@@ -4451,11 +4780,12 @@ $colorBlack : #000000;
                                                 width: 80%;
                                                 display: flex;
                                                 align-items: center;
+
                                                 img {
                                                     width: 40px;
                                                     margin-right: 20px;
                                                 }
-    
+
                                                 h4 {
                                                     font-size: 16px;
                                                     font-weight: 500;
@@ -4465,14 +4795,14 @@ $colorBlack : #000000;
                                             .right {
                                                 width: 20%;
                                                 color: transparent;
-    
+
                                                 path {
                                                     display: block;
                                                     font-size: 24px;
                                                 }
-    
+
                                             }
-    
+
                                             .right.active {
                                                 color: $colorYellow;
                                             }
@@ -4494,6 +4824,7 @@ $colorBlack : #000000;
                                     display: flex;
                                     flex-direction: column;
                                     justify-content: flex-start;
+
                                     img {
                                         width: 40px;
                                     }
@@ -4519,6 +4850,7 @@ $colorBlack : #000000;
                                             width: 80%;
                                             display: flex;
                                             align-items: center;
+
                                             img {
                                                 width: 40px;
                                                 margin-right: 20px;
@@ -4528,7 +4860,7 @@ $colorBlack : #000000;
                                                 font-family: $fontPrimary;
                                                 font-size: 16px;
                                                 font-weight: 500;
-                                                color: $colorDark;    
+                                                color: $colorDark;
                                             }
                                         }
 
@@ -4550,7 +4882,7 @@ $colorBlack : #000000;
                                 }
                             }
 
-                           
+
                         }
                     }
 
@@ -4667,7 +4999,7 @@ $colorBlack : #000000;
                         font-weight: 600;
                     }
                 }
-                
+
                 .content-body {
                     display: flex;
                     flex-direction: column;
@@ -4751,7 +5083,7 @@ $colorBlack : #000000;
                                 width: 350px;
                                 margin-top: 20px;
                             }
-        
+
                             .btn-check:hover {
                                 background-color: white;
                                 border: 1px solid $colorYellow;
@@ -4831,7 +5163,7 @@ $colorBlack : #000000;
                                     font-weight: 600;
                                     width: 49%;
                                 }
-            
+
                                 .btn-cancel:hover {
                                     background-color: white;
                                     border: 1px solid $colorYellow;
@@ -4851,7 +5183,7 @@ $colorBlack : #000000;
                                     font-weight: 600;
                                     width: 49%;
                                 }
-            
+
                                 .btn-konfirmasi:hover {
                                     background-color: white;
                                     border: 1px solid $colorYellow;
@@ -4860,7 +5192,7 @@ $colorBlack : #000000;
                                     transition: 300ms;
                                 }
                             }
-                        
+
                         }
                     }
                 }
@@ -4917,7 +5249,7 @@ $colorBlack : #000000;
 
                     .heading {
                         margin-bottom: 30px;
-                        
+
                         h1 {
                             font-size: 28px;
                             line-height: 36px;
@@ -4936,6 +5268,7 @@ $colorBlack : #000000;
                     .question {
                         margin-bottom: 30px;
                         width: 95%;
+
                         h3 {
                             font-size: 20px;
                             font-weight: 500;
@@ -4968,6 +5301,7 @@ $colorBlack : #000000;
                         ul {
                             height: 100%;
                             width: 100%;
+
                             li {
                                 display: flex;
                                 margin-bottom: 20px;
@@ -4994,14 +5328,14 @@ $colorBlack : #000000;
                                         border: 1px solid $colorGray;
                                         transition: 300ms;
                                     }
-    
+
                                     .circle:hover {
                                         color: white;
                                         transition: 300ms;
                                         border: 1px solid $colorYellow;
                                         background-color: $colorYellow;
                                     }
-                                    
+
                                     .circle.active {
                                         border: 1px solid $colorYellow;
                                         color: white;
@@ -5082,8 +5416,8 @@ $colorBlack : #000000;
                     }
 
                     .pembahasan {
-                         margin-bottom: 80px;
-                         display: none;
+                        margin-bottom: 80px;
+                        display: none;
                     }
 
                     .pembahasan.active {
@@ -5096,24 +5430,38 @@ $colorBlack : #000000;
 
                     .timer {
                         margin-top: 50px;
-                        .box {
-                            width: 100%;
-                            display: flex;
-                            justify-content: center;
+                        display: flex;
 
-                            h1 {
-                                font-weight: 500;
-                                font-size: 40px;
-                                color: $colorYellow;
+                        .box {
+                            width: 60px;
+                            height: 60px;
+                            background-color: transparent;
+                            margin-right: 20px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 5px;
+                            border: 2px solid $colorYellow;
+
+                            h4 {
+                                font-weight: 600;
+                                margin-bottom: 5px;
+                            }
+
+                            h6 {
+                                font-size: 14px;
                             }
                         }
                     }
+
                     .card {
                         margin-top: 50px;
+
                         .card-body {
                             display: flex;
                             flex-wrap: wrap;
-                    
+
                             .box {
                                 width: 50px;
                                 height: 50px;
@@ -5129,14 +5477,14 @@ $colorBlack : #000000;
                                 transition: 300ms;
                                 cursor: pointer;
                             }
-                    
+
                             .box:hover {
                                 transition: 300ms;
                                 background-color: $colorYellow;
                                 border: 1px solid $colorYellow;
                                 color: white;
                             }
-                    
+
                             .box.active {
                                 background-color: $colorYellow;
                                 border: 1px solid $colorYellow;
@@ -5226,7 +5574,7 @@ $colorBlack : #000000;
             display: flex;
             justify-content: center;
             padding-bottom: 80px;
-            
+
             .content {
                 width: 90%;
                 position: relative;
@@ -5285,7 +5633,7 @@ $colorBlack : #000000;
                                 width: 100%;
                                 display: flex;
                                 margin-bottom: 20px;
-                                
+
                                 th {
                                     width: 10%;
                                     text-align: left;
@@ -5323,7 +5671,7 @@ $colorBlack : #000000;
 
     .scoreTryout-page {
         width: 100%;
-        
+
         .bg-main {
             position: absolute;
             background-color: white;
@@ -5337,7 +5685,7 @@ $colorBlack : #000000;
             display: flex;
             justify-content: center;
             padding-bottom: 0px;
-            
+
             .content {
                 width: 90%;
                 display: flex;

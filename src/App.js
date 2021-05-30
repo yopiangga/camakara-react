@@ -38,6 +38,7 @@ import history from './history';
 import { Discussion } from "./pages/Discussion";
 import { CaraTopUp } from "./pages/CaraTopUp";
 import { BeliQuizDetail } from "./pages/BeliQuizDetail";
+import { ExamQuiz } from "./pages/ExamQuiz";
 
 function App() {
 
@@ -109,6 +110,9 @@ function App() {
           </Route>
           <Route path="/exam" exact>
             <Exam />
+          </Route>
+          <Route path="/exam-quiz" exact>
+            <ExamQuiz />
           </Route>
           <Route path="/pembahasan" exact>
             <Discussion />

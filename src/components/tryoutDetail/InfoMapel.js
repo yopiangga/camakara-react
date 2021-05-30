@@ -106,7 +106,7 @@ export function InfoMapel() {
 
     }
 
-    // console.log(tryout);
+    console.log(tryout);
 
     return (
         <div>
@@ -115,7 +115,7 @@ export function InfoMapel() {
                     <div id="timer">
                         <CountdownCircleTimer
                             onComplete={() => {
-                                handleAuto();
+                                // handleAuto();
                                 return [false, 1500] // repeat animation in 1.5 seconds
                             }}
                             isPlaying

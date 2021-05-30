@@ -76,9 +76,9 @@ export function CardTryout() {
     }
 
     const handleDetail = (event) => {
-        axios.get(`${url.api}quiz/${event.target.value}`).then(
+        axios.get(`${url.api}quiz/get/${event.target.value}`).then(
             (res) => {
-                console.log(res);
+                // console.log(res);
                 setQuiz(res.data.data);
                 localStorage.setItem("quiz", JSON.stringify(res.data.data));
                 history.push("/ikuti-quiz-detail");
