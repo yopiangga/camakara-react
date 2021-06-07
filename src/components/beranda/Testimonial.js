@@ -34,8 +34,8 @@ export function Testimonial() {
                             </div>
 
                             <div className="card">
-                                <h3>Udin </h3>
-                                <p>TO nya bagus banget....</p>
+                                <h3>Keisya</h3>
+                                <p>Soal TO Camakara tuh benar-bener sulit, kaget sih pas tau kalo pembuat soalnya mahasiwa yang lolos SBMPTN 2020 atau 2021. </p>
                             </div>
                         </div>
                     </div>
