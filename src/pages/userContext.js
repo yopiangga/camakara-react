@@ -10,8 +10,8 @@ export const UserProvider = props => {
 const [menuActive, setMenuActive] = useState();
 const [detailUser, setDetailUser] = useState({firstname: "", lastname: "", fullname: "", email: "", telp: "", school: "", graduate: ""});
 // const [url, setUrl] = useState({api: `http://admin.petikdua.store/api/`, baseUrl: "http://admin.petikdua.store/"});
-// const [url, setUrl] = useState({api: `http://admin.petikdua.store/api/`, baseUrl: "http://admin.petikdua.store/"});
-const [url, setUrl] = useState({api: `http://10.7.9.127/project/4/admin/api/`, baseUrl: "http://10.7.9.127/project/4/"});
+const [url, setUrl] = useState({api: `http://admin.camakara.com/api/`, baseUrl: "http://admin.camakara.com/"});
+//const [url, setUrl] = useState({api: `http://10.7.9.127/project/4/admin/api/`, baseUrl: "http://10.7.9.127/project/4/"});
 const [tryout, setTryout] = useState([]);
 const [quiz, setQuiz] = useState([{}]);
 const [category, setCategory] = useState([1,2,3]);
