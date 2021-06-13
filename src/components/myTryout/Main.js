@@ -43,6 +43,7 @@ export function Main() {
 
             axios.get(`${url.api}myquiz/${user.idUser}`).then(
                 (res) => {
+                    console.log(res.data);
                     setMyQuizs(res.data.data);
                 }
             ).catch((err) => {
@@ -140,7 +141,8 @@ export function Main() {
                 history.push("/exam-quiz");
             }
         ).catch((err) => {
-            document.querySelector('.bg-loading').classList.remove('active');
+            // document.querySelector('.bg-loading').classList.remove('active');
+            $('.bg-loading').removeClass('active');
             console.log(err);
         })
 

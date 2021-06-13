@@ -267,21 +267,24 @@ export function Main() {
                     </div>
                     <div className="content-right">
                         <Clock />
+                        
+                        <button className="btn-submit" onClick={handleSelesai}>Selesai</button>
 
                         <div className="card" id="navigasi-soal">
-                            <div className="card-body">
-                                {
-                                    quiz.map(function (el, idx) {
-                                        return (
-                                            <div className={(noSoal == idx) ? "box" : "box"} id={idx} key={idx} onClick={handleNomerSoal}>{idx + 1}</div>
-                                            // <div className={(noSoal == idx) ? "box active" : "box"} id={idx} key={idx} onClick={() => { handleNomerSoal(idx) }}>{idx + 1}</div>
-                                        )
-                                    })
-                                }
-
-
-
-                            </div>
+                            {
+                                (quiz != null) ?
+                                    <div className="card-body">
+                                        {
+                                            quiz.map(function (el, idx) {
+                                                return (
+                                                    <div className={(noSoal == idx) ? "box" : "box"} id={idx} key={idx} onClick={handleNomerSoal}>{idx + 1}</div>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                    :
+                                    <div></div>
+                            }
                         </div>
                     </div>
                 </div>
