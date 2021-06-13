@@ -3,6 +3,7 @@ import { FaGraduationCap, FaCheck, FaExclamation, FaHourglass } from "react-icon
 import { useHistory } from "react-router";
 import axios from 'axios';
 import { UserContext } from "../../pages/userContext";
+import $ from 'jquery';
 
 export function Main() {
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout, quiz, setQuiz] = useContext(UserContext);
@@ -59,11 +60,13 @@ export function Main() {
                 setTryout(res.data.data);
                 localStorage.setItem("tryout", JSON.stringify(res.data.data));
 
-                document.querySelector('.bg-loading').classList.remove('active');
+                $('.bg-loading').removeClass('active');
+                // document.querySelector('.bg-loading').classList.remove('active');
                 history.push("/tryout-detail");
             }
         ).catch((err) => {
-            document.querySelector('.bg-loading').classList.remove('active');
+            // document.querySelector('.bg-loading').classList.remove('active');
+            $('.bg-loading').removeClass('active');
             console.log(err);
         })
     }
@@ -167,8 +170,9 @@ export function Main() {
         event.preventDefault();
         axios.post(`${url.api}myquiz/invoice/${user.idUser}/${score.idQuiz}`, { price: priceQuiz }).then(
             (res) => {
-                console.log(res);
-                document.querySelector('.modal-quiz').classList.remove('active');
+                // console.log(res);
+                $('.bg-loading').removeClass('active');
+                // document.querySelector('.modal-quiz').classList.remove('active');
             }
         ).catch((err) => {
             console.log(err);

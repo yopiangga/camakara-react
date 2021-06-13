@@ -4,6 +4,7 @@ import { FaBookReader, FaMoneyBillWave, FaUsers } from "react-icons/fa";
 import { UserContext } from "../../pages/userContext";
 import axios from 'axios';
 import { useHistory } from "react-router";
+import ModalConfirmation from "../all/ModalConfirmation";
 
 
 export function InfoDetail() {
@@ -16,6 +17,8 @@ export function InfoDetail() {
     const [gambar3, setGambar3] = useState('');
     const [gambar4, setGambar4] = useState('');
     const [gambar5, setGambar5] = useState('');
+
+    const [props, setProps] = useState({ status: 0, title: "", description: "", link: "" });
 
     useEffect(() => {
         setTryout(JSON.parse(localStorage.getItem('tryout')));
@@ -34,46 +37,46 @@ export function InfoDetail() {
 
         type == 2 ? totalMenit = Soshum : totalMenit = Saintek;
         let data = {
-            jam : Math.floor(totalMenit/60),
-            menit : totalMenit % 60,
-            detik : 0
+            jam: Math.floor(totalMenit / 60),
+            menit: totalMenit % 60,
+            detik: 0
         }
         return (data);
     }
 
     const validasi = () => {
         if (tryout.payment_method == '1') {
-            if(document.querySelector('#free1') != null){
-                if(document.querySelector('#free1').files.length === 0)
+            if (document.querySelector('#free1') != null) {
+                if (document.querySelector('#free1').files.length === 0)
                     return 0;
             }
 
-            if(document.querySelector('#free2') != null){
-                if(document.querySelector('#free2').files.length === 0)
+            if (document.querySelector('#free2') != null) {
+                if (document.querySelector('#free2').files.length === 0)
                     return 0;
             }
 
-            if(document.querySelector('#free3') != null){
-                if(document.querySelector('#free3').files.length === 0)
+            if (document.querySelector('#free3') != null) {
+                if (document.querySelector('#free3').files.length === 0)
                     return 0;
             }
 
-            if(document.querySelector('#free4') != null){
-                if(document.querySelector('#free4').files.length === 0)
+            if (document.querySelector('#free4') != null) {
+                if (document.querySelector('#free4').files.length === 0)
                     return 0;
             }
 
-            if(document.querySelector('#free5') != null){
-                if(document.querySelector('#free5').files.length === 0)
+            if (document.querySelector('#free5') != null) {
+                if (document.querySelector('#free5').files.length === 0)
                     return 0;
             }
-            
+
             return 1;
 
         } else if (tryout.payment_method == '2') {
             return 1;
         } else if (tryout.payment_method == '3') {
-            if (parseInt(document.querySelector('#bebas').value) > tryout.price && parseInt(document.querySelector('#bebas').value) != NaN) {
+            if (parseInt(document.querySelector('#bebas').value) >= tryout.price && parseInt(document.querySelector('#bebas').value) != NaN) {
                 return 1;
             } else {
                 return 0;
@@ -105,40 +108,80 @@ export function InfoDetail() {
                 }).then(
                     (res) => {
                         // console.log(res);
-                        alert(res.data.message);
-                        history.push('/tryout-saya');
                         document.querySelector('.bg-loading').classList.remove('active');
+                        setProps({
+                            status: 1,
+                            title: "Pembelian Tryout",
+                            description: "Selamat Tryout berhasil anda beli, anda dapat melihatnya dihalaman Tryout Saya",
+                            link: "/tryout-saya"
+                        })
+                        document.querySelector('.modal-confirmation').classList.add('active');
                     }
                 ).catch((err) => {
                     console.log(err);
                     document.querySelector('.bg-loading').classList.remove('active');
+                    setProps({
+                        status: 0,
+                        title: "Pembelian Tryout",
+                        description: "Sayang sekali, pembelian Tryout gagal dilakukan. Silahkan ulangi pembelian kembali.",
+                        link: "/beli-tryout-detail"
+                    })
+                    document.querySelector('.modal-confirmation').classList.add('active');
                 })
             } else {
-                if(tryout.payment_method == 3){
-                    axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout, price: parseInt(document.querySelector('#bebas').value)})
-                    .then(
-                        (res) => {
+                if (tryout.payment_method == 3) {
+                    axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout, price: parseInt(document.querySelector('#bebas').value) })
+                        .then(
+                            (res) => {
+                                document.querySelector('.bg-loading').classList.remove('active');
+                                document.querySelector('.bg-loading').classList.remove('active');
+                                setProps({
+                                    status: 1,
+                                    title: "Pembelian Tryout",
+                                    description: "Selamat Tryout berhasil anda beli, anda dapat melihatnya dihalaman Tryout Saya",
+                                    link: "/tryout-saya"
+                                })
+                                document.querySelector('.modal-confirmation').classList.add('active');
+                            }
+                        ).catch((err) => {
+                            console.log(err)
                             document.querySelector('.bg-loading').classList.remove('active');
-                            history.push('/tryout-saya');
-                        }
-                    ).catch((err) => {
-                        console.log(err)
-                        document.querySelector('.bg-loading').classList.remove('active');
-                    })
+                            setProps({
+                                status: 0,
+                                title: "Pembelian Tryout",
+                                description: "Sayang sekali, pembelian Tryout gagal dilakukan. Silahkan ulangi pembelian kembali.",
+                                link: "/beli-tryout-detail"
+                            })
+                            document.querySelector('.modal-confirmation').classList.add('active');
+                        })
                 } else {
-                    axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout})
-                    .then(
-                        (res) => {
+                    axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout })
+                        .then(
+                            (res) => {
+                                document.querySelector('.bg-loading').classList.remove('active');
+                                document.querySelector('.bg-loading').classList.remove('active');
+                                setProps({
+                                    status: 1,
+                                    title: "Pembelian Tryout",
+                                    description: "Selamat Tryout berhasil anda beli, anda dapat melihatnya dihalaman Tryout Saya",
+                                    link: "/tryout-saya"
+                                })
+                                document.querySelector('.modal-confirmation').classList.add('active');
+                            }
+                        ).catch((err) => {
+                            console.log(err)
                             document.querySelector('.bg-loading').classList.remove('active');
-                            history.push('/tryout-saya');
-                        }
-                    ).catch((err) => {
-                        console.log(err)
-                        document.querySelector('.bg-loading').classList.remove('active');
-                    })
+                            setProps({
+                                status: 0,
+                                title: "Pembelian Tryout",
+                                description: "Sayang sekali, pembelian Tryout gagal dilakukan. Silahkan ulangi pembelian kembali.",
+                                link: "/beli-tryout-detail"
+                            })
+                            document.querySelector('.modal-confirmation').classList.add('active');
+                        })
                 }
             }
-        } else 
+        } else
             document.querySelector('.bg-loading').classList.remove('active');
     }
 
@@ -168,6 +211,7 @@ export function InfoDetail() {
 
     return (
         <div>
+            <ModalConfirmation status={props.status} title={props.title} description={props.description} link={props.link} />
             <section className="info-detail-tryout">
                 <div className="content">
                     <div className="content-left">
@@ -318,7 +362,7 @@ export function InfoDetail() {
                             <div className="form-bebas">
                                 <div className="form-group">
                                     <label>Bayar Seikhlasnya</label>
-                                    <input type="number" id="bebas" placeholder="Rp 1"/>
+                                    <input type="number" id="bebas" placeholder="Rp 1" />
                                 </div>
                             </div>
                             :
@@ -327,10 +371,10 @@ export function InfoDetail() {
 
                         <div className="beli-tryout">
                             {
-                                (user == null) ? 
-                                ""
-                                :
-                                <button className="btn-beli-tryout" onClick={handleBeli}>Beli Tryout</button>
+                                (user == null) ?
+                                    ""
+                                    :
+                                    <button className="btn-beli-tryout" onClick={handleBeli}>Beli Tryout</button>
                             }
                         </div>
                     </div>
