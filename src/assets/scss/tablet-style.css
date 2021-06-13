@@ -40,6 +40,47 @@
   body textarea:focus {
     outline: none;
   }
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+  }
+  .bg-loading {
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+  }
+  .bg-loading img {
+    background-color: none;
+    width: 200px;
+    height: 200px;
+  }
+  .bg-loading.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
   .nav-mobile {
     background-color: transparent;
     display: -webkit-box;
@@ -2354,6 +2395,17 @@
   .product-page .cari-tryout .content .content-title h1 {
     font-size: 40px;
     font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .product-page .cari-tryout .content .content-title p {
+    line-height: 24px;
+  }
+  .product-page .cari-tryout .content .content-title p span {
+    cursor: pointer;
+    color: #FDBF1F;
+  }
+  .product-page .cari-tryout .content .content-title p span:hover {
+    text-decoration: underline;
   }
   .product-page .cari-tryout .content .content-heading {
     display: -webkit-box;

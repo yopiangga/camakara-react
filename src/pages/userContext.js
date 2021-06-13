@@ -14,7 +14,7 @@ const [url, setUrl] = useState({api: `http://admin.camakara.com/api/`, baseUrl: 
 //const [url, setUrl] = useState({api: `http://10.7.9.127/project/4/admin/api/`, baseUrl: "http://10.7.9.127/project/4/"});
 const [tryout, setTryout] = useState([]);
 const [quiz, setQuiz] = useState([{}]);
-const [category, setCategory] = useState([1,2,3]);
+const [category, setCategory] = useState([1,2,3,4]);
 
   return (
     <UserContext.Provider value={[menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout, category, setCategory, quiz, setQuiz]}>

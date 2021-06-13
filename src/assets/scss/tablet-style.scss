@@ -1,4 +1,4 @@
-@media only screen and (min-width: 768px) and ( max-width: 1023px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
 
     @font-face {
         font-family: "Poppins";
@@ -65,6 +65,47 @@
         }
     }
 
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: transparent;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: transparent;
+    }
+
+    .bg-loading {
+        width: 100%;
+        min-height: 100vh;
+        background-color: rgba($color: #000000, $alpha: 0.75);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        z-index: 999;
+
+        img {
+            background-color: none;
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    .bg-loading.active {
+        display: flex;
+    }
 
     .nav-mobile {
         background-color: transparent;
@@ -102,7 +143,7 @@
                 }
             }
 
-            
+
 
             .icon {
                 width: 75%;
@@ -135,20 +176,20 @@
                     .fa-user {
                         color: $colorYellow;
                     }
-                    
+
                     .fa-chevron-down {
                         color: white;
                     }
                 }
-                
+
                 .icon-profile:hover {
                     color: $colorYellow;
                 }
-                
+
                 .icon-profile.active {
                     color: $colorYellow;
                 }
-                
+
                 .dropdownProfile {
                     position: fixed;
                     height: 0;
@@ -160,7 +201,7 @@
                     width: 150px;
                     border-radius: 0px 0px 0px 0px;
                     box-shadow: 0px 30px 30px rgba($color: $colorDark, $alpha: 0.08);
-                    
+
                     ul {
                         box-sizing: border-box;
                         padding: 20px;
@@ -1011,6 +1052,7 @@
 
                     form {
                         width: 100%;
+
                         input {
                             padding: 10px 20px 10px 20px;
                             width: 100%;
@@ -2236,6 +2278,20 @@
                     h1 {
                         font-size: 40px;
                         font-weight: 600;
+                        margin-bottom: 20px;
+                    }
+
+                    p {
+                        line-height: 24px;
+
+                        span {
+                            cursor: pointer;
+                            color: $colorYellow;
+                        }
+
+                        span:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
 
@@ -2523,7 +2579,7 @@
                         display: flex;
                         justify-content: center;
                         width: 100%;
-                        
+
                         .card {
                             margin-top: 30px;
                             background-color: transparent;
@@ -2531,12 +2587,12 @@
                             width: 100%;
 
                         }
-                        
+
                         .card-1 {
                             height: 450px;
                             z-index: 3;
                             box-sizing: border-box;
-                            padding: 20px   ;
+                            padding: 20px;
                             color: white;
 
                             h2 {
@@ -2716,7 +2772,7 @@
                                 flex-direction: column;
                                 align-items: center;
                                 position: relative;
-    
+
                                 .circle-image {
                                     position: absolute;
                                     top: -40px;
@@ -2726,50 +2782,50 @@
                                     overflow: hidden;
                                     display: flex;
                                     justify-content: center;
-    
+
                                     img {
                                         height: 80px;
                                     }
                                 }
-    
+
                                 .card-text {
                                     text-align: center;
-    
+
                                     h3 {
                                         font-weight: 600;
                                         font-size: 16px;
                                         margin-top: 70px;
                                         margin-bottom: 20px;
                                     }
-    
+
                                     p {
                                         line-height: 28px;
                                         font-size: 14px;
                                     }
                                 }
                             }
-    
+
                             .card.active {
                                 width: 300px;
                                 height: 330px;
                                 box-shadow: 0px 30px 60px rgba($color: $colorDark, $alpha: 0.24);
-    
+
                                 .circle-image {
                                     height: 100px;
                                     width: 100px;
                                     top: -50px;
                                     box-shadow: 0px 15px 45px rgba($color: $colorDark, $alpha: 0.32);
-    
+
                                     img {
                                         height: 100px;
                                     }
                                 }
-    
+
                                 .card-text {
                                     h3 {
                                         font-size: 18px;
                                     }
-    
+
                                     p {
                                         font-size: 14px;
                                     }
@@ -3233,33 +3289,33 @@
 
                                 .card-heading {
                                     display: flex;
-    
-        
+
+
                                     h3 {
                                         font-weight: 600;
                                         font-size: 16px;
                                     }
                                 }
-        
+
                                 .card-body {
-        
+
                                     li {
                                         list-style-type: none;
                                         display: flex;
                                         margin-bottom: 15px;
-        
+
                                         i {
                                             margin-right: 20px;
                                         }
-        
+
                                         h4 {
                                             font-size: 14px;
-        
+
                                             span {
                                                 font-weight: 600;
                                             }
                                         }
-        
+
                                     }
                                 }
                             }
@@ -3438,7 +3494,7 @@
                                         color: $colorDark;
                                         cursor: pointer;
                                     }
-            
+
                                     .btn-kerjakan:hover {
                                         background-color: white;
                                         border: 1px solid $colorYellow;
@@ -3602,7 +3658,7 @@
                                     color: $colorDark;
                                     cursor: pointer;
                                 }
-        
+
                                 .btn-kerjakan:hover {
                                     background-color: white;
                                     border: 1px solid $colorYellow;
@@ -3792,7 +3848,7 @@
                         line-height: 36px;
                     }
                 }
-                
+
                 .content-body {
                     display: flex;
                     flex-direction: column;
@@ -3825,6 +3881,7 @@
                                     display: flex;
                                     flex-direction: column;
                                     justify-content: flex-start;
+
                                     img {
                                         width: 40px;
                                     }
@@ -3897,11 +3954,12 @@
                                                 width: 80%;
                                                 display: flex;
                                                 align-items: center;
+
                                                 img {
                                                     width: 40px;
                                                     margin-right: 20px;
                                                 }
-    
+
                                                 h4 {
                                                     font-family: $fontPrimary;
                                                     font-size: 16px;
@@ -3939,6 +3997,7 @@
                                     display: flex;
                                     flex-direction: column;
                                     justify-content: flex-start;
+
                                     img {
                                         width: 40px;
                                     }
@@ -3964,6 +4023,7 @@
                                             width: 80%;
                                             display: flex;
                                             align-items: center;
+
                                             img {
                                                 width: 40px;
                                                 margin-right: 20px;
@@ -3992,7 +4052,7 @@
                                 }
                             }
 
-                           
+
                         }
                     }
 
@@ -4164,7 +4224,7 @@
                                     input {
                                         margin-right: 10px;
                                     }
-                                    
+
                                     label {
                                         font-size: 14px;
                                     }
@@ -4182,7 +4242,7 @@
                                 font-weight: 600;
                                 width: 350px;
                             }
-        
+
                             .btn-konfirmasi:hover {
                                 background-color: white;
                                 border: 1px solid $colorYellow;
@@ -4190,7 +4250,7 @@
                                 cursor: pointer;
                                 transition: 300ms;
                             }
-                        
+
                         }
                     }
                 }
@@ -4221,7 +4281,7 @@
                         font-weight: 600;
                     }
                 }
-                
+
                 .content-body {
                     display: flex;
                     flex-direction: column;
@@ -4305,7 +4365,7 @@
                                 width: 350px;
                                 margin-top: 20px;
                             }
-        
+
                             .btn-check:hover {
                                 background-color: white;
                                 border: 1px solid $colorYellow;
@@ -4385,7 +4445,7 @@
                                     font-weight: 600;
                                     width: 49%;
                                 }
-            
+
                                 .btn-cancel:hover {
                                     background-color: white;
                                     border: 1px solid $colorYellow;
@@ -4405,7 +4465,7 @@
                                     font-weight: 600;
                                     width: 49%;
                                 }
-            
+
                                 .btn-konfirmasi:hover {
                                     background-color: white;
                                     border: 1px solid $colorYellow;
@@ -4414,7 +4474,7 @@
                                     transition: 300ms;
                                 }
                             }
-                        
+
                         }
                     }
                 }
@@ -4429,7 +4489,7 @@
             box-shadow: 0px 20px 60px rgba($color: $colorDark, $alpha: 0.04);
 
             .content {
-            
+
                 .btn-menu-mobile {
                     width: 50%;
                     display: flex;
@@ -4480,7 +4540,7 @@
 
                     .heading {
                         margin-bottom: 30px;
-                        
+
                         h1 {
                             font-size: 28px;
                             line-height: 36px;
@@ -4499,6 +4559,7 @@
                     .question {
                         margin-bottom: 30px;
                         width: 95%;
+
                         h3 {
                             font-size: 20px;
                             font-weight: 500;
@@ -4526,6 +4587,7 @@
                         ul {
                             height: 100%;
                             width: 100%;
+
                             li {
                                 display: flex;
                                 margin-bottom: 20px;
@@ -4552,14 +4614,14 @@
                                         border: 1px solid $colorGray;
                                         transition: 300ms;
                                     }
-    
+
                                     .circle:hover {
                                         color: white;
                                         transition: 300ms;
                                         border: 1px solid $colorYellow;
                                         background-color: $colorYellow;
                                     }
-                                    
+
                                     .circle.active {
                                         border: 1px solid $colorYellow;
                                         color: white;
@@ -4622,6 +4684,7 @@
 
                     .timer {
                         margin-top: 50px;
+
                         .box {
                             width: 100%;
                             display: flex;
@@ -4634,13 +4697,15 @@
                             }
                         }
                     }
+
                     .card {
                         margin-top: 50px;
+
                         .card-body {
                             display: flex;
                             flex-wrap: wrap;
                             justify-content: center;
-                    
+
                             .box {
                                 width: 50px;
                                 height: 50px;
@@ -4656,15 +4721,15 @@
                                 transition: 300ms;
                                 cursor: pointer;
                             }
-                    
+
                             .box:hover {
                                 transition: 300ms;
                                 background-color: $colorYellow;
                                 border: 1px solid $colorYellow;
                                 color: white;
                             }
-                        
-                    
+
+
                             .box.active {
                                 background-color: $colorYellow;
                                 border: 1px solid $colorYellow;
@@ -4742,7 +4807,7 @@
             display: flex;
             justify-content: center;
             padding-bottom: 80px;
-            
+
             .content {
                 width: 90%;
                 position: relative;
@@ -4801,7 +4866,7 @@
                                 width: 100%;
                                 display: flex;
                                 margin-bottom: 20px;
-                                
+
                                 th {
                                     width: 10%;
                                     text-align: left;

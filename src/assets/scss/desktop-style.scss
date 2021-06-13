@@ -41,6 +41,7 @@
     $colorLight : #EFEFEF;
     $colorDark : #393939;
     $colorBlack : #000000;
+    
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -2566,6 +2567,20 @@
                     h1 {
                         font-size: 40px;
                         font-weight: 600;
+                        margin-bottom: 20px;
+                    }
+
+                    p {
+                        line-height: 24px;
+
+                        span {
+                            cursor: pointer;
+                            color: $colorYellow;
+                        }
+
+                        span:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
 

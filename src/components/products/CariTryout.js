@@ -3,9 +3,12 @@ import { useContext } from "react";
 import { FaSearch } from "react-icons/fa"
 import { UserContext } from "../../pages/userContext";
 import $ from 'jquery';
+import { useHistory } from "react-router-dom";
 
 export function CariTryout() {
     const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout, category, setCategory] = useContext(UserContext);
+
+    const history = useHistory();
 
     const handleCategory = (event) => {
         document.querySelector('.all').classList.remove("active");
@@ -16,7 +19,7 @@ export function CariTryout() {
 
         switch (event) {
             case 0:
-                setCategory([1, 2, 3]);
+                setCategory([1, 2, 3, 4]);
                 document.querySelector('.all').classList.add("active");
                 break;
             case 1:
@@ -58,12 +61,17 @@ export function CariTryout() {
         }
     }
 
+    const handleTryoutSaya = () => {
+        history.push('/tryout-saya');
+    }
+
     return (
         <div>
             <section className="cari-tryout">
                 <div className="content">
                     <div className="content-title">
                         <h1>Cari Tryout</h1>
+                        <p>Tryout yang telah dibeli berada pada halaman <span onClick={handleTryoutSaya}>Tryout Saya</span></p>
                     </div>
                     <div className="content-heading">
                         <div className="search">
@@ -86,9 +94,9 @@ export function CariTryout() {
                                 <option value="0">Semua</option>
                                 <option value="1">Tryout UTBK</option>
                                 <option value="2">Tryout Bebas</option>
-                                {/* <option value="paket">Paket Tryout</option> */}
+                                {/* <option value="paket">Paket Tryout</option> */} 
                                 <option value="3">Tryout Kuno</option>
-                                {/* <option value="quiz">Quiz</option> */}
+                                <option value="4">Quiz</option>
                             </select>
                         </div>
                     </div>

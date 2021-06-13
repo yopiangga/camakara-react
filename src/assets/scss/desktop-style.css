@@ -2657,6 +2657,17 @@
   .product-page .cari-tryout .content .content-title h1 {
     font-size: 40px;
     font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .product-page .cari-tryout .content .content-title p {
+    line-height: 24px;
+  }
+  .product-page .cari-tryout .content .content-title p span {
+    cursor: pointer;
+    color: #FDBF1F;
+  }
+  .product-page .cari-tryout .content .content-title p span:hover {
+    text-decoration: underline;
   }
   .product-page .cari-tryout .content .content-heading {
     display: -webkit-box;

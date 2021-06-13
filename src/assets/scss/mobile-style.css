@@ -40,6 +40,22 @@
   body textarea:focus {
     outline: none;
   }
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+  }
   .bg-loading {
     width: 100%;
     min-height: 100vh;
@@ -2412,6 +2428,17 @@
   .product-page .cari-tryout .content .content-title h1 {
     font-size: 40px;
     font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .product-page .cari-tryout .content .content-title p {
+    line-height: 24px;
+  }
+  .product-page .cari-tryout .content .content-title p span {
+    cursor: pointer;
+    color: #FDBF1F;
+  }
+  .product-page .cari-tryout .content .content-title p span:hover {
+    text-decoration: underline;
   }
   .product-page .cari-tryout .content .content-heading {
     display: -webkit-box;

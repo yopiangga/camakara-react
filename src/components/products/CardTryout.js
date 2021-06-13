@@ -113,10 +113,10 @@ export function CardTryout() {
                                             <div className="action">
                                                 <button className="btn-beli" value={el.id_tryout} onClick={handleBeli}>Beli Sekarang</button>
                                                 {
-                                                    (el.payment_method == 3) ? <h4>Rp {el.price}</h4> : <h4></h4>
+                                                    (el.payment_method == 2) ? <h4>Rp {el.price}</h4> : <h4></h4>
                                                 }
                                                 {
-                                                    (el.payment_method == 2) ? <h4>Bebas</h4> : <h4></h4>
+                                                    (el.payment_method == 3) ? <h4>Bebas</h4> : <h4></h4>
                                                 }
                                                 {
                                                     (el.payment_method == 1) ? <h4>Gratis</h4> : <h4></h4>
@@ -133,7 +133,7 @@ export function CardTryout() {
 
                     {
                         quizs.map(function (el, idx) {
-                            if (category[0] == 4) {
+                            if (category[0] == 4 || category[0] == 0) {
                                 return (
                                     <div className="card" key={idx}>
                                         <div className="card-image">
