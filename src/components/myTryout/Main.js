@@ -124,7 +124,7 @@ export function Main() {
 
         axios.post(`${url.api}examquiz/${user.idUser}/${myQuizs[idx].id_quiz}`).then(
             (res) => {
-                console.log(res);
+                // console.log(res);
                 localStorage.setItem("quizMapelInfo", JSON.stringify(res.data));
             }
         ).catch((err) => {
@@ -151,7 +151,7 @@ export function Main() {
     const handleSkorQuiz = (id) => {
         axios.get(`${url.api}examquiz/score/${user.idUser}/${id}`).then(
             (res) => {
-                console.log(res);
+                // console.log(res);
                 setScore(res.data.data[0]);
                 document.querySelector('.modal-quiz').classList.add('active');
             }
@@ -174,7 +174,19 @@ export function Main() {
             (res) => {
                 // console.log(res);
                 $('.bg-loading').removeClass('active');
-                // document.querySelector('.modal-quiz').classList.remove('active');
+                $('.modal-quiz').removeClass('active');
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
+    }
+
+    const handleKirimNull = (event) => {
+        axios.post(`${url.api}myquiz/invoice/${user.idUser}/${score.idQuiz}`, { price: 0 }).then(
+            (res) => {
+                // console.log(res)
+                $('.bg-loading').removeClass('active');
+                $('.modal-quiz').removeClass('active');
             }
         ).catch((err) => {
             console.log(err);
@@ -204,12 +216,12 @@ export function Main() {
                                     <div className="col-12">
                                         <div className="form-group">
                                             {/* <label htmlFor="">Bayar Seikhlasnya (dipotong dari saldo Camakara)</label> */}
-                                            <input type="number" name="nominal" placeholder="Bayar Seikhlasnya (dipotong dari saldo Camakara)" value={priceQuiz} onChange={handleChangePriceQuiz} />
+                                            <input type="number" name="nominal" placeholder="Bayar Seikhlasnya (dipotong dari saldo Camakara)" value={priceQuiz} onChange={handleChangePriceQuiz} min="1" />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="btn">
-                                    <button className="btn-cancel" name="cancel" type="button" onClick={handleCancel}>BATAL</button>
+                                    <button className="btn-cancel" name="cancel" type="button" onClick={handleKirimNull}>LEWATI</button>
                                     <button className="btn-submit" name="submit" type="submit">KIRIM</button>
                                 </div>
                             </form>

@@ -5617,6 +5617,7 @@
                     .timer {
                         margin-top: 50px;
                         display: flex;
+                        margin-bottom: 50px;
 
                         .box {
                             width: 60px;
@@ -5639,6 +5640,23 @@
                                 font-size: 14px;
                             }
                         }
+                    }
+    
+                    button {
+                        margin-left: 5px;
+                        margin-right: 5px;
+                        margin-top: 10px;
+                        height: 45px;
+                        width: 200px;
+                        border-radius: 30px;
+                        color: white;
+                        cursor: pointer;
+                        font-weight: 500;
+                    }
+    
+                    .btn-submit {
+                        border: 2px solid $colorYellow;
+                        background-color: $colorYellow;
                     }
 
                     .card {

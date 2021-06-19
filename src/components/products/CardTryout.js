@@ -52,7 +52,7 @@ export function CardTryout() {
                 console.log(err);
             })
 
-            axios.get(`${url.api}quiz`).then(
+            axios.get(`${url.api}quiz/${user.idUser}`).then(
                 (res) => {
                     console.log(res);
                     setQuizs(res.data.data);

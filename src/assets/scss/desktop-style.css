@@ -5789,6 +5789,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    margin-bottom: 50px;
   }
   .exam .main .content .content-right .timer .box {
     width: 60px;
@@ -5817,6 +5818,21 @@
   }
   .exam .main .content .content-right .timer .box h6 {
     font-size: 14px;
+  }
+  .exam .main .content .content-right button {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    height: 45px;
+    width: 200px;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  .exam .main .content .content-right .btn-submit {
+    border: 2px solid #FDBF1F;
+    background-color: #FDBF1F;
   }
   .exam .main .content .content-right .card {
     margin-top: 50px;

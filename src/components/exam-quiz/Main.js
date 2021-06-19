@@ -30,8 +30,15 @@ export function Main() {
         $(`#${0}`).addClass('active');
     }, [])
 
-    // console.log(quizMapel);
-
+    const initialiseJawab = (jawab) => {
+        let i;
+        for(i=0; i<quiz.length; i++){
+            if(jawab[i] == null) {
+                jawab[i] = 0;
+            }
+        }
+        setAnswer(jawab);
+    }
 
     const handleNomerSoal = (event) => {
         let no = parseInt(event.target.id);
@@ -60,6 +67,8 @@ export function Main() {
     }
 
     const handleSelesai = () => {
+        initialiseJawab(answer);
+
         axios.post(`${url.api}examquiz/${user.idUser}/${quizMapel.id_quiz}`, { answer: answer.toString() }).then(
             (res) => {
                 console.log(res);
@@ -117,8 +126,12 @@ export function Main() {
         })
     }
 
+    console.log(JSON.parse(localStorage.getItem('quizMapelInfo')));
+
     const Clock = () => {
         var now = new Date().getTime();
+        // var start = (JSON.parse(localStorage.getItem('quizMapelInfo')).timestartsecond * 1000);
+        // var now = start + 1000;
         let waktu = (JSON.parse(localStorage.getItem('quizMapelInfo')).timeendsecond * 1000);
 
         var distance = waktu - now;
@@ -141,6 +154,7 @@ export function Main() {
             },
             [currentCount]
         );
+
 
         return (
             <div className="timer">
@@ -272,7 +286,7 @@ export function Main() {
 
                         <div className="card" id="navigasi-soal">
                             {
-                                (quiz != null) ?
+                                (quiz.length >= 1) ?
                                     <div className="card-body">
                                         {
                                             quiz.map(function (el, idx) {

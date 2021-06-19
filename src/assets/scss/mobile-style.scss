@@ -114,6 +114,313 @@
         z-index: 1;
     }
 
+    .modal-quiz.active {
+        display: flex;
+    }
+
+    .modal-quiz {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 999;
+        background-color: rgba($color: $colorDark, $alpha: 0.3);
+        display: none;
+        justify-content: center;
+        align-items: center;
+
+        .skor-quiz {
+            width: 90%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .box-skor {
+                width: 100px;
+                height: 100px;
+                border-radius: 20px;
+                border: 2px solid $colorYellow;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 30px;
+
+                h3 {
+                    font-weight: 500;
+                    font-size: 48px;
+                    line-height: 56px;
+                    color: $colorYellow;
+                }
+            }
+        }
+
+        .soal {
+            width: 90%;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+
+            h3 {
+                font-size: 20px;
+
+                span {
+                    color: $colorYellow;
+                }
+            }
+        }
+
+        .form {
+            background-color: white;
+            width: 90%;
+            min-height: 200px;
+            max-height: 80vh;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 30px;
+            overflow: auto;
+            padding-bottom: 60px;
+
+            input,
+            textarea,
+            select {
+                outline: none;
+            }
+
+            h2 {
+                font-size: 28px;
+                font-weight: 500;
+                margin-top: 50px;
+                text-align: center;
+                line-height: 36px;
+                margin-bottom: 12px;
+            }
+
+            p {
+                // width: 450px;
+                text-align: center;
+                line-height: 24px;
+                margin-bottom: 30px;
+                font-size: 14px;
+
+                span {
+                    color: $colorYellow;
+                }
+            }
+
+
+            .form-biodata {
+                width: 80%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .row {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 20px;
+
+                    .col-6 {
+                        width: 49%;
+                    }
+
+                    .col-12 {
+                        width: 100%;
+                    }
+
+                    .form-group {
+                        display: flex;
+                        flex-direction: column;
+
+                        .box-profile {
+
+                            .imgProfile {
+                                width: 0.1px;
+                                height: 0.1px;
+                                opacity: 0;
+                                overflow: hidden;
+                                position: absolute;
+                                z-index: -1;
+                            }
+
+                            .lblImgProfile {
+                                width: 100%;
+                                height: 100px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                border: 1px solid $colorGray;
+                                border-radius: 20px;
+                                background-color: rgba($color: $colorDark, $alpha: 0.01);
+                            }
+                        }
+
+                        label {
+                            margin-bottom: 10px;
+                            font-size: 14px;
+                        }
+
+                        input {
+                            height: 40px;
+                            border-radius: 20px;
+                            border: 1px solid $colorGray;
+                            padding-left: 20px;
+                            padding-right: 20px;
+                        }
+
+                        select {
+                            height: 44px;
+                            border: 1px solid $colorGray;
+                            border-radius: 20px;
+                            padding-left: 20px;
+                            padding-right: 20px;
+                        }
+
+                        textarea {
+                            border: 1px solid $colorGray;
+                            border-radius: 20px;
+                            padding: 10px 20px 10px 20px;
+                            font-family: $fontPrimary;
+                        }
+
+                        input:focus {
+                            border: 1px solid $colorYellow;
+                        }
+
+                        select:focus {
+                            border: 1px solid $colorYellow;
+                        }
+
+                        textarea:focus {
+                            border: 1px solid $colorYellow;
+                        }
+
+                    }
+                }
+
+                .btn {
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                }
+
+                button {
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    margin-top: 10px;
+                    height: 45px;
+                    width: 48%;
+                    border-radius: 30px;
+                    color: white;
+                    cursor: pointer;
+                    font-weight: 500;
+                }
+
+                .btn-submit {
+                    border: 2px solid $colorYellow;
+                    background-color: $colorYellow;
+                }
+
+                .btn-cancel {
+                    border: 2px solid $colorLight;
+                    background-color: $colorLight;
+                    color: $colorDark;
+                }
+
+            }
+        }
+
+        .meet {
+            width: 90%;
+            display: flex;
+            justify-content: center;
+
+            .item {
+                width: 80%;
+
+                .media {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 20px;
+
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        margin-right: 20px;
+                    }
+
+                    h3 {
+                        font-weight: 500;
+                        font-size: 20px;
+                    }
+                }
+
+                .list-item {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    // margin-bottom: 30px;
+
+                    .point {
+                        display: flex;
+                        margin-bottom: 20px;
+                        flex-direction: column;
+
+                        .point-left {
+                            width: 100%;
+                            margin-bottom: 10px;
+
+                            h4 {
+                                font-weight: 500;
+                            }
+                        }
+
+                        .point-right {
+                            width: 100%;
+
+                            h4 {
+                                font-weight: 400;
+                                line-height: 26px;
+                            }
+                        }
+                    }
+                }
+
+                .btn {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                button {
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    margin-top: 10px;
+                    height: 45px;
+                    width: 200px;
+                    border-radius: 30px;
+                    color: white;
+                    cursor: pointer;
+                    font-weight: 500;
+                }
+
+                .btn-submit {
+                    border: 2px solid $colorYellow;
+                    background-color: $colorYellow;
+                }
+            }
+        }
+    }
+
+    #timer {
+        display: absolute;
+        z-index: 1;
+        display: none;
+    }
+
     .nav-mobile {
         background-color: transparent;
         display: flex;

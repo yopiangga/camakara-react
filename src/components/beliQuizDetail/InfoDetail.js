@@ -162,7 +162,7 @@ export function InfoDetail() {
                                 (user == null) ?
                                     ""
                                     :
-                                    <button className="btn-beli-tryout" onClick={handleIkuti}>Ikuti Tryout</button>
+                                    <button className="btn-beli-tryout" onClick={handleIkuti}>Ikuti Quiz</button>
                             }
                         </div>
                     </div>
