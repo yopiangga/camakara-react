@@ -54,7 +54,7 @@ export function CardTryout() {
 
             axios.get(`${url.api}quiz/${user.idUser}`).then(
                 (res) => {
-                    console.log(res);
+                    // console.log(res);
                     setQuizs(res.data.data);
                 }
             ).catch((err) => {
