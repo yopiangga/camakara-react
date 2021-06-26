@@ -38,8 +38,6 @@ export function Main() {
         $(`#${0}`).addClass('active');
     }, [])
 
-    // console.log(tryoutReadyMapel);
-
     const handleNomerSoal = (event) => {
         let no = parseInt(event.target.id);
         $('.pembahasan').removeClass('active');
@@ -108,7 +106,7 @@ export function Main() {
 
     const handlePembahasan = () => {
         $('.pembahasan').addClass('active');
-        axios.get(`${url.api}mytryout/getanswert/${user.idUser}/${tryout.id_tryout}/${tryoutReadyMapel[0].kind_tryout}/${noSoal + 1}`).then(
+        axios.get(`${url.api}mytryout/getanswert/${user.idUser}/${tryout.id_tryout}/${tryoutReadyMapel[0].kind_tryout}/${noSoal + 1}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 setPembahasan(res.data.data);
             }

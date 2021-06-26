@@ -77,7 +77,7 @@ export function Main() {
             console.log(err);
         })
 
-        axios.post(`${url.api}myquiz/finish/${user.idUser}/${quizMapel.id_quiz}`).then(
+        axios.post(`${url.api}myquiz/finish/${user.idUser}/${quizMapel.id_quiz}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 console.log(res);
                 history.push('/tryout-saya');

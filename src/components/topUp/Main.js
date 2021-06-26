@@ -190,7 +190,8 @@ export function Main() {
                 url: `${url.api}topup`,
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data',
+                    "Authorization" : `Bearer ${user.token}`
                 },
                 data: formData
             }).then(

@@ -102,7 +102,8 @@ export function InfoDetail() {
                     url: `${url.api}mytryout`,
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'multipart/form-data'
+                        'Content-Type': 'multipart/form-data',
+                        "Authorization" : `Bearer ${user.token}`
                     },
                     data: formData
                 }).then(
@@ -130,7 +131,7 @@ export function InfoDetail() {
                 })
             } else {
                 if (tryout.payment_method == 3) {
-                    axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout, price: parseInt(document.querySelector('#bebas').value) })
+                    axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout, price: parseInt(document.querySelector('#bebas').value) }, {headers: {"Authorization" : `Bearer ${user.token}`}})
                         .then(
                             (res) => {
                                 document.querySelector('.bg-loading').classList.remove('active');
@@ -155,7 +156,7 @@ export function InfoDetail() {
                             document.querySelector('.modal-confirmation').classList.add('active');
                         })
                 } else {
-                    axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout })
+                    axios.post(`${url.api}mytryout`, { iduser: detailUser.id_user, idtryout: tryout.id_tryout }, {headers: {"Authorization" : `Bearer ${user.token}`}})
                         .then(
                             (res) => {
                                 document.querySelector('.bg-loading').classList.remove('active');

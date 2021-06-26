@@ -33,7 +33,7 @@ export function Main() {
         if (user == null) {
             history.push('/');
         } else {
-            axios.get(`${url.api}mytryout/${user.idUser}`).then(
+            axios.get(`${url.api}mytryout/${user.idUser}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
                 (res) => {
                     setMyTryouts(res.data.data.tryouts);
                 }
@@ -41,7 +41,7 @@ export function Main() {
                 console.log(err);
             })
 
-            axios.get(`${url.api}myquiz/${user.idUser}`).then(
+            axios.get(`${url.api}myquiz/${user.idUser}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
                 (res) => {
                     console.log(res.data);
                     setMyQuizs(res.data.data);
@@ -107,7 +107,7 @@ export function Main() {
     }
 
     const handleAkumulasi = (event) => {
-        axios.get(`${url.api}/score/${user.idUser}/${event.target.value}`).then(
+        axios.get(`${url.api}/score/${user.idUser}/${event.target.value}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 console.log(res.data);
                 localStorage.setItem("skorTryout", JSON.stringify(res.data));
@@ -122,7 +122,7 @@ export function Main() {
     const handleKerjakanQuiz = (id, idx) => {
         document.querySelector('.bg-loading').classList.add('active');
 
-        axios.post(`${url.api}examquiz/${user.idUser}/${myQuizs[idx].id_quiz}`).then(
+        axios.post(`${url.api}examquiz/${user.idUser}/${myQuizs[idx].id_quiz}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 // console.log(res);
                 localStorage.setItem("quizMapelInfo", JSON.stringify(res.data));
@@ -131,7 +131,7 @@ export function Main() {
             console.log(err);
         })
 
-        axios.get(`${url.api}examquiz/${id}`).then(
+        axios.get(`${url.api}examquiz/${id}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 console.log(res);
                 setTryout(res.data.data);
@@ -149,7 +149,7 @@ export function Main() {
     }
 
     const handleSkorQuiz = (id) => {
-        axios.get(`${url.api}examquiz/score/${user.idUser}/${id}`).then(
+        axios.get(`${url.api}examquiz/score/${user.idUser}/${id}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 // console.log(res);
                 setScore(res.data.data[0]);
@@ -170,7 +170,7 @@ export function Main() {
 
     const handleKirimInvoice = (event) => {
         event.preventDefault();
-        axios.post(`${url.api}myquiz/invoice/${user.idUser}/${score.idQuiz}`, { price: priceQuiz }).then(
+        axios.post(`${url.api}myquiz/invoice/${user.idUser}/${score.idQuiz}`, { price: priceQuiz }, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 // console.log(res);
                 $('.bg-loading').removeClass('active');
@@ -182,7 +182,7 @@ export function Main() {
     }
 
     const handleKirimNull = (event) => {
-        axios.post(`${url.api}myquiz/invoice/${user.idUser}/${score.idQuiz}`, { price: 0 }).then(
+        axios.post(`${url.api}myquiz/invoice/${user.idUser}/${score.idQuiz}`, { price: 0 }, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 // console.log(res)
                 $('.bg-loading').removeClass('active');

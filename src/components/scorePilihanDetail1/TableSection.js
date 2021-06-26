@@ -16,7 +16,7 @@ export function TableSection() {
             history.push('/');
         }
 
-        axios.get(`${url.api}score/boardtryoutall/${JSON.parse(localStorage.getItem('skorTryout')).id_tryout}`).then(
+        axios.get(`${url.api}score/boardtryoutall/${JSON.parse(localStorage.getItem('skorTryout')).id_tryout}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 setRankingTryout(res.data);
             }

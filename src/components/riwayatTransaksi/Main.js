@@ -38,7 +38,7 @@ export function Main() {
 
     useEffect(() => {
 
-        axios.get(`${url.api}riwayat/${user.idUser}`).then(
+        axios.get(`${url.api}riwayat/${user.idUser}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 console.log(res);
                 setRiwayatTopUp(res.data.topup);

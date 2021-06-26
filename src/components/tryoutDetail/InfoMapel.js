@@ -66,7 +66,7 @@ export function InfoMapel() {
 
     const handleKerjakan = (event) => {
 
-        axios.post(`${url.api}exam/${user.idUser}/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event}`).then(
+        axios.post(`${url.api}exam/${user.idUser}/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 // console.log(res.data);
                 localStorage.setItem("waktu", JSON.stringify(res.data.time));
@@ -79,7 +79,7 @@ export function InfoMapel() {
             console.log(err);
         })
 
-        axios.get(`${url.api}exam/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event}`).then(
+        axios.get(`${url.api}exam/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 setTryout(res.data.data);
                 localStorage.setItem("tryoutReadyMapel", JSON.stringify(res.data.data));
@@ -93,7 +93,7 @@ export function InfoMapel() {
     }
 
     const handlePembahasan = (event) => {
-        axios.get(`${url.api}exam/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event.target.value}`).then(
+        axios.get(`${url.api}exam/${JSON.parse(localStorage.getItem('tryout')).id_tryout}/${event.target.value}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 localStorage.setItem("pembahasan", 1);
                 setTryout(res.data.data);

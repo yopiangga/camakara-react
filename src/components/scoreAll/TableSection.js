@@ -10,10 +10,10 @@ export function TableSection() {
 
     useEffect(() => {
 
-        axios.get(`${url.api}score/boardtryoutall/${JSON.parse(localStorage.getItem('skorTryout')).id_tryout}`).then(
+        axios.get(`${url.api}score/boardtryoutall/${JSON.parse(localStorage.getItem('skorTryout')).id_tryout}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 setRankingTryout(res.data);
-                console.log(res.data);
+                // console.log(res.data);
             }
         ).catch((err) => {
             console.log(err);

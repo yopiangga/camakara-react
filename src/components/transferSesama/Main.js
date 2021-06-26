@@ -24,8 +24,6 @@ export function Main() {
         if(telp != null && nominal != null){
             axios.get(`${url.api}transfer/notelp/${telp}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
-                // console.log(res);
-                // console.log(telp);
                 setDataTransfer({
                     fromid: user.idUser,
                     userTarget: res.data.data.fullname,

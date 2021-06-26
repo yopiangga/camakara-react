@@ -37,7 +37,7 @@ export function InfoDetail() {
     const handleIkuti = () => {
         document.querySelector('.bg-loading').classList.add('active');
 
-        axios.post(`${url.api}myquiz`, { iduser: detailUser.id_user, idquiz: quiz.id_quiz})
+        axios.post(`${url.api}myquiz`, { iduser: detailUser.id_user, idquiz: quiz.id_quiz}, {headers: {"Authorization" : `Bearer ${user.token}`}})
             .then(
                 (res) => {
                     document.querySelector('.bg-loading').classList.remove('active');

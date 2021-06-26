@@ -22,7 +22,7 @@ export function InfoDetail() {
     }, [])
 
     const handleSelesai = (event) => {
-        axios.get(`${url.api}mytryout/finish/${user.idUser}/${tryout.id_tryout}`).then(
+        axios.get(`${url.api}mytryout/finish/${user.idUser}/${tryout.id_tryout}`, {headers: {"Authorization" : `Bearer ${user.token}`}}).then(
             (res) => {
                 console.log(res);
                 document.querySelector('.bg-loading').classList.remove('active');
