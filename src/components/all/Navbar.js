@@ -16,12 +16,15 @@ import { useHistory } from "react-router-dom";
 export function Navbar() {
 
     let history = useHistory();
-    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl] = useContext(UserContext);
+    const [menuActive, setMenuActive, user, setUser, detailUser, setDetailUser, url, setUrl, tryout, setTryout, category, setCategory, quiz, setQuiz, isLogin, setIsLogin] = useContext(UserContext);
 
     $('section').click(function () {
         $('.nav-desktop .content .icon .dropdownProfile').removeClass('active')
         $('.nav-mobile .content .icon .dropdownProfile').removeClass('active')
     })
+
+    // console.log(isLogin);
+    // console.log(user);
     
     const NavMobile = () => {
         $('.menu#mobile').toggleClass('active');
